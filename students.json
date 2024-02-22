@@ -1,0 +1,23 @@
+[
+  {
+    "firstName":"Tom",
+    "lastName":"Brown",
+    "userName":"tombrown24",
+    "password":"mdhj738",
+    "major":"Computer_Science",
+    "advisor":"gregtomlin24",
+    "studentClass":"Junior",
+    "portfolio":"",
+    "applicationArea":"math"
+  },{
+    "firstName":"John",
+    "lastName":"Hop",
+    "userName":"johnhop36",
+    "password":"fgndsj46",
+    "major":"Computer_Information_Systems",
+    "advisor":"mikedawson24",
+    "studentClass":"Freshman",
+    "portfolio":"",
+    "applicationArea":"art"
+  }
+]
