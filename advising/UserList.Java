@@ -22,7 +22,6 @@ public class UserList {
 
         return true;
     }
-    }
 
     public boolean isPasswordValid(String password) {
 
