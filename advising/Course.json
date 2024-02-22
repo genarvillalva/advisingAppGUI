@@ -1,0 +1,115 @@
+[
+  {
+    "courseID": "ENGL101",
+    "title": "Critical Reading and Composition",
+    "courseCode":"CC-CMW",
+    "creditHours": 3,
+    "minGrade": "C",
+    "semester": ["fall", "spring"],
+    "prerequisiteCourses": []
+  },
+  {
+    "courseID": "MATH141",
+    "title": "Calculus I",
+    "courseCode":"CC-ARP",
+    "creditHours": 4,
+    "minGrade": "C",
+    "semester": ["fall", "spring"],
+    "prerequisiteCourses": ["MATH 112", "MATH 115", "MATH 116"]
+  },
+  {
+    "courseID":"CSCE145",
+    "title":"Algorithmic Design I",
+    "courseCode":"PR",
+    "creditHours":4,
+    "minGrade": "C",
+    "semester": ["fall", "spring"],
+    "prerequisiteCourses": ["MATH 111", "MATH 115"],
+    "corequisiteCourses": ["MATH 111", "MATH 115"]
+},
+  {
+    "courseID": "CSCE190",
+    "title": "Computing in the Modern World",
+    "courseCode":"PR",
+    "creditHours": 1,
+    "minGrade": "C",
+    "semester": ["fall", "spring"],
+    "prerequisiteCourses": ["CSCE 145", "CSCE 204", "CSCE 205", "CSCE 206"],
+    "corequisiteCourses": ["CSCE 145", "CSCE 204", "CSCE 205", "CSCE 206"]
+  },
+  {
+    "courseID": "ENGL102",
+    "title": "Rhetoric and Composition",
+    "courseCode": ["CC-CMW", "CC-INF"],
+    "creditHours": 3,
+    "minGrade": "C",
+    "semester": ["fall", "spring"],
+    "prerequisiteCourses": ["ENGL 101"]
+  },
+  {
+    "courseID": "MATH142",
+    "title": "Calculus II",
+    "courseCode": "CC-ARP",
+    "creditHours": 4,
+    "minGrade": "C",
+    "semester": ["fall","spring"],
+    "prerequisiteCourses": ["MATH 141"]
+  },
+  {
+    "courseID": "CHEM111",
+    "title": "General Chemistry I",
+    "creditHours": 3,
+    "minGrade": "C",
+    "semester": [],
+    "prerequisiteCourses": ["CC-SCI", "C or better in MATH 111/115/122/141 or higher math or Math placement test score"],
+    "corequisiteCourses": ["CHEM 111L"],
+    "prereqCoreq": ["PHYS 211L"]
+  },
+  {
+    "courseID": "CHEM111L",
+    "title": "General Chemistry I Lab",
+    "creditHours": 1,
+    "minGrade": "C",
+    "semester": [],
+    "prerequisiteCourses": ["CC-SCI", "MATH 111 or 115"],
+    "prereqCoreq": ["CHEM 111"]
+  },
+  {
+    "courseID": "PHYS211",
+    "title": "Essentials of Physics I",
+    "creditHours": 3,
+    "minGrade": "C",
+    "semester": [],
+    "prerequisiteCourses": ["CC-SCI", "C or better in MATH 111/115/122/141 or higher math or Math placement test score"],
+    "corequisiteCourses": ["CHEM 111L"],
+    "prereqCoreq": ["PHYS 211L"]
+  },
+  {
+    "courseID": "PHYS211L",
+    "title": "Essentials of Physics Lab",
+    "creditHours": 1,
+    "minGrade": "C",
+    "semester": [],
+    "prerequisiteCourses": ["CC-SCI", "MATH 111 or 115"],
+    "prereqCoreq": ["CHEM 111"]
+  },
+  {
+    "courseID": "CSCE146",
+    "title": "Algorithmic Design II",
+    "creditHours": 4,
+    "minGrade": "C",
+    "semester": [],
+    "prerequisiteCourses": ["PR", "C or better in MATH 122 or 141"]
+  },
+  {
+    "courseID": "CSCE215",
+    "title": "UNIX/Linux Fundamentals",
+    "creditHours": 1,
+    "minGrade": "C",
+    "semester": [],
+    "prerequisiteCourses": ["PR", "CSCE 145"]
+  }
+]
+
+
+
