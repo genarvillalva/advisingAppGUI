@@ -1,5 +1,8 @@
 package advising;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class StudentPortfolio {
     private ArrayList<Course> requiredCourses;
     private HashMap eightSemesterPlan;

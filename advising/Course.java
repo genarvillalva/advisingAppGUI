@@ -1,4 +1,6 @@
-package adivising;
+package advising;
+
+import java.util.ArrayList;
 
 public class Course{
     private String courseName;
