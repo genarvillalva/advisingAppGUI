@@ -1,5 +1,7 @@
 package advising;
 
+import java.util.ArrayList;
+
 public class Advisor {
     private ArrayList<Student> listofAdvisedStudents;
     private String advisingNotes;
@@ -8,7 +10,7 @@ public class Advisor {
 
     }
 
-    public void adviseStudent(string notes, String username) {
+    public void adviseStudent(String notes, String username) {
 
     }
 
