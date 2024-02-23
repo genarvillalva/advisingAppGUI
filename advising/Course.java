@@ -2,24 +2,44 @@ package advising;
 
 import java.util.ArrayList;
 
-public class Course{
-    private String courseName;
-    private String courseID;
-    private CourseCode courseCode;
-    private int creditHours;
-    private ArrayList<Course> prerequisiteCourses;
-    private ArrayList<Course> corequisiteCourses;
-    private Semester semester;
-    private char minGrade;
-    private String courseUUID;
+enum CourseCode {
+  FoundingDocuments,
+  ProgramRequirements,
+  MajorRequirements,
+  IntegrativeCourse,
+  CMW,
+  ARP,
+  SCI,
+  GFL,
+  GHS,
+  AIU,
+  CMS,
+  INF,
+  VSR,
+  PR,
+}
 
-    public String Course(String courseName, String courseCode) {
-        
-        return "";
-    }
+public class Course {
 
-    public boolean PrereqComplete (ArrayList<prerequisiteCourses>, ArrayList<completedCourses){
+  private String courseName;
+  private String courseID;
+  private CourseCode courseCode;
+  private int creditHours;
+  private ArrayList<Course> prerequisiteCourses;
+  private ArrayList<Course> corequisiteCourses;
+  private Semester semester;
+  private char minGrade;
+  private String courseUUID;
 
-        return true;
-    }
+  public Course(String courseName, CourseCode courseCode) {
+    this.courseName = courseName;
+    this.courseCode = courseCode;
+  }
+
+  public boolean PrereqComplete(
+    ArrayList<Course> prerequistiveCourses,
+    ArrayList<Course> completedCourses
+  ) {
+    return true;
+  }
 }
