@@ -1,0 +1,12 @@
+[
+    {
+      "majorID":"Computer_Science",
+      "requiredCourses":["CSCE145", "MATH141", "ENGL101", "CSCE190"],
+      "requiredCreditHours": 120
+    },{
+      "majorID":"Computer_Information_Systems",
+      "requiredCourses":["CSCE145", "MATH141", "ENGL101", "CSCE190"],
+      "requiredCreditHours": 120
+    }
+  ]
+  

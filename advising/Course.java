@@ -15,7 +15,7 @@ public class Course{
 
     public String Course(String courseName, String courseCode) {
         
-        return String " ";
+        return "";
     }
 
     public boolean PrereqComplete (ArrayList<prerequisiteCourses>, ArrayList<completedCourses){

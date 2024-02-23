@@ -3,49 +3,49 @@ package advising;
 import java.util.ArrayList;
 
 public class UserList {
-    private UserList userList;
-    private ArrayList<UserLoginInfo> userAccounts;
 
-    private UserList() {
+  private UserList userList;
+  private ArrayList<User> userAccounts;
 
+  private UserList() {}
+
+  /**
+   * Gets an instance of the UserList singleton if it exists, otherwise creates a new instance.
+   */
+  public UserList getInstance() {
+    if (userList == null) {
+      userList = new UserList();
     }
+    return userList;
+  }
 
-    public UserList getInstance() {
+  public void createAccount(String username, String password) {}
 
-    }
+  public boolean isUsernameValid(String username) {
+    return true;
+  }
 
-    public void createAccount(String username, String password) {
+  public boolean isPasswordValid(String password) {
+    return true;
+  }
 
-    }
+  public String enterUsername() {
+    return "";
+  }
 
-    public boolean isUsernameValid(String username) {
+  public String enterPassword() {
+    return "";
+  }
 
-        return true;
-    }
+  public boolean verifyLoginStudent(String username, String Password) {
+    return true;
+  }
 
-    public boolean isPasswordValid(String password) {
+  public boolean verifyLoginAdmin(String username, String Password) {
+    return true;
+  }
 
-        return true;
-    }
-
-    public String enterUsername() {
-
-        return "";
-    }
-
-    public String enterPassword() {
-
-        return "";
-    }
-
-    public boolean verifyLoginStudent(String username, String Password) {
-
-    }
-    public boolean verifyLoginAdmin(String username, String Password) {
-        
-    }
-    public boolean verifyLoginAdvisor(String username, String Password) {
-        
-    }
-
+  public boolean verifyLoginAdvisor(String username, String Password) {
+    return true;
+  }
 }

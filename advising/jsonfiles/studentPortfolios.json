@@ -1,0 +1,65 @@
+[
+    {
+        "portfolioUUID": "cda5aa8c-e6ff-461f-b61c-886194be4080",
+        "requiredCourses":["ENGL101", "MATH141", "CSCE145", "CSCE190", "CSCE212", "SPCH140", 
+        "STAT509", "MATH241", "HIST111", "CSCE215", "ARTE260", "CHEM111", "CHEM111L", "CHEM112", "CHEM112L", 
+        "CHEM112REC", "MATH374", "CSCE146", "UNIV101"],
+        "eightSemesterPlan": {
+            "1": ["CSCE145", "CSCE190", "ARTE260", "UNIV101"],
+            "2": ["CSCE146", "CHEM111", "CHEM111L", "CSCE215", "HIST111", "MATH241"],
+            "3": ["CSCE240", "CSCE211", "MATH374", "CHEM112", "CHEM112L", "CHEM112REC", "SPCH140"],
+            "4": ["ENGL463", "CSCE350", "CSCE212", "CSCE247", "STAT509"],
+            "5": ["CSCE311", "CSCE330", "CSCE390"],
+            "6": ["CSCE416", "PHIL102"],
+            "7": ["CSCE490", "MATH344"],
+            "8": ["CSCE492"]
+          },
+        "currentCourses": ["CSCE146", "CHEM111", "CHEM111L", "CSCE215", "HIST111", "MATH241"],
+        "completedCourses": ["CSCE145", "CSCE190", "ARTE260", "UNIV101"],
+        "failedCourses": ["MATH241"],
+        "scholarship": "Life Scholarship",
+        "yearlySholarshipCreditHoursLeft" : 19,
+        "gpa": 3.893,
+        "failCount": 1,
+        "semesterCreditCount": 15, 
+        "yearCreditHours": 11,
+        "totalCreditHours": 11, 
+        "totalCreditHoursFoundDocu": 0,
+        "totalCreditHoursCC": 6,
+        "totalCreditHoursIntegrativeCourse": 0,
+        "totalCreditHoursProgramRequirements": 5, 
+        "totalCreditHoursMajorRequirements": 1
+    },
+    {
+      "portfolioUUID": "7c64c98a-55fa-4d88-9d2a-16189e4ba446",
+      "requiredCourses":["ENGL101", "MATH141", "CSCE145", "CSCE190", "CSCE212", "SPCH140", 
+      "STAT509", "MATH241", "HIST111", "CSCE215", "ARTE260", "CHEM111", "CHEM111L", "CHEM112", "CHEM112L", 
+      "CHEM112REC", "MATH374", "CSCE146", "UNIV101"],
+      "eightSemesterPlan": {
+          "1": ["CSCE145", "CSCE190", "ARTE260", "UNIV101"],
+          "2": ["CSCE146", "CHEM111", "CHEM111L", "CSCE215", "HIST111", "MATH241"],
+          "3": ["CSCE240", "CSCE211", "MATH374", "CHEM112", "CHEM112L", "CHEM112REC", "SPCH140"],
+          "4": ["ENGL463", "CSCE350", "CSCE212", "CSCE247", "STAT509"],
+          "5": ["CSCE311", "CSCE330", "CSCE390"],
+          "6": ["CSCE416", "PHIL102"],
+          "7": ["CSCE490", "MATH344"],
+          "8": ["CSCE492"]
+        },
+      "currentCourses": ["CSCE146", "CHEM111", "CHEM111L", "CSCE215", "HIST111", "MATH241"],
+      "completedCourses": ["CSCE145", "CSCE190", "ARTE260", "UNIV101"],
+      "failedCourses": ["MATH241"],
+      "scholarship": "Life Scholarship",
+      "yearlySholarshipCreditHoursLeft" : 19,
+      "gpa": 3.893,
+      "failCount": 1,
+      "semesterCreditCount": 15, 
+      "yearCreditHours": 11,
+      "totalCreditHours": 11, 
+      "totalCreditHoursFoundDocu": 0,
+      "totalCreditHoursCC": 6,
+      "totalCreditHoursIntegrativeCourse": 0,
+      "totalCreditHoursProgramRequirements": 5, 
+      "totalCreditHoursMajorRequirements": 1
+  }
+  ]
+  
