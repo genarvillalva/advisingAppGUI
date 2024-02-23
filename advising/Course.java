@@ -2,22 +2,7 @@ package advising;
 
 import java.util.ArrayList;
 
-enum CourseCode {
-  FoundingDocuments,
-  ProgramRequirements,
-  MajorRequirements,
-  IntegrativeCourse,
-  CMW,
-  ARP,
-  SCI,
-  GFL,
-  GHS,
-  AIU,
-  CMS,
-  INF,
-  VSR,
-  PR,
-}
+
 
 public class Course {
 
