@@ -1,5 +1,4 @@
 package advising;
-
 import java.util.ArrayList;
 
 public class Advisor {
@@ -14,11 +13,11 @@ public class Advisor {
 
     }
 
-    public void suggestCourses(arrayList<Courses>) {
+    public void suggestCourses(ArrayList<Course> courses) {
 
     }
 
-    public void addStudentToAdvisor(String username, ArrayList<listOfMonitoredStudents>) {
+    public void addStudentToAdvisor(String username, ArrayList<Student> listOfAdvisedStudents) {
 
     }
 
