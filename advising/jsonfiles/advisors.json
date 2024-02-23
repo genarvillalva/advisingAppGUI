@@ -1,0 +1,16 @@
+[
+    {
+        "firstName":"Greg",
+        "lastName":"Tomlin",
+      "userName":"gregtomlin24", 
+      "password":"insecurepassword",
+      "listOfAdvisedStudents":["tombrown24"]
+    },
+    {
+        "firstName":"Mike",
+        "lastName":"Dawson",
+      "userName":"mikedawson24", 
+      "password":"apassword",
+      "listOfAdvisedStudents":["johnhop36"]
+    }
+  ]
