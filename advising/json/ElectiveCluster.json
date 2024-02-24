@@ -1,0 +1,65 @@
+[
+  {
+    "clusterName": "Lab Science Electives",
+    "courses":[
+      {
+        "courseID": "ANTH161"
+      },
+      {
+        "courseID": "ASTR101"
+      },
+      {
+        "courseID": "BIOL101",
+        "courseIDL": "BIO101L"
+      },
+      {
+        "courseID": "CHEM111",
+        "courseIDL": "CHEM111L"
+      },
+      {
+        "courseID": "ENVR101",
+        "courseIDL": "ENVR101L"
+      },
+      {
+        "courseID": "GEOG201"
+      },
+      {
+        "courseID": "GEOG202"
+      },
+      {
+        "courseID": "GEOL101"
+      },
+      {
+        "courseID": "GEOL103"
+      },
+      {
+        "courseID": "GEOL201"
+      },
+      {
+        "courseID": "GEOL215",
+        "courseID:": "GEOL215L"
+      },
+      {
+        "courseID": "GEOL302"
+      },
+      {
+        "courseID": "MSCI101"
+      },
+      {
+        "courseID": "MSCI102"
+      },
+      {
+        "courseID": "MSCI210",
+        "courseIDL": "MSCI210L"
+      },
+      {
+        "courseID": "MSCI215",
+        "courseIDL": "MSCI215L"
+      },
+      {
+        "courseID": "PHYS211",
+        "courseIDL": "PHYS211L"
+      }
+    ]
+  }
+]

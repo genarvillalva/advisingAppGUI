@@ -1,6 +1,6 @@
 package advising;
 
-enum CourseCode {
+public enum CourseCode {
   FoundingDocuments,
   ProgramRequirements,
   MajorRequirements,
