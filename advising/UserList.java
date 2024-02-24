@@ -35,12 +35,12 @@ public class UserList {
 
 
   public boolean isUsernameValid(String username) {
-      //if username
-    return true;
+    return username != null && username.length() >5;
+   
   }
 
   public boolean isPasswordValid(String password) {
-    return true;
+    return password != null && password.length() >5;
   }
 
   public String enterUsername() {
