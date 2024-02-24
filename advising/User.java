@@ -14,6 +14,14 @@ public abstract class User {
     this.userType = userType;
   }
 
+  public String getUsername() {
+    return this.username;
+}
+
+  public String getPassword() {
+    return this.password;
+  }
+
   public boolean courseLookup(String course) {
     return true;
   }
