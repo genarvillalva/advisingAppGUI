@@ -31,7 +31,7 @@ public class StudentPortfolio {
   }
 
   public void AddCompletedCourse(CompletedCourse course) {
-
+    
   }
 
   public boolean ConvertLetterGradeToGpa(int grade) {
