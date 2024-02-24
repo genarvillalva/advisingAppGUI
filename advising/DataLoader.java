@@ -12,14 +12,16 @@ public class DataLoader extends DataConstants {
         try {
             FileReader reader = new FileReader("advising-app/advising/jsonfiles/students.json");
             JSONParser parser = new JSONParser();
-            JSONArray studentsJSON = (JSONArray) parser.parse(new FileReader("advising-app/advising/jsonfiles/students.json"));
+            JSONArray studentsJSON = (JSONArray) new JSONParser().parse(reader);
             for (int i = 0; i < studentsJSON.size(); i++) {
                 JSONObject studentJSON = (JSONObject) studentsJSON.get(i);
+
                 Student student = new Student(
                     (String) studentJSON.get(NAME),
-                    (String) studentJSON.get(USERNAME),
-                    (String) studentJSON.get(PASSWORD),
-                    (String) studentJSON.get(USER_TYPE)
+                    (Advisor) studentJSON.get(ADVISOR),
+                    (StudentYear) studentJSON.get(STUDENT_YEAR),
+                    (StudentPortfolio) studentJSON.get(PORTFOLIO_UUID),
+                    (String) studentJSON.get(APPLICATION_AREA)
                 );
                 students.add(student);
             }

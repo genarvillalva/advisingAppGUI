@@ -7,7 +7,7 @@ public abstract class DataConstants {
     public static final String PASSWORD = "password";
     public static final String MAJOR = "major";
     public static final String ADVISOR = "advisor";
-    public static final String STUDENT_CLASS = "studentClass";
+    public static final String STUDENT_YEAR = "studentYear";
     public static final String PORTFOLIO = "portfolio";
     public static final String APPLICATION_AREA = "applicationArea";
 
