@@ -7,6 +7,14 @@ public class UserList {
   private UserList userList;
   private ArrayList<User> userAccounts;
 
+  /**
+   * 
+   * Should we have these according to the last comments made by the TA?
+   * private ArrayList<Student> studentAccounts;
+   * private ArrayList<Faculty> facultyAccounts;
+   * - Robbie 
+   */
+
   private UserList() {}
 
   /**
