@@ -22,23 +22,16 @@ public class StudentPortfolio {
   private int totalCreditHoursMajorRequirements;
   private ArrayList<ElectiveCluster> electiveClusterArray;
 
-  //not sure about return type for requiredCourse and CompletedCourse as not specified on UML
   public void requiredCourses(String courseName, String courseNumber) {
     requiredCourses = new ArrayList<>();
     eightSemesterPlan = new HashMap();
     currentCourses = new ArrayList<>();
     completedCourses = new HashMap();
     failedCourses = new HashMap();
+    electiveClusterArray = new ArrayList();
 
   }
 
-  public void CompletedCourse(String courseName, String courseNumber, int creditHours, char Grade) {
-    
-  }
-
-  public void AddCompletedCourse(CompletedCourse course) {
-    
-  }
 
   public boolean ConvertLetterGradeToGpa(int grade) {
     
@@ -64,7 +57,7 @@ public class StudentPortfolio {
     return 0;
   }
 
-  public int calculateGPA(ArrayList<completedCourses> completedCourses , int grade) {
+  public int calculateGPA(HashMap<Course, Integer> completedCourses, int grade) {
 
     return 0;
   }
