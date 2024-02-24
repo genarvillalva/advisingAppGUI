@@ -9,8 +9,8 @@ public class StudentPortfolio {
   private HashMap eightSemesterPlan;
   private ArrayList<Course> currentCourses;
   //Completed Course method?
-  private ArrayList<CompletedCourse> completedCourses;
-  private ArrayList<CompletedCourse> failedCourses;
+  private HashMap<Course, Integer> completedCourses;
+  private HashMap<Course, Integer> failedCourses;
   private String scholarship;
   private int scholarshipCreditHoursLeft;
   private int yearCreditCount;
@@ -20,9 +20,15 @@ public class StudentPortfolio {
   private int totalCreditHoursIntegrativeCourse;
   private int totalCreditHoursProgramRequirements;
   private int totalCreditHoursMajorRequirements;
+  private ArrayList<ElectiveCluster> electiveClusterArray;
 
   //not sure about return type for requiredCourse and CompletedCourse as not specified on UML
   public void requiredCourses(String courseName, String courseNumber) {
+    requiredCourses = new ArrayList<>();
+    eightSemesterPlan = new HashMap();
+    currentCourses = new ArrayList<>();
+    completedCourses = new HashMap();
+    failedCourses = new HashMap();
 
   }
 
