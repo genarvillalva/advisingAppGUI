@@ -8,10 +8,10 @@ import org.json.simple.parser.JSONParser;
 
 public class DataLoader extends DataConstants {
 
-    /**
-     * This method reads the students.json file and returns an ArrayList of Student objects.
-     * @return ArrayList<Student>
-     */
+  /**
+   * This method reads the students.json file and returns an ArrayList of Student objects.
+   * @return ArrayList<Student>
+   */
   public static ArrayList<Student> getAllStudents() {
     ArrayList<Student> students = new ArrayList<Student>();
     try {
@@ -41,6 +41,7 @@ public class DataLoader extends DataConstants {
     }
     return students;
   }
+
   public static ArrayList<Advisor> getAllAdvisors() {
     ArrayList<Advisor> advisors = new ArrayList<Advisor>();
     try {
@@ -53,15 +54,11 @@ public class DataLoader extends DataConstants {
         JSONObject advisorJSON = (JSONObject) advisorsJSON.get(i);
 
         Advisor advisor = new Advisor(
-          (String) studentJSON.get(FIRST_NAME),
-          (String) studentJSON.get(LAST_NAME),
-          (String) studentJSON.get(USER_NAME),
-          (String) studentJSON.get(PASSWORD),
-          (String) studentJSON.get(MAJOR),
-          (Advisor) studentJSON.get(ADVISOR),
-          (StudentYear) studentJSON.get(STUDENT_YEAR),
-          (StudentPortfolio) studentJSON.get(PORTFOLIO_UUID),
-          (String) studentJSON.get(APPLICATION_AREA)
+          (String) advisorJSON.get(FIRST_NAME),
+          (String) advisorJSON.get(LAST_NAME),
+          (String) advisorJSON.get(USER_NAME),
+          (String) advisorJSON.get(PASSWORD),
+          (ArrayList<Student>) advisorJSON.get(LIST_OF_ADVISED_STUDENTS)
         );
         advisors.add(advisor);
       }
