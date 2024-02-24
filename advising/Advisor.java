@@ -5,7 +5,7 @@ public class Advisor {
     private ArrayList<Student> listofAdvisedStudents;
     private String advisingNotes;
 
-    public Advisor() {
+    public Advisor(String firstName, String lastName, String username, String password, ArrayList<Student> listOfAdvisedStudents) {
 
     }
 
