@@ -28,7 +28,9 @@ public class UserList {
   }
 
 
-  public void createAccount(String username, String password) {
+  public void createAccount(User newUser) {
+      userAccounts.add(newUser);
+
 
   }
 
