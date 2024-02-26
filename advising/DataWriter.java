@@ -9,9 +9,9 @@ import org.json.simple.JSONObject;
 public class DataWriter extends DataConstants {
 
   /**
-   * Writes a list of students to a JSON file.
-   * @param students List of Student objects to be written to the file.
-   * @param filePath The path to the JSON file.
+   * Writes a list of students to a JSON file
+   * @param students List of Student objects to be written to the file
+   * @param filePath The path to the JSON file
    */
   public static void writeStudents(List<Student> students, String filePath) {
     JSONArray studentsArray = new JSONArray();
@@ -22,9 +22,8 @@ public class DataWriter extends DataConstants {
       studentObject.put(USER_NAME, student.getUserName());
       studentObject.put(PASSWORD, student.getPassword());
       studentObject.put(MAJOR, student.getMajor());
-      studentObject.put(ADVISOR, student.getAdvisor().getUserName()); // Assuming advisor is represented by username
+      studentObject.put(ADVISOR, student.getAdvisor().getUsername()); 
       studentObject.put(STUDENT_YEAR, student.getStudentClass().toString());
-      studentObject.put(PORTFOLIO_UUID, student.getPortfolio().getUuid()); // Assuming portfolio has a UUID
       studentObject.put(APPLICATION_AREA, student.getApplicationArea());
       studentsArray.add(studentObject);
     }
@@ -32,9 +31,9 @@ public class DataWriter extends DataConstants {
   }
 
   /**
-   * Writes a list of advisors to a JSON file.
-   * @param advisors List of Advisor objects to be written to the file.
-   * @param filePath The path to the JSON file.
+   * Writes a list of advisors to a JSON file
+   * @param advisors List of Advisor objects to be written to the file
+   * @param filePath The path to the JSON file
    */
   public static void writeAdvisors(List<Advisor> advisors, String filePath) {
     JSONArray advisorsArray = new JSONArray();
@@ -42,7 +41,7 @@ public class DataWriter extends DataConstants {
       JSONObject advisorObject = new JSONObject();
       advisorObject.put(FIRST_NAME, advisor.getFirstName());
       advisorObject.put(LAST_NAME, advisor.getLastName());
-      advisorObject.put(USER_NAME, advisor.getUserName());
+      advisorObject.put(USER_NAME, advisor.getUsername());
       advisorObject.put(PASSWORD, advisor.getPassword());
       // Handle advised students separately
       advisorsArray.add(advisorObject);
@@ -50,7 +49,9 @@ public class DataWriter extends DataConstants {
     writeToFile(advisorsArray, filePath);
   }
 
-  // Helper method to write JSON array to file
+  /**
+   * Writes a list of courses to a JSON file
+   */
   private static void writeToFile(JSONArray jsonArray, String filePath) {
     try (FileWriter fileWriter = new FileWriter(filePath)) {
       fileWriter.write(jsonArray.toJSONString());
