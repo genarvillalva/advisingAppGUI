@@ -16,15 +16,29 @@ public class Course {
   private char minGrade;
   private String courseUUID;
 
+  public String getCourseID() {
+    return courseID;
+}
+
   public Course(String courseName, CourseCode courseCode) {
     this.courseName = courseName;
     this.courseCode = courseCode;
   }
 
-  public boolean PrereqComplete(
-    ArrayList<Course> prerequistiveCourses,
-    ArrayList<Course> completedCourses
-  ) {
-    return true;
+  public boolean PrereqComplete(ArrayList<Course> prerequisiteCourses, 
+  ArrayList<Course> completedCourses) {
+    for (Course prereqCourse : prerequisiteCourses) {
+      boolean found = false;
+      for (Course completedCourse : completedCourses) {
+          if (prereqCourse.getCourseID().equals(completedCourse.getCourseID())) {
+              found = true;
+              break;
+          }
+      }
+      if (!found) {
+        return false;
+      }
+    }
+  return true;
   }
 }

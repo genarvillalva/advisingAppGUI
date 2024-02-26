@@ -6,6 +6,6 @@ public class Major {
     private int majorID;
 
     public void displayRequiredMajorCourses() {
-
+        
     }
 }
