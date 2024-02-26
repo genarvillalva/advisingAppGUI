@@ -1,6 +1,8 @@
 package advising;
 
 import java.util.ArrayList;
+import java.util.Scanner;
+
 
 public class UserList {
 
@@ -9,6 +11,7 @@ public class UserList {
   private ArrayList<Faculty> facultys;
   private ArrayList<Advisor> advisors;
   private ArrayList<Student> students;
+  private Scanner scanner = new Scanner(System.in);
 
 
 
@@ -28,31 +31,41 @@ public class UserList {
   }
 
 
-  public void createAccount(String username, String password) {
-
+  public void createAccount(User newUser) {
+      userAccounts.add(newUser);
   }
 
   public boolean isUsernameValid(String username) {
-      //if username
-    return true;
+    return username != null && username.length() >5;
+   
   }
 
   public boolean isPasswordValid(String password) {
-    return true;
+    return password != null && password.length() >5;
   }
 
-  public String enterUsername() {
-    return "";
+   /**
+     * Prompts the user to enter a username.
+     * @return The username entered by the user.
+     */
+    public String enterUsername() {
+      System.out.print("Enter username: ");
+      return scanner.nextLine();
   }
 
-  public String enterPassword() {
-    return "";
+      /**
+     * Prompts the user to enter a password.
+     * @return The password entered by the user.
+     */
+    public String enterPassword() {
+      System.out.print("Enter password: ");
+      return scanner.nextLine();
   }
+
 
   public boolean verifyLoginStudent(String username, String password) {
-    // Iterate over the students list to find a matching username and password
-    for (User user : userAccounts) {
-        if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
+    for (Student student : students) {
+        if (student.getUserName().equals(username) && student.getPassword().equals(password)) {
             return true; // Login successful
         }
     }
@@ -61,7 +74,6 @@ public class UserList {
 
     // Method to verify login for an admin
     public boolean verifyLoginAdmin(String username, String password) {
-      // Iterate over the faculty list to find a matching username and password
       for (User user : userAccounts) {
           if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
               return true; // Login successful
@@ -72,13 +84,13 @@ public class UserList {
 
 
   public boolean verifyLoginAdvisor(String username, String password) {
-    // Iterate over the advisors list to find a matching username and password
-    for (User user : userAccounts) {
-        if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
+    for (Advisor advisor : advisors) {
+        if (advisor.getUsername().equals(username) && advisor.getPassword().equals(password)) {
             return true; // Login successful
         }
     }
     return false; // Login failed
 }
+
 
 }
