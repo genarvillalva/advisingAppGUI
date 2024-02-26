@@ -1,3 +1,4 @@
+package advising;
 public class UI {
     private Scanner scanner;
     private AuditFacade facade;

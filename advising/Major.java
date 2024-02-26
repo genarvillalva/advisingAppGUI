@@ -1,3 +1,4 @@
+package advising;
 public class Major {
     private String majorName;
     private ArrayList<Course> requiredCourses;
