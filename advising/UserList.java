@@ -32,8 +32,6 @@ public class UserList {
 
   }
 
-
-
   public boolean isUsernameValid(String username) {
       //if username
     return true;
