@@ -8,6 +8,7 @@ public class test {
     testGetAllStudents();
     testGetAllAdvisors();
     testGetAllCourses();
+    testGetAllMajors();
   }
 
   public static void testGetAllStudents() {
@@ -32,6 +33,13 @@ public class test {
     System.out.println(courses.size());
     for (Course course : courses) {
       System.out.println(course);
+    }
+  }
+  public static void testGetAllMajors() {
+    ArrayList<Major> majors = DataLoader.getAllMajors();
+    System.out.println("List of Majors:");
+    for (Major major : majors) {
+      System.out.println(major);
     }
   }
 }
