@@ -123,4 +123,7 @@ public class Student {
   public void displayMajorMap(Major major) {}
 
   public void displayStudentPortfolio() {}
+  public String toString() {
+    return "Student: " + firstName + " " + lastName;
+}
 }

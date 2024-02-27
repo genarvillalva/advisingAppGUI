@@ -43,7 +43,7 @@ public class DataWriter extends DataConstants {
       advisorObject.put(LAST_NAME, advisor.getLastName());
       advisorObject.put(USER_NAME, advisor.getUsername());
       advisorObject.put(PASSWORD, advisor.getPassword());
-      // Handle advised students separately
+      //TODO add list of advised students
       advisorsArray.add(advisorObject);
     }
     writeToFile(advisorsArray, filePath);
