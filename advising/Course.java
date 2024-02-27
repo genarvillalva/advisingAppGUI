@@ -2,8 +2,6 @@ package advising;
 
 import java.util.ArrayList;
 
-
-
 public class Course {
 
   private String courseName;
@@ -25,6 +23,10 @@ public class Course {
     this.courseCode = courseCode;
   }
 
+   /**
+    * Searches completed course for every prerequisite course
+    * @return The true if all prerequisite are completed and false if not
+    */
   public boolean PrereqComplete(ArrayList<Course> prerequisiteCourses, 
   ArrayList<Course> completedCourses) {
     for (Course prereqCourse : prerequisiteCourses) {

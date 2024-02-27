@@ -32,10 +32,24 @@ public class StudentPortfolio {
 
   }
 
-
-  public boolean ConvertLetterGradeToGpa(int grade) {
-    
-    return true;
+  /**
+  * Converts the grade into a GPA int
+  * @return the int value 0-4 for a singular grade
+  */
+  public int ConvertLetterGradeToGpa(int grade) {
+    if (grade > 100 || grade < 0){
+      return 0;
+    } else if (grade >= 90) {
+      return 4;
+    } else if (grade >= 80) {
+      return 3;
+    } else if (grade >= 70) {
+      return 2;
+    } else if (grade >= 60) {
+      return 1;
+    } else {
+      return 0;
+    }
   }
 
   public void LookupCourse(String courseName, String courseNumber) {
@@ -52,9 +66,12 @@ public class StudentPortfolio {
     return " ";
   }
 
+  /**
+  * Calculates the amount of course credit left for a student to graduate
+  * @return the int of total minus completed
+  */
   public int calculateCourseCreditLeft(int completedCreditHours, int totalCreditHours) {
-
-    return 0;
+    return (totalCreditHours - completedCreditHours);
   }
 
   public int calculateGPA(HashMap<Course, Integer> completedCourses, int grade) {

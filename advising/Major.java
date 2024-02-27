@@ -1,4 +1,7 @@
 package advising;
+
+import java.util.ArrayList;
+
 public class Major {
     private String majorName;
     private ArrayList<Course> requiredCourses;
@@ -6,6 +9,6 @@ public class Major {
     private int majorID;
 
     public void displayRequiredMajorCourses() {
-        
+
     }
 }
