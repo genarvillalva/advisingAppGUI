@@ -9,16 +9,22 @@
         "courseID":"ASTR101"
       },
       {
-        "courseID":"BIOL101",
-        "courseIDL":"BIO101L"
+        "courseID":"BIOL101"
       },
       {
-        "courseID":"CHEM111",
-        "courseIDL":"CHEM111L"
+        "courseID":"BIO101L"
       },
       {
-        "courseID":"ENVR101",
-        "courseIDL":"ENVR101L"
+        "courseID":"CHEM111"
+      },
+      {
+        "courseID":"CHEM111L"
+      },
+      {
+        "courseID":"ENVR101"
+      },
+      {
+        "courseID":"ENVR101L"
       },
       {
         "courseID":"GEOG201"
@@ -36,7 +42,9 @@
         "courseID":"GEOL201"
       },
       {
-        "courseID":"GEOL215",
+        "courseID":"GEOL215"
+      },
+      {
         "courseID:":"GEOL215L"
       },
       {
@@ -49,16 +57,22 @@
         "courseID":"MSCI102"
       },
       {
-        "courseID":"MSCI210",
+        "courseID":"MSCI210"
+      },
+      {
         "courseIDL":"MSCI210L"
       },
       {
-        "courseID":"MSCI215",
-        "courseIDL":"MSCI215L"
+        "courseID":"MSCI215"
       },
       {
-        "courseID":"PHYS211",
-        "courseIDL":"PHYS211L"
+        "courseID":"MSCI215L"
+      },
+      {
+        "courseID":"PHYS211"
+      },
+      {
+        "courseID":"PHYS211L"
       }
     ]
   }
