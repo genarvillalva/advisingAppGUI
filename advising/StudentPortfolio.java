@@ -56,14 +56,28 @@ public class StudentPortfolio {
 
   }
 
-  public boolean checkClassFailure() {
-
-    return true;
+  /**
+  * Checks to make sure the students grade in the class is not failing
+  * @return true if student is failing and false if student is passing
+  */
+  public boolean checkClassFailure(int grade) {
+    if (grade < 60) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
-  public String checkScholarship(double gpa, int YearCreditCount) {
-
-    return " ";
+  /**
+  * Checks to make sure the student has done all scholarship requirements
+  * @return true if requirements are met and false if not
+  */
+  public boolean checkScholarship(double gpa, int YearCreditCount) {
+    if (gpa > 3.0 && YearCreditCount > 30) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   /**
@@ -78,13 +92,5 @@ public class StudentPortfolio {
 
     return 0;
   }
-
-
-
-
-
-
-	
-
 
 }

@@ -5,7 +5,7 @@
       "requiredCourses":["CSCE145", "MATH141", "ENGL101", "CSCE190"],
       "requiredCreditHours": 120
     },{
-      "majorName":"Computer Engineering",
+      "majorName":"Computer Information Systems",
       "majorID":"Computer_Information_Systems",
       "requiredCourses":["CSCE145", "MATH141", "ENGL101", "CSCE190"],
       "requiredCreditHours": 120
