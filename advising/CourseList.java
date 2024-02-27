@@ -6,6 +6,9 @@ public class CourseList {
     private static CourseList courseList;
     private ArrayList<Course> courses;
 
+    /**
+     * Loads the arrayList course with all courses in a JSON
+     */
     private CourseList() {
         courses = DataLoader.getAllCourses();
     }

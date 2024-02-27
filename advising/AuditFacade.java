@@ -1,13 +1,12 @@
 package advising;
 
+import java.util.ArrayList;
+
 public class AuditFacade {
     private User user;
     private UserList userList;
     private RequiredCourses requiredCourses;
 
-    
-    
-    
     
     public void signUp(String userName, String password, String userType) {
       if (userName == null || password == null || userName.length() < 5 || password.length() < 5) {
