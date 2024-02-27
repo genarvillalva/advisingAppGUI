@@ -9,7 +9,6 @@ public abstract class User {
   private String username;
   private String password;
   private String userType;
-  private String userUUID;
   private UserList UserList;
 
   public User(String name, String username, String password, String userType) {
@@ -17,7 +16,6 @@ public abstract class User {
     this.password = password;
     this.name = name;
     this.userType = userType;
-    this.userUUID = userUUID;
     this.UserList = UserList;
   }
 
