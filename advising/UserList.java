@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 
 public class UserList {
-
+  private static UserList instance = null;
   private UserList userList;
   private ArrayList<User> userAccounts;
   private ArrayList<Faculty> facultys;
@@ -23,11 +23,12 @@ public class UserList {
     
 }
 
-  public UserList getInstance() {
-    if (userList == null) {
-      userList = new UserList();
-    }
-    return userList;
+    // Static method to get the instance of the UserList
+    public static UserList getInstance() {
+      if (instance == null) {
+          instance = new UserList();
+      }
+      return instance;
   }
 
 
