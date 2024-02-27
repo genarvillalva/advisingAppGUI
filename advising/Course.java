@@ -14,6 +14,66 @@ public class Course {
   private char minGrade;
   private String courseUUID;
 
+  /**
+   * Constructor for the Course class
+   * @return The course name
+   */
+  public String getCourseName() {
+    return courseName;
+}
+/**
+ * Get the course code of the course
+ * @return The course code of the course
+ */
+public CourseCode getCourseCode() {
+    return courseCode;
+}
+/**
+ * Get the credit hours of the course
+ * @return The credit hours of the course
+ */
+public int getCreditHours() {
+    return creditHours;
+}
+/**
+ * Get the prerequisite courses of the course
+ * @return The prerequisite courses of the course 
+ */
+public ArrayList<Course> getPrerequisiteCourses() {
+    return prerequisiteCourses;
+}
+/**
+ * Get the corequisite courses of the course
+ * @return The corequisite courses of the course
+ */
+public ArrayList<Course> getCorequisiteCourses() {
+    return corequisiteCourses;
+}
+/**
+ * Get the semester of the course
+ * @return The semester of the course
+ */
+public Semester getSemester() {
+    return semester;
+}
+/**
+ * Get the minimum grade of the course
+ * @return The minimum grade of the course
+ */
+public char getMinGrade() {
+    return minGrade;
+}
+/**
+ * Get the UUID of the course
+ * @return The UUID of the course
+ */
+public String getCourseUUID() {
+    return courseUUID;
+}
+/**
+ * Get the course ID of the course
+ * @return The course ID of the course
+ */
   public String getCourseID() {
     return courseID;
 }
