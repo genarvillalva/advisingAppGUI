@@ -27,7 +27,7 @@ public class DataLoader extends DataConstants {
   }
 
   /**
-   * This method reads the students.json file and returns an ArrayList of Student objects.
+   * Reads the students.json file and returns an ArrayList of Students
    * @return ArrayList<Student>
    */
   public static ArrayList<Student> getAllStudents() {
@@ -60,7 +60,10 @@ public class DataLoader extends DataConstants {
     }
     return students;
   }
-
+  /**
+   * Reads the advisors.json file and returns an ArrayList of Advisors
+   * @return ArrayList<Advisor>
+   */
   public static ArrayList<Advisor> getAllAdvisors() {
     ArrayList<Advisor> advisors = new ArrayList<Advisor>();
     try {
@@ -83,7 +86,10 @@ public class DataLoader extends DataConstants {
     }
     return advisors;
   }
-
+/**
+ * Reads the Course.json file and returns an ArrayList of Courses
+ * @return ArrayList<Course>
+ */
   public static ArrayList<Course> getAllCourses() {
     ArrayList<Course> courses = new ArrayList<Course>();
     try {
@@ -111,7 +117,10 @@ public class DataLoader extends DataConstants {
     }
     return courses;
   }
-
+  /**
+   * Reads the Major.json file and returns an ArrayList of Majors
+   * @return
+   */
   public static ArrayList<Major> getAllMajors() {
     ArrayList<Major> majors = new ArrayList<Major>();
     try {
