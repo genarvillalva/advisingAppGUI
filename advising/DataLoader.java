@@ -73,5 +73,31 @@ public class DataLoader extends DataConstants {
     }
     return advisors;
   }
+
+  public static ArrayList<Course> getAllCourses() {
+    ArrayList<Course> courses = new ArrayList<Course>();
+    try {
+      FileReader reader = new FileReader("advising/json/Course.json");
+      JSONParser parser = new JSONParser();
+      JSONArray coursesJSON = (JSONArray) parser.parse(reader);
+      for (int i = 0; i < coursesJSON.size(); i++) {
+        JSONObject courseJSON = (JSONObject) coursesJSON.get(i);
+        CourseCode courseCode = CourseCode.valueOf((String) courseJSON.get("courseCode"));
+        Course course = new Course(
+          (String) courseJSON.get(COURSE_ID),
+          (String) courseJSON.get(TITLE),
+          courseCode,
+          ((Long) courseJSON.get(CREDIT_HOURS)).intValue(),
+          ((String) courseJSON.get(MIN_GRADE)).charAt(0),
+          (ArrayList<Semester>) courseJSON.get(SEMESTER),
+          (ArrayList<Course>) courseJSON.get(PREREQUISITE_COURSES)
+        );
+        courses.add(course);
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    return courses;
+  }
   
 }
