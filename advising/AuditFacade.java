@@ -5,13 +5,51 @@ public class AuditFacade {
     private UserList userList;
     private RequiredCourses requiredCourses;
 
-    public AuditFacade() {
+    
+    
+    
+    
+    public void signUp(String userName, String password, String userType) {
+      if (userName == null || password == null || userName.length() < 5 || password.length() < 5) {
+          System.out.println("Invalid username or password. Both must be at least 5 characters.");
+          return;
+      }
+  
+      // Check for existing user
+      if (UserList.getInstance().userExists(userName)) {
+          System.out.println("A user with this username already exists.");
+          return;
+      }
+  
+      User newUser = null;
+  
+      // Create a new user based on userType
+      switch (userType) {
+          case "student":
+              //need help on this
+              break;
+          case "advisor":
+              // need help on this
+              break;
+          case "faculty":
+              //  need help on this 
+              break;
+          default:
+              System.out.println("Invalid user type.");
+              return;
+      }
+  
+      if (newUser != null) {
+          System.out.println("User created successfully: " + newUser);
+      } else {
+          System.out.println("User creation failed.");
+      }
+  }
+  
 
-    }
 
-    public void signUp(String userName, String password) 
 
-    }
+    
 
     public void loginAdvisor(String username, String password) {
         while(true) {
@@ -71,10 +109,13 @@ public class AuditFacade {
 
     }
 
+    
     /**
     * Get the amount of credit hours not completed returned
     * @return int of credit hours left to be taken
     */
+
+
     public int calculateCourseCreditLeft(int completedCreditHours, int totalCreditHours) {
         return (totalCreditHours - completedCreditHours);
     }
@@ -135,4 +176,6 @@ public class AuditFacade {
     public String generateEightSemesterPlan(String userName) {
 
     }
+    */
 }
+
