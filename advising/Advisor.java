@@ -101,4 +101,13 @@ public class Advisor {
   public void sendScholarshipNotification() {}
 
   public void generateEightSemesterPlan() {}
+  public String toString() {
+    return "Advisor:\n" +
+            "First Name: " + firstName + "\n" +
+            "Last Name: " + lastName + "\n" +
+            "Username: " + username + "\n" +
+            "Password: " + password + "\n" +
+            "List of Advised Students: " + listofAdvisedStudents + "\n" +
+            "Advising Notes: " + advisingNotes;
+}
 }
