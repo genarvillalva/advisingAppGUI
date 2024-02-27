@@ -39,16 +39,6 @@ public abstract class User {
 
   public abstract boolean courseLookup(String course);
 
-  public boolean loginInput(String username, String password) {
-    Scanner scanner = new Scanner(System.in);
-    System.out.println("Enter a Username");
-    username = scanner.nextLine();
-    System.out.println("Enter a Password");
-    password = scanner.nextLine();
-    loginStudent(username, password);
-    return true;
-  }
-
   public void loginStudent(String username, String password) {
     while(true) {
       if(UserList.getInstance().verifyLoginStudent(username, password)) {
@@ -57,7 +47,6 @@ public abstract class User {
       }
       else {
         System.out.println("Login Failed");
-        loginInput(username, password);
       }
     }
   }
@@ -70,7 +59,6 @@ public abstract class User {
       }
       else {
         System.out.println("Login Failed");
-        loginInput(username, password);
       }
     }
   }
@@ -83,7 +71,6 @@ public abstract class User {
       }
       else {
         System.out.println("Login Failed");
-        loginInput(username, password);
       }
     }
   }
