@@ -8,18 +8,17 @@ public class UserList {
   private static UserList instance = null;
   private UserList userList;
   private ArrayList<User> userAccounts = new ArrayList<User>();
-  private ArrayList<Faculty> facultys;
+  private ArrayList<Admin> admins; //added Admin ArrayList
   private ArrayList<Advisor> advisors;
   private ArrayList<Student> students;
-  private Scanner scanner = new Scanner(System.in);
 
 
 
     private UserList() {
       userAccounts = new ArrayList<>();
-      facultys = new ArrayList<>();
-      advisors = new ArrayList<>();
-      students = new ArrayList<>();
+      admins = new ArrayList<Admin>();
+      advisors = new ArrayList<Advisor>();
+      students = new ArrayList<Student>();
     
 }
 
@@ -36,8 +35,8 @@ public class UserList {
       return new ArrayList<>(userAccounts); 
 }
 
-    public ArrayList<Faculty> getFacultys() {
-      return new ArrayList<>(facultys); 
+    public ArrayList<Admin> getFacultys() {
+      return new ArrayList<>(admins); 
 }
 
     public ArrayList<Advisor> getAdvisors() {
@@ -69,26 +68,6 @@ public class UserList {
   public boolean isPasswordValid(String password) {
     return password != null && password.length() >5;
   }
-
-   /**
-     * Prompts the user to enter a username.
-     * @return The username entered by the user.
-     */
-    public String enterUsername() {
-      System.out.print("Enter username: ");
-      return scanner.nextLine();
-  }
-
-      /**
-     * Prompts the user to enter a password.
-     * @return The password entered by the user.
-     */
-    public String enterPassword() {
-      System.out.print("Enter password: ");
-      return scanner.nextLine();
-  }
-
-
 
 //The userExists method checks if a 
 //user already exists in the system based on a provided username, iterating over the userAccounts list.
