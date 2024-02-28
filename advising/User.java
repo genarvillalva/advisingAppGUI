@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 public abstract class User {
 
-  protected String firstName;
-  protected String lastName;
+  private String firstName;
+  private String lastName;
   private String username;
   private String password;
   private String userType;
@@ -40,7 +40,7 @@ public abstract class User {
     return this.userType;
   }
 
-  public abstract boolean courseLookup(String course);
+  public abstract void courseLookup(String course);
 
   public static void loginStudent(String username, String password) {
     while(true) {
