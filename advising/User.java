@@ -5,22 +5,27 @@ import java.util.Scanner;
 
 public abstract class User {
 
-  private String name;
+  protected String firstName;
+  protected String lastName;
   private String username;
   private String password;
   private String userType;
   private UserList UserList;
 
-  public User(String name, String username, String password, String userType) {
+  public User(String firstName, String lastName, String username, String password, String userType) {
+    this.firstName = firstName;
+    this.lastName = lastName;
     this.username = username;
     this.password = password;
-    this.name = name;
     this.userType = userType;
     this.UserList = UserList;
   }
 
-  public String getName() {
-    return this.name;
+  public String getFirstName() {
+    return this.firstName;
+  }
+  public String getLastName() {
+    return this.firstName;
   }
 
   public String getUsername() {
