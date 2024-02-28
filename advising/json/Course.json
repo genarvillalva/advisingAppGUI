@@ -5,7 +5,7 @@
     "courseCode":"CMW",
     "creditHours":3,
     "minGrade":"C",
-    "semester":["fall", "spring"],
+    "semester":["fall","spring"],
     "prerequisiteCourses":[],
     "corequisiteCourses":[],
     "prereqCoreq":[]
@@ -17,8 +17,8 @@
     "courseCode":"ARP",
     "creditHours":4,
     "minGrade":"C",
-    "semester":["fall", "spring"],
-    "prerequisiteCourses":["MATH112", "MATH115", "MATH116"],
+    "semester":["fall","spring"],
+    "prerequisiteCourses":["MATH112","MATH115","MATH116"],
     "corequisiteCourses":[],
     "prereqCoreq":[]
 
@@ -29,9 +29,9 @@
     "courseCode":"PR",
     "creditHours":4,
     "minGrade":"C",
-    "semester":["fall", "spring"],
-    "prerequisiteCourses":["MATH111", "MATH115"],
-    "corequisiteCourses":["MATH111", "MATH115"],
+    "semester":["fall","spring"],
+    "prerequisiteCourses":["MATH111","MATH115"],
+    "corequisiteCourses":["MATH111","MATH115"],
     "prereqCoreq":[]
 
 },
@@ -41,9 +41,9 @@
     "courseCode":"PR",
     "creditHours":1,
     "minGrade":"C",
-    "semester":["fall", "spring"],
-    "prerequisiteCourses":["CSCE145", "CSCE204", "CSCE205", "CSCE206"],
-    "corequisiteCourses":["CSCE145", "CSCE204", "CSCE205", "CSCE206"],
+    "semester":["fall","spring"],
+    "prerequisiteCourses":["CSCE145","CSCE204","CSCE205","CSCE206"],
+    "corequisiteCourses":["CSCE145","CSCE204","CSCE205","CSCE206"],
     "prereqCoreq":[]
 
   },
@@ -53,9 +53,9 @@
     "courseCode":"CMW",
     "creditHours":3,
     "minGrade":"C",
-    "semester":["fall", "spring"],
+    "semester":["fall","spring"],
     "prerequisiteCourses":["ENGL101"],
-    "corequisiteCourses":["MATH111", "MATH115"],
+    "corequisiteCourses":["MATH111","MATH115"],
     "prereqCoreq":[]
   },
   {
@@ -66,7 +66,7 @@
     "minGrade":"C",
     "semester":["fall","spring"],
     "prerequisiteCourses":["MATH 141"],
-    "corequisiteCourses":["MATH 111", "MATH 115"],
+    "corequisiteCourses":["MATH 111","MATH 115"],
     "prereqCoreq":[]
 
   },
@@ -77,8 +77,8 @@
     "creditHours":3,
     "minGrade":"C",
     "semester":[],
-    "prerequisiteCourses":["CC-SCI", "C or better in MATH 111/115/122/141 or higher math or Math placement test score"],
-    "corequisiteCourses":["CHEM 111L"],
+    "prerequisiteCourses":["CC-SCI","C or better in MATH 111/115/122/141 or higher math or Math placement test score"],
+    "corequisiteCourses":["CHEM111L"],
     "prereqCoreq": []
   },
   {
@@ -88,9 +88,9 @@
     "creditHours":1,
     "minGrade":"C",
     "semester":[],
-    "prerequisiteCourses":["CC-SCI", "MATH 111 or 115"],
+    "prerequisiteCourses":["CC-SCI","MATH 111 or 115"],
     "corequisiteCourses":[],
-    "prereqCoreq":["CHEM 111"]
+    "prereqCoreq":["CHEM111"]
   },
   {
     "courseID":"PHYS211",
@@ -99,9 +99,9 @@
     "creditHours":3,
     "minGrade":"C",
     "semester":[],
-    "prerequisiteCourses":["CC-SCI", "C or better in MATH 111/115/122/141 or higher math or Math placement test score"],
-    "corequisiteCourses":["CHEM 111L"],
-    "prereqCoreq":["PHYS 211L"]
+    "prerequisiteCourses":["CC-SCI","C or better in MATH 111/115/122/141 or higher math or Math placement test score"],
+    "corequisiteCourses":["CHEM111L"],
+    "prereqCoreq":["PHYS211L"]
   },
   {
     "courseID":"PHYS211L",
@@ -110,9 +110,9 @@
     "creditHours":1,
     "minGrade":"C",
     "semester":[],
-    "prerequisiteCourses":["CC-SCI", "MATH 111 or 115"],
+    "prerequisiteCourses":["CC-SCI","MATH 111 or 115"],
     "corequisiteCourses":[],
-    "prereqCoreq":["CHEM 111"]
+    "prereqCoreq":["CHEM111"]
   },
   {
     "courseID":"CSCE146",
@@ -121,7 +121,7 @@
     "creditHours":4,
     "minGrade":"C",
     "semester":[],
-    "prerequisiteCourses":["PR", "C or better in MATH 122 or 141"],
+    "prerequisiteCourses":["PR","C or better in MATH 122 or 141"],
     "corequisiteCourses":[],
     "prereqCoreq":[]
   },
@@ -132,7 +132,7 @@
     "creditHours":1,
     "minGrade":"C",
     "semester":[],
-    "prerequisiteCourses":["PR", "CSCE 145"],
+    "prerequisiteCourses":["PR","CSCE 145"],
     "corequisiteCourses":[],
     "prereqCoreq":[]
   }

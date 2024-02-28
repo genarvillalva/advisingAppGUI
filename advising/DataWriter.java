@@ -2,6 +2,7 @@ package advising;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -13,9 +14,13 @@ public class DataWriter extends DataConstants {
    * @param students List of Student objects to be written to the file
    * @param filePath The path to the JSON file
    */
-  public static void writeStudents(List<Student> students, String filePath) {
-    JSONArray studentsArray = new JSONArray();
-    for (Student student : students) {
+  public static void writeStudents(ArrayList<Student> newStudents) {
+    UserList users = UserList.getInstance();
+    ArrayList<Advisor> advisors = users.getAdvisors();
+    ArrayList<Student> students = users.getStudents();
+    JSONArray jsonStudents = new JSONArray();
+    JSONArray jsonAdvisors = new JSONArray();
+    for (Student student : newStudents) {
       JSONObject studentObject = new JSONObject();
       studentObject.put(FIRST_NAME, student.getFirstName());
       studentObject.put(LAST_NAME, student.getLastName());
@@ -25,9 +30,9 @@ public class DataWriter extends DataConstants {
       studentObject.put(ADVISOR, student.getAdvisor().getUsername()); 
       studentObject.put(STUDENT_YEAR, student.getStudentClass().toString());
       studentObject.put(APPLICATION_AREA, student.getApplicationArea());
-      studentsArray.add(studentObject);
+      newStudents.add(studentObject);
     }
-    writeToFile(studentsArray, filePath);
+    writeToFile(newStudents, "advising/json/students.json");
   }
 
   /**
