@@ -8,6 +8,7 @@ public class Student extends User {
   private String lastName;
   private String username;
   private String password;
+  private String type;
   private String major;
   private Advisor advisor;
   private StudentYear studentClass;
