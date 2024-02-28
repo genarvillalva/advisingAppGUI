@@ -42,7 +42,7 @@ public abstract class User {
 
   public abstract boolean courseLookup(String course);
 
-  public void loginStudent(String username, String password) {
+  public static void loginStudent(String username, String password) {
     while(true) {
       if(UserList.getInstance().verifyLoginStudent(username, password)) {
         System.out.println("Login Successful");
@@ -54,7 +54,7 @@ public abstract class User {
     }
   }
 
-  public void loginAdmin() {
+  public static void loginAdmin(String username, String password) {
     while(true) {
       if(UserList.getInstance().verifyLoginAdmin(username, password)) {
         System.out.println("Login Successful");
@@ -66,7 +66,7 @@ public abstract class User {
     }
   }
 
-  public void loginAdvisor() {
+  public static void loginAdvisor(String username, String password) {
     while(true) {
       if(UserList.getInstance().verifyLoginAdvisor(username, password)) {
         System.out.println("Login Successful");
