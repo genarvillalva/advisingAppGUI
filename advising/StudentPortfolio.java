@@ -56,6 +56,15 @@ public class StudentPortfolio {
 
   }
 
+  /**
+   * Adds a course to the student's portfolio.
+   * 
+   * @param course The course to be added to the portfolio.
+   */
+  public void addCourse(Course course) {
+    requiredCourses.add(course);
+  }
+
   public boolean checkClassFailure() {
 
     return true;
