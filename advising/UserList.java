@@ -92,7 +92,7 @@ public class UserList {
       // Iterate through each student in the students list
       for (Student student : students) { // this is not right because I am havig trouble creating a
           // Check if the current student's username and password match the input parameters
-          if (student.getUserName().equals(username) && student.getPassword().equals(password)) {
+          if (student.getUsername().equals(username) && student.getPassword().equals(password)) {
               return true; // Login successful
               // If a match is found, it means the login credentials are correct.
               // Therefore, the method immediately returns true
