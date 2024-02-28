@@ -69,6 +69,7 @@ public class StudentPortfolio {
 
     return true;
   }
+  /**
   * Checks to make sure the students grade in the class is not failing
   * @return true if student is failing and false if student is passing
   */
