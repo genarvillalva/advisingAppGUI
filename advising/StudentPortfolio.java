@@ -263,10 +263,7 @@ public ArrayList<ElectiveCluster> getElectiveClusterArray() {
     return (totalCreditHours - completedCreditHours);
   }
 
-  public int calculateGPA(
-    HashMap<Course, Integer> completedCourses,
-    int grade
-  ) {
+  public int calculateGPA( HashMap<Course, Integer> completedCourses) {
     return 0;
   }
 

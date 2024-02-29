@@ -15,6 +15,7 @@ public class Course {
   private char minGrade;
   private String courseUUID;
   private String courseTitle;
+  private int preferredSemester;
 
 
   /**
@@ -86,6 +87,14 @@ public class Course {
    */
   public String getCourseID() {
     return courseID;
+  }
+
+  /**
+  * Gets the preferred semester of the course
+  * @return The preferred semester of the course
+  */
+  public int getPreferredSemester() {
+    return preferredSemester;
   }
 
   /**
