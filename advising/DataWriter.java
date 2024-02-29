@@ -47,6 +47,7 @@ public class DataWriter extends DataConstants {
     courseObject.put(MIN_GRADE, course.getMinGrade());
     courseObject.put(SEMESTER, course.getSemester());
     courseObject.put(PREREQUISITE_COURSES, course.getPrerequisiteCourses());
+    courseObject.put()
     return courseObject;
   }
 
