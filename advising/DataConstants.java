@@ -6,6 +6,7 @@ public abstract class DataConstants {
   public static final String LAST_NAME = "lastName";
   public static final String USER_NAME = "userName";
   public static final String PASSWORD = "password";
+  public static final String TYPE = "type";
   public static final String MAJOR = "major";
   public static final String ADVISOR = "advisor";
   public static final String STUDENT_YEAR = "studentYear";
