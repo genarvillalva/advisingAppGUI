@@ -9,7 +9,7 @@ public class CourseList {
     /**
      * Loads the arrayList course with all courses in a JSON
      */
-    private CourseList() {
+    public CourseList() {
         courses = DataLoader.getAllCourses();
     }
     /**
@@ -21,8 +21,20 @@ public class CourseList {
         }
         return courseList;
     }
-
+    /**
+     * Gets the list of courses
+     * @return The list of courses
+     */
+    public ArrayList<Course> getCourses() {
+        return courses;
+    }
     public void findCourse(String course) {
         
+    }
+    public void addCourse(Course course) {
+        
+    }
+    public void removeCourse(Course course) {
+
     }
 }

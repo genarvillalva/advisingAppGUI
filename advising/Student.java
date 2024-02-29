@@ -90,7 +90,7 @@ public class Student extends User {
   }
 
   public void addCoursesToStudentPortfolio(Course course) {
-    this.studentPortfolio.addCourse(course);
+    // this.studentPortfolio.addCourse(course);
   }
 
   public void displayMajorMap(Major major) {
@@ -99,11 +99,14 @@ public class Student extends User {
     }
   }
 
-  public void displayStudentPortfolio() {}
+  public void displayStudentPortfolio() {
+    this.studentPortfolio.toString();
+  }
 
   public String toString() {
-    return "Student: " + firstName + " " + lastName;
-  }
+    return "Student: " + firstName + " " + lastName + "\n" +
+           "Major: " + major + " Student Year: " + studentClass;
+}
 
   public void courseLookup(String course) {
     courseList.findCourse(course);

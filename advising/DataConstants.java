@@ -14,7 +14,7 @@ public abstract class DataConstants {
   public static final String APPLICATION_AREA = "applicationArea";
 
   public static final String COURSE_ID = "courseID";
-  public static final String TITLE = "title";
+  public static final String COURSE_TITLE = "courseTitle";
   public static final String COURSE_CODE = "courseCode";
   public static final String CREDIT_HOURS = "creditHours";
   public static final String MIN_GRADE = "minGrade";
@@ -59,4 +59,13 @@ public abstract class DataConstants {
   public static final String MAJOR_NAME = "majorName";
   public static final String MAJOR_ID = "majorID";
   public static final String REQUIRED_CREDIT_HOURS = "requiredCreditHours";
+
+
+  public static final String ADVISORS_FILE_NAME = "advising/json/advisors.json";
+  public static final String STUDENTS_FILE_NAME = "advising/json/students.json";
+  public static final String COURSES_FILE_NAME = "advising/json/Course.json";
+  public static final String MAJORS_FILE_NAME = "advising/json/Major.json";
+  public static final String STUDENT_PORTFOLIOS_FILE_NAME = "advising/json/StudentPortfolios.json";
+  public static final String APPLICATION_AREA_FILE_NAME = "advising/json/applicationArea.json";
+  public static final String ELECTIVE_CLUSTER_FILE_NAME = "advising/json/ElectiveCluster.json";
 }
