@@ -9,10 +9,6 @@ public class test {
     testGetAllAdvisors();
     testGetAllCourses();
     testGetAllMajors();
-    testGetAllStudentPortfolios();
-    testStudentPortfolio();
-    // testWriteUsers();
-
   }
 
   public static void testGetAllStudents() {
@@ -30,7 +26,7 @@ public class test {
       System.out.println(advisor);
     }
   }
-  ///////////////////
+
   public static void testGetAllCourses() {
     ArrayList<Course> courses = DataLoader.getAllCourses();
     System.out.println("List of Courses:");
@@ -46,41 +42,4 @@ public class test {
       System.out.println(major);
     }
   }
-
-  public static void testStudentPortfolio() {
-    ArrayList<StudentPortfolio> studentPortfolios = DataLoader.getAllStudentPortfolios();
-    for (int i = 0; i < studentPortfolios.size(); i++) {
-      System.out.println("\nStudent UUID " + i + ":");
-    System.out.println(studentPortfolios.get(i).getRequiredCourses());
-    }
-  }
-  public static void testGetAllStudentPortfolios() {
-    ArrayList<StudentPortfolio> studentPortfolios = DataLoader.getAllStudentPortfolios();
-    System.out.println("List of Student Portfolios:");
-    for (StudentPortfolio studentPortfolio : studentPortfolios) {
-      System.out.println(studentPortfolio);
-    }
-  }
-
-  public static void testWriteUsers() {
-    ArrayList<Student> students = DataLoader.getAllStudents();
-    ArrayList<Advisor> advisors = DataLoader.getAllAdvisors();
-    StudentYear studentYear = StudentYear.FRESHMAN;
-    ArrayList<StudentPortfolio> StudentPortfolio = DataLoader.getAllStudentPortfolios();
-    Student s = new Student(
-      "James",
-      "Son",
-      "jamesson1",
-      "password",
-      "Student",
-      "Computer Science",
-      advisors.get(0),
-      studentYear,
-      StudentPortfolio.get(0),
-      "Application Area"
-    );
-    students.add(s);
-    DataWriter.saveUsers(students);
-  }
-
 }
