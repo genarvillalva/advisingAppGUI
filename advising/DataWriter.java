@@ -37,7 +37,8 @@ public class DataWriter extends DataConstants {
     }
     return true;
   }
-  private static JSONObject toCourseJSON(Course course) {
+
+  private static JSONObject getCourseJSON(Course course) {
     JSONObject courseObject = new JSONObject();
     courseObject.put(COURSE_ID, course.getCourseID());
     courseObject.put(COURSE_TITLE, course.getCourseTitle());
@@ -48,6 +49,7 @@ public class DataWriter extends DataConstants {
     courseObject.put(PREREQUISITE_COURSES, course.getPrerequisiteCourses());
     return courseObject;
   }
+
   /**
    * Writes a list of students to a JSON file
    * @param students List of Student objects to be written to the file
