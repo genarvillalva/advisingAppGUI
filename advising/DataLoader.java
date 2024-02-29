@@ -80,6 +80,7 @@ public class DataLoader extends DataConstants {
           (String) advisorJSON.get(LAST_NAME),
           (String) advisorJSON.get(USER_NAME),
           (String) advisorJSON.get(PASSWORD),
+          (String) advisorJSON.get(TYPE),
           (ArrayList<Student>) advisorJSON.get(LIST_OF_ADVISED_STUDENTS)
         );
         advisors.add(advisor);
