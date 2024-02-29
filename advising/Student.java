@@ -8,6 +8,7 @@ public class Student extends User {
   private String lastName;
   private String username;
   private String password;
+  private String type;
   private String major;
   private Advisor advisor;
   private StudentYear studentClass;
@@ -28,9 +29,17 @@ public class Student extends User {
    * @param applicationArea
    * @param courseList
    */
-  public Student( String firstName, String lastName, String username, String password, 
-                  String userType, String major, Advisor advisor, StudentYear studentYear, 
-                  StudentPortfolio portfolio, String applicationArea, CourseList courseList
+  public Student(
+    String firstName,
+    String lastName,
+    String username,
+    String password,
+    String userType,
+    String major,
+    Advisor advisor,
+    StudentYear studentYear,
+    StudentPortfolio portfolio,
+    String applicationArea
   ) {
     super(firstName, lastName, username, password, userType);
     this.major = major;
@@ -38,7 +47,6 @@ public class Student extends User {
     this.studentClass = studentYear;
     this.studentPortfolio = portfolio;
     this.applicationArea = applicationArea;
-    this.courseList = courseList;
   }
 
   /**
@@ -86,7 +94,7 @@ public class Student extends User {
   }
 
   public void displayMajorMap(Major major) {
-    for(Course course : major.getRequiredCourses()) {
+    for (Course course : major.getRequiredCourses()) {
       System.out.println(course.toString());
     }
   }
