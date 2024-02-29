@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class Faculty extends User {
     private CourseList courseList;
     private User user;
+    private UserList userList;
     private Student student;
     private StudentPortfolio studentPortfolio;
 
@@ -13,7 +14,6 @@ public class Faculty extends User {
     public Faculty(String firstName, String lastName, String username, String password, String userType) {
         super(firstName, lastName, username, password, userType);
         this.courseList = courseList;
-
         this.studentPortfolio = studentPortfolio;
         this.userList = userList;
         }
@@ -69,10 +69,6 @@ public class Faculty extends User {
         } else {
             System.out.println("Student profile not found for username: " + username);
         }
-    }
-
-    public void courseLookup(String course) {
-        courseList.findCourse(course);
     }
     
     public void courseLookup(String course) {
