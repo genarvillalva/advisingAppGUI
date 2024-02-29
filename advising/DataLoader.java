@@ -107,7 +107,7 @@ public class DataLoader extends DataConstants {
         );
         Course course = new Course(
           (String) courseJSON.get(COURSE_ID),
-          (String) courseJSON.get(TITLE),
+          (String) courseJSON.get(COURSE_TITLE),
           courseCode,
           ((Long) courseJSON.get(CREDIT_HOURS)).intValue(),
           ((String) courseJSON.get(MIN_GRADE)).charAt(0),
