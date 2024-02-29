@@ -29,18 +29,6 @@ public class Student extends User {
    * @param applicationArea
    * @param courseList
    */
-
-  public Student(
-    String firstName,
-    String lastName,
-    String username,
-    String password,
-    String type,
-    String major,
-    Advisor advisor,
-    StudentYear studentYear,
-    StudentPortfolio portfolio,
-    String applicationArea
   public Student( String firstName, String lastName, String username, String password, 
                   String userType, String major, Advisor advisor, StudentYear studentYear, 
                   StudentPortfolio portfolio, String applicationArea, CourseList courseList
@@ -108,11 +96,6 @@ public class Student extends User {
     
   }
 
-
-  public void displayStudentPortfolio() {}
-
-  public String toString() {
-    return "Student: " + firstName + " " + lastName=======
   public String toString() {
     return "Student: " + firstName + " " + lastName;
 }
