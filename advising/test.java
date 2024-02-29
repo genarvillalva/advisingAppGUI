@@ -9,8 +9,6 @@ public class test {
     testGetAllAdvisors();
     testGetAllCourses();
     testGetAllMajors();
-    testGetAllStudentPortfolios();
-    // testWriteUsers();
   }
 
   public static void testGetAllStudents() {
@@ -37,40 +35,11 @@ public class test {
       System.out.println(course);
     }
   }
-
   public static void testGetAllMajors() {
     ArrayList<Major> majors = DataLoader.getAllMajors();
     System.out.println("List of Majors:");
     for (Major major : majors) {
       System.out.println(major);
     }
-  }
-  public static void testGetAllStudentPortfolios() {
-    ArrayList<StudentPortfolio> studentPortfolios = DataLoader.getAllStudentPortfolios();
-    System.out.println("List of Student Portfolios:");
-    for (StudentPortfolio studentPortfolio : studentPortfolios) {
-      System.out.println(studentPortfolio);
-    }
-  }
-
-  public static void testWriteUsers() {
-    ArrayList<Student> students = DataLoader.getAllStudents();
-    ArrayList<Advisor> advisors = DataLoader.getAllAdvisors();
-    StudentYear studentYear = StudentYear.FRESHMAN;
-    ArrayList<StudentPortfolio> StudentPortfolio = DataLoader.getAllStudentPortfolios();
-    Student s = new Student(
-      "James",
-      "Son",
-      "jamesson1",
-      "password",
-      "Student",
-      "Computer Science",
-      advisors.get(0),
-      studentYear,
-      StudentPortfolio.get(0),
-      "Application Area"
-    );
-    students.add(s);
-    DataWriter.saveUsers(students);
   }
 }

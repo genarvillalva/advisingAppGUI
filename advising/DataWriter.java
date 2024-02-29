@@ -14,120 +14,44 @@ public class DataWriter extends DataConstants {
    * @param students List of Student objects to be written to the file
    * @param filePath The path to the JSON file
    */
-  public static void saveUsers(ArrayList<Student> newStudents) {
+  public static void writeStudents(ArrayList<Student> newStudents) {
     UserList users = UserList.getInstance();
     ArrayList<Advisor> advisors = users.getAdvisors();
     ArrayList<Student> students = users.getStudents();
     JSONArray jsonStudents = new JSONArray();
     JSONArray jsonAdvisors = new JSONArray();
     for (Student student : newStudents) {
-      System.out.println(
-        "Saving Student: " +
-        student.getFirstName() +
-        " " +
-        student.getLastName()
-      );
       JSONObject studentObject = new JSONObject();
       studentObject.put(FIRST_NAME, student.getFirstName());
       studentObject.put(LAST_NAME, student.getLastName());
       studentObject.put(USER_NAME, student.getUserName());
       studentObject.put(PASSWORD, student.getPassword());
       studentObject.put(MAJOR, student.getMajor());
-      studentObject.put(ADVISOR, student.getAdvisor().getUsername());
+      studentObject.put(ADVISOR, student.getAdvisor().getUsername()); 
       studentObject.put(STUDENT_YEAR, student.getStudentClass().toString());
       studentObject.put(APPLICATION_AREA, student.getApplicationArea());
-      jsonStudents.add(studentObject);
+      newStudents.add(studentObject);
     }
+    writeToFile(newStudents, "advising/json/students.json");
+  }
+
+  /**
+   * Writes a list of advisors to a JSON file
+   * @param advisors List of Advisor objects to be written to the file
+   * @param filePath The path to the JSON file
+   */
+  public static void writeAdvisors(List<Advisor> advisors, String filePath) {
+    JSONArray advisorsArray = new JSONArray();
     for (Advisor advisor : advisors) {
-      System.out.println(
-        "Saving Advisor: " +
-        advisor.getFirstName() +
-        " " +
-        advisor.getLastName()
-      );
       JSONObject advisorObject = new JSONObject();
       advisorObject.put(FIRST_NAME, advisor.getFirstName());
       advisorObject.put(LAST_NAME, advisor.getLastName());
       advisorObject.put(USER_NAME, advisor.getUsername());
       advisorObject.put(PASSWORD, advisor.getPassword());
-      advisorObject.put(ADVISOR, advisor.getListofAdvisedStudents());
-      jsonAdvisors.add(advisorObject);
+      //TODO add list of advised students
+      advisorsArray.add(advisorObject);
     }
-    writeToFile(jsonStudents, "advising/json/students.json");
-    writeToFile(jsonAdvisors, "advising/json/advisors.json");
-  }
-
-  public static void saveStudents() {
-    UserList userList = UserList.getInstance();
-    ArrayList<Student> newStudents = userList.getStudents();
-    ArrayList<Student> oldStudents = DataLoader.getAllStudents();
-    JSONArray jsonStudents = new JSONArray();
-    for (int i = 0; i < newStudents.size(); i++) {
-      if (oldStudents.contains(newStudents.get(i))) {
-        continue;
-      }
-      System.out.println(
-        "Saving Student: " +
-        newStudents.get(i).getFirstName() +
-        " " +
-        newStudents.get(i).getLastName()
-      );
-      jsonStudents.add(toStudentJSON(newStudents.get(i)));
-    }
-    writeToFile(jsonStudents, "advising/json/students.json");
-  }
-
-  /**
-   * Helper function for saveStudents to convert each user to JSON format
-   *
-   * @param student to convert to JSON object
-   * @return JSONObject of student
-   */
-  private static JSONObject toStudentJSON(Student student) {
-    JSONObject studentObject = new JSONObject();
-    studentObject.put(FIRST_NAME, student.getFirstName());
-    studentObject.put(LAST_NAME, student.getLastName());
-    studentObject.put(USER_NAME, student.getUserName());
-    studentObject.put(PASSWORD, student.getPassword());
-    studentObject.put(MAJOR, student.getMajor());
-    studentObject.put(ADVISOR, student.getAdvisor());
-    studentObject.put(STUDENT_YEAR, student.getStudentClass());
-    studentObject.put(PORTFOLIO, student.getPortfolio());
-    studentObject.put(APPLICATION_AREA, student.getApplicationArea());
-    return studentObject;
-  }
-
-  public static void saveAdvisors() {
-    UserList userList = UserList.getInstance();
-    ArrayList<Advisor> newAdvisors = userList.getAdvisors();
-    ArrayList<Advisor> oldAdvisors = DataLoader.getAllAdvisors();
-    JSONArray jsonAdvisors = new JSONArray();
-    for (int i = 0; i < newAdvisors.size(); i++) {
-      if (oldAdvisors.contains(newAdvisors.get(i))) {
-        continue;
-      }
-      System.out.println(
-        "Saving Advisor: " +
-        newAdvisors.get(i).getFirstName() +
-        " " +
-        newAdvisors.get(i).getLastName()
-      );
-      jsonAdvisors.add(getAdvisorJSON(newAdvisors.get(i)));
-    }
-    writeToFile(jsonAdvisors, "advising/json/advisors.json");
-  }
-
-  private static JSONObject getAdvisorJSON(Advisor advisor) {
-    JSONObject advisorObject = new JSONObject();
-    advisorObject.put(FIRST_NAME, advisor.getFirstName());
-    advisorObject.put(LAST_NAME, advisor.getLastName());
-    advisorObject.put(USER_NAME, advisor.getUsername());
-    advisorObject.put(PASSWORD, advisor.getPassword());
-    advisorObject.put(
-      LIST_OF_ADVISED_STUDENTS,
-      advisor.getListofAdvisedStudents()
-    );
-    return advisorObject;
+    writeToFile(advisorsArray, filePath);
   }
 
   /**

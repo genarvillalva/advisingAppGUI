@@ -2,7 +2,6 @@ package advising;
 
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.HashMap;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -48,7 +47,6 @@ public class DataLoader extends DataConstants {
           (String) studentJSON.get(LAST_NAME),
           (String) studentJSON.get(USER_NAME),
           (String) studentJSON.get(PASSWORD),
-          (String) studentJSON.get(TYPE),
           (String) studentJSON.get(MAJOR),
           (Advisor) studentJSON.get(advisor),
           (StudentYear) studentJSON.get(STUDENT_YEAR),
@@ -62,7 +60,6 @@ public class DataLoader extends DataConstants {
     }
     return students;
   }
-
   /**
    * Reads the advisors.json file and returns an ArrayList of Advisors
    * @return ArrayList<Advisor>
@@ -89,11 +86,10 @@ public class DataLoader extends DataConstants {
     }
     return advisors;
   }
-
-  /**
-   * Reads the Course.json file and returns an ArrayList of Courses
-   * @return ArrayList<Course>
-   */
+/**
+ * Reads the Course.json file and returns an ArrayList of Courses
+ * @return ArrayList<Course>
+ */
   public static ArrayList<Course> getAllCourses() {
     ArrayList<Course> courses = new ArrayList<Course>();
     try {
@@ -121,7 +117,6 @@ public class DataLoader extends DataConstants {
     }
     return courses;
   }
-
   /**
    * Reads the Major.json file and returns an ArrayList of Majors
    * @return
@@ -146,68 +141,5 @@ public class DataLoader extends DataConstants {
       e.printStackTrace();
     }
     return majors;
-  }
-
-  /**
-   * Reads the StudentPortfolio.json file and returns an ArrayList of StudentPortfolios
-   * @return ArrayList<StudentPortfolio>
-   */
-  public static ArrayList<StudentPortfolio> getAllStudentPortfolios() {
-    ArrayList<StudentPortfolio> studentPortfolios = new ArrayList<StudentPortfolio>();
-    try {
-      FileReader reader = new FileReader("advising/json/studentPortfolios.json");
-      JSONParser parser = new JSONParser();
-      JSONArray studentPortfoliosJSON = (JSONArray) parser.parse(reader);
-      for (int i = 0; i < studentPortfoliosJSON.size(); i++) {
-        JSONObject studentPortfolioJSON = (JSONObject) studentPortfoliosJSON.get(
-          i
-        );
-        StudentPortfolio studentPortfolio = new StudentPortfolio(
-          (String) studentPortfolioJSON.get(PORTFOLIO_UUID),
-          (ArrayList<Course>) studentPortfolioJSON.get(REQUIRED_COURSES),
-          (HashMap<String, ArrayList<Course>>) studentPortfolioJSON.get(
-            EIGHT_SEMESTER_PLAN
-          ),
-          (ArrayList<Course>) studentPortfolioJSON.get(CURRENT_COURSES),
-          (HashMap<Course, Double>) studentPortfolioJSON.get(COMPLETED_COURSES),
-          (HashMap<Course, Integer>) studentPortfolioJSON.get(FAILED_COURSES),
-          (String) studentPortfolioJSON.get(SCHOLARSHIP),
-          (
-            (Long) studentPortfolioJSON.get(
-              YEARLY_SCHOLARSHIP_CREDIT_HOURS_LEFT
-            )
-          ).intValue(),
-          ((Double) studentPortfolioJSON.get(GPA)).doubleValue(),
-          ((Long) studentPortfolioJSON.get(FAIL_COUNT)).intValue(),
-          ((Long) studentPortfolioJSON.get(SEMESTER_CREDIT_COUNT)).intValue(),
-          ((Long) studentPortfolioJSON.get(YEAR_CREDIT_HOURS)).intValue(),
-          ((Long) studentPortfolioJSON.get(TOTAL_CREDIT_HOURS)).intValue(),
-          (
-            (Long) studentPortfolioJSON.get(TOTAL_CREDIT_HOURS_FOUND_DOCU)
-          ).intValue(),
-          ((Long) studentPortfolioJSON.get(TOTAL_CREDIT_HOURS_CC)).intValue(),
-          (
-            (Long) studentPortfolioJSON.get(
-              TOTAL_CREDIT_HOURS_INTEGRATIVE_COURSE
-            )
-          ).intValue(),
-          (
-            (Long) studentPortfolioJSON.get(
-              TOTAL_CREDIT_HOURS_PROGRAM_REQUIREMENTS
-            )
-          ).intValue(),
-          (
-            (Long) studentPortfolioJSON.get(
-              TOTAL_CREDIT_HOURS_MAJOR_REQUIREMENTS
-            )
-          ).intValue(),
-          (ArrayList<ElectiveCluster>) studentPortfolioJSON.get("0")
-        );
-        studentPortfolios.add(studentPortfolio);
-      }
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
-    return studentPortfolios;
   }
 }
