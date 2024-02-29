@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class StudentPortfolio {
-  private String portolioUUID;
+  private String portfolioUUID;
   private double gpa;
   private int failCount;
   private int semesterCreditCount;
@@ -26,7 +26,7 @@ public class StudentPortfolio {
   private ArrayList<ElectiveCluster> electiveClusterArray;
 
   public StudentPortfolio(
-    String portolioUUID,
+    String portfolioUUID,
     ArrayList<Course> requiredCourses,
     HashMap<String, ArrayList<Course>> eightSemesterPlan,
     ArrayList<Course> currentCourses,
@@ -67,8 +67,8 @@ public class StudentPortfolio {
    * Returns the student's portfolio UUID
    * @return student's UUID 
    */
-  public String getPortolioUUID() {
-    return portolioUUID;
+  public String getPortfolioUUID() {
+    return portfolioUUID;
 }
 /**
  * Returns the student's required courses
