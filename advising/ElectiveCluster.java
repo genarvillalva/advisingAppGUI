@@ -7,7 +7,7 @@ public class ElectiveCluster {
 
   public ElectiveCluster() {
     this.Courses = new HashMap<Course, Boolean>();
-}
+  } 
   public boolean isClusterComplete() {
 
     return true;

@@ -8,15 +8,22 @@ public class Faculty extends User {
     private User user;
     private Student student;
     private StudentPortfolio studentPortfolio;
+
   
     public Faculty(String firstName, String lastName, String username, String password, String userType) {
         super(firstName, lastName, username, password, userType);
         this.courseList = courseList;
+
+        this.studentPortfolio = studentPortfolio;
+        this.userList = userList;
+        }
+
      
     /**
     * Takes in all of the atrabutes a student has and returns a print statement with all of them 
     * @return String of student portfolio
     */
+
     public String searchStudentProfile(String username) {
         ArrayList<StudentPortfolio> studentPortfolios = DataLoader.getAllStudentPortfolios();
         StringBuilder profileDetails = new StringBuilder();
@@ -55,8 +62,13 @@ public class Faculty extends User {
     }
     
     // Method to input or update the grades of a student.
-    public void inputStudentGrades(int grade) {
-        
+    public void inputStudentGrades(String username, Course course, double grade) {
+        accessStudentProfile(username);
+        if(studentPortfolio != null) {
+            studentPortfolio.getCompletedCourses().put(course, grade);
+        } else {
+            System.out.println("Student profile not found for username: " + username);
+        }
     }
 
     public void courseLookup(String course) {
