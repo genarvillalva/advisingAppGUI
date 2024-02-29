@@ -10,6 +10,7 @@ public class test {
     testGetAllCourses();
     testGetAllMajors();
     testGetAllStudentPortfolios();
+    testStudentPortfolio();
     // testWriteUsers();
   }
 
@@ -43,6 +44,14 @@ public class test {
     System.out.println("List of Majors:");
     for (Major major : majors) {
       System.out.println(major);
+    }
+  }
+
+  public static void testStudentPortfolio() {
+    ArrayList<StudentPortfolio> studentPortfolios = DataLoader.getAllStudentPortfolios();
+    for (int i = 0; i < studentPortfolios.size(); i++) {
+      System.out.println("\nStudent UUID " + i + ":");
+    System.out.println(studentPortfolios.get(i).getRequiredCourses());
     }
   }
   public static void testGetAllStudentPortfolios() {
