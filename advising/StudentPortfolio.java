@@ -106,4 +106,11 @@ public class StudentPortfolio {
     return 0;
   }
 
+  //Suggestion***
+  //Should we add a toString for Student to return in order to get display all of the classes
+  //that the student is currently taking?
+  public String toString() {
+    return " ";
+  }
+
 }

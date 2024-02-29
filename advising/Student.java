@@ -92,11 +92,12 @@ public class Student extends User {
   }
 
   public void displayStudentPortfolio() {
-    
+    this.studentPortfolio.toString();
   }
 
   public String toString() {
-    return "Student: " + firstName + " " + lastName;
+    return "Student: " + firstName + " " + lastName + "\n" +
+           "Major: " + major + " Student Year: " + studentClass;
 }
 
   public void courseLookup(String course) {

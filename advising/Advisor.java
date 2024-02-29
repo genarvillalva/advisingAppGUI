@@ -2,7 +2,7 @@ package advising;
 
 import java.util.ArrayList;
 
-public class Advisor {
+public class Advisor extends User{
 
   private String firstName;
   private String lastName;
@@ -10,6 +10,7 @@ public class Advisor {
   private String password;
   private ArrayList<Student> listofAdvisedStudents;
   private String advisingNotes;
+  private CourseList courseList;
 
   /**
    * Constructor for the Advisor class
@@ -19,18 +20,12 @@ public class Advisor {
    * @param password
    * @param listOfAdvisedStudents
    */
-  public Advisor(
-    String firstName,
-    String lastName,
-    String username,
-    String password,
-    ArrayList<Student> listOfAdvisedStudents
-  ) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.username = username;
-    this.password = password;
+  public Advisor(String firstName, String lastName, String username,
+                 String password, String userType, ArrayList<Student> listOfAdvisedStudents
+   ) {
+    super(firstName, lastName, username, password, userType);
     this.listofAdvisedStudents = listOfAdvisedStudents;
+    this.courseList = courseList;
   }
 
   /**
@@ -110,4 +105,8 @@ public class Advisor {
             "List of Advised Students: " + listofAdvisedStudents + "\n" +
             "Advising Notes: " + advisingNotes;
 }
+
+  public void courseLookup(String course) {
+    courseList.findCourse(course);
+  }
 }
