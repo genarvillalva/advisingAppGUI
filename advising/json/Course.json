@@ -9,7 +9,7 @@
     "prerequisiteCourses":[],
     "corequisiteCourses":[],
     "prereqCoreq":[],
-    "preferedsemester":1
+    "preferredSemester":1
   },
   {
     "courseID":"MATH141",
@@ -21,7 +21,7 @@
     "prerequisiteCourses":["MATH112","MATH115","MATH116"],
     "corequisiteCourses":[],
     "prereqCoreq":[],
-    "preferedsemester":1
+    "preferredSemester":1
   },
   {
     "courseID":"CSCE145",
@@ -33,7 +33,7 @@
     "prerequisiteCourses":["MATH111","MATH115"],
     "corequisiteCourses":["MATH111","MATH115"],
     "prereqCoreq":[],
-    "preferedsemester":1
+    "preferredSemester":1
 },
   {
     "courseID":"CSCE190",
@@ -45,7 +45,7 @@
     "prerequisiteCourses":["CSCE145","CSCE204","CSCE205","CSCE206"],
     "corequisiteCourses":["CSCE145","CSCE204","CSCE205","CSCE206"],
     "prereqCoreq":[],
-    "preferedsemester":1
+    "preferredSemester":1
   },
   {
     "courseID":"ENGL102",
@@ -57,7 +57,7 @@
     "prerequisiteCourses":["ENGL101"],
     "corequisiteCourses":["MATH111","MATH115"],
     "prereqCoreq":[],
-    "preferedsemester":2
+    "preferredSemester":2
   },
   {
     "courseID":"MATH142",
@@ -69,7 +69,7 @@
     "prerequisiteCourses":["MATH 141"],
     "corequisiteCourses":["MATH 111","MATH 115"],
     "prereqCoreq":[],
-    "preferedsemester":2
+    "preferredSemester":2
   },
   {
     "courseID":"CHEM111",
@@ -81,7 +81,7 @@
     "prerequisiteCourses":["CC-SCI","C or better in MATH 111/115/122/141 or higher math or Math placement test score"],
     "corequisiteCourses":["CHEM111L"],
     "prereqCoreq": [],
-    "preferedsemester":1
+    "preferredSemester":1
   },
   {
     "courseID":"CHEM111L",
@@ -93,7 +93,7 @@
     "prerequisiteCourses":["CC-SCI","MATH 111 or 115"],
     "corequisiteCourses":[],
     "prereqCoreq":["CHEM111"],
-    "preferedsemester":1
+    "preferredSemester":1
   },
   {
     "courseID":"PHYS211",
@@ -105,7 +105,7 @@
     "prerequisiteCourses":["CC-SCI","C or better in MATH 111/115/122/141 or higher math or Math placement test score"],
     "corequisiteCourses":["CHEM111L"],
     "prereqCoreq":["PHYS211L"],
-    "preferedsemester":1
+    "preferredSemester":1
   },
   {
     "courseID":"PHYS211L",
@@ -117,7 +117,7 @@
     "prerequisiteCourses":["CC-SCI","MATH 111 or 115"],
     "corequisiteCourses":[],
     "prereqCoreq":["CHEM111"],
-    "preferedsemester":1
+    "preferredSemester":1
   },
   {
     "courseID":"CSCE146",
@@ -129,7 +129,7 @@
     "prerequisiteCourses":["PR","C or better in MATH 122 or 141"],
     "corequisiteCourses":[],
     "prereqCoreq":[],
-    "preferedsemester":2
+    "preferredSemester":2
   },
   {
     "courseID":"CSCE215",
@@ -141,7 +141,7 @@
     "prerequisiteCourses":["PR","CSCE 145"],
     "corequisiteCourses":[],
     "prereqCoreq":[],
-    "preferedsemester":2
+    "preferredSemester":2
   }
 ]
 
