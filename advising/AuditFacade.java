@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class AuditFacade {
     private User user;
     private UserList userList;
-    private RequiredCourses requiredCourses;
+    // private RequiredCourses requiredCourses;
 
     
     public void signUp(String userName, String password, String userType) {

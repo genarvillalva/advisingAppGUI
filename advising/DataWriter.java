@@ -7,8 +7,32 @@ import java.util.List;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+/**
+ * Writes data to JSON files
+ * @author Genar Villalva
+ */
 public class DataWriter extends DataConstants {
 
+  /**
+   * Writes Courses and their information to a JSON file
+   * @param students List of Student objects to be written to the file
+   * @param filePath The path to the JSON file
+   */
+  public static void saveCourses(List<Course> courses) {
+    JSONArray jsonCourses = new JSONArray();
+    for (Course course : courses) {
+      JSONObject courseObject = new JSONObject();
+      courseObject.put(COURSE_ID, course.getCourseID());
+      courseObject.put(COURSE_TITLE, course.getCourseTitle());
+      courseObject.put(COURSE_CODE, course.getCourseCode());
+      courseObject.put(CREDIT_HOURS, course.getCreditHours());
+      courseObject.put(MIN_GRADE, course.getMinGrade());
+      courseObject.put(SEMESTER, course.getSemester());
+      courseObject.put(PREREQUISITE_COURSES, course.getPrerequisiteCourses());
+      jsonCourses.add(courseObject);
+    }
+    writeToFile(jsonCourses, "advising/json/Course.json");
+  }
   /**
    * Writes a list of students to a JSON file
    * @param students List of Student objects to be written to the file
@@ -30,7 +54,7 @@ public class DataWriter extends DataConstants {
       JSONObject studentObject = new JSONObject();
       studentObject.put(FIRST_NAME, student.getFirstName());
       studentObject.put(LAST_NAME, student.getLastName());
-      studentObject.put(USER_NAME, student.getUserName());
+      studentObject.put(USER_NAME, student.getUsername());
       studentObject.put(PASSWORD, student.getPassword());
       studentObject.put(MAJOR, student.getMajor());
       studentObject.put(ADVISOR, student.getAdvisor().getUsername());
@@ -87,7 +111,7 @@ public class DataWriter extends DataConstants {
     JSONObject studentObject = new JSONObject();
     studentObject.put(FIRST_NAME, student.getFirstName());
     studentObject.put(LAST_NAME, student.getLastName());
-    studentObject.put(USER_NAME, student.getUserName());
+    studentObject.put(USER_NAME, student.getUsername());
     studentObject.put(PASSWORD, student.getPassword());
     studentObject.put(MAJOR, student.getMajor());
     studentObject.put(ADVISOR, student.getAdvisor());
