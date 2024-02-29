@@ -114,7 +114,8 @@ public class Course {
     int creditHours,
     char minGrade,
     ArrayList<Semester> semester,
-    ArrayList<Course> prerequisiteCourses
+    ArrayList<Course> prerequisiteCourses,
+    int preferredSemester
   ) {
     this.courseID = courseID;
     this.courseTitle = courseTitle;
@@ -123,6 +124,7 @@ public class Course {
     this.minGrade = minGrade;
     this.semester = semester;
     this.prerequisiteCourses = prerequisiteCourses;
+    this.preferredSemester = preferredSemester;
   }
 
   /**
