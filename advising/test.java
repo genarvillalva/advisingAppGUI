@@ -28,7 +28,7 @@ public class test {
       System.out.println(advisor);
     }
   }
-
+  ////////////
   public static void testGetAllCourses() {
     ArrayList<Course> courses = DataLoader.getAllCourses();
     System.out.println("List of Courses:");
