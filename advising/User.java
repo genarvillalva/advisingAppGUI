@@ -5,24 +5,27 @@ import java.util.Scanner;
 
 public abstract class User {
 
-  private String name;
+  private String firstName;
+  private String lastName;
   private String username;
   private String password;
   private String userType;
-  private String userUUID;
   private UserList UserList;
 
-  public User(String name, String username, String password, String userType) {
+  public User(String firstName, String lastName, String username, String password, String userType) {
+    this.firstName = firstName;
+    this.lastName = lastName;
     this.username = username;
     this.password = password;
-    this.name = name;
     this.userType = userType;
-    this.userUUID = userUUID;
     this.UserList = UserList;
   }
 
-  public String getName() {
-    return this.name;
+  public String getFirstName() {
+    return this.firstName;
+  }
+  public String getLastName() {
+    return this.firstName;
   }
 
   public String getUsername() {
@@ -37,7 +40,7 @@ public abstract class User {
     return this.userType;
   }
 
-  public abstract boolean courseLookup(String course);
+  public abstract void courseLookup(String course);
 
   public void loginStudent(String username, String password) {
     while(true) {
@@ -51,7 +54,7 @@ public abstract class User {
     }
   }
 
-  public void loginAdmin() {
+  public void loginAdmin(String username, String password) {
     while(true) {
       if(UserList.getInstance().verifyLoginAdmin(username, password)) {
         System.out.println("Login Successful");
@@ -63,7 +66,7 @@ public abstract class User {
     }
   }
 
-  public void loginAdvisor() {
+  public void loginAdvisor(String username, String password) {
     while(true) {
       if(UserList.getInstance().verifyLoginAdvisor(username, password)) {
         System.out.println("Login Successful");

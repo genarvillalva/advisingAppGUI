@@ -92,22 +92,48 @@ public class StudentPortfolio {
 
   public void LookupCourse(String courseName, String courseNumber) {}
 
+  /**
+   * Adds a course to the student's portfolio.
+   * 
+   * @param course The course to be added to the portfolio.
+   */
+  public void addCourse(Course course) {
+    requiredCourses.add(course);
+  }
+
   public boolean checkClassFailure() {
     return true;
   }
+  /**
+  * Checks to make sure the students grade in the class is not failing
+  * @return true if student is failing and false if student is passing
+  */
+  public boolean checkClassFailure(int grade) {
+    if (grade < 60) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
-  public String checkScholarship(double gpa, int YearCreditCount) {
-    return " ";
+
+  /**
+  * Checks to make sure the student has done all scholarship requirements
+  * @return true if requirements are met and false if not
+  */
+  public boolean checkScholarship(double gpa, int YearCreditCount) {
+    if (gpa > 3.0 && YearCreditCount > 30) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   /**
-   * Calculates the amount of course credit left for a student to graduate
-   * @return the int of total minus completed
-   */
-  public int calculateCourseCreditLeft(
-    int completedCreditHours,
-    int totalCreditHours
-  ) {
+  * Calculates the amount of course credit left for a student to graduate
+  * @return the int of total minus completed
+  */
+  public static int calculateCourseCreditLeft(int completedCreditHours, int totalCreditHours) {
     return (totalCreditHours - completedCreditHours);
   }
 
@@ -117,6 +143,7 @@ public class StudentPortfolio {
   ) {
     return 0;
   }
+
 
   public String toString() {
     return (
