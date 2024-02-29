@@ -236,12 +236,20 @@ public ArrayList<ElectiveCluster> getElectiveClusterArray() {
     requiredCourses.add(course);
   }
 
-  public boolean checkClassFailure() {
-    return true;
+  public boolean checkClassFailure(int grade) {
+    if (grade < 60) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
-  public String checkScholarship(double gpa, int YearCreditCount) {
-    return " ";
+  public boolean checkScholarship(double gpa, int YearCreditCount) {
+    if (gpa > 3.0 && YearCreditCount > 30) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   /**
