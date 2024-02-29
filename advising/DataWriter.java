@@ -30,7 +30,7 @@ public class DataWriter extends DataConstants {
       JSONObject studentObject = new JSONObject();
       studentObject.put(FIRST_NAME, student.getFirstName());
       studentObject.put(LAST_NAME, student.getLastName());
-      studentObject.put(USER_NAME, student.getUserName());
+      studentObject.put(USER_NAME, student.getUsername());
       studentObject.put(PASSWORD, student.getPassword());
       studentObject.put(MAJOR, student.getMajor());
       studentObject.put(ADVISOR, student.getAdvisor().getUsername());
@@ -87,7 +87,7 @@ public class DataWriter extends DataConstants {
     JSONObject studentObject = new JSONObject();
     studentObject.put(FIRST_NAME, student.getFirstName());
     studentObject.put(LAST_NAME, student.getLastName());
-    studentObject.put(USER_NAME, student.getUserName());
+    studentObject.put(USER_NAME, student.getUsername());
     studentObject.put(PASSWORD, student.getPassword());
     studentObject.put(MAJOR, student.getMajor());
     studentObject.put(ADVISOR, student.getAdvisor());
