@@ -5,7 +5,9 @@ import java.util.HashMap;
 public class ElectiveCluster {
   private HashMap<Course, Boolean> Courses;
 
-
+  public ElectiveCluster() {
+    this.Courses = new HashMap<Course, Boolean>();
+}
   public boolean isClusterComplete() {
 
     return true;
