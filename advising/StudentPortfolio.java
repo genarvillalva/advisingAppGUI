@@ -8,11 +8,12 @@ public class StudentPortfolio {
   private double gpa;
   private int failCount;
   private int semesterCreditCount;
+
   private ArrayList<Course> requiredCourses;
   private HashMap eightSemesterPlan;
   private ArrayList<Course> currentCourses;
   //Completed Course method?
-  private HashMap<Course, Double> completedCourses;
+  private HashMap<Course, Integer> completedCourses;
   private HashMap<Course, Integer> failedCourses;
   private String scholarship;
   private int scholarshipCreditHoursLeft;
@@ -196,6 +197,7 @@ public int getTotalCreditHoursMajorRequirements() {
 public ArrayList<ElectiveCluster> getElectiveClusterArray() {
     return electiveClusterArray;
 }
+
   public void requiredCourses(String courseName, String courseNumber) {
     requiredCourses = new ArrayList<>();
     eightSemesterPlan = new HashMap();
@@ -203,14 +205,15 @@ public ArrayList<ElectiveCluster> getElectiveClusterArray() {
     completedCourses = new HashMap();
     failedCourses = new HashMap();
     electiveClusterArray = new ArrayList();
+
   }
 
   /**
-   * Converts the grade into a GPA int
-   * @return the int value 0-4 for a singular grade
-   */
+  * Converts the grade into a GPA int
+  * @return the int value 0-4 for a singular grade
+  */
   public int ConvertLetterGradeToGpa(int grade) {
-    if (grade > 100 || grade < 0) {
+    if (grade > 100 || grade < 0){
       return 0;
     } else if (grade >= 90) {
       return 4;
@@ -225,68 +228,58 @@ public ArrayList<ElectiveCluster> getElectiveClusterArray() {
     }
   }
 
-  public void LookupCourse(String courseName, String courseNumber) {}
+  public void LookupCourse(String courseName, String courseNumber) {
 
-  public boolean checkClassFailure() {
-    return true;
-  }
-
-  public String checkScholarship(double gpa, int YearCreditCount) {
-    return " ";
   }
 
   /**
-   * Calculates the amount of course credit left for a student to graduate
-   * @return the int of total minus completed
+   * Adds a course to the student's portfolio.
+   * 
+   * @param course The course to be added to the portfolio.
    */
-  public int calculateCourseCreditLeft(
-    int completedCreditHours,
-    int totalCreditHours
-  ) {
+  public void addCourse(Course course) {
+    requiredCourses.add(course);
+  }
+
+  public boolean checkClassFailure() {
+
+    return true;
+  }
+  /**
+  * Checks to make sure the students grade in the class is not failing
+  * @return true if student is failing and false if student is passing
+  */
+  public boolean checkClassFailure(int grade) {
+    if (grade < 60) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  /**
+  * Checks to make sure the student has done all scholarship requirements
+  * @return true if requirements are met and false if not
+  */
+  public boolean checkScholarship(double gpa, int YearCreditCount) {
+    if (gpa > 3.0 && YearCreditCount > 30) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  /**
+  * Calculates the amount of course credit left for a student to graduate
+  * @return the int of total minus completed
+  */
+  public static int calculateCourseCreditLeft(int completedCreditHours, int totalCreditHours) {
     return (totalCreditHours - completedCreditHours);
   }
 
-  public int calculateGPA(
-    HashMap<Course, Integer> completedCourses,
-    int grade
-  ) {
+  public int calculateGPA(HashMap<Course, Integer> completedCourses, int grade) {
+
     return 0;
   }
 
-  public String toString() {
-    return (
-      "StudentPortfolio: " +
-      "\nrequiredCourses=" +
-      requiredCourses +
-      "\neightSemesterPlan=" +
-      eightSemesterPlan +
-      "\ncurrentCourses=" +
-      currentCourses +
-      "\ncompletedCourses=" +
-      completedCourses +
-      "\nfailedCourses=" +
-      failedCourses +
-      "\nscholarship='" +
-      scholarship +
-      '\'' +
-      ", scholarshipCreditHoursLeft=" +
-      scholarshipCreditHoursLeft +
-      "\n yearCreditCount=" +
-      yearCreditCount +
-      ", totalCreditHours=" +
-      totalCreditHours +
-      ", totalCreditHoursFoundDocu=" +
-      totalCreditHoursFoundDocu +
-      ", totalCreditHoursCC=" +
-      totalCreditHoursCC +
-      ", totalCreditHoursIntegrativeCourse=" +
-      totalCreditHoursIntegrativeCourse +
-      ", totalCreditHoursProgramRequirements=" +
-      totalCreditHoursProgramRequirements +
-      ", totalCreditHoursMajorRequirements=" +
-      totalCreditHoursMajorRequirements +
-      "\n electiveClusterArray=" +
-      electiveClusterArray 
-    );
-  }
 }

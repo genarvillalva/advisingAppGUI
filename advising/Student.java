@@ -1,6 +1,8 @@
 package advising;
 
-public class Student {
+import java.util.ArrayList;
+
+public class Student extends User {
 
   private String firstName;
   private String lastName;
@@ -12,6 +14,7 @@ public class Student {
   private StudentYear studentClass;
   private StudentPortfolio studentPortfolio;
   private String applicationArea;
+  private CourseList courseList;
 
   /**
    * Constructor for the Student class
@@ -24,60 +27,19 @@ public class Student {
    * @param studentYear
    * @param portfolio
    * @param applicationArea
+   * @param courseList
    */
-  public Student(
-    String firstName,
-    String lastName,
-    String username,
-    String password,
-    String type,
-    String major,
-    Advisor advisor,
-    StudentYear studentYear,
-    StudentPortfolio portfolio,
-    String applicationArea
+  public Student( String firstName, String lastName, String username, String password, 
+                  String userType, String major, Advisor advisor, StudentYear studentYear, 
+                  StudentPortfolio portfolio, String applicationArea, CourseList courseList
   ) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.username = username;
-    this.password = password;
+    super(firstName, lastName, username, password, userType);
     this.major = major;
     this.advisor = advisor;
     this.studentClass = studentYear;
     this.studentPortfolio = portfolio;
     this.applicationArea = applicationArea;
-  }
-
-  /**
-   * Get the first name of the student
-   * @return The first name of the student
-   */
-  public String getFirstName() {
-    return firstName;
-  }
-
-  /**
-   * Get the last name of the student
-   * @return The last name of the student
-   */
-  public String getLastName() {
-    return lastName;
-  }
-
-  /**
-   * Get the username of the student
-   * @return The username of the student
-   */
-  public String getUserName() {
-    return username;
-  }
-
-  /**
-   * Get the password of the student
-   * @return The password of the student
-   */
-  public String getPassword() {
-    return password;
+    this.courseList = courseList;
   }
 
   /**
@@ -120,13 +82,25 @@ public class Student {
     return applicationArea;
   }
 
-  public void addCoursesToStudentPortfolio(String major) {}
+  public void addCoursesToStudentPortfolio(Course course) {
+    this.studentPortfolio.addCourse(course);
+  }
 
-  public void displayMajorMap(Major major) {}
+  public void displayMajorMap(Major major) {
+    for(Course course : major.getRequiredCourses()) {
+      System.out.println(course.toString());
+    }
+  }
 
-  public void displayStudentPortfolio() {}
+  public void displayStudentPortfolio() {
+    
+  }
 
   public String toString() {
     return "Student: " + firstName + " " + lastName;
+}
+
+  public void courseLookup(String course) {
+    courseList.findCourse(course);
   }
 }

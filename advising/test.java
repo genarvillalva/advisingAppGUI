@@ -12,6 +12,7 @@ public class test {
     testGetAllStudentPortfolios();
     testStudentPortfolio();
     // testWriteUsers();
+
   }
 
   public static void testGetAllStudents() {
@@ -38,7 +39,6 @@ public class test {
       System.out.println(course);
     }
   }
-
   public static void testGetAllMajors() {
     ArrayList<Major> majors = DataLoader.getAllMajors();
     System.out.println("List of Majors:");
@@ -82,4 +82,5 @@ public class test {
     students.add(s);
     DataWriter.saveUsers(students);
   }
+
 }
