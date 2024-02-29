@@ -68,4 +68,6 @@ public abstract class DataConstants {
   public static final String STUDENT_PORTFOLIOS_FILE_NAME = "advising/json/StudentPortfolios.json";
   public static final String APPLICATION_AREA_FILE_NAME = "advising/json/applicationArea.json";
   public static final String ELECTIVE_CLUSTER_FILE_NAME = "advising/json/ElectiveCluster.json";
+
+  public static final String PREFERRED_SEMESTER = "preferredSemester";
 }
