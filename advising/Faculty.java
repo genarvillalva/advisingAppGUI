@@ -5,8 +5,8 @@ package advising;
   
   
     public Faculty(String firstName, String lastName, String username, String password, String userType) {
-            super(firstName, lastName, username, password, userType);
-            this.courseList = courseList;
+        super(firstName, lastName, username, password, userType);
+        this.courseList = courseList;
         }
 
     // Returns a String, which could be details of the student profile.
@@ -17,7 +17,7 @@ package advising;
     
     // Method to access a student's profile using their username.
     public void accessStudentProfile(String username) {
-       
+        
     }
     
     // Method to input or update the grades of a student.

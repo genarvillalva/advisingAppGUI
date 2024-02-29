@@ -14,12 +14,12 @@ public class Admin extends User {
 
     // Method to create a course
     public void createCourse(Course course) {
-        
+        courseList.addCourse(course);
     }
 
     // Method to delete a course
     public void deleteCourse(Course course) {
-       
+        courseList.removeCourse(course);
     }
 
 
