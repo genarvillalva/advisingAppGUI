@@ -21,7 +21,13 @@ public class CourseList {
         }
         return courseList;
     }
-
+    /**
+     * Gets the list of courses
+     * @return The list of courses
+     */
+    public ArrayList<Course> getCourses() {
+        return courses;
+    }
     public void findCourse(String course) {
         
     }

@@ -18,26 +18,24 @@ public class DataWriter extends DataConstants {
    * @param students List of Student objects to be written to the file
    * @param filePath The path to the JSON file
    */
-  public static boolean saveCourses() {///////////////////////////////////////////////////////////
-    ArrayList<Course> projectList = ProjectList.getInstance();
-    ArrayList<Project> projects = projectList.getProjects();
+  public static boolean saveCourses() {
+    CourseList courseList = courseList.getInstance();
+    ArrayList<Course> courses = courseList.getCourses();
 
     // Convert arraylist to JSONArray
-    JSONArray jsonProjects = new JSONArray();
+    JSONArray jsonCourses = new JSONArray();
 
-    for (int i = 0; i < projects.size(); i++) {
-      jsonProjects.add(getProjectJSON(projects.get(i)));
+    for (int i = 0; i < courses.size(); i++) {
+      jsonCourses.add(getCourseJSON(courses.get(i)));
     }
 
-    try (FileWriter file = new FileWriter(PROJECT_FILE_NAME)) {
-      file.write(jsonProjects.toJSONString());
+    try (FileWriter file = new FileWriter(COURSES_FILE_NAME)) {
+      file.write(jsonCourses.toJSONString());
       file.flush();
     } catch (IOException e) {
       e.printStackTrace();
     }
     return true;
-  }
-    writeToFile(jsonCourses, "advising/json/Course.json");
   }
   private static JSONObject toCourseJSON(Course course) {
     JSONObject courseObject = new JSONObject();
