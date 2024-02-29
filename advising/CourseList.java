@@ -25,4 +25,10 @@ public class CourseList {
     public void findCourse(String course) {
         
     }
+    public void addCourse(Course course) {
+        
+    }
+    public void removeCourse(Course course) {
+
+    }
 }

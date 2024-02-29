@@ -80,12 +80,20 @@ public class Advisor extends User{
 
   public void suggestCourses(ArrayList<Course> courses) {}
 
-  public void addStudentToAdvisor(
-    String username,
-    ArrayList<Student> listOfAdvisedStudents
-  ) {}
+  public void addStudentToAdvisor(String username, ArrayList<Student> listOfAdvisedStudents) {
+    for (Student student : UserList.getInstance().getStudents()) {
+      if(student.getUsername().equals(username)) {
+        listOfAdvisedStudents.add(student);
+        System.out.println("Student " + username + " added to advisor's list of advised students.");
+        return;
+      }
+    }
+    System.out.println("Student " + username + " not found.");
+  }
 
-  public void removeStudentFromProgram(String username, String major) {}
+  public void removeStudentFromProgram(String username, String major) {
+    UserList.getInstance().removeStudentFromProgram(username, major);
+  }
 
   public String AddStudentApplicationArea(Student applicationArea) {
     return " ";
