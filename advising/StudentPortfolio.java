@@ -2,9 +2,10 @@ package advising;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class StudentPortfolio {
-  private String portolioUUID;
+  private String portfolioUUID;
   private double gpa;
   private int failCount;
   private int semesterCreditCount;
@@ -26,7 +27,7 @@ public class StudentPortfolio {
   private ArrayList<ElectiveCluster> electiveClusterArray;
 
   public StudentPortfolio(
-    String portolioUUID,
+    String portfolioUUID,
     ArrayList<Course> requiredCourses,
     HashMap<String, ArrayList<Course>> eightSemesterPlan,
     ArrayList<Course> currentCourses,
@@ -67,8 +68,8 @@ public class StudentPortfolio {
    * Returns the student's portfolio UUID
    * @return student's UUID 
    */
-  public String getPortolioUUID() {
-    return portolioUUID;
+  public String getPortfolioUUID() {
+    return portfolioUUID;
 }
 /**
  * Returns the student's required courses
@@ -236,12 +237,28 @@ public ArrayList<ElectiveCluster> getElectiveClusterArray() {
     requiredCourses.add(course);
   }
 
-  public boolean checkClassFailure() {
-    return true;
+  /**
+  * Checks to make sure the students grade in the class is not failing
+  * @return true if student is failing and false if student is passing
+  */
+  public boolean checkClassFailure(int grade) {
+    if (grade < 60) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
-  public String checkScholarship(double gpa, int YearCreditCount) {
-    return " ";
+  /**
+  * Checks to make sure the student has done all scholarship requirements
+  * @return true if requirements are met and false if not
+  */
+  public boolean checkScholarship(double gpa, int YearCreditCount) {
+    if (gpa > 3.0 && YearCreditCount >= 30) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   /**
@@ -255,11 +272,37 @@ public ArrayList<ElectiveCluster> getElectiveClusterArray() {
     return (totalCreditHours - completedCreditHours);
   }
 
-  public int calculateGPA(
-    HashMap<Course, Integer> completedCourses,
-    int grade
-  ) {
-    return 0;
+  public double calculateGPA( HashMap<Course, Integer> completedCourses) {
+    double totalQualityPoints = 0.0;
+    int totalCredits = 0;
+
+    // Iterate through each completed course
+    for (Map.Entry<Course, Integer> entry : completedCourses.entrySet()) {
+        Course course = entry.getKey();
+        int grade = entry.getValue();
+
+        // Convert letter grade to GPA
+        int gpa = ConvertLetterGradeToGpa(grade);
+
+        // Get credits for the course
+        int credits = course.getCreditHours();
+
+        // Calculate quality points for the course
+        double qualityPoints = gpa * credits;
+
+        // Add quality points to total
+        totalQualityPoints += qualityPoints;
+
+        // Add credits to total
+        totalCredits += credits;
+    }
+
+    // Calculate GPA
+    if (totalCredits > 0) {
+        return totalQualityPoints / totalCredits;
+    } else {
+        return 0.0; // Prevent division by zero
+    }
   }
 
   public String toString() {

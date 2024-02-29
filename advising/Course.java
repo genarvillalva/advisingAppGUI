@@ -14,9 +14,17 @@ public class Course {
   private ArrayList<Semester> semester;
   private char minGrade;
   private String courseUUID;
-  private String title;
+  private String courseTitle;
+  private int preferredSemester;
 
 
+  /**
+   * Get the title of the course
+   * @return The title of the course
+   */
+  public String getCourseTitle() {
+    return courseTitle;
+  }
   /**
    * Get the course code of the course
    * @return The course code of the course
@@ -82,6 +90,14 @@ public class Course {
   }
 
   /**
+  * Gets the preferred semester of the course
+  * @return The preferred semester of the course
+  */
+  public int getPreferredSemester() {
+    return preferredSemester;
+  }
+
+  /**
    * Get the title of the course
    * @param courseID The title of the course
    * @param title The title of the course
@@ -93,20 +109,22 @@ public class Course {
    */
   public Course(
     String courseID,
-    String title,
+    String courseTitle,
     CourseCode courseCode,
     int creditHours,
     char minGrade,
     ArrayList<Semester> semester,
-    ArrayList<Course> prerequisiteCourses
+    ArrayList<Course> prerequisiteCourses,
+    int preferredSemester
   ) {
     this.courseID = courseID;
-    this.title = title;
+    this.courseTitle = courseTitle;
     this.courseCode = courseCode;
     this.creditHours = creditHours;
     this.minGrade = minGrade;
     this.semester = semester;
     this.prerequisiteCourses = prerequisiteCourses;
+    this.preferredSemester = preferredSemester;
   }
 
   /**
@@ -137,7 +155,7 @@ public class Course {
    */
   public String toString() {
         String result = "CourseID: " + courseID + "\n";
-        result += "Title: " + title + "\n";
+        result += "Title: " + courseTitle + "\n";
         result += "Course Code: " + courseCode + "\n";
         result += "Credit Hours: " + creditHours + "\n";
         result += "Minimum Grade: " + minGrade + "\n";

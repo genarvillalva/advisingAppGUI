@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class AuditFacade {
     private User user;
     private UserList userList;
-    private RequiredCourses requiredCourses;
+    // private RequiredCourses requiredCourses;
 
     
     public void signUp(String userName, String password, String userType) {
@@ -46,15 +46,15 @@ public class AuditFacade {
   }
 
     public void loginAdvisor(String username, String password) {
-        User.loginAdvisor(username, password);
+        user.loginAdvisor(username, password);
     }
 
     public void loginAdmin(String username, String password) {
-        User.loginAdmin(username, password);
+        user.loginAdmin(username, password);
     }
 
     public void loginStudent(String username, String password) {
-        User.loginStudent(username, password);
+        user.loginStudent(username, password);
     }
 
     public void getAllUsers() {

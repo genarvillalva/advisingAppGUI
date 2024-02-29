@@ -90,7 +90,7 @@ public class Student extends User {
   }
 
   public void addCoursesToStudentPortfolio(Course course) {
-    this.studentPortfolio.addCourse(course);
+    // this.studentPortfolio.addCourse(course);
   }
 
   public void displayMajorMap(Major major) {
