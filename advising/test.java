@@ -5,13 +5,13 @@ import java.util.ArrayList;
 public class test {
 
   public static void main(String[] args) {
-    testGetAllStudents();
-    testGetAllAdvisors();
-    testGetAllCourses();
-    testGetAllMajors();
-    testGetAllStudentPortfolios();
-    testStudentPortfolio();
-    // testWriteUsers();
+    // testGetAllStudents();
+    // testGetAllAdvisors();
+    // testGetAllCourses();
+    // testGetAllMajors();
+    // testGetAllStudentPortfolios();
+    // testStudentPortfolio();
+    testWriteUsers();
 
   }
 

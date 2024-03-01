@@ -149,7 +149,7 @@ public class Course {
     }
     return true;
   }
-
+  
   /**
    * String representation of a course
    */

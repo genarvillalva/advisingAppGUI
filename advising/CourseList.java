@@ -15,7 +15,7 @@ public class CourseList {
     /**
      * Gets an instance of the CourseList singleton if it exists, otherwise creates a new instance.
      */
-    public CourseList getInstance() {
+    public static CourseList getInstance() {
         if (courseList == null) {
             courseList = new CourseList();
         }

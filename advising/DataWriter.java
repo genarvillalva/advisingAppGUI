@@ -19,14 +19,14 @@ public class DataWriter extends DataConstants {
    * @param filePath The path to the JSON file
    */
   public static boolean saveCourses() {
-    CourseList courseList = courseList.getInstance();
+    CourseList courseList = CourseList.getInstance();
     ArrayList<Course> courses = courseList.getCourses();
 
     // Convert arraylist to JSONArray
     JSONArray jsonCourses = new JSONArray();
 
     for (int i = 0; i < courses.size(); i++) {
-      jsonCourses.add(getCourseJSON(courses.get(i)));
+      jsonCourses.add(toCourseJSON(courses.get(i)));
     }
 
     try (FileWriter file = new FileWriter(COURSES_FILE_NAME)) {
@@ -38,8 +38,15 @@ public class DataWriter extends DataConstants {
     return true;
   }
 
-  private static JSONObject getCourseJSON(Course course) {
+  private static JSONObject toCourseJSON(Course course) {
+    ArrayList<Semester> semesters = course.getSemester();
+    ArrayList<Course> prerequisiteCourses = course.getPrerequisiteCourses();
+    JSONArray JSONSemesters = new JSONArray();
+    JSONArray JSONPrerequisiteCourses = new JSONArray();
     JSONObject courseObject = new JSONObject();
+    for (Course c : prerequisiteCourses) {
+      JSONPrerequisiteCourses.add(toCourseJSON(c));
+    }
     courseObject.put(COURSE_ID, course.getCourseID());
     courseObject.put(COURSE_TITLE, course.getCourseTitle());
     courseObject.put(COURSE_CODE, course.getCourseCode());
@@ -47,7 +54,7 @@ public class DataWriter extends DataConstants {
     courseObject.put(MIN_GRADE, course.getMinGrade());
     courseObject.put(SEMESTER, course.getSemester());
     courseObject.put(PREREQUISITE_COURSES, course.getPrerequisiteCourses());
-    courseObject.put()
+    courseObject.put(PREFERRED_SEMESTER, course.getPreferredSemester());
     return courseObject;
   }
 
