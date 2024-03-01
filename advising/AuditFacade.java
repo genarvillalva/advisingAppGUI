@@ -5,6 +5,9 @@ import java.util.ArrayList;
 public class AuditFacade {
     private User user;
     private UserList userList;
+    private Admin admin;
+    private Student student;
+    private StudentPortfolio studentPortfolio;
     // private RequiredCourses requiredCourses;
 
     
@@ -69,12 +72,12 @@ public class AuditFacade {
 
     }
 
-    public void createCourse() {
-
+    public void createCourse(Course course) {
+        admin.createCourse(course);
     }
 
-    public void addCoursesToStudentPortfolio(String major) {
-
+    public void addCoursesToStudentPortfolio(Course course) {
+        student.addCoursesToStudentPortfolio(course);
     }
 
     
@@ -83,7 +86,7 @@ public class AuditFacade {
     * @return int of credit hours left to be taken
     */
     public int calculateCourseCreditLeft(int completedCreditHours, int totalCreditHours) {
-        return StudentPortfolio.calculateCourseCreditLeft(completedCreditHours, totalCreditHours);
+        return studentPortfolio.calculateCourseCreditLeft(completedCreditHours, totalCreditHours);
     }
 
     public int calculateGPA(ArrayList<completedCourses>, int grade) {
