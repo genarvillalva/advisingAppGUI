@@ -50,7 +50,7 @@ public class DataLoader extends DataConstants {
           (String) studentJSON.get(PASSWORD),
           (String) studentJSON.get(TYPE),
           (String) studentJSON.get(MAJOR),
-          (Advisor) studentJSON.get(advisor),
+          (String) studentJSON.get(advisor),
           (StudentYear) studentJSON.get(STUDENT_YEAR),
           (StudentPortfolio) studentJSON.get(PORTFOLIO_UUID),
           (String) studentJSON.get(APPLICATION_AREA)
