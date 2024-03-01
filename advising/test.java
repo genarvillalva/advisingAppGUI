@@ -68,6 +68,10 @@ public class test {
 
   public static void testSaveCourses() {
     ArrayList<Course> courses = new ArrayList<>();
+    ArrayList<String> prereq = new ArrayList<>();
+    prereq.add("CS 102");
+    prereq.add("CS 103");
+
     CourseCode s = CourseCode.SCI;
 
     Course c = new Course(
@@ -77,7 +81,7 @@ public class test {
       3,
       "B",
       Semester.FALL,
-      new ArrayList<String>(),
+      prereq,
       1
     );
     courses.add(c);

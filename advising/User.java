@@ -18,7 +18,6 @@ public abstract class User {
     this.username = username;
     this.password = password;
     this.userType = userType;
-    this.UserList = UserList;
   }
 
   public String getFirstName() {
