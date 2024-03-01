@@ -50,7 +50,7 @@ public class DataLoader extends DataConstants {
           (String) studentJSON.get(PASSWORD),
           (String) studentJSON.get(TYPE),
           (String) studentJSON.get(MAJOR),
-          (String) studentJSON.get(advisor),
+          (Advisor) studentJSON.get(advisor),
           (StudentYear) studentJSON.get(STUDENT_YEAR),
           (StudentPortfolio) studentJSON.get(PORTFOLIO_UUID),
           (String) studentJSON.get(APPLICATION_AREA)
@@ -106,20 +106,50 @@ public class DataLoader extends DataConstants {
         CourseCode courseCode = CourseCode.valueOf(
           (String) courseJSON.get("courseCode")
         );
+        Semester _semester = Semester.valueOf(
+          (String) courseJSON.get(SEMESTER)
+        );
+        int _preferred_semester = ((Long) courseJSON.get(PREFERRED_SEMESTER)).intValue();
         Course course = new Course(
           (String) courseJSON.get(COURSE_ID),
           (String) courseJSON.get(COURSE_TITLE),
           courseCode,
           ((Long) courseJSON.get(CREDIT_HOURS)).intValue(),
           ((String) courseJSON.get(MIN_GRADE)),
-          (Semester) courseJSON.get(SEMESTER),
-          (ArrayList<String>) courseJSON.get(PREREQUISITE_COURSES),
-          (Integer) courseJSON.get(PREFERRED_SEMESTER)
+          _semester,
+          (JSONArray) courseJSON.get(PREREQUISITE_COURSES),
+          (JSONArray) courseJSON.get(COREQUISITE_COURSES),
+          (JSONArray) courseJSON.get(PREREQ_COREQ),
+          _preferred_semester
+          
         );
         courses.add(course);
       }
     } catch (Exception e) {
       e.printStackTrace();
+    }
+    return courses;
+  }
+  private static ArrayList<Course> toCourses(JSONArray array){
+    ArrayList<Course> courses = new ArrayList<>();
+    for (int i = 0; i < array.size(); i++) {
+      JSONObject courseJSON = (JSONObject) array.get(i);
+      CourseCode courseCode = CourseCode.valueOf(
+        (String) courseJSON.get("courseCode")
+      );
+      Course course = new Course(
+        (String) courseJSON.get(COURSE_ID),
+        (String) courseJSON.get(COURSE_TITLE),
+        courseCode,
+        ((Long) courseJSON.get(CREDIT_HOURS)).intValue(),
+        ((String) courseJSON.get(MIN_GRADE)),
+        (Semester) courseJSON.get(SEMESTER),
+        (JSONArray) courseJSON.get(PREREQUISITE_COURSES),
+        (JSONArray) courseJSON.get(COREQUISITE_COURSES),
+        (JSONArray) courseJSON.get(PREREQ_COREQ),
+        (Integer) courseJSON.get(PREFERRED_SEMESTER)
+      );
+      courses.add(course);
     }
     return courses;
   }
