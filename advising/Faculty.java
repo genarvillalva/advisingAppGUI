@@ -2,6 +2,7 @@ package advising;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Faculty extends User {
     private CourseList courseList;
@@ -9,6 +10,7 @@ public class Faculty extends User {
     private UserList userList;
     private Student student;
     private StudentPortfolio studentPortfolio;
+    private HashMap<String, StudentPortfolio> studentPortfolios;
 
   
     public Faculty(String firstName, String lastName, String username, String password, String userType) {
@@ -16,6 +18,7 @@ public class Faculty extends User {
         this.courseList = courseList;
         this.studentPortfolio = studentPortfolio;
         this.userList = userList;
+        this.studentPortfolios = new HashMap<>();
         }
 
      
@@ -57,8 +60,8 @@ public class Faculty extends User {
     }
     
     // Method to access a student's profile using their username.
-    public void accessStudentProfile(String username) {
-        
+    public StudentPortfolio accessStudentProfile(String username) {
+        return studentPortfolios.get(username);
     }
     
     // Method to input or update the grades of a student.
