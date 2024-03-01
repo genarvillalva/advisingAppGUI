@@ -12,7 +12,7 @@ public class Course {
   private ArrayList<String> corequisiteCourses;
   private ArrayList<String> prereqCoreq;
   private Semester semester;
-  private char minGrade;
+  private String minGrade;
   private String courseUUID;
   private String courseTitle;
   private int preferredSemester;
@@ -69,7 +69,7 @@ public class Course {
    * Get the minimum grade of the course
    * @return The minimum grade of the course
    */
-  public char getMinGrade() {
+  public String getMinGrade() {
     return minGrade;
   }
 
@@ -112,7 +112,7 @@ public class Course {
     String courseTitle,
     CourseCode courseCode,
     int creditHours,
-    char minGrade,
+    String minGrade,
     Semester semester,
     ArrayList<String> prerequisiteCourses,
     int preferredSemester

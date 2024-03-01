@@ -3,10 +3,10 @@
         "courseTitle": "Introduction to Computer Science",
         "creditHours": 3,
         "preferredSemester": 1,
-        "minGrade":B,
+        "minGrade": "B",
         "prerequisiteCourses": [],
         "courseCode":SCI,
-        "semester": [],
+        "semester":FALL,
         "courseID": "CS 101"
     }
 ]
