@@ -29,8 +29,8 @@ public class Course {
    * Get the course code of the course
    * @return The course code of the course
    */
-  public CourseCode getCourseCode() {
-    return courseCode;
+  public String getCourseCode() {
+    return courseCode+"";
   }
 
   /**
@@ -61,8 +61,8 @@ public class Course {
    * Get the semester of the course
    * @return The semester of the course
    */
-  public Semester getSemester() {
-    return semester;
+  public String getSemester() {
+    return semester+"";
   }
 
   /**

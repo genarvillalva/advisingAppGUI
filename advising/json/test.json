@@ -5,8 +5,8 @@
         "preferredSemester": 1,
         "minGrade": "B",
         "prerequisiteCourses": [],
-        "courseCode":SCI,
-        "semester":FALL,
+        "courseCode": "SCI",
+        "semester": "FALL",
         "courseID": "CS 101"
     }
 ]
