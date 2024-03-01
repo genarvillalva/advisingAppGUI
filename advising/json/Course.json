@@ -5,7 +5,7 @@
     "courseCode":"CMW",
     "creditHours":3,
     "minGrade":"C",
-    "semester":["fall","spring"],
+    "semester":"FALLSPRING",
     "prerequisiteCourses":[],
     "corequisiteCourses":[],
     "prereqCoreq":[],

@@ -18,9 +18,10 @@ public class DataWriter extends DataConstants {
    * @param students List of Student objects to be written to the file
    * @param filePath The path to the JSON file
    */
-  public static boolean saveCourses() {
-    CourseList courseList = CourseList.getInstance();
-    ArrayList<Course> courses = courseList.getCourses();
+  public static boolean saveCourses(ArrayList<Course> _courses) {
+    // CourseList courseList = CourseList.getInstance();
+
+    ArrayList<Course> courses = _courses;
 
     // Convert arraylist to JSONArray
     JSONArray jsonCourses = new JSONArray();
@@ -29,7 +30,7 @@ public class DataWriter extends DataConstants {
       jsonCourses.add(toCourseJSON(courses.get(i)));
     }
 
-    try (FileWriter file = new FileWriter(COURSES_FILE_NAME)) {
+    try (FileWriter file = new FileWriter("advising/json/test.json")) {
       file.write(jsonCourses.toJSONString());
       file.flush();
     } catch (IOException e) {
@@ -39,9 +40,7 @@ public class DataWriter extends DataConstants {
   }
 
   private static JSONObject toCourseJSON(Course course) {
-    ArrayList<Semester> semesters = course.getSemester();
     ArrayList<Course> prerequisiteCourses = course.getPrerequisiteCourses();
-    JSONArray JSONSemesters = new JSONArray();
     JSONArray JSONPrerequisiteCourses = new JSONArray();
     JSONObject courseObject = new JSONObject();
     for (Course c : prerequisiteCourses) {

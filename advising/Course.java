@@ -8,15 +8,14 @@ public class Course {
   private String courseID;
   private CourseCode courseCode;
   private int creditHours;
-  private ArrayList<Course> prerequisiteCourses;
-  private ArrayList<Course> corequisiteCourses;
-  private ArrayList<Course> prereqCoreq;
-  private ArrayList<Semester> semester;
+  private ArrayList<String> prerequisiteCourses;
+  private ArrayList<String> corequisiteCourses;
+  private ArrayList<String> prereqCoreq;
+  private Semester semester;
   private char minGrade;
   private String courseUUID;
   private String courseTitle;
   private int preferredSemester;
-
 
   /**
    * Get the title of the course
@@ -25,6 +24,7 @@ public class Course {
   public String getCourseTitle() {
     return courseTitle;
   }
+
   /**
    * Get the course code of the course
    * @return The course code of the course
@@ -45,7 +45,7 @@ public class Course {
    * Get the prerequisite courses of the course
    * @return The prerequisite courses of the course
    */
-  public ArrayList<Course> getPrerequisiteCourses() {
+  public ArrayList<String> getPrerequisiteCourses() {
     return prerequisiteCourses;
   }
 
@@ -53,7 +53,7 @@ public class Course {
    * Get the corequisite courses of the course
    * @return The corequisite courses of the course
    */
-  public ArrayList<Course> getCorequisiteCourses() {
+  public ArrayList<String> getCorequisiteCourses() {
     return corequisiteCourses;
   }
 
@@ -61,7 +61,7 @@ public class Course {
    * Get the semester of the course
    * @return The semester of the course
    */
-  public ArrayList<Semester> getSemester() {
+  public Semester getSemester() {
     return semester;
   }
 
@@ -90,9 +90,9 @@ public class Course {
   }
 
   /**
-  * Gets the preferred semester of the course
-  * @return The preferred semester of the course
-  */
+   * Gets the preferred semester of the course
+   * @return The preferred semester of the course
+   */
   public int getPreferredSemester() {
     return preferredSemester;
   }
@@ -113,8 +113,8 @@ public class Course {
     CourseCode courseCode,
     int creditHours,
     char minGrade,
-    ArrayList<Semester> semester,
-    ArrayList<Course> prerequisiteCourses,
+    Semester semester,
+    ArrayList<String> prerequisiteCourses,
     int preferredSemester
   ) {
     this.courseID = courseID;
@@ -132,13 +132,13 @@ public class Course {
    * @return The true if all prerequisite are completed and false if not
    */
   public boolean PrereqComplete(
-    ArrayList<Course> prerequisiteCourses,
-    ArrayList<Course> completedCourses
+    ArrayList<String> prerequisiteCourses,
+    ArrayList<String> completedCourses
   ) {
-    for (Course prereqCourse : prerequisiteCourses) {
+    for (String prereqCourse : prerequisiteCourses) {
       boolean found = false;
-      for (Course completedCourse : completedCourses) {
-        if (prereqCourse.getCourseID().equals(completedCourse.getCourseID())) {
+      for (String completedCourse : completedCourses) {
+        if (prereq.equals(completedCourse.getCourseID())) {
           found = true;
           break;
         }
@@ -149,44 +149,50 @@ public class Course {
     }
     return true;
   }
-  
+
   /**
    * String representation of a course
    */
   public String toString() {
-        String result = "CourseID: " + courseID + "\n";
-        result += "Title: " + courseTitle + "\n";
-        result += "Course Code: " + courseCode + "\n";
-        result += "Credit Hours: " + creditHours + "\n";
-        result += "Minimum Grade: " + minGrade + "\n";
-        result += "Semester: " + Arrays.toString(semester.toArray()) + "\n";
-        
-        // Check if prerequisiteCourses is empty
-        if (!prerequisiteCourses.isEmpty()) {
-            result += "Prerequisite Courses: " + Arrays.toString(prerequisiteCourses.toArray()) + "\n";
-        } else {
-            result += "Prerequisite Courses: None\n";
-        }
-        
-        if(corequisiteCourses == null) {
-            corequisiteCourses = new ArrayList<Course>();
-        }
-        if (!corequisiteCourses.isEmpty()) {
-            result += "Corequisite Courses: " + Arrays.toString(corequisiteCourses.toArray()) + "\n";
-        } else {
-            result += "Corequisite Courses: None\n";
-        }
-        
-        // Check if prereqCoreq is empty
-        if(prereqCoreq == null) {
-            prereqCoreq = new ArrayList<Course>();
-        }
-        if (!prereqCoreq.isEmpty()) {
-            result += "PrereqCoreq: " + Arrays.toString(prereqCoreq.toArray()) + "\n";
-        } else {
-            result += "PrereqCoreq: None\n";
-        }
-        
-        return result;
+    String result = "CourseID: " + courseID + "\n";
+    result += "Title: " + courseTitle + "\n";
+    result += "Course Code: " + courseCode + "\n";
+    result += "Credit Hours: " + creditHours + "\n";
+    result += "Minimum Grade: " + minGrade + "\n";
+    result += "Semester: " + semester.toString() + "\n";
+
+    // Check if prerequisiteCourses is empty
+    if (!prerequisiteCourses.isEmpty()) {
+      result +=
+        "Prerequisite Courses: " +
+        Arrays.toString(prerequisiteCourses.toArray()) +
+        "\n";
+    } else {
+      result += "Prerequisite Courses: None\n";
     }
+
+    if (corequisiteCourses == null) {
+      corequisiteCourses = new ArrayList<Course>();
+    }
+    if (!corequisiteCourses.isEmpty()) {
+      result +=
+        "Corequisite Courses: " +
+        Arrays.toString(corequisiteCourses.toArray()) +
+        "\n";
+    } else {
+      result += "Corequisite Courses: None\n";
+    }
+
+    // Check if prereqCoreq is empty
+    if (prereqCoreq == null) {
+      prereqCoreq = new ArrayList<Course>();
+    }
+    if (!prereqCoreq.isEmpty()) {
+      result += "PrereqCoreq: " + Arrays.toString(prereqCoreq.toArray()) + "\n";
+    } else {
+      result += "PrereqCoreq: None\n";
+    }
+
+    return result;
+  }
 }

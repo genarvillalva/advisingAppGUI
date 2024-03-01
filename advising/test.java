@@ -1,5 +1,6 @@
 package advising;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class test {
@@ -11,8 +12,8 @@ public class test {
     // testGetAllMajors();
     // testGetAllStudentPortfolios();
     // testStudentPortfolio();
-    testWriteUsers();
-
+    // testWriteUsers();
+    testSaveCourses();
   }
 
   public static void testGetAllStudents() {
@@ -30,6 +31,7 @@ public class test {
       System.out.println(advisor);
     }
   }
+
   ///////////////////
   public static void testGetAllCourses() {
     ArrayList<Course> courses = DataLoader.getAllCourses();
@@ -39,6 +41,7 @@ public class test {
       System.out.println(course);
     }
   }
+
   public static void testGetAllMajors() {
     ArrayList<Major> majors = DataLoader.getAllMajors();
     System.out.println("List of Majors:");
@@ -51,15 +54,34 @@ public class test {
     ArrayList<StudentPortfolio> studentPortfolios = DataLoader.getAllStudentPortfolios();
     for (int i = 0; i < studentPortfolios.size(); i++) {
       System.out.println("\nStudent UUID " + i + ":");
-    System.out.println(studentPortfolios.get(i).getRequiredCourses().get(0));
+      System.out.println(studentPortfolios.get(i).getRequiredCourses().get(0));
     }
   }
+
   public static void testGetAllStudentPortfolios() {
     ArrayList<StudentPortfolio> studentPortfolios = DataLoader.getAllStudentPortfolios();
     System.out.println("List of Student Portfolios:");
     for (StudentPortfolio studentPortfolio : studentPortfolios) {
       System.out.println(studentPortfolio);
     }
+  }
+
+  public static void testSaveCourses() {
+    ArrayList<Course> courses = new ArrayList<>();
+    CourseCode s = CourseCode.SCI;
+
+    Course c = new Course(
+      "CS 101",
+      "Introduction to Computer Science",
+      s,
+      3,
+      'B',
+      Semester.FALL,
+      new ArrayList<Course>(),
+      1
+    );
+    courses.add(c);
+    DataWriter.saveCourses(courses);
   }
 
   public static void testWriteUsers() {
@@ -82,5 +104,4 @@ public class test {
     students.add(s);
     DataWriter.saveUsers(students);
   }
-
 }
