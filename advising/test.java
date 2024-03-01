@@ -75,9 +75,9 @@ public class test {
       "Introduction to Computer Science",
       s,
       3,
-      'B',
+      "B",
       Semester.FALL,
-      new ArrayList<Course>(),
+      new ArrayList<String>(),
       1
     );
     courses.add(c);

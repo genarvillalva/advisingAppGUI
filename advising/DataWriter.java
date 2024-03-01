@@ -40,12 +40,15 @@ public class DataWriter extends DataConstants {
   }
 
   private static JSONObject toCourseJSON(Course course) {
-    ArrayList<Course> prerequisiteCourses = course.getPrerequisiteCourses();
+    ArrayList<String> prerequisiteCourses = course.getPrerequisiteCourses();
     JSONArray JSONPrerequisiteCourses = new JSONArray();
     JSONObject courseObject = new JSONObject();
-    for (Course c : prerequisiteCourses) {
-      JSONPrerequisiteCourses.add(toCourseJSON(c));
+    if(prerequisiteCourses != null){
+      for (String c : prerequisiteCourses) {
+        JSONPrerequisiteCourses.add(c);
+      }
     }
+    String minGrade = course.getMinGrade();
     courseObject.put(COURSE_ID, course.getCourseID());
     courseObject.put(COURSE_TITLE, course.getCourseTitle());
     courseObject.put(COURSE_CODE, course.getCourseCode());
@@ -56,6 +59,12 @@ public class DataWriter extends DataConstants {
     courseObject.put(PREFERRED_SEMESTER, course.getPreferredSemester());
     return courseObject;
   }
+  // private static JSONObject toPrereqCourseJSON(String course) {
+  //   String prerequisiteCourses = course.getPrerequisiteCourses();
+  //   JSONObject courseObject = new JSONObject();
+  //   courseObject.put(PREREQUISITE_COURSES, prerequisiteCourses);
+  //   return courseObject;
+  // }
 
   /**
    * Writes a list of students to a JSON file
