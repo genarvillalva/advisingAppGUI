@@ -18,18 +18,19 @@ public class DataWriter extends DataConstants {
    * @param students List of Student objects to be written to the file
    * @param filePath The path to the JSON file
    */
-  public static boolean saveCourses() {
-    CourseList courseList = courseList.getInstance();
-    ArrayList<Course> courses = courseList.getCourses();
+  public static boolean saveCourses(ArrayList<Course> _courses) {
+    // CourseList courseList = CourseList.getInstance();
+
+    ArrayList<Course> courses = _courses;
 
     // Convert arraylist to JSONArray
     JSONArray jsonCourses = new JSONArray();
 
     for (int i = 0; i < courses.size(); i++) {
-      jsonCourses.add(getCourseJSON(courses.get(i)));
+      jsonCourses.add(toCourseJSON(courses.get(i)));
     }
 
-    try (FileWriter file = new FileWriter(COURSES_FILE_NAME)) {
+    try (FileWriter file = new FileWriter("advising/json/test.json")) {
       file.write(jsonCourses.toJSONString());
       file.flush();
     } catch (IOException e) {
@@ -38,8 +39,13 @@ public class DataWriter extends DataConstants {
     return true;
   }
 
-  private static JSONObject getCourseJSON(Course course) {
+  private static JSONObject toCourseJSON(Course course) {
+    ArrayList<Course> prerequisiteCourses = course.getPrerequisiteCourses();
+    JSONArray JSONPrerequisiteCourses = new JSONArray();
     JSONObject courseObject = new JSONObject();
+    for (Course c : prerequisiteCourses) {
+      JSONPrerequisiteCourses.add(toCourseJSON(c));
+    }
     courseObject.put(COURSE_ID, course.getCourseID());
     courseObject.put(COURSE_TITLE, course.getCourseTitle());
     courseObject.put(COURSE_CODE, course.getCourseCode());
@@ -47,7 +53,7 @@ public class DataWriter extends DataConstants {
     courseObject.put(MIN_GRADE, course.getMinGrade());
     courseObject.put(SEMESTER, course.getSemester());
     courseObject.put(PREREQUISITE_COURSES, course.getPrerequisiteCourses());
-    courseObject.put()
+    courseObject.put(PREFERRED_SEMESTER, course.getPreferredSemester());
     return courseObject;
   }
 

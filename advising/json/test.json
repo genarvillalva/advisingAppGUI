@@ -1,0 +1,12 @@
+[
+    {
+        "courseTitle": "Introduction to Computer Science",
+        "creditHours": 3,
+        "preferredSemester": 1,
+        "minGrade":B,
+        "prerequisiteCourses": [],
+        "courseCode":SCI,
+        "semester": [],
+        "courseID": "CS 101"
+    }
+]
