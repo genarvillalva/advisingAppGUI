@@ -40,12 +40,12 @@ public class DataWriter extends DataConstants {
   }
 
   private static JSONObject toCourseJSON(Course course) {
-    ArrayList<String> prerequisiteCourses = course.getPrerequisiteCourses();
+    ArrayList<Course> prerequisiteCourses = course.getPrerequisiteCourses();
     JSONArray JSONPrerequisiteCourses = new JSONArray();
     JSONObject courseObject = new JSONObject();
     if(prerequisiteCourses != null){
-      for (String c : prerequisiteCourses) {
-        JSONPrerequisiteCourses.add(c);
+      for (Course c : prerequisiteCourses) {
+        JSONPrerequisiteCourses.add(c.getCourseID());
       }
     }
     String minGrade = course.getMinGrade();

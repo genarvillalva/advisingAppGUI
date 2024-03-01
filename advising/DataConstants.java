@@ -1,5 +1,7 @@
 package advising;
 
+import java.util.ArrayList;
+
 public abstract class DataConstants {
 
   public static final String FIRST_NAME = "firstName";
@@ -20,6 +22,10 @@ public abstract class DataConstants {
   public static final String MIN_GRADE = "minGrade";
   public static final String SEMESTER = "semester";
   public static final String PREREQUISITE_COURSES = "prerequisiteCourses";
+  public static final String COREQUISITE_COURSES = "corequisiteCourses";
+  public static final String PREREQ_COREQ = "prereqCoreq";
+
+  
 
   public static final String PORTFOLIO_UUID = "portfolioUUID";
   public static final String REQUIRED_COURSES = "requiredCourses";

@@ -37,4 +37,12 @@ public class CourseList {
     public void removeCourse(Course course) {
 
     }
+    public Course getCourseByID(String courseID) {
+        for (Course course : courses) {
+            if (course.getCourseID().equals(courseID)) {
+                return course;
+            }
+        }
+        return null;
+    }
 }

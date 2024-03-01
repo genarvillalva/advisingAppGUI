@@ -8,9 +8,9 @@ public class Course {
   private String courseID;
   private CourseCode courseCode;
   private int creditHours;
-  private ArrayList<String> prerequisiteCourses;
-  private ArrayList<String> corequisiteCourses;
-  private ArrayList<String> prereqCoreq;
+  private ArrayList<Course> prerequisiteCourses;
+  private ArrayList<Course> corequisiteCourses;
+  private ArrayList<Course> prereqCoreq;
   private Semester semester;
   private String minGrade;
   private String courseUUID;
@@ -45,7 +45,7 @@ public class Course {
    * Get the prerequisite courses of the course
    * @return The prerequisite courses of the course
    */
-  public ArrayList<String> getPrerequisiteCourses() {
+  public ArrayList<Course> getPrerequisiteCourses() {
     return prerequisiteCourses;
   }
 
@@ -53,7 +53,7 @@ public class Course {
    * Get the corequisite courses of the course
    * @return The corequisite courses of the course
    */
-  public ArrayList<String> getCorequisiteCourses() {
+  public ArrayList<Course> getCorequisiteCourses() {
     return corequisiteCourses;
   }
 
@@ -114,7 +114,9 @@ public class Course {
     int creditHours,
     String minGrade,
     Semester semester,
-    ArrayList<String> prerequisiteCourses,
+    ArrayList<Course> prerequisiteCourses,
+    ArrayList<Course> corequisiteCourses,
+    ArrayList<Course> prereqCoreq,
     int preferredSemester
   ) {
     this.courseID = courseID;
@@ -124,6 +126,8 @@ public class Course {
     this.minGrade = minGrade;
     this.semester = semester;
     this.prerequisiteCourses = prerequisiteCourses;
+    this.corequisiteCourses = corequisiteCourses;
+    this.prereqCoreq = prereqCoreq;
     this.preferredSemester = preferredSemester;
   }
 
@@ -132,13 +136,13 @@ public class Course {
    * @return The true if all prerequisite are completed and false if not
    */
   public boolean PrereqComplete(
-    ArrayList<String> prerequisiteCourses,
-    ArrayList<String> completedCourses
+    ArrayList<Course> prerequisiteCourses,
+    ArrayList<Course> completedCourses
   ) {
-    for (String prereqCourse : prerequisiteCourses) {
+    for (Course prereqCourse : prerequisiteCourses) {
       boolean found = false;
-      for (String completedCourse : completedCourses) {
-        if (prereq.equals(completedCourse.getCourseID())) {
+      for (Course completedCourse : completedCourses) {
+        if (completedCourse.equals(completedCourse.getCourseID())) {
           found = true;
           break;
         }

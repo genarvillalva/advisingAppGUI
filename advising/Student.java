@@ -7,7 +7,7 @@ public class Student extends User {
   private String firstName;
   private String lastName;
   private String major;
-  private String advisor;
+  private Advisor advisor;
   private StudentYear studentClass;
   private StudentPortfolio studentPortfolio;
   private String applicationArea;
@@ -33,7 +33,7 @@ public class Student extends User {
     String password,
     String userType,
     String major,
-    String advisor,
+    Advisor advisor,
     StudentYear studentYear,
     StudentPortfolio portfolio,
     String applicationArea
@@ -58,8 +58,8 @@ public class Student extends User {
    * Get the advisor of the student
    * @return The advisor of the student
    */
-  public String getAdvisor() {
-    return advisor+"";
+  public Advisor getAdvisor() {
+    return advisor;
   }
 
   /**

@@ -8,12 +8,12 @@ public class test {
   public static void main(String[] args) {
     // testGetAllStudents();
     // testGetAllAdvisors();
-    // testGetAllCourses();
+    testGetAllCourses();
     // testGetAllMajors();
     // testGetAllStudentPortfolios();
     // testStudentPortfolio();
     // testWriteUsers();
-    testSaveCourses();
+    // testSaveCourses();
   }
 
   public static void testGetAllStudents() {
@@ -68,9 +68,6 @@ public class test {
 
   public static void testSaveCourses() {
     ArrayList<Course> courses = new ArrayList<>();
-    ArrayList<String> prereq = new ArrayList<>();
-    prereq.add("CS 102");
-    prereq.add("CS 103");
 
     CourseCode s = CourseCode.SCI;
 
@@ -81,31 +78,31 @@ public class test {
       3,
       "B",
       Semester.FALL,
-      prereq,
+      new ArrayList<Course>(),
       1
     );
     courses.add(c);
     DataWriter.saveCourses(courses);
   }
 
-  public static void testWriteUsers() {
-    ArrayList<Student> students = DataLoader.getAllStudents();
-    ArrayList<Advisor> advisors = DataLoader.getAllAdvisors();
-    StudentYear studentYear = StudentYear.FRESHMAN;
-    ArrayList<StudentPortfolio> StudentPortfolio = DataLoader.getAllStudentPortfolios();
-    Student s = new Student(
-      "James",
-      "Son",
-      "jamesson1",
-      "password",
-      "Student",
-      "Computer Science",
-      advisors.get(0),
-      studentYear,
-      StudentPortfolio.get(0),
-      "Application Area"
-    );
-    students.add(s);
-    DataWriter.saveUsers(students);
-  }
+  // public static void testWriteUsers() {
+  //   ArrayList<Student> students = DataLoader.getAllStudents();
+  //   ArrayList<Advisor> advisors = DataLoader.getAllAdvisors();
+  //   StudentYear studentYear = StudentYear.FRESHMAN;
+  //   ArrayList<StudentPortfolio> StudentPortfolio = DataLoader.getAllStudentPortfolios();
+  //   Student s = new Student(
+  //     "James",
+  //     "Son",
+  //     "jamesson1",
+  //     "password",
+  //     "Student",
+  //     "Computer Science",
+  //     advisors.get(0),
+  //     studentYear,
+  //     StudentPortfolio.get(0),
+  //     "Application Area"
+  //   );
+  //   students.add(s);
+  //   DataWriter.saveUsers(students);
+  // }
 }
