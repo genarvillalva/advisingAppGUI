@@ -6,9 +6,9 @@
     "creditHours":3,
     "minGrade":"C",
     "semester":"FALLSPRING",
-    "prerequisiteCourses":[],
-    "corequisiteCourses":[],
-    "prereqCoreq":[],
+    "prerequisiteCourses":["None"],
+    "corequisiteCourses":["None"],
+    "prereqCoreq":["None"],
     "preferredSemester":1
   },
   {
@@ -17,10 +17,10 @@
     "courseCode":"ARP",
     "creditHours":4,
     "minGrade":"C",
-    "semester":["fall","spring"],
+    "semester":"FALLSPRING",
     "prerequisiteCourses":["MATH112","MATH115","MATH116"],
-    "corequisiteCourses":[],
-    "prereqCoreq":[],
+    "corequisiteCourses":["None"],
+    "prereqCoreq":["None"],
     "preferredSemester":1
   },
   {
@@ -29,10 +29,10 @@
     "courseCode":"PR",
     "creditHours":4,
     "minGrade":"C",
-    "semester":["fall","spring"],
+    "semester":"FALLSPRING",
     "prerequisiteCourses":["MATH111","MATH115"],
     "corequisiteCourses":["MATH111","MATH115"],
-    "prereqCoreq":[],
+    "prereqCoreq":["None"],
     "preferredSemester":1
 },
   {
@@ -41,10 +41,10 @@
     "courseCode":"PR",
     "creditHours":1,
     "minGrade":"C",
-    "semester":["fall","spring"],
+    "semester":"FALLSPRING",
     "prerequisiteCourses":["CSCE145","CSCE204","CSCE205","CSCE206"],
-    "corequisiteCourses":["CSCE145","CSCE204","CSCE205","CSCE206"],
-    "prereqCoreq":[],
+    "corequisiteCourses":["CSCE145"],
+    "prereqCoreq":["None"],
     "preferredSemester":1
   },
   {
@@ -53,10 +53,10 @@
     "courseCode":"CMW",
     "creditHours":3,
     "minGrade":"C",
-    "semester":["fall","spring"],
+    "semester":"FALLSPRING",
     "prerequisiteCourses":["ENGL101"],
     "corequisiteCourses":["MATH111","MATH115"],
-    "prereqCoreq":[],
+    "prereqCoreq":["None"],
     "preferredSemester":2
   },
   {
@@ -65,10 +65,10 @@
     "courseCode":"ARP",
     "creditHours": 4,
     "minGrade":"C",
-    "semester":["fall","spring"],
+    "semester":"FALLSPRING",
     "prerequisiteCourses":["MATH 141"],
     "corequisiteCourses":["MATH 111","MATH 115"],
-    "prereqCoreq":[],
+    "prereqCoreq":["None"],
     "preferredSemester":2
   },
   {
@@ -77,10 +77,10 @@
     "courseCode":"SCI",
     "creditHours":3,
     "minGrade":"C",
-    "semester":[],
-    "prerequisiteCourses":["CC-SCI","C or better in MATH 111/115/122/141 or higher math or Math placement test score"],
+    "semester":"FALLSPRING",
+    "prerequisiteCourses":["MATH 111", "MATH 115", "MATH122", "MATH141"],
     "corequisiteCourses":["CHEM111L"],
-    "prereqCoreq": [],
+    "prereqCoreq": ["None"],
     "preferredSemester":1
   },
   {
@@ -89,9 +89,9 @@
     "courseCode":"SCI",
     "creditHours":1,
     "minGrade":"C",
-    "semester":[],
-    "prerequisiteCourses":["CC-SCI","MATH 111 or 115"],
-    "corequisiteCourses":[],
+    "semester":"FALLSPRING",
+    "prerequisiteCourses":["MATH 111 or 115"],
+    "corequisiteCourses":["None"],
     "prereqCoreq":["CHEM111"],
     "preferredSemester":1
   },
@@ -101,8 +101,8 @@
     "courseCode":"SCI",
     "creditHours":3,
     "minGrade":"C",
-    "semester":[],
-    "prerequisiteCourses":["CC-SCI","C or better in MATH 111/115/122/141 or higher math or Math placement test score"],
+    "semester":"FALLSPRING",
+    "prerequisiteCourses":["MATH 111", "MATH 115", "MATH122", "MATH141"],
     "corequisiteCourses":["CHEM111L"],
     "prereqCoreq":["PHYS211L"],
     "preferredSemester":1
@@ -113,9 +113,9 @@
     "courseCode":"SCI",
     "creditHours":1,
     "minGrade":"C",
-    "semester":[],
-    "prerequisiteCourses":["CC-SCI","MATH 111 or 115"],
-    "corequisiteCourses":[],
+    "semester":"FALLSPRING",
+    "prerequisiteCourses":["CSCE146", "CSCE215"],
+    "corequisiteCourses":["CSCE146"],
     "prereqCoreq":["CHEM111"],
     "preferredSemester":1
   },
@@ -125,10 +125,10 @@
     "courseCode":"PR",
     "creditHours":4,
     "minGrade":"C",
-    "semester":[],
-    "prerequisiteCourses":["PR","C or better in MATH 122 or 141"],
-    "corequisiteCourses":[],
-    "prereqCoreq":[],
+    "semester":"FALLSPRING",
+    "prerequisiteCourses":["MATH 122 or MATH 141"],
+    "corequisiteCourses":["None"],
+    "prereqCoreq":["None"],
     "preferredSemester":2
   },
   {
@@ -137,10 +137,10 @@
     "courseCode":"PR",
     "creditHours":1,
     "minGrade":"C",
-    "semester":[],
-    "prerequisiteCourses":["PR","CSCE 145"],
-    "corequisiteCourses":[],
-    "prereqCoreq":[],
+    "semester":"FALLSPRING",
+    "prerequisiteCourses":["CSCE 145"],
+    "corequisiteCourses":["None"],
+    "prereqCoreq":["None"],
     "preferredSemester":2
   }
 ]

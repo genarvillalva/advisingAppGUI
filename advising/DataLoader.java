@@ -104,54 +104,99 @@ public class DataLoader extends DataConstants {
       for (int i = 0; i < coursesJSON.size(); i++) {
         JSONObject courseJSON = (JSONObject) coursesJSON.get(i);
         CourseCode courseCode = CourseCode.valueOf(
-          (String) courseJSON.get("courseCode")
+          (String) courseJSON.get(COURSE_CODE)
         );
-        Semester _semester = Semester.valueOf(
-          (String) courseJSON.get(SEMESTER)
-        );
-        int _preferred_semester = ((Long) courseJSON.get(PREFERRED_SEMESTER)).intValue();
+        Semester semester = Semester.valueOf((String) courseJSON.get(SEMESTER));
+        int _preferred_semester =
+          ((Long) courseJSON.get(PREFERRED_SEMESTER)).intValue();
         Course course = new Course(
           (String) courseJSON.get(COURSE_ID),
           (String) courseJSON.get(COURSE_TITLE),
           courseCode,
           ((Long) courseJSON.get(CREDIT_HOURS)).intValue(),
           ((String) courseJSON.get(MIN_GRADE)),
-          _semester,
-          (JSONArray) courseJSON.get(PREREQUISITE_COURSES),
-          (JSONArray) courseJSON.get(COREQUISITE_COURSES),
-          (JSONArray) courseJSON.get(PREREQ_COREQ),
+          semester,
           _preferred_semester
-          
         );
         courses.add(course);
       }
     } catch (Exception e) {
       e.printStackTrace();
     }
+    addPrerequisiteCourses(courses);
     return courses;
   }
-  private static ArrayList<Course> toCourses(JSONArray array){
-    ArrayList<Course> courses = new ArrayList<>();
-    for (int i = 0; i < array.size(); i++) {
-      JSONObject courseJSON = (JSONObject) array.get(i);
-      CourseCode courseCode = CourseCode.valueOf(
-        (String) courseJSON.get("courseCode")
-      );
-      Course course = new Course(
-        (String) courseJSON.get(COURSE_ID),
-        (String) courseJSON.get(COURSE_TITLE),
-        courseCode,
-        ((Long) courseJSON.get(CREDIT_HOURS)).intValue(),
-        ((String) courseJSON.get(MIN_GRADE)),
-        (Semester) courseJSON.get(SEMESTER),
-        (JSONArray) courseJSON.get(PREREQUISITE_COURSES),
-        (JSONArray) courseJSON.get(COREQUISITE_COURSES),
-        (JSONArray) courseJSON.get(PREREQ_COREQ),
-        (Integer) courseJSON.get(PREFERRED_SEMESTER)
-      );
-      courses.add(course);
+
+  private static void addPrerequisiteCourses(ArrayList<Course> courses) {
+    try {
+      FileReader reader = new FileReader("advising/json/Course.json");
+      JSONParser parser = new JSONParser();
+      JSONArray coursesJSON = (JSONArray) parser.parse(reader);
+      for (int i = 0; i < coursesJSON.size(); i++) {
+        JSONObject courseJSON = (JSONObject) coursesJSON.get(i);
+        String courseID = (String) courseJSON.get(COURSE_ID);
+        Course course = getCourseByID(courses, courseID);
+        if (course != null) {
+          JSONArray prerequisiteCoursesJSON = (JSONArray) courseJSON.get(
+            PREREQUISITE_COURSES
+          );
+          addCoursesToList(
+            courses,
+            course,
+            prerequisiteCoursesJSON,
+            PREREQUISITE_COURSES
+          );
+          JSONArray corequisiteCoursesJSON = (JSONArray) courseJSON.get(COREQUISITE_COURSES);
+                addCoursesToList(courses, course, corequisiteCoursesJSON, COREQUISITE_COURSES);
+          JSONArray prereqCoreqJSON = (JSONArray) courseJSON.get(PREREQ_COREQ);
+          addCoursesToList(courses, course, prereqCoreqJSON, PREREQ_COREQ);
+        }
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
     }
-    return courses;
+  }
+
+
+  public static Course getCourseByID(
+    ArrayList<Course> courses,
+    String courseID
+  ) {
+    for (Course course : courses) {
+      if (course.getCourseID().equals(courseID)) {
+        return course;
+      }
+    }
+    return null;
+  }
+
+  private static void addCoursesToList(
+    ArrayList<Course> courses,
+    Course course,
+    JSONArray json,
+    String req
+  ) {
+    if (json != null) {
+      for (Object obj : json) {
+        String courseId = (String) obj;
+        Course reqCourse = getCourseByID(courses, courseId);
+        if (reqCourse != null) {
+          switch (req) {
+            case PREREQUISITE_COURSES:
+              course.addPrereq(reqCourse);
+              break;
+            case COREQUISITE_COURSES:
+              course.addCoreq(reqCourse);
+              break;
+            case PREREQ_COREQ:
+              course.addPrereqCoreq(reqCourse);
+              break;
+            default:
+              break;
+          }
+        }
+      }
+    }
   }
 
   /**
@@ -244,5 +289,4 @@ public class DataLoader extends DataConstants {
     }
     return studentPortfolios;
   }
-  
 }

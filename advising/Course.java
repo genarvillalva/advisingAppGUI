@@ -17,6 +17,36 @@ public class Course {
   private String courseTitle;
   private int preferredSemester;
 
+  public Course (
+    String courseID,
+    String courseTitle,
+    CourseCode courseCode,
+    int creditHours,
+    String minGrade,
+    Semester semester,
+    int preferredSemester
+  ) {
+    this.courseID = courseID;
+    this.courseTitle = courseTitle;
+    this.courseCode = courseCode;
+    this.creditHours = creditHours;
+    this.minGrade = minGrade;
+    this.semester = semester;
+    this.preferredSemester = preferredSemester;
+    this.prerequisiteCourses = new ArrayList<Course>();
+    this.corequisiteCourses = new ArrayList<Course>();
+    this.prereqCoreq = new ArrayList<Course>();
+  }
+  public void addPrereq(Course course) {
+    prerequisiteCourses.add(course);
+  }
+  public void addCoreq(Course course) {
+    corequisiteCourses.add(course);
+  }
+  public void addPrereqCoreq(Course course) {
+    prereqCoreq.add(course);
+  }
+
   /**
    * Get the title of the course
    * @return The title of the course
@@ -61,8 +91,8 @@ public class Course {
    * Get the semester of the course
    * @return The semester of the course
    */
-  public String getSemester() {
-    return semester+"";
+  public Semester getSemester() {
+    return semester;
   }
 
   /**
@@ -164,39 +194,41 @@ public class Course {
     result += "Credit Hours: " + creditHours + "\n";
     result += "Minimum Grade: " + minGrade + "\n";
     result += "Semester: " + semester.toString() + "\n";
-
-    // Check if prerequisiteCourses is empty
-    if (!prerequisiteCourses.isEmpty()) {
-      result +=
-        "Prerequisite Courses: " +
-        Arrays.toString(prerequisiteCourses.toArray()) +
-        "\n";
+    //prereq
+    result += "Prerequisite Courses: ";
+    if ((prerequisiteCourses != null) && (!prerequisiteCourses.isEmpty())) {
+        for (Course prereq : prerequisiteCourses) {
+            result += prereq.getCourseTitle() + ", ";
+        }
+        result = result.substring(0, result.length() - 2); 
     } else {
-      result += "Prerequisite Courses: None\n";
+        result += "None";
     }
-
-    if (corequisiteCourses == null) {
-      corequisiteCourses = new ArrayList<Course>();
-    }
-    if (!corequisiteCourses.isEmpty()) {
-      result +=
-        "Corequisite Courses: " +
-        Arrays.toString(corequisiteCourses.toArray()) +
-        "\n";
+    result += "\n";
+    //coreq 
+    result += "Corequisite Courses: ";
+    if ((corequisiteCourses != null) && (!corequisiteCourses.isEmpty())) {
+        for (Course coreq : corequisiteCourses) {
+            result += coreq.getCourseTitle() + ", ";
+        }
+        result = result.substring(0, result.length() - 2); 
     } else {
-      result += "Corequisite Courses: None\n";
+        result += "None";
     }
+    result += "\n";
 
-    // Check if prereqCoreq is empty
-    if (prereqCoreq == null) {
-      prereqCoreq = new ArrayList<Course>();
-    }
-    if (!prereqCoreq.isEmpty()) {
-      result += "PrereqCoreq: " + Arrays.toString(prereqCoreq.toArray()) + "\n";
+    //prereq coreq 
+    result += "PrereqCoreq: ";
+    if ((prereqCoreq != null) && (!prereqCoreq.isEmpty())) {
+        for (Course prereqCoreq : prereqCoreq) {
+            result += prereqCoreq.getCourseTitle() + ", ";
+        }
+        result = result.substring(0, result.length() - 2); 
     } else {
-      result += "PrereqCoreq: None\n";
+        result += "None";
     }
-
+    result += "\n";
     return result;
-  }
+}
+
 }

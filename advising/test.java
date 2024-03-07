@@ -79,6 +79,8 @@ public class test {
       "B",
       Semester.FALL,
       new ArrayList<Course>(),
+      new ArrayList<Course>(),
+      new ArrayList<Course>(),
       1
     );
     courses.add(c);
