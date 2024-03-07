@@ -105,7 +105,7 @@
     "prerequisiteCourses":["MATH 111", "MATH 115", "MATH122", "MATH141"],
     "corequisiteCourses":["CHEM111L"],
     "prereqCoreq":["PHYS211L"],
-    "preferredSemester":1
+    "preferredSemester":2
   },
   {
     "courseID":"PHYS211L",
@@ -117,7 +117,7 @@
     "prerequisiteCourses":["CSCE146", "CSCE215"],
     "corequisiteCourses":["CSCE146"],
     "prereqCoreq":["CHEM111"],
-    "preferredSemester":1
+    "preferredSemester":2
   },
   {
     "courseID":"CSCE146",
@@ -142,7 +142,284 @@
     "corequisiteCourses":["None"],
     "prereqCoreq":["None"],
     "preferredSemester":2
-  }
+  },
+  {
+    "courseID":"CHEM112",
+    "title":"General Chemistry II",
+    "courseCode":"SCI",
+    "creditHours":3,
+    "minGrade":"",
+    "semester":[],
+    "prerequisiteCourses":["CHEM111","MATH141"],
+    "corequisiteCourses":["CHEM112L"],
+    "prereqCoreq": [],
+    "preferredSemester":3
+  },
+  {
+    "courseID":"CHEM112L",
+    "title":"General Chemistry I Lab",
+    "courseCode":"SCI",
+    "creditHours":1,
+    "minGrade":"",
+    "semester":[],
+    "prerequisiteCourses":[],
+    "corequisiteCourses":["CHEM112"],
+    "prereqCoreq":["CHEM111"],
+    "preferredSemester":3
+  },
+  {
+    "courseID":"PHYS212",
+    "title":"Essentials of Physics II",
+    "courseCode":"SCI",
+    "creditHours":3,
+    "minGrade":"",
+    "semester":[],
+    "prerequisiteCourses":["PHYS211","MATH142"],
+    "corequisiteCourses":["CHEM111L"],
+    "prereqCoreq":["PHYS212L"],
+    "preferredSemester":3
+  },
+  {
+    "courseID":"PHYS212L",
+    "title":"Essentials of Physics II Lab",
+    "courseCode":"SCI",
+    "creditHours":1,
+    "minGrade":"",
+    "semester":[],
+    "prerequisiteCourses":[],
+    "corequisiteCourses":["PHYS212L"],
+    "prereqCoreq":["CHEM111"],
+    "preferredSemester":3
+  },
+
+  {
+    "courseID":"CSCE211",
+    "title":"Digital Logic Design",
+    "courseCode":"PR",
+    "creditHours":3,
+    "minGrade":"C",
+    "semester":["fall","spring"],
+    "prerequisiteCourses":["MATH141"],
+    "corequisiteCourses":[],
+    "prereqCoreq":[],
+    "preferredSemester":3
+  },
+  {
+    "courseID":"CSCE240",
+    "title":"Advanced Programming Techniques",
+    "courseCode":"PR",
+    "creditHours":3,
+    "minGrade":"C",
+    "semester":["fall","spring"],
+    "prerequisiteCourses":["CSCE215","CSCE146"],
+    "corequisiteCourses":[],
+    "prereqCoreq":[],
+    "preferredSemester":3
+  },
+  {
+    "courseID":"MATH374",
+    "title":"Discrete Structures",
+    "courseCode":"PR",
+    "creditHours":3,
+    "minGrade":"C",
+    "semester":["fall","spring"],
+    "prerequisiteCourses":["MATH142","CSCE146"],
+    "corequisiteCourses":[],
+    "prereqCoreq":[],
+    "preferredSemester":3
+  },
+  {
+    "courseID":"CSCE212",
+    "title":"Intro to Computer Architecture",
+    "courseCode":"PR",
+    "creditHours":3,
+    "minGrade":"C",
+    "semester":["fall","spring"],
+    "prerequisiteCourses":["CSCE145","CSCE211"],
+    "corequisiteCourses":[],
+    "prereqCoreq":[],
+    "preferredSemester":4
+  },
+  {
+    "courseID":"CSCE247",
+    "title":"Software Engineering",
+    "courseCode":"PR",
+    "creditHours":3,
+    "minGrade":"C",
+    "semester":["fall","spring"],
+    "prerequisiteCourses":["CSCE146"],
+    "corequisiteCourses":[],
+    "prereqCoreq":[],
+    "preferredSemester":4
+  },
+  {
+    "courseID":"MATH241",
+    "title":"Vector Calculus",
+    "courseCode":"PR",
+    "creditHours":3,
+    "minGrade":"",
+    "semester":["fall","spring"],
+    "prerequisiteCourses":["MATH142"],
+    "corequisiteCourses":[],
+    "prereqCoreq":[],
+    "preferredSemester":4
+  },
+  {
+    "courseID":"CSCE311",
+    "title":"Operating Systems",
+    "courseCode":"MR",
+    "creditHours":3,
+    "minGrade":"C",
+    "semester":["fall","spring"],
+    "prerequisiteCourses":["CSCE240","CSCE210"],
+    "corequisiteCourses":[],
+    "prereqCoreq":[],
+    "preferredSemester":5
+  },
+  {
+    "courseID":"CSCE330",
+    "title":"Programming Language Structures",
+    "courseCode":"MR",
+    "creditHours":3,
+    "minGrade":"C",
+    "semester":["fall"],
+    "prerequisiteCourses":["CSCE240","MATH374"],
+    "corequisiteCourses":[],
+    "prereqCoreq":[],
+    "preferredSemester":5
+  },
+  {
+    "courseID":"CSCE350",
+    "title":"Data Structures & Algorithms",
+    "courseCode":"MR",
+    "creditHours":3,
+    "minGrade":"C",
+    "semester":["fall","spring"],
+    "prerequisiteCourses":["CSCE240","MATH374"],
+    "corequisiteCourses":[],
+    "prereqCoreq":[],
+    "preferredSemester":5
+  },
+  {
+    "courseID":"CSCE390",
+    "title":"Professional Issues in Computer Science and Engineering",
+    "courseCode":"VSR",
+    "creditHours":1,
+    "minGrade":"C",
+    "semester":["fall","spring"],
+    "prerequisiteCourses":[],
+    "corequisiteCourses":[],
+    "prereqCoreq":[],
+    "preferredSemester":5
+  },
+  {
+    "courseID":"ENGL462",
+    "title":"Technical Writing",
+    "courseCode":"PR",
+    "creditHours":3,
+    "minGrade":"",
+    "semester":["fall","spring"],
+    "prerequisiteCourses":["ENGL101","ENGL102"],
+    "corequisiteCourses":[],
+    "prereqCoreq":[],
+    "preferredSemester":5
+  },
+  {
+    "courseID":"ENGL463",
+    "title":"Business Writing",
+    "courseCode":"PR",
+    "creditHours":3,
+    "minGrade":"",
+    "semester":["fall","spring"],
+    "prerequisiteCourses":["ENGL101","ENGL102"],
+    "corequisiteCourses":[],
+    "prereqCoreq":[],
+    "preferredSemester":5
+  },
+  {
+    "courseID":"CSCE416",
+    "title":"Intro to Computer Networks",
+    "courseCode":"MR",
+    "creditHours":3,
+    "minGrade":"C",
+    "semester":["fall","spring"],
+    "prerequisiteCourses":["CSCE146"],
+    "corequisiteCourses":[],
+    "prereqCoreq":[],
+    "preferredSemester":6
+  },
+  {
+    "courseID":"STAT509",
+    "title":"Statistics for Engineers",
+    "courseCode":"PR",
+    "creditHours":3,
+    "minGrade":"",
+    "semester":["fall","spring"],
+    "prerequisiteCourses":["MATH142"],
+    "corequisiteCourses":[],
+    "prereqCoreq":[],
+    "preferredSemester":6
+  },
+  {
+    "courseID":"CSCE490",
+    "title":"Capstone Computing Project I",
+    "courseCode":"MR",
+    "creditHours":3,
+    "minGrade":"C",
+    "semester":["fall"],
+    "prerequisiteCourses":["CSCE240","CSCE350"],
+    "corequisiteCourses":[],
+    "prereqCoreq":[],
+    "preferredSemester":7
+  },
+  {
+    "courseID":"CSCE355",
+    "title":"Foundations of Computation",
+    "courseCode":"MR",
+    "creditHours":3,
+    "minGrade":"C",
+    "semester":["fall","spring"],
+    "prerequisiteCourses":["CSCE211","CSCE212","CSCE350"],
+    "corequisiteCourses":[],
+    "prereqCoreq":[],
+    "preferredSemester":7
+  },
+  {
+    "courseID":"MATH344",
+    "title":"Applied Linear Algebra",
+    "courseCode":"PR",
+    "creditHours":3,
+    "minGrade":"",
+    "semester":["fall","spring"],
+    "prerequisiteCourses":["MATH142"],
+    "corequisiteCourses":[],
+    "prereqCoreq":[],
+    "preferredSemester":7
+  },
+  {
+    "courseID":"MATH344L",
+    "title":"Applied Linear Algebra Lab",
+    "courseCode":"PR",
+    "creditHours":1,
+    "minGrade":"",
+    "semester":["fall","spring"],
+    "prerequisiteCourses":[],
+    "corequisiteCourses":["MATH344"],
+    "prereqCoreq":[],
+    "preferredSemester":7
+  },
+  {
+    "courseID":"CSCE492",
+    "title":"Capstone Computing Project II",
+    "courseCode":"MR",
+    "creditHours":3,
+    "minGrade":"C",
+    "semester":["spring"],
+    "prerequisiteCourses":["CSCE240","CSCE350","CSCE490"],
+    "corequisiteCourses":[],
+    "prereqCoreq":[],
+    "preferredSemester":8
+  },
 ]
 
 
