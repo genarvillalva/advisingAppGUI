@@ -41,22 +41,16 @@ public class DataWriter extends DataConstants {
   }
 
   private static JSONObject toCourseJSON(Course course) {
-    ArrayList<Course> prerequisiteCourses = course.getPrerequisiteCourses();
-    JSONArray JSONPrerequisiteCourses = new JSONArray();
     JSONObject courseObject = new JSONObject();
-    if(prerequisiteCourses != null){
-      for (Course c : prerequisiteCourses) {
-        JSONPrerequisiteCourses.add(c.getCourseID());
-      }
-    }
-    String minGrade = course.getMinGrade();
     courseObject.put(COURSE_ID, course.getCourseID());
     courseObject.put(COURSE_TITLE, course.getCourseTitle());
     courseObject.put(COURSE_CODE, course.getCourseCode());
     courseObject.put(CREDIT_HOURS, course.getCreditHours());
     courseObject.put(MIN_GRADE, course.getMinGrade());
-    courseObject.put(SEMESTER, course.getSemester());
+    courseObject.put(SEMESTER, course.getSemester().toString());
     courseObject.put(PREREQUISITE_COURSES, course.getPrerequisiteCourses());
+    courseObject.put(COREQUISITE_COURSES, course.getCorequisiteCourses());
+    courseObject.put(PREREQ_COREQ, course.getPrereqCoreq());
     courseObject.put(PREFERRED_SEMESTER, course.getPreferredSemester());
     return courseObject;
   }
