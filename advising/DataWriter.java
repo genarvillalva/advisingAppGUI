@@ -19,14 +19,15 @@ public class DataWriter extends DataConstants {
    * @param filePath The path to the JSON file
    */
   public static boolean saveCourses(ArrayList<Course> _courses) {
-    // CourseList courseList = CourseList.getInstance();
-
+    CourseList courseList = CourseList.getInstance();
     ArrayList<Course> courses = _courses;
-
-    // Convert arraylist to JSONArray
+    ArrayList<Course> oldCourses = DataLoader.getAllCourses();
     JSONArray jsonCourses = new JSONArray();
 
     for (int i = 0; i < courses.size(); i++) {
+      if(oldCourses.contains(courses.get(i))){
+        continue;
+      }
       jsonCourses.add(toCourseJSON(courses.get(i)));
     }
 
