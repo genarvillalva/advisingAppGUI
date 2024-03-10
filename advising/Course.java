@@ -88,6 +88,14 @@ public class Course {
   }
 
   /**
+   * Get the prereqCoreq of the course
+   * @return The prereqCoreq of the course
+   */
+  public ArrayList<Course> getPrereqCoreq() {
+    return prereqCoreq;
+  }
+
+  /**
    * Get the semester of the course
    * @return The semester of the course
    */

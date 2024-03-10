@@ -72,7 +72,7 @@ public class test {
     CourseCode s = CourseCode.SCI;
 
     Course c = new Course(
-      "CS 101",
+      "CS101",
       "Introduction to Computer Science",
       s,
       3,
