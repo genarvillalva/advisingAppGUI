@@ -8,12 +8,12 @@ public class test {
   public static void main(String[] args) {
     // testGetAllStudents();
     // testGetAllAdvisors();
-    testGetAllCourses();
+    // testGetAllCourses();
     // testGetAllMajors();
     // testGetAllStudentPortfolios();
     // testStudentPortfolio();
     // testWriteUsers();
-    // testSaveCourses();
+    testSaveCourses();
   }
 
   public static void testGetAllStudents() {

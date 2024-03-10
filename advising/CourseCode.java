@@ -15,4 +15,5 @@ public enum CourseCode {
   INF,
   VSR,
   PR,
+  MR,
 }

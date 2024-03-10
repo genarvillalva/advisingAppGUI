@@ -106,6 +106,7 @@ public class DataLoader extends DataConstants {
         CourseCode courseCode = CourseCode.valueOf(
           (String) courseJSON.get(COURSE_CODE)
         );
+
         Semester semester = Semester.valueOf((String) courseJSON.get(SEMESTER));
         int _preferred_semester =
           ((Long) courseJSON.get(PREFERRED_SEMESTER)).intValue();
@@ -146,8 +147,15 @@ public class DataLoader extends DataConstants {
             prerequisiteCoursesJSON,
             PREREQUISITE_COURSES
           );
-          JSONArray corequisiteCoursesJSON = (JSONArray) courseJSON.get(COREQUISITE_COURSES);
-                addCoursesToList(courses, course, corequisiteCoursesJSON, COREQUISITE_COURSES);
+          JSONArray corequisiteCoursesJSON = (JSONArray) courseJSON.get(
+            COREQUISITE_COURSES
+          );
+          addCoursesToList(
+            courses,
+            course,
+            corequisiteCoursesJSON,
+            COREQUISITE_COURSES
+          );
           JSONArray prereqCoreqJSON = (JSONArray) courseJSON.get(PREREQ_COREQ);
           addCoursesToList(courses, course, prereqCoreqJSON, PREREQ_COREQ);
         }
@@ -156,7 +164,6 @@ public class DataLoader extends DataConstants {
       e.printStackTrace();
     }
   }
-
 
   public static Course getCourseByID(
     ArrayList<Course> courses,

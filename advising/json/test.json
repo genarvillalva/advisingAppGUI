@@ -1,15 +1,1 @@
-[
-    {
-        "courseTitle": "Introduction to Computer Science",
-        "creditHours": 3,
-        "preferredSemester": 1,
-        "minGrade": "B",
-        "prerequisiteCourses": [
-            "CS 102",
-            "CS 103"
-        ],
-        "courseCode": "SCI",
-        "semester": "FALL",
-        "courseID": "CS 101"
-    }
-]
+[{"creditHours":3,"preferredSemester":1,"minGrade":"B","prerequisiteCourses":[],"courseCode":"SCI","semester":FALL,"title":"Introduction to Computer Science","courseID":"CS 101"}]
