@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "firstName": "Greg",
+    "lastName": "Tomlin",
+    "username": "gregtomlin24",
+    "password": "insecurepassword",
+    "userType": "Advisor",
+    "listOfAdvisedStudents": [
+      "tombrown24"
+    ]
+  },
+  {
+    "firstName": "Mike",
+    "lastName": "Dawson",
+    "username": "mikedawson24",
+    "password": "apassword",
+    "userType": "Advisor",
+    "listOfAdvisedStudents": [
+      "johnhop36"
+    ]
+  }
+]

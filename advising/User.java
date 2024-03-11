@@ -76,5 +76,8 @@ public abstract class User {
       }
     }
   }
+  public String toString() {
+    return "First Name: " + firstName + "\nLast Name: " + lastName + "\nUsername: " + username + "\nPassword: " + password + "\nUser Type: " + userType;
+  }
 }
 

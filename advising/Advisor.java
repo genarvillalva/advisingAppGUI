@@ -8,6 +8,7 @@ public class Advisor extends User{
   private String lastName;
   private String username;
   private String password;
+  private String userType;
   private ArrayList<Student> listofAdvisedStudents;
   private String advisingNotes;
   private CourseList courseList;
@@ -24,8 +25,12 @@ public class Advisor extends User{
                  String password, String userType, ArrayList<Student> listOfAdvisedStudents
    ) {
     super(firstName, lastName, username, password, userType);
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.username = username;
+    this.password = password;
+    this.userType = userType;
     this.listofAdvisedStudents = listOfAdvisedStudents;
-    this.courseList = courseList;
   }
 
   /**
@@ -110,6 +115,7 @@ public class Advisor extends User{
             "Last Name: " + lastName + "\n" +
             "Username: " + username + "\n" +
             "Password: " + password + "\n" +
+            "User Type: " + userType + "\n" +
             "List of Advised Students: " + listofAdvisedStudents + "\n" +
             "Advising Notes: " + advisingNotes;
 }
