@@ -7,13 +7,14 @@ public class test {
 
   public static void main(String[] args) {
     // testGetAllStudents();
-    // testGetAllAdvisors();
+    testGetAllAdvisors();
     // testGetAllCourses();
     // testGetAllMajors();
     // testGetAllStudentPortfolios();
     // testStudentPortfolio();
     // testWriteUsers();
-    testSaveCourses();
+  
+    // testSaveCourses();
   }
 
   public static void testGetAllStudents() {
@@ -87,24 +88,24 @@ public class test {
     DataWriter.saveCourses(courses);
   }
 
-  // public static void testWriteUsers() {
-  //   ArrayList<Student> students = DataLoader.getAllStudents();
-  //   ArrayList<Advisor> advisors = DataLoader.getAllAdvisors();
-  //   StudentYear studentYear = StudentYear.FRESHMAN;
-  //   ArrayList<StudentPortfolio> StudentPortfolio = DataLoader.getAllStudentPortfolios();
-  //   Student s = new Student(
-  //     "James",
-  //     "Son",
-  //     "jamesson1",
-  //     "password",
-  //     "Student",
-  //     "Computer Science",
-  //     advisors.get(0),
-  //     studentYear,
-  //     StudentPortfolio.get(0),
-  //     "Application Area"
-  //   );
-  //   students.add(s);
-  //   DataWriter.saveUsers(students);
-  // }
+  public static void testWriteUsers() {
+    ArrayList<Student> students = DataLoader.getAllStudents();
+    ArrayList<Advisor> advisors = DataLoader.getAllAdvisors();
+    StudentYear studentYear = StudentYear.FRESHMAN;
+    ArrayList<StudentPortfolio> StudentPortfolio = DataLoader.getAllStudentPortfolios();
+    Student s = new Student(
+      "James",
+      "Son",
+      "jamesson1",
+      "password",
+      "Student",
+      "Computer Science",
+      advisors.get(0),
+      studentYear,
+      StudentPortfolio.get(0),
+      "Application Area"
+    );
+    students.add(s);
+    DataWriter.saveUsers();
+  }
 }

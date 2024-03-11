@@ -48,7 +48,7 @@ public class DataLoader extends DataConstants {
           (String) studentJSON.get(LAST_NAME),
           (String) studentJSON.get(USER_NAME),
           (String) studentJSON.get(PASSWORD),
-          (String) studentJSON.get(TYPE),
+          (String) studentJSON.get(USER_TYPE),
           (String) studentJSON.get(MAJOR),
           (Advisor) studentJSON.get(advisor),
           (StudentYear) studentJSON.get(STUDENT_YEAR),
@@ -80,7 +80,7 @@ public class DataLoader extends DataConstants {
           (String) advisorJSON.get(LAST_NAME),
           (String) advisorJSON.get(USER_NAME),
           (String) advisorJSON.get(PASSWORD),
-          (String) advisorJSON.get(TYPE),
+          (String) advisorJSON.get(USER_TYPE),
           (ArrayList<Student>) advisorJSON.get(LIST_OF_ADVISED_STUDENTS)
         );
         advisors.add(advisor);

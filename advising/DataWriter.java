@@ -3,7 +3,6 @@ package advising;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -25,7 +24,7 @@ public class DataWriter extends DataConstants {
     JSONArray jsonCourses = new JSONArray();
 
     for (int i = 0; i < courses.size(); i++) {
-      if(oldCourses.contains(courses.get(i))){
+      if (oldCourses.contains(courses.get(i))) {
         continue;
       }
       jsonCourses.add(toCourseJSON(courses.get(i)));
@@ -54,7 +53,6 @@ public class DataWriter extends DataConstants {
     courseObject.put(PREFERRED_SEMESTER, course.getPreferredSemester());
     return courseObject;
   }
-  
 
   /**
    * Writes a list of students to a JSON file
@@ -82,7 +80,7 @@ public class DataWriter extends DataConstants {
       );
       jsonStudents.add(toStudentJSON(newStudents.get(i)));
     }
-    writeToFile(jsonStudents, "advising/json/students.json");
+    writeToFile(jsonStudents, "advising/json/studenttest.json");
   }
 
   /**
@@ -122,7 +120,7 @@ public class DataWriter extends DataConstants {
       );
       jsonAdvisors.add(getAdvisorJSON(newAdvisors.get(i)));
     }
-    writeToFile(jsonAdvisors, "advising/json/advisors.json");
+    writeToFile(jsonAdvisors, "advising/json/advisorstest.json");
   }
 
   private static JSONObject getAdvisorJSON(Advisor advisor) {
