@@ -4,11 +4,6 @@ import java.util.ArrayList;
 
 public class Advisor extends User{
 
-  private String firstName;
-  private String lastName;
-  private String username;
-  private String password;
-  private String userType;
   private ArrayList<Student> listofAdvisedStudents;
   private String advisingNotes;
   private CourseList courseList;
@@ -25,11 +20,6 @@ public class Advisor extends User{
                  String password, String userType, ArrayList<Student> listOfAdvisedStudents
    ) {
     super(firstName, lastName, username, password, userType);
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.username = username;
-    this.password = password;
-    this.userType = userType;
     this.listofAdvisedStudents = listOfAdvisedStudents;
   }
 

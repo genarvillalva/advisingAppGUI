@@ -1,10 +1,6 @@
 package advising;
 
 public enum CourseCode {
-  FoundingDocuments,
-  ProgramRequirements,
-  MajorRequirements,
-  IntegrativeCourse,
   CMW,
   ARP,
   SCI,
@@ -14,6 +10,8 @@ public enum CourseCode {
   CMS,
   INF,
   VSR,
-  PR,
-  MR,
+  PR, // Program Requirement
+  MR, // Major Requirement
+  IC, // Integrative Course
+  FD // Founding Documents
 }

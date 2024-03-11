@@ -3,9 +3,6 @@ package advising;
 import java.util.ArrayList;
 
 public class Student extends User {
-
-  private String firstName;
-  private String lastName;
   private String major;
   private Advisor advisor;
   private StudentYear studentClass;
@@ -101,7 +98,7 @@ public class Student extends User {
   }
 
   public String toString() {
-    return "Student: " + firstName + " " + lastName + "\n" +
+    return "Student: " + firstName + " " + lastName + "\n" + "username: " + username + "\n" + 
            "Major: " + major + " Student Year: " + studentClass;
 }
 
