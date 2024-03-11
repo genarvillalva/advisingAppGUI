@@ -5,12 +5,12 @@ import java.util.Scanner;
 
 public abstract class User {
 
-  private String firstName;
-  private String lastName;
-  private String username;
-  private String password;
-  private String userType;
-  private UserList UserList;
+  protected String firstName;
+  protected String lastName;
+  protected String username;
+  protected String password;
+  protected String userType;
+  protected UserList UserList;
 
   public User(String firstName, String lastName, String username, String password, String userType) {
     this.firstName = firstName;

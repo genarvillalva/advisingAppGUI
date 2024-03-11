@@ -6,8 +6,8 @@ import java.util.ArrayList;
 public class test {
 
   public static void main(String[] args) {
-    // testGetAllStudents();
-    testGetAllAdvisors();
+    testGetAllStudents();
+    // testGetAllAdvisors();
     // testGetAllCourses();
     // testGetAllMajors();
     // testGetAllStudentPortfolios();
