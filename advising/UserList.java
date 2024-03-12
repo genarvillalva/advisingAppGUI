@@ -90,7 +90,7 @@ public class UserList {
 
     public boolean verifyLoginStudent(String username, String password) {
       // Iterate through each student in the students list
-      for (Student student : students) { // this is not right because I am havig trouble creating a
+      for (Student student : students) { 
           // Check if the current student's username and password match the input parameters
           if (student.getUsername().equals(username) && student.getPassword().equals(password)) {
               return true; // Login successful
@@ -106,14 +106,15 @@ public class UserList {
 
     // Method to verify login for an admin
     public boolean verifyLoginAdmin(String username, String password) {
-      for (User user : userAccounts) {
-          if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
+      for (Admin admin : admins) {
+          if (admin.getUsername().equals(username) && admin.getPassword().equals(password)) {
               return true;
           }
       }
       return false;
   }
 
+  // Method to verify login for an advisor
 
   public boolean verifyLoginAdvisor(String username, String password) {
     for (Advisor advisor : advisors) {
