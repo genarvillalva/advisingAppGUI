@@ -13,9 +13,9 @@ public class test {
     // testGetAllMajors();
     // testGetAllStudentPortfolios();
     // testStudentPortfolio();
-    testWriteUsers();
+    // testWriteUsers();
 
-    // testSaveCourses();
+    testSaveCourses();
   }
 
   public static void testGetAllStudents() {
@@ -85,6 +85,12 @@ public class test {
   public static void testSaveCourses() {
     ArrayList<Course> courses = new ArrayList<>();
     CourseCode s = CourseCode.SCI;
+    ArrayList<Course> req = new ArrayList<>();
+    CourseList courseList = CourseList.getInstance();
+    Course math141 = courseList.getCourseByID("MATH141");
+    Course csce190 = CourseList.getCourseByID("CSCE190");
+    req.add(math141);
+    req.add(csce190);
     Course c = new Course(
       "CS101",
       "Introduction to Computer Science",
@@ -92,7 +98,7 @@ public class test {
       3,
       "B",
       Semester.FALL,
-      new ArrayList<Course>(),
+      req,
       new ArrayList<Course>(),
       new ArrayList<Course>(),
       1
