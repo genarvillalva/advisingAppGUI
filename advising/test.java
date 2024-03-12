@@ -13,9 +13,9 @@ public class test {
     // testGetAllMajors();
     // testGetAllStudentPortfolios();
     // testStudentPortfolio();
-    // testWriteUsers();
+    testWriteUsers();
 
-    testSaveCourses();
+    // testSaveCourses();
   }
 
   public static void testGetAllStudents() {
@@ -126,6 +126,6 @@ public class test {
       "Take Chem 101 next semester."
     );
     students.add(s);
-    DataWriter.saveUsers(students);
+    DataWriter.saveUsers(students, advisors);
   }
 }
