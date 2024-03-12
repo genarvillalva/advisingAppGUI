@@ -73,9 +73,14 @@ public class Advisor extends User{
 
   public void adviseStudent(String username, String note) {
     // Search for the student in the list of advised students
-    for (Student student : this.listofAdvisedStudents) {
-        if (student.getUsername().equals(username))  //still working on this - Timmy
-            
+    //for (Student student : this.listofAdvisedStudents) 
+        //if (student.getUsername().equals(username)) {
+            // Student found, add advising note
+          //student.
+     
+        
+
+
     }
 
 
