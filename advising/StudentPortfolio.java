@@ -10,7 +10,7 @@ public class StudentPortfolio {
   private int failCount;
   private int semesterCreditCount;
   private ArrayList<Course> requiredCourses;
-  private HashMap eightSemesterPlan;
+  private HashMap<String, ArrayList<Course>> eightSemesterPlan;
   private ArrayList<Course> currentCourses;
   //Completed Course method?
   private HashMap<Course, Double> completedCourses;
@@ -47,6 +47,10 @@ public class StudentPortfolio {
     int totalCreditHoursMajorRequirements,
     ArrayList<ElectiveCluster> electiveClusterArray
   ) {
+    this.semesterCreditCount = semesterCreditCount;
+    this.failCount = failCount;
+    this.gpa = gpa;
+    this.portfolioUUID = portfolioUUID;
     this.requiredCourses = requiredCourses;
     this.eightSemesterPlan = eightSemesterPlan;
     this.currentCourses = currentCourses;
@@ -306,12 +310,14 @@ public ArrayList<ElectiveCluster> getElectiveClusterArray() {
   }
 
   public String toString() {
-    return (
+    String result =  (
       "StudentPortfolio: " +
+      "\nportfolioUUID='" +
+      portfolioUUID +
       "\nrequiredCourses=" +
       requiredCourses +
       "\neightSemesterPlan=" +
-      eightSemesterPlan +
+      
       "\ncurrentCourses=" +
       currentCourses +
       "\ncompletedCourses=" +
@@ -321,6 +327,12 @@ public ArrayList<ElectiveCluster> getElectiveClusterArray() {
       "\nscholarship='" +
       scholarship +
       '\'' +
+      "\n, gpa=" +
+      gpa +
+      ", failCount=" +
+      failCount +
+      ", semesterCreditCount=" +
+      semesterCreditCount +
       ", scholarshipCreditHoursLeft=" +
       scholarshipCreditHoursLeft +
       "\n yearCreditCount=" +
@@ -338,7 +350,8 @@ public ArrayList<ElectiveCluster> getElectiveClusterArray() {
       ", totalCreditHoursMajorRequirements=" +
       totalCreditHoursMajorRequirements +
       "\n electiveClusterArray=" +
-      electiveClusterArray 
+      electiveClusterArray + '\n'
     );
+    return result;
   }
 }

@@ -2,25 +2,27 @@
     {
       "firstName":"Tom",
       "lastName":"Brown",
-      "userName":"tombrown24",
+      "username":"tombrown24",
       "password":"mdhj738",
+      "userType":"Student",
       "major":"Computer_Science",
       "advisor":"gregtomlin24",
-      "studentClass":"Junior",
+      "studentYear":"JUNIOR",
       "portfolio":"cda5aa8c-e6ff-461f-b61c-886194be4080",
-      "applicationArea":"math",
+      "applicationArea":"MATH",
       "advisingNotes" : ""
     },
     {
       "firstName":"John",
       "lastName":"Hop",
-      "userName":"johnhop36",
+      "username":"johnhop36",
       "password":"fgndsj46",
+      "userType":"Student",
       "major":"Computer_Information_Systems",
       "advisor":"mikedawson24",
-      "studentClass":"Freshman",
+      "studentYear":"FRESHMAN",
       "portfolio":"7c64c98a-55fa-4d88-9d2a-16189e4ba446",
-      "applicationArea":"art",
+      "applicationArea":"ART",
       "advisingNotes" : ""
     }
   ]
