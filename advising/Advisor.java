@@ -92,10 +92,11 @@ public class Advisor extends User{
 
   public void addStudentToAdvisor(String username, ArrayList<Student> listOfAdvisedStudents) {
     for (Student student : UserList.getInstance().getStudents()) {
-        System.out.println("Searching username: " + student.getUsername()); 
+        //System.out.println(student.getUsername()); 
         if (student.getUsername().equals(username)) {
             listOfAdvisedStudents.add(student);
-            System.out.println("Student " + username + " added to advisor's list of advised students.");
+            System.out.println(" ");
+            System.out.println("Student " + username + " added to " + firstName + "'s" + " list of advised students.");
             return;
         }
     }
