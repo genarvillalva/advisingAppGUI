@@ -143,6 +143,13 @@ public class Student extends User {
  * String representation of a student
  */
   public String toString() {
+
+    // Check if an advisor is assigned to the student.
+  // If an advisor is assigned, get the advisor's username.
+  // Otherwise say "No advisor assigned" as the username.
+    String advisorUsername = (advisor != null)  ? advisor.getUsername() : "No advisor assigned";
+
+    
     return "Student:\n" +
       "First Name: " + firstName + "\n" +
       "Last Name: " + lastName + "\n" +
@@ -150,12 +157,14 @@ public class Student extends User {
       "Password: " + password + "\n" +
       "User Type: " + userType + "\n" +
       "Major: " + major + "\n" +
-      "Advisor: " + advisor.getUsername() + "\n" +
+      "Advisor: " + advisorUsername + "\n" + 
       "Student Year: " + studentYear + "\n" +
+     
       "Student Portfolio: " + studentPortfolio + "\n" +
+      
       "Application Area: " + applicationArea + "\n" +
-      "Advising Notes: " + advisingNotes + "\n";
-  }
+      "Advising Notes: " + advisingNotes  + "\n";
+}
 
   public void courseLookup(String course) {
     courseList.findCourse(course);
