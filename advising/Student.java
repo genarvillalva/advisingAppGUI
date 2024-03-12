@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Student extends User {
   private String major;
   private Advisor advisor;
-  private StudentYear studentClass;
+  private StudentYear studentYear;
   private StudentPortfolio studentPortfolio;
   private String applicationArea;
   private CourseList courseList;
@@ -38,9 +38,41 @@ public class Student extends User {
     super(firstName, lastName, username, password, userType);
     this.major = major;
     this.advisor = advisor;
-    this.studentClass = studentYear;
+    this.studentYear = studentYear;
     this.studentPortfolio = portfolio;
     this.applicationArea = applicationArea;
+  }
+
+  /**
+   * Get the first name of the student
+   * @return The first name of the student
+   */
+  public String getFirstName() {
+    return firstName;
+  }
+
+  /**
+   * Get the last name of the student
+   * @return The last name of the student
+   */
+  public String getLastName() {
+    return lastName;
+  }
+
+  /**
+   * Get the username of the student
+   * @return The username of the student
+   */
+  public String getUsername() {
+    return username;
+  }
+
+  /**
+   * Get the password of the student
+   * @return The password of the student
+   */
+  public String getPassword() {
+    return password;
   }
 
   /**
@@ -64,7 +96,7 @@ public class Student extends User {
    * @return The student year of the student
    */
   public String getStudentClass() {
-    return studentClass+"";
+    return studentYear+"";
   }
 
   /**
@@ -96,11 +128,22 @@ public class Student extends User {
   public void displayStudentPortfolio() {
     this.studentPortfolio.toString();
   }
-
+/**
+ * String representation of a student
+ */
   public String toString() {
-    return "Student: " + firstName + " " + lastName + "\n" + "username: " + username + "\n" + 
-           "Major: " + major + " Student Year: " + studentClass;
-}
+    return "Student:\n" +
+      "First Name: " + firstName + "\n" +
+      "Last Name: " + lastName + "\n" +
+      "Username: " + username + "\n" +
+      "Password: " + password + "\n" +
+      "User Type: " + userType + "\n" +
+      "Major: " + major + "\n" +
+      "Advisor: " + advisor.getUsername() + "\n" +
+      "Student Year: " + studentYear + "\n" +
+      "Student Portfolio: " + studentPortfolio + "\n" +
+      "Application Area: " + applicationArea + "\n";
+  }
 
   public void courseLookup(String course) {
     courseList.findCourse(course);

@@ -2,18 +2,19 @@ package advising;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class test {
 
   public static void main(String[] args) {
-    testGetAllStudents();
+    // testGetAllStudents();
     // testGetAllAdvisors();
     // testGetAllCourses();
     // testGetAllMajors();
-    // testGetAllStudentPortfolios();
+    testGetAllStudentPortfolios();
     // testStudentPortfolio();
     // testWriteUsers();
-  
+
     // testSaveCourses();
   }
 
@@ -51,27 +52,39 @@ public class test {
     }
   }
 
-  public static void testStudentPortfolio() {
-    ArrayList<StudentPortfolio> studentPortfolios = DataLoader.getAllStudentPortfolios();
-    for (int i = 0; i < studentPortfolios.size(); i++) {
-      System.out.println("\nStudent UUID " + i + ":");
-      System.out.println(studentPortfolios.get(i).getRequiredCourses().get(0));
+  // public static void testStudentPortfolio() {
+  //   ArrayList<StudentPortfolio> studentPortfolios = DataLoader.getAllStudentPortfolios();
+  //   for (int i = 0; i < studentPortfolios.size(); i++) {
+  //     System.out.println("\nStudent UUID " + i + ":");
+  //     System.out.println(studentPortfolios.get(i).getRequiredCourses().get(0));
+  //   }
+  // }
+  public static Course getCourseByID(
+    ArrayList<Course> courses,
+    String courseID
+  ) {
+    for (Course course : courses) {
+      if (course.getCourseID().equals(courseID)) {
+        return course;
+      }
     }
+    return null;
   }
 
   public static void testGetAllStudentPortfolios() {
+    CourseList.getInstance();
+    ArrayList<Course> courses = DataLoader.getAllCourses();
+    Course csce145 = CourseList.getCourseByID("CSCE190");
     ArrayList<StudentPortfolio> studentPortfolios = DataLoader.getAllStudentPortfolios();
     System.out.println("List of Student Portfolios:");
     for (StudentPortfolio studentPortfolio : studentPortfolios) {
-      System.out.println(studentPortfolio);
+      System.out.println(studentPortfolio.getTotalCreditHoursMajorRequirements() + "\n\n");
     }
   }
 
   public static void testSaveCourses() {
     ArrayList<Course> courses = new ArrayList<>();
-
     CourseCode s = CourseCode.SCI;
-
     Course c = new Course(
       "CS101",
       "Introduction to Computer Science",

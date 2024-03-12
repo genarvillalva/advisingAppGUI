@@ -12,7 +12,12 @@ import org.json.simple.parser.JSONParser;
  * @author Genar Villalva
  */
 public class DataLoader extends DataConstants {
-
+/**
+ * Finds the advisor by its username
+ * @param advisors list of all advisors
+ * @param username the username of the advisor
+ * @return the advisor with the given username
+ */
   private static Advisor findAdvisorByUsername(
     ArrayList<Advisor> advisors,
     String username
@@ -33,6 +38,7 @@ public class DataLoader extends DataConstants {
    */
   public static ArrayList<Student> getAllStudents() {
     ArrayList<Advisor> advisors = getAllAdvisors();
+    ArrayList<StudentPortfolio> studentPortfolios = getAllStudentPortfolios();
     ArrayList<Student> students = new ArrayList<Student>();
 
     try {
@@ -43,6 +49,8 @@ public class DataLoader extends DataConstants {
         JSONObject studentJSON = (JSONObject) studentsJSON.get(i);
         String advisorUsername = (String) studentJSON.get("advisor");
         Advisor advisor = findAdvisorByUsername(advisors, advisorUsername);
+        StudentYear studentYear = StudentYear.valueOf((String) studentJSON.get(STUDENT_YEAR));
+        
         Student student = new Student(
           (String) studentJSON.get(FIRST_NAME),
           (String) studentJSON.get(LAST_NAME),
@@ -50,8 +58,8 @@ public class DataLoader extends DataConstants {
           (String) studentJSON.get(PASSWORD),
           (String) studentJSON.get(USER_TYPE),
           (String) studentJSON.get(MAJOR),
-          (Advisor) studentJSON.get(advisor),
-          (StudentYear) studentJSON.get(STUDENT_YEAR),
+          advisor,
+          studentYear,
           (StudentPortfolio) studentJSON.get(PORTFOLIO_UUID),
           (String) studentJSON.get(APPLICATION_AREA)
         );
@@ -106,7 +114,7 @@ public class DataLoader extends DataConstants {
         CourseCode courseCode = CourseCode.valueOf(
           (String) courseJSON.get(COURSE_CODE)
         );
-
+        
         Semester semester = Semester.valueOf((String) courseJSON.get(SEMESTER));
         int _preferred_semester =
           ((Long) courseJSON.get(PREFERRED_SEMESTER)).intValue();
@@ -164,11 +172,15 @@ public class DataLoader extends DataConstants {
       e.printStackTrace();
     }
   }
-
+/**
+ * Get the course by its ID
+ * @param courses list of all courses
+ * @param courseID the ID of the course
+ * @return the course with the given ID
+ */
   public static Course getCourseByID(
     ArrayList<Course> courses,
-    String courseID
-  ) {
+    String courseID) {
     for (Course course : courses) {
       if (course.getCourseID().equals(courseID)) {
         return course;
@@ -176,7 +188,13 @@ public class DataLoader extends DataConstants {
     }
     return null;
   }
-
+  /**
+   * Adds prereqs, coreqs, and prereqCoreqs to courses
+   * @param courses list of courses
+   * @param course the course to add prereqs, coreqs, and prereqCoreqs to
+   * @param json the json array of prereqs, coreqs, and prereqCoreqs
+   * @param req the type of requirement
+   */
   private static void addCoursesToList(
     ArrayList<Course> courses,
     Course course,
@@ -208,7 +226,7 @@ public class DataLoader extends DataConstants {
 
   /**
    * Reads the Major.json file and returns an ArrayList of Majors
-   * @return
+   * @return ArrayList<Major>
    */
   public static ArrayList<Major> getAllMajors() {
     ArrayList<Major> majors = new ArrayList<Major>();
@@ -232,38 +250,90 @@ public class DataLoader extends DataConstants {
     return majors;
   }
 
+
   /**
    * Reads the StudentPortfolio.json file and returns an ArrayList of StudentPortfolios
    * @return ArrayList<StudentPortfolio>
    */
   public static ArrayList<StudentPortfolio> getAllStudentPortfolios() {
-    ArrayList<StudentPortfolio> studentPortfolios = new ArrayList<StudentPortfolio>();
     try {
+      ArrayList<StudentPortfolio> studentPortfolios = new ArrayList<StudentPortfolio>();
       FileReader reader = new FileReader(
         "advising/json/studentPortfolios.json"
       );
+      CourseList.getInstance();
       JSONParser parser = new JSONParser();
       JSONArray studentPortfoliosJSON = (JSONArray) parser.parse(reader);
       for (int i = 0; i < studentPortfoliosJSON.size(); i++) {
         JSONObject studentPortfolioJSON = (JSONObject) studentPortfoliosJSON.get(
           i
         );
+        String portfolioUUID = (String) studentPortfolioJSON.get(PORTFOLIO_UUID);
+        ArrayList<Course> requiredCourses = new ArrayList();
+        ArrayList<String> requiredCoursesString = (ArrayList<String>) studentPortfolioJSON.get(REQUIRED_COURSES);
+        for(String s: requiredCoursesString){
+          requiredCourses.add(CourseList.getCourseByID(s));
+        }
+        // eight semester plan 
+        HashMap<String, ArrayList<Course>> eightSemesterPlan = new HashMap<>();
+        JSONObject eightSemesterPlanJSON = (JSONObject) studentPortfolioJSON.get(EIGHT_SEMESTER_PLAN);
+        for(Object semesterObject: eightSemesterPlanJSON.keySet()){
+          String semester = (String) semesterObject;
+          JSONArray coursesJSON = (JSONArray) eightSemesterPlanJSON.get(semester);
+          ArrayList<Course> c = new ArrayList<>();
+
+          for(Object courseObject: coursesJSON){
+            String courseID = (String) courseObject;
+            Course course = CourseList.getCourseByID(courseID);
+            if(course!=null)
+              c.add(course);
+          }
+          eightSemesterPlan.put(semester, c);
+        }
+        // completed courses
+        HashMap<Course, Double> completedCourses = new HashMap<>();
+        JSONObject completedCoursesJSON = (JSONObject) studentPortfolioJSON.get(COMPLETED_COURSES);
+        for(Object courseObject: completedCoursesJSON.keySet()){
+          String courseID = (String) courseObject;
+          Course course = CourseList.getCourseByID(courseID);
+          if(course!=null)
+            completedCourses.put(course, (Double) completedCoursesJSON.get(courseID));
+        }
+
+        // current courses 
+        ArrayList<Course> currentCourses = new ArrayList();
+        ArrayList<String> currentCoursesString = (ArrayList<String>) studentPortfolioJSON.get(CURRENT_COURSES);
+        for(String s: currentCoursesString){
+          currentCourses.add(CourseList.getCourseByID(s));
+        }
+
+        //failed courses 
+        HashMap<Course, Integer> failedCourses = new HashMap<>();
+        JSONObject failedCoursesJSON = (JSONObject) studentPortfolioJSON.get(FAILED_COURSES);
+        for(Object courseObject: failedCoursesJSON.keySet()){
+          String courseID = (String) courseObject;
+          Course course = CourseList.getCourseByID(courseID);
+          if(course!=null)
+            failedCourses.put(course, ((Long) failedCoursesJSON.get(courseID)).intValue());
+        }
+
+
+        // gpa 
+        double gpa = ((Number) studentPortfolioJSON.get(GPA)).doubleValue();
         StudentPortfolio studentPortfolio = new StudentPortfolio(
           (String) studentPortfolioJSON.get(PORTFOLIO_UUID),
-          (ArrayList<Course>) studentPortfolioJSON.get(REQUIRED_COURSES),
-          (HashMap<String, ArrayList<Course>>) studentPortfolioJSON.get(
-            EIGHT_SEMESTER_PLAN
-          ),
-          (ArrayList<Course>) studentPortfolioJSON.get(CURRENT_COURSES),
-          (HashMap<Course, Double>) studentPortfolioJSON.get(COMPLETED_COURSES),
-          (HashMap<Course, Integer>) studentPortfolioJSON.get(FAILED_COURSES),
+          requiredCourses,
+          eightSemesterPlan,
+          currentCourses,
+          completedCourses,
+          failedCourses,
           (String) studentPortfolioJSON.get(SCHOLARSHIP),
           (
             (Long) studentPortfolioJSON.get(
               YEARLY_SCHOLARSHIP_CREDIT_HOURS_LEFT
             )
           ).intValue(),
-          ((Double) studentPortfolioJSON.get(GPA)).doubleValue(),
+          gpa,
           ((Long) studentPortfolioJSON.get(FAIL_COUNT)).intValue(),
           ((Long) studentPortfolioJSON.get(SEMESTER_CREDIT_COUNT)).intValue(),
           ((Long) studentPortfolioJSON.get(YEAR_CREDIT_HOURS)).intValue(),
@@ -291,9 +361,10 @@ public class DataLoader extends DataConstants {
         );
         studentPortfolios.add(studentPortfolio);
       }
+      return studentPortfolios;
     } catch (Exception e) {
       e.printStackTrace();
     }
-    return studentPortfolios;
+    return null;
   }
 }
