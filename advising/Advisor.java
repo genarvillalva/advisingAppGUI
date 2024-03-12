@@ -72,22 +72,16 @@ public class Advisor extends User{
   }
 
   public void adviseStudent(String username, String note) {
-    // Search for the student in the list of advised students
-    //for (Student student : this.listofAdvisedStudents) 
-        //if (student.getUsername().equals(username)) {
-            // Student found, add advising note
-          //student.
-     
-        
-
-
-    }
-
-
-
-
-
-
+    //Search for the student in the list of advised students
+    for (Student student : this.listofAdvisedStudents)  // going to search for student in the list of advising student. 
+        if (student.getUsername().equals(username)) { // see if the user name of the student is equal to username that is inputed by advisor.
+            // Student found so it should add advising note
+            student.addAdvisingNotes(note);  // adds note to student
+            System.out.println("Advising note added to " + student.getFirstName() + "'s profile."); //outputs the firstname of user
+            return; // Exit the method after adding the note
+        }
+      }
+  
   public void suggestCourses(ArrayList<Course> courses) {}
 
   public void addStudentToAdvisor(String username, ArrayList<Student> listOfAdvisedStudents) {
