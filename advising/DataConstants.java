@@ -14,6 +14,7 @@ public abstract class DataConstants {
   public static final String STUDENT_YEAR = "studentYear";
   public static final String PORTFOLIO = "portfolio";
   public static final String APPLICATION_AREA = "applicationArea";
+  public static final String ADVISING_NOTES = "advisingNotes";
 
   public static final String COURSE_ID = "courseID";
   public static final String COURSE_TITLE = "title";

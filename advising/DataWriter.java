@@ -17,8 +17,8 @@ public class DataWriter extends DataConstants {
    * @param students List of Student objects to be written to the file
    * @param filePath The path to the JSON file
    */
+  @SuppressWarnings("unchecked")
   public static boolean saveCourses(ArrayList<Course> _courses) {
-    CourseList courseList = CourseList.getInstance();
     ArrayList<Course> courses = _courses;
     ArrayList<Course> oldCourses = DataLoader.getAllCourses();
     JSONArray jsonCourses = new JSONArray();
@@ -39,6 +39,7 @@ public class DataWriter extends DataConstants {
     return true;
   }
 
+  @SuppressWarnings("unchecked")
   private static JSONObject toCourseJSON(Course course) {
     JSONObject courseObject = new JSONObject();
     courseObject.put(COURSE_ID, course.getCourseID());
@@ -63,6 +64,7 @@ public class DataWriter extends DataConstants {
     saveStudents();
   }
 
+  @SuppressWarnings("unchecked")
   public static void saveStudents() {
     UserList userList = UserList.getInstance();
     ArrayList<Student> newStudents = userList.getStudents();
@@ -89,6 +91,7 @@ public class DataWriter extends DataConstants {
    * @param student to convert to JSON object
    * @return JSONObject of student
    */
+  @SuppressWarnings("unchecked")
   private static JSONObject toStudentJSON(Student student) {
     JSONObject studentObject = new JSONObject();
     studentObject.put(FIRST_NAME, student.getFirstName());
@@ -103,6 +106,7 @@ public class DataWriter extends DataConstants {
     return studentObject;
   }
 
+  @SuppressWarnings("unchecked")
   public static void saveAdvisors() {
     UserList userList = UserList.getInstance();
     ArrayList<Advisor> newAdvisors = userList.getAdvisors();
@@ -123,6 +127,7 @@ public class DataWriter extends DataConstants {
     writeToFile(jsonAdvisors, "advising/json/advisorstest.json");
   }
 
+  @SuppressWarnings("unchecked")
   private static JSONObject getAdvisorJSON(Advisor advisor) {
     JSONObject advisorObject = new JSONObject();
     advisorObject.put(FIRST_NAME, advisor.getFirstName());
