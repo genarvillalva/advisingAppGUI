@@ -10,10 +10,10 @@ public class test {
     // testGetAllStudents();
     // testGetAllAdvisors();
     // testGetAllCourses();
-    // testGetAllMajors();
+    testGetAllMajors();
     // testGetAllStudentPortfolios();
     // testStudentPortfolio();
-    testWriteUsers();
+    // testWriteUsers();
 
     // testSaveCourses();
   }

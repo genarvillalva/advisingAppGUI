@@ -224,7 +224,7 @@ public class DataLoader extends DataConstants {
       }
     }
   }
-
+///////////////////////////////////////////////////////////////////////////
   /**
    * Reads the Major.json file and returns an ArrayList of Majors
    * @return ArrayList<Major>
@@ -232,15 +232,21 @@ public class DataLoader extends DataConstants {
   public static ArrayList<Major> getAllMajors() {
     ArrayList<Major> majors = new ArrayList<Major>();
     try {
+      CourseList courseList = CourseList.getInstance();
       FileReader reader = new FileReader("advising/json/Major.json");
       JSONParser parser = new JSONParser();
       JSONArray majorsJSON = (JSONArray) parser.parse(reader);
       for (int i = 0; i < majorsJSON.size(); i++) {
         JSONObject majorJSON = (JSONObject) majorsJSON.get(i);
+        ArrayList<Course> req = new ArrayList();
+        ArrayList<String> currentCoursesString = (ArrayList<String>) majorJSON.get(REQUIRED_COURSES);
+        for(String s: currentCoursesString){
+          req.add(courseList.getCourseByID(s));
+        }
         Major major = new Major(
           (String) majorJSON.get(MAJOR_NAME),
           (String) majorJSON.get(MAJOR_ID),
-          (ArrayList<Course>) majorJSON.get(REQUIRED_COURSES),
+          req,
           ((Long) majorJSON.get(REQUIRED_CREDIT_HOURS)).intValue()
         );
         majors.add(major);
@@ -250,7 +256,7 @@ public class DataLoader extends DataConstants {
     }
     return majors;
   }
-
+///////////////////////////////////////////////////////////////////////////
 
   /**
    * Reads the StudentPortfolio.json file and returns an ArrayList of StudentPortfolios
