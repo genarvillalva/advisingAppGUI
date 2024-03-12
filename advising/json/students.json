@@ -9,8 +9,10 @@
       "advisor":"gregtomlin24",
       "studentYear":"JUNIOR",
       "portfolio":"cda5aa8c-e6ff-461f-b61c-886194be4080",
-      "applicationArea":"MATH"
-    },{
+      "applicationArea":"MATH",
+      "advisingNotes" : ""
+    },
+    {
       "firstName":"John",
       "lastName":"Hop",
       "username":"johnhop36",
@@ -20,6 +22,7 @@
       "advisor":"mikedawson24",
       "studentYear":"FRESHMAN",
       "portfolio":"7c64c98a-55fa-4d88-9d2a-16189e4ba446",
-      "applicationArea":"ART"
+      "applicationArea":"ART",
+      "advisingNotes" : ""
     }
   ]

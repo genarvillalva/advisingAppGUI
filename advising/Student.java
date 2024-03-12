@@ -9,6 +9,7 @@ public class Student extends User {
   private StudentPortfolio studentPortfolio;
   private String applicationArea;
   private CourseList courseList;
+  private String advisingNotes;
 
   /**
    * Constructor for the Student class
@@ -148,4 +149,13 @@ public class Student extends User {
   public void courseLookup(String course) {
     courseList.findCourse(course);
   }
+
+  public void addAdvisingNotes(String note) {
+    if (this.advisingNotes == null) {
+        this.advisingNotes = note;
+    } else {
+        this.advisingNotes += note; // Append new note to existing ones
+    }
+  }
+
 }

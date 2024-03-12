@@ -71,7 +71,22 @@ public class Advisor extends User{
     return advisingNotes;
   }
 
-  public void adviseStudent(String notes, String username) {}
+  public void adviseStudent(String username, String note) {
+    // Search for the student in the list of advised students
+    //for (Student student : this.listofAdvisedStudents) 
+        //if (student.getUsername().equals(username)) {
+            // Student found, add advising note
+          //student.
+     
+        
+
+
+    }
+
+
+
+
+
 
   public void suggestCourses(ArrayList<Course> courses) {}
 
@@ -99,6 +114,7 @@ public class Advisor extends User{
   public void sendScholarshipNotification() {}
 
   public void generateEightSemesterPlan() {}
+
   public String toString() {
     return "Advisor:\n" +
             "First Name: " + firstName + "\n" +
