@@ -34,8 +34,7 @@ public class Student extends User {
     Advisor advisor,
     StudentYear studentYear,
     StudentPortfolio portfolio,
-    String applicationArea,
-    String advisingNotes
+    String applicationArea
   ) {
     super(firstName, lastName, username, password, userType);
     this.major = major;
@@ -124,9 +123,7 @@ public class Student extends User {
     return applicationArea;
   }
 
-  public String getAdvisingNotes() {
-    return advisingNotes;
-}
+ 
 
   public void addCoursesToStudentPortfolio(Course course) {
     // this.studentPortfolio.addCourse(course);
