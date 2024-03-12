@@ -5,8 +5,9 @@ import java.util.Scanner;
 
 
 public class UserList {
+  // Why are we initializing UserList Twice?
   private static UserList instance = null;
-  private UserList userList;
+  // private UserList userList;
   private ArrayList<User> userAccounts = new ArrayList<User>();
   private ArrayList<Admin> admins; //added Admin ArrayList
   private ArrayList<Advisor> advisors;

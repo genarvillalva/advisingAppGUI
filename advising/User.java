@@ -11,6 +11,7 @@ public abstract class User {
   protected String password;
   protected String userType;
   protected UserList UserList;
+  protected boolean isLoggedIn;
 
   public User(String firstName, String lastName, String username, String password, String userType) {
     this.firstName = firstName;
@@ -18,13 +19,14 @@ public abstract class User {
     this.username = username;
     this.password = password;
     this.userType = userType;
+    this.isLoggedIn = false;
   }
 
   public String getFirstName() {
     return this.firstName;
   }
   public String getLastName() {
-    return this.firstName;
+    return this.lastName;
   }
 
   public String getUsername() {
@@ -44,6 +46,7 @@ public abstract class User {
   public void loginStudent(String username, String password) {
     while(true) {
       if(UserList.getInstance().verifyLoginStudent(username, password)) {
+        isLoggedIn = true;
         System.out.println("Login Successful");
         break;
       }
@@ -56,6 +59,7 @@ public abstract class User {
   public void loginAdmin(String username, String password) {
     while(true) {
       if(UserList.getInstance().verifyLoginAdmin(username, password)) {
+        isLoggedIn = true;
         System.out.println("Login Successful");
         break;
       }
@@ -68,6 +72,7 @@ public abstract class User {
   public void loginAdvisor(String username, String password) {
     while(true) {
       if(UserList.getInstance().verifyLoginAdvisor(username, password)) {
+        isLoggedIn = true;
         System.out.println("Login Successful");
         break;
       }
@@ -76,6 +81,11 @@ public abstract class User {
       }
     }
   }
+
+  public void logout() {
+    isLoggedIn = false; 
+    System.out.println("Logged out successfully.");
+}
   public String toString() {
     return "First Name: " + firstName + "\nLast Name: " + lastName + "\nUsername: " + username + "\nPassword: " + password + "\nUser Type: " + userType;
   }
