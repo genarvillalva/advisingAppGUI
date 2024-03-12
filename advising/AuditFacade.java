@@ -48,6 +48,8 @@ public class AuditFacade {
       }
   }
 
+
+  
     public void loginAdvisor(String username, String password) {
         user.loginAdvisor(username, password);
     }
@@ -132,6 +134,6 @@ public class AuditFacade {
     public String generateEightSemesterPlan(String userName) {
 
     }
-    */
+    
 }
 
