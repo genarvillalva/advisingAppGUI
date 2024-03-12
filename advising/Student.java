@@ -34,7 +34,8 @@ public class Student extends User {
     Advisor advisor,
     StudentYear studentYear,
     StudentPortfolio portfolio,
-    String applicationArea
+    String applicationArea,
+    String advisingNotes
   ) {
     super(firstName, lastName, username, password, userType);
     this.major = major;
@@ -42,6 +43,7 @@ public class Student extends User {
     this.studentYear = studentYear;
     this.studentPortfolio = portfolio;
     this.applicationArea = applicationArea;
+    this.advisingNotes = advisingNotes;
   }
 
   /**
@@ -143,7 +145,8 @@ public class Student extends User {
       "Advisor: " + advisor.getUsername() + "\n" +
       "Student Year: " + studentYear + "\n" +
       "Student Portfolio: " + studentPortfolio + "\n" +
-      "Application Area: " + applicationArea + "\n";
+      "Application Area: " + applicationArea + "\n" +
+      "Advising Notes: " + advisingNotes + "\n";
   }
 
   public void courseLookup(String course) {

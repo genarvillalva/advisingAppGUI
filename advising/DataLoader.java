@@ -61,7 +61,8 @@ public class DataLoader extends DataConstants {
           advisor,
           studentYear,
           (StudentPortfolio) studentJSON.get(PORTFOLIO_UUID),
-          (String) studentJSON.get(APPLICATION_AREA)
+          (String) studentJSON.get(APPLICATION_AREA),
+          (String) studentJSON.get(ADVISING_NOTES)
         );
         students.add(student);
       }

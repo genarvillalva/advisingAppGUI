@@ -7,11 +7,11 @@ import java.util.HashMap;
 public class test {
 
   public static void main(String[] args) {
-    // testGetAllStudents();
+    testGetAllStudents();
     // testGetAllAdvisors();
     // testGetAllCourses();
     // testGetAllMajors();
-    testGetAllStudentPortfolios();
+    // testGetAllStudentPortfolios();
     // testStudentPortfolio();
     // testWriteUsers();
 
@@ -116,7 +116,8 @@ public class test {
       advisors.get(0),
       studentYear,
       StudentPortfolio.get(0),
-      "Application Area"
+      "Application Area",
+      "Take Chem 101 next semester."
     );
     students.add(s);
     DataWriter.saveUsers();
