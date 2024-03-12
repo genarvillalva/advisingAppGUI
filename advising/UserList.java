@@ -55,6 +55,11 @@ public class UserList {
       userAccounts.add(newUser);
   }
 
+  public void addStudent(Student student) {
+    this.students.add(student);
+}
+
+
 
 
 //Methods isUsernameValid and isPasswordValid provide basic 

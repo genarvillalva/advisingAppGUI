@@ -72,28 +72,37 @@ public class Advisor extends User{
   }
 
   public void adviseStudent(String username, String note) {
-    //Search for the student in the list of advised students
-    for (Student student : this.listofAdvisedStudents)  // going to search for student in the list of advising student. 
-        if (student.getUsername().equals(username)) { // see if the user name of the student is equal to username that is inputed by advisor.
-            // Student found so it should add advising note
-            student.addAdvisingNotes(note);  // adds note to student
-            System.out.println("Advising note added to " + student.getFirstName() + "'s profile."); //outputs the firstname of user
-            return; // Exit the method after adding the note
+    for (Student student : this.listofAdvisedStudents) {
+        System.out.println(student.getUsername());
+        if (student.getUsername().equals(username)) {
+            System.out.println("Adding note to: " + student.getUsername());
+            student.addAdvisingNotes(note);
+            return;
         }
-      }
+    }
+    System.out.println("Student not found in advisor's list."); 
+}
+
+
   
   public void suggestCourses(ArrayList<Course> courses) {}
 
+
+
+
   public void addStudentToAdvisor(String username, ArrayList<Student> listOfAdvisedStudents) {
     for (Student student : UserList.getInstance().getStudents()) {
-      if(student.getUsername().equals(username)) {
-        listOfAdvisedStudents.add(student);
-        System.out.println("Student " + username + " added to advisor's list of advised students.");
-        return;
-      }
+        System.out.println("Searching username: " + student.getUsername()); 
+        if (student.getUsername().equals(username)) {
+            listOfAdvisedStudents.add(student);
+            System.out.println("Student " + username + " added to advisor's list of advised students.");
+            return;
+        }
     }
     System.out.println("Student " + username + " not found.");
-  }
+}
+
+
 
   public void removeStudentFromProgram(String username, String major) {
     UserList.getInstance().removeStudentFromProgram(username, major);
