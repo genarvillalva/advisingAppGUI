@@ -93,7 +93,13 @@ public class Student extends User {
   public Advisor getAdvisor() {
     return advisor;
   }
-
+/**
+ * Get the advising notes of the student
+ * @return The advising notes of the student
+ */
+  public String getAdvisingNotes() {
+    return advisingNotes;
+  }
   /**
    * Get the student year of the student
    * @return The student year of the student

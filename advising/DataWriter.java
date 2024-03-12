@@ -94,11 +94,14 @@ public class DataWriter extends DataConstants {
     }
     return courseArray;
   }
+
+////////////////////////////////////////////
   /**
    * Saves all users to JSON files
    */
-  public static void saveUsers(ArrayList<Student> students) {
+  public static void saveUsers(ArrayList<Student> students, ArrayList<Advisor> advisors) {
     saveStudents(students);
+    saveAdvisors(advisors);
   }
   /**
    * Saves all students to a JSON file
@@ -137,30 +140,37 @@ public class DataWriter extends DataConstants {
     studentObject.put(USER_NAME, student.getUsername());
     studentObject.put(PASSWORD, student.getPassword());
     studentObject.put(MAJOR, student.getMajor());
+    studentObject.put(USER_TYPE, "Student");
     studentObject.put(ADVISOR, student.getAdvisor().getUsername());
     studentObject.put(STUDENT_YEAR, student.getStudentClass());
     studentObject.put(PORTFOLIO, student.getPortfolio().getPortfolioUUID());
     studentObject.put(APPLICATION_AREA, student.getApplicationArea());
+    studentObject.put(ADVISING_NOTES, student.getAdvisingNotes());
     return studentObject;
   }
 
+
+
+  ////////////////////////////////////////////
+  /**
+   * Saves all advisors to a JSON file
+   */
   @SuppressWarnings("unchecked")
-  public static void saveAdvisors() {
+  public static void saveAdvisors(ArrayList<Advisor> advisors) {
     UserList userList = UserList.getInstance();
-    ArrayList<Advisor> newAdvisors = userList.getAdvisors();
-    ArrayList<Advisor> oldAdvisors = DataLoader.getAllAdvisors();
+    ArrayList<Advisor> oldAdvisors = userList.getAdvisors();
     JSONArray jsonAdvisors = new JSONArray();
-    for (int i = 0; i < newAdvisors.size(); i++) {
-      if (oldAdvisors.contains(newAdvisors.get(i))) {
+    for (int i = 0; i < advisors.size(); i++) {
+      if (oldAdvisors.contains(advisors.get(i))) {
         continue;
       }
       System.out.println(
         "Saving Advisor: " +
-        newAdvisors.get(i).getFirstName() +
+        advisors.get(i).getFirstName() +
         " " +
-        newAdvisors.get(i).getLastName()
+        advisors.get(i).getLastName()
       );
-      jsonAdvisors.add(getAdvisorJSON(newAdvisors.get(i)));
+      jsonAdvisors.add(getAdvisorJSON(advisors.get(i)));
     }
     writeToFile(jsonAdvisors, "advising/json/advisorstest.json");
   }
@@ -172,6 +182,7 @@ public class DataWriter extends DataConstants {
     advisorObject.put(LAST_NAME, advisor.getLastName());
     advisorObject.put(USER_NAME, advisor.getUsername());
     advisorObject.put(PASSWORD, advisor.getPassword());
+    advisorObject.put(USER_TYPE, "Advisor");
     advisorObject.put(
       LIST_OF_ADVISED_STUDENTS,
       advisor.getListofAdvisedStudents()
