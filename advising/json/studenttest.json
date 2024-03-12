@@ -1,1 +1,35 @@
-[]
+[
+    {
+        "firstName": "Tom",
+        "lastName": "Brown",
+        "advisor": "gregtomlin24",
+        "password": "mdhj738",
+        "major": "Computer_Science",
+        "portfolio": "cda5aa8c-e6ff-461f-b61c-886194be4080",
+        "applicationArea": "MATH",
+        "studentYear": "JUNIOR",
+        "username": "tombrown24"
+    },
+    {
+        "firstName": "John",
+        "lastName": "Hop",
+        "advisor": "mikedawson24",
+        "password": "fgndsj46",
+        "major": "Computer_Information_Systems",
+        "portfolio": "7c64c98a-55fa-4d88-9d2a-16189e4ba446",
+        "applicationArea": "ART",
+        "studentYear": "FRESHMAN",
+        "username": "johnhop36"
+    },
+    {
+        "firstName": "James",
+        "lastName": "Son",
+        "advisor": "gregtomlin24",
+        "password": "password",
+        "major": "Computer Science",
+        "portfolio": "cda5aa8c-e6ff-461f-b61c-886194be4080",
+        "applicationArea": "Application Area",
+        "studentYear": "FRESHMAN",
+        "username": "jamesson1"
+    }
+]
