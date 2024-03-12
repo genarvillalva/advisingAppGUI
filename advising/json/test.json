@@ -4,7 +4,10 @@
         "prereqCoreq": [],
         "preferredSemester": 1,
         "minGrade": "B",
-        "prerequisiteCourses": [],
+        "prerequisiteCourses": [
+            "MATH141",
+            "CSCE190"
+        ],
         "courseCode": "SCI",
         "corequisiteCourses": [],
         "semester": "FALL",

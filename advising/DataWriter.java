@@ -38,7 +38,11 @@ public class DataWriter extends DataConstants {
     }
     return true;
   }
-
+  /**
+   * Converts a course to a JSON object
+   * @param course Course to convert
+   * @return JSONObject of course
+   */
   @SuppressWarnings("unchecked")
   private static JSONObject toCourseJSON(Course course) {
     JSONObject courseObject = new JSONObject();
@@ -48,13 +52,48 @@ public class DataWriter extends DataConstants {
     courseObject.put(CREDIT_HOURS, course.getCreditHours());
     courseObject.put(MIN_GRADE, course.getMinGrade());
     courseObject.put(SEMESTER, course.getSemester().toString());
-    courseObject.put(PREREQUISITE_COURSES, course.getPrerequisiteCourses());
-    courseObject.put(COREQUISITE_COURSES, course.getCorequisiteCourses());
-    courseObject.put(PREREQ_COREQ, course.getPrereqCoreq());
+    courseObject.put(PREREQUISITE_COURSES, toPrereqCourseJSON(course.getPrerequisiteCourses()));
+    courseObject.put(COREQUISITE_COURSES, toCoreqCourseJSON(course.getCorequisiteCourses()));
+    courseObject.put(PREREQ_COREQ, toPrereqCoreqJSON(course.getPrereqCoreq()));
     courseObject.put(PREFERRED_SEMESTER, course.getPreferredSemester());
     return courseObject;
   }
-
+/**
+ * Converts a list of prereq courses to a JSON array
+ * @param courses List of courses to convert
+ * @return JSONArray of courses
+ */
+  private static JSONArray toPrereqCourseJSON(ArrayList<Course> courses) {
+    JSONArray courseArray = new JSONArray();
+    for (int i = 0; i < courses.size(); i++) {
+      courseArray.add(courses.get(i).getCourseID());
+    }
+    return courseArray;
+  }
+  /**
+   * Converts a list of coreq courses to a JSON array
+   * @param courses
+   * @return
+   */
+  private static JSONArray toCoreqCourseJSON(ArrayList<Course> courses) {
+    JSONArray courseArray = new JSONArray();
+    for (int i = 0; i < courses.size(); i++) {
+      courseArray.add(courses.get(i).getCourseID());
+    }
+    return courseArray;
+  }
+  /**
+   * Converts a list of prereq and coreq courses to a JSON array
+   * @param courses List of courses to convert 
+   * @return JSONArray of courses
+   */
+  private static JSONArray toPrereqCoreqJSON(ArrayList<Course> courses) {
+    JSONArray courseArray = new JSONArray();
+    for (int i = 0; i < courses.size(); i++) {
+      courseArray.add(courses.get(i).getCourseID());
+    }
+    return courseArray;
+  }
   /**
    * Saves all users to JSON files
    */
@@ -62,7 +101,7 @@ public class DataWriter extends DataConstants {
     saveStudents(students);
   }
   /**
-   * save
+   * Saves all students to a JSON file
    */
   @SuppressWarnings("unchecked")
   public static void saveStudents(ArrayList<Student> students) {
