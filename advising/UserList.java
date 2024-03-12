@@ -17,8 +17,8 @@ public class UserList {
     private UserList() {
       userAccounts = new ArrayList<>();
       admins = new ArrayList<Admin>();
-      advisors = new ArrayList<Advisor>();
-      students = new ArrayList<Student>();
+      advisors = DataLoader.getAllAdvisors();
+      students = DataLoader.getAllStudents();
     
 }
 

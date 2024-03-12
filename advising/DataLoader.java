@@ -50,7 +50,7 @@ public class DataLoader extends DataConstants {
         String advisorUsername = (String) studentJSON.get("advisor");
         Advisor advisor = findAdvisorByUsername(advisors, advisorUsername);
         StudentYear studentYear = StudentYear.valueOf((String) studentJSON.get(STUDENT_YEAR));
-        
+        StudentPortfolio studentPortfolio = studentPortfolios.get(i);
         Student student = new Student(
           (String) studentJSON.get(FIRST_NAME),
           (String) studentJSON.get(LAST_NAME),
@@ -60,7 +60,7 @@ public class DataLoader extends DataConstants {
           (String) studentJSON.get(MAJOR),
           advisor,
           studentYear,
-          (StudentPortfolio) studentJSON.get(PORTFOLIO_UUID),
+          studentPortfolio,
           (String) studentJSON.get(APPLICATION_AREA),
           (String) studentJSON.get(ADVISING_NOTES)
         );

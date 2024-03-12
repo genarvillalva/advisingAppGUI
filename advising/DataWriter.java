@@ -56,31 +56,30 @@ public class DataWriter extends DataConstants {
   }
 
   /**
-   * Writes a list of students to a JSON file
-   * @param students List of Student objects to be written to the file
-   * @param filePath The path to the JSON file
+   * Saves all users to JSON files
    */
-  public static void saveUsers() {
-    saveStudents();
+  public static void saveUsers(ArrayList<Student> students) {
+    saveStudents(students);
   }
-
+  /**
+   * save
+   */
   @SuppressWarnings("unchecked")
-  public static void saveStudents() {
+  public static void saveStudents(ArrayList<Student> students) {
     UserList userList = UserList.getInstance();
-    ArrayList<Student> newStudents = userList.getStudents();
-    ArrayList<Student> oldStudents = DataLoader.getAllStudents();
+    ArrayList<Student> oldStudents = userList.getStudents();
     JSONArray jsonStudents = new JSONArray();
-    for (int i = 0; i < newStudents.size(); i++) {
-      if (oldStudents.contains(newStudents.get(i))) {
+    for (int i = 0; i < students.size(); i++) {
+      if (oldStudents.contains(students.get(i))) {
         continue;
       }
       System.out.println(
         "Saving Student: " +
-        newStudents.get(i).getFirstName() +
+        students.get(i).getFirstName() +
         " " +
-        newStudents.get(i).getLastName()
+        students.get(i).getLastName()
       );
-      jsonStudents.add(toStudentJSON(newStudents.get(i)));
+      jsonStudents.add(toStudentJSON(students.get(i)));
     }
     writeToFile(jsonStudents, "advising/json/studenttest.json");
   }
@@ -99,9 +98,9 @@ public class DataWriter extends DataConstants {
     studentObject.put(USER_NAME, student.getUsername());
     studentObject.put(PASSWORD, student.getPassword());
     studentObject.put(MAJOR, student.getMajor());
-    studentObject.put(ADVISOR, student.getAdvisor());
+    studentObject.put(ADVISOR, student.getAdvisor().getUsername());
     studentObject.put(STUDENT_YEAR, student.getStudentClass());
-    studentObject.put(PORTFOLIO, student.getPortfolio());
+    studentObject.put(PORTFOLIO, student.getPortfolio().getPortfolioUUID());
     studentObject.put(APPLICATION_AREA, student.getApplicationArea());
     return studentObject;
   }

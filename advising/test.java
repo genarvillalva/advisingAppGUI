@@ -7,13 +7,13 @@ import java.util.HashMap;
 public class test {
 
   public static void main(String[] args) {
-    testGetAllStudents();
+    // testGetAllStudents();
     // testGetAllAdvisors();
     // testGetAllCourses();
     // testGetAllMajors();
     // testGetAllStudentPortfolios();
     // testStudentPortfolio();
-    // testWriteUsers();
+    testWriteUsers();
 
     // testSaveCourses();
   }
@@ -120,6 +120,6 @@ public class test {
       "Take Chem 101 next semester."
     );
     students.add(s);
-    DataWriter.saveUsers();
+    DataWriter.saveUsers(students);
   }
 }
