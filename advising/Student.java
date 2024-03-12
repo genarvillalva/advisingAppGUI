@@ -124,6 +124,10 @@ public class Student extends User {
     return applicationArea;
   }
 
+  public String getAdvisingNotes() {
+    return advisingNotes;
+}
+
   public void addCoursesToStudentPortfolio(Course course) {
     // this.studentPortfolio.addCourse(course);
   }
@@ -159,12 +163,16 @@ public class Student extends User {
     courseList.findCourse(course);
   }
 
+  // Adds a new advising note to the student's record.
   public void addAdvisingNotes(String note) {
-    if (this.advisingNotes == null) {
-        this.advisingNotes = note;
+    if (this.advisingNotes == null) { 
+        this.advisingNotes = note; // Since there are no existing notes a new note will be intialized. 
     } else {
-        this.advisingNotes += note; // Append new note to existing ones
+        this.advisingNotes += note; // Append new note to existing notes
     }
   }
+
+  
+
 
 }
