@@ -31,7 +31,8 @@ public class AdvisorTest {
             mockAdvisor, 
             studentYear,
             portfolio,
-            applicationArea
+            applicationArea,
+            ""
         );
 
             // Instantiated a Student object 
@@ -45,7 +46,8 @@ public class AdvisorTest {
             mockAdvisor, 
             studentYear,
             portfolio,
-            applicationArea
+            applicationArea,
+            ""
         );
 
 

@@ -34,7 +34,8 @@ public class Student extends User {
     Advisor advisor,
     StudentYear studentYear,
     StudentPortfolio portfolio,
-    String applicationArea
+    String applicationArea,
+    String advisingNotes
   ) {
     super(firstName, lastName, username, password, userType);
     this.major = major;
