@@ -157,6 +157,11 @@ public class Student extends User {
   // If an advisor is assigned, get the advisor's username.
   // Otherwise say "No advisor assigned" as the username.
     String advisorUsername = (advisor != null)  ? advisor.getUsername() : "No advisor assigned";
+    
+    // Check if an application area is assigned.
+    // If an application area is assigned, display it.
+    // Otherwise, say "No application area assigned".
+    String applicationAreaInfo = (applicationArea != null) ? applicationArea : "No application area assigned";
 
     
     return "Student:\n" +
@@ -171,7 +176,7 @@ public class Student extends User {
      
       "Student Portfolio: " + studentPortfolio + "\n" +
       
-      "Application Area: " + applicationArea + "\n" +
+      "Application Area: " + applicationAreaInfo + "\n" +
       "Advising Notes: " + advisingNotes  + "\n";
 }
 

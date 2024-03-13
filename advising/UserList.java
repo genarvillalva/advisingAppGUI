@@ -48,7 +48,15 @@ public class UserList {
       return new ArrayList<>(students); 
 }
 
-
+    // Method to get an advisor by username
+    public Advisor getAdvisor(String username) {
+      for (Advisor advisor : advisors) {
+          if (advisor.getUsername().equals(username)) {
+              return advisor;
+          }
+      }
+      return null; // Return null if advisor with given username is not found
+    }
 
 
 public void createAccount(String userName, String password, String userType, String firstName, String lastName, String major, StudentYear studentYear) {
@@ -79,11 +87,13 @@ public void createAccount(String userName, String password, String userType, Str
           DataWriter.saveAdvisors(advisors);
       } else if (newUser instanceof Student) {
           students.add((Student) newUser);
-          System.out.println("Students after adding: " + students);
+          ///System.out.println("Students after adding: " + students);
           DataWriter.saveStudents(students);
       }
   }
 }
+
+
 
 
 
@@ -142,6 +152,8 @@ public void printUsers() { //debugging
       return false; // Login failed
     
   }
+
+
 
     // Method to verify login for an admin
     public boolean verifyLoginAdmin(String username, String password) {
