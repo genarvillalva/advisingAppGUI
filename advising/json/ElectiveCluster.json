@@ -2,7 +2,7 @@
   {
     "clusterName": "Lab Science Electives",
     "hoursRequired": 4,
-    "hoursDone": 0,
+    "hoursCompleted": 0,
     "Lab Science Electives": {
       "ANTH161": false,
       "ASTR101": false,
@@ -33,7 +33,7 @@
   {
     "clusterName": "Computer Science and Engineering Electives",
     "hoursRequired": 9,
-    "hoursDone": 0,
+    "hoursCompleted": 0,
     "CSCE Electives": {
       "CSCE500": false,
       "CSCE510": false,
