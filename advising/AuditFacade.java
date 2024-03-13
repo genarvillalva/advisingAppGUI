@@ -18,20 +18,20 @@ public class AuditFacade {
     public void signUp(String userName, String password, String userType, String firstName, String lastName, String major) {
         User newUser = null;
         switch (userType.toLowerCase()) {
-            case "student":
+            case "student": // student  is being signed up 
                 newUser = new Student(firstName, lastName, userName, password, userType, major, null, null, studentPortfolio, null, ""); // Assuming an empty string for application area and advising notes
                 break;
-            case "advisor":
+            case "advisor": // advisor is being signed up 
                 newUser = new Advisor(firstName, lastName, userName, password, userType, null); 
                 break;
-            case "admin":
+            case "admin": // admin is being signed up 
                 newUser = new Admin(firstName, lastName, userName, password, userType); 
         }
 
         if (newUser != null) {
             System.out.println("Successfully created and added user: " + userName);
             System.out.println("New User Details: " + newUser.toString());
-            // Add the new user to your user storage
+            //created User account!
             userList.createAccount(newUser);
         }
     }
