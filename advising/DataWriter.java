@@ -146,6 +146,7 @@ public class DataWriter extends DataConstants {
     } else {
       advisor = a.getUsername();
     }
+
     JSONObject studentObject = new JSONObject();
     studentObject.put(FIRST_NAME, student.getFirstName());
     studentObject.put(LAST_NAME, student.getLastName());
@@ -159,6 +160,7 @@ public class DataWriter extends DataConstants {
     studentObject.put(APPLICATION_AREA, student.getApplicationArea());
     studentObject.put(ADVISING_NOTES, student.getAdvisingNotes());
     return studentObject;
+    
   }
 
 
