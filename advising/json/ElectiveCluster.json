@@ -1,80 +1,33 @@
 [
   {
-    "clusterName":"Lab Science Electives",
-    "requiredAmount": 5,
-    "Lab Science Electives":[
-      {
-        "ANTH161":"True"
-      },
-      {
-        "courseID":"ASTR101"
-      },
-      {
-        "courseID":"BIOL101"
-      },
-      {
-        "courseID":"BIO101L"
-      },
-      {
-        "courseID":"CHEM111"
-      },
-      {
-        "courseID":"CHEM111L"
-      },
-      {
-        "courseID":"ENVR101"
-      },
-      {
-        "courseID":"ENVR101L"
-      },
-      {
-        "courseID":"GEOG201"
-      },
-      {
-        "courseID":"GEOG202"
-      },
-      {
-        "courseID":"GEOL101"
-      },
-      {
-        "courseID":"GEOL103"
-      },
-      {
-        "courseID":"GEOL201"
-      },
-      {
-        "courseID":"GEOL215"
-      },
-      {
-        "courseID:":"GEOL215L"
-      },
-      {
-        "courseID":"GEOL302"
-      },
-      {
-        "courseID":"MSCI101"
-      },
-      {
-        "courseID":"MSCI102"
-      },
-      {
-        "courseID":"MSCI210"
-      },
-      {
-        "courseIDL":"MSCI210L"
-      },
-      {
-        "courseID":"MSCI215"
-      },
-      {
-        "courseID":"MSCI215L"
-      },
-      {
-        "courseID":"PHYS211"
-      },
-      {
-        "courseID":"PHYS211L"
-      }
-    ]
+    "clusterName": "SCI",
+    "hoursRequired": 5,
+    "hoursCompleted": 0,
+    "Lab Science Electives": {
+      "ANTH161": false,
+      "ASTR101": false,
+      "BIOL101": false,
+      "BIO101L": false,
+      "CHEM111": false,
+      "CHEM111L": false,
+      "ENVR101": false,
+      "ENVR101L": false,
+      "GEOG201": false,
+      "GEOG202": false,
+      "GEOL101": false,
+      "GEOL103": false,
+      "GEOL201": false,
+      "GEOL215": false,
+      "GEOL215L": false,
+      "GEOL302": false,
+      "MSCI101": false,
+      "MSCI102": false,
+      "MSCI210": false,
+      "MSCI210L": false,
+      "MSCI215": false,
+      "MSCI215L": false,
+      "PHYS211": false,
+      "PHYS211L": false
+    }
   }
 ]
