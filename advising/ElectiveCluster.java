@@ -3,14 +3,16 @@ package advising;
 import java.util.HashMap;
 
 public class ElectiveCluster {
-  private HashMap<Course, Boolean> Courses;
+  private HashMap<Course, Boolean> coursesHash;
   private int hoursRequired;
   private int hoursCompleted;
 
 
 
-  public ElectiveCluster() {
-    this.Courses = new HashMap<Course, Boolean>();
+  public ElectiveCluster(HashMap<Course, Boolean> coursesHash, int hoursRequired, int hoursCompleted) {
+    this.coursesHash = coursesHash;
+    this.hoursRequired = hoursRequired;
+    this.hoursCompleted = hoursCompleted;
   } 
 
   /**
@@ -26,7 +28,7 @@ public class ElectiveCluster {
    * Gets credit hours from an elective cluster
    * @return Hours in a elective cluster completed
    */
-  public int hoursCompleted() {
+  public int getHoursCompleted() {
 
     return hoursCompleted;
   }
@@ -36,7 +38,7 @@ public class ElectiveCluster {
    * Gets credit hours needed to complete an elective cluster
    * @return Hours in a elective cluster required
    */
-  public int hoursRequired() { 
+  public int getHoursRequired() { 
 
     return hoursRequired;
   }
