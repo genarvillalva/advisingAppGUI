@@ -90,6 +90,13 @@ public HashMap<String, ArrayList<Course>> getEightSemesterPlan() {
     return eightSemesterPlan;
 }
 /**
+ * Returns the the UUID of student's portfolio
+ * @return the UUID of student's portfolio
+ */
+public String getUUID() {
+    return portfolioUUID;
+}
+/**
  * Returns the student's current courses
  * @return student's current courses
  */

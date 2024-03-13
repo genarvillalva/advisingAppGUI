@@ -63,6 +63,7 @@ public class DataWriter extends DataConstants {
  * @param courses List of courses to convert
  * @return JSONArray of courses
  */
+  @SuppressWarnings("unchecked")
   private static JSONArray toPrereqCourseJSON(ArrayList<Course> courses) {
     JSONArray courseArray = new JSONArray();
     for (int i = 0; i < courses.size(); i++) {
@@ -75,6 +76,7 @@ public class DataWriter extends DataConstants {
    * @param courses
    * @return
    */
+  @SuppressWarnings("unchecked")
   private static JSONArray toCoreqCourseJSON(ArrayList<Course> courses) {
     JSONArray courseArray = new JSONArray();
     for (int i = 0; i < courses.size(); i++) {
@@ -87,6 +89,7 @@ public class DataWriter extends DataConstants {
    * @param courses List of courses to convert 
    * @return JSONArray of courses
    */
+  @SuppressWarnings("unchecked")
   private static JSONArray toPrereqCoreqJSON(ArrayList<Course> courses) {
     JSONArray courseArray = new JSONArray();
     for (int i = 0; i < courses.size(); i++) {
@@ -143,7 +146,7 @@ public class DataWriter extends DataConstants {
     studentObject.put(USER_TYPE, "Student");
     studentObject.put(ADVISOR, student.getAdvisor().getUsername());
     studentObject.put(STUDENT_YEAR, student.getStudentClass());
-    studentObject.put(PORTFOLIO, student.getPortfolio().getPortfolioUUID());
+    studentObject.put(PORTFOLIO, student.getUsername());
     studentObject.put(APPLICATION_AREA, student.getApplicationArea());
     studentObject.put(ADVISING_NOTES, student.getAdvisingNotes());
     return studentObject;
@@ -189,6 +192,10 @@ public class DataWriter extends DataConstants {
     );
     return advisorObject;
   }
+
+////////////////////////////////////////////
+  
+
 
   /**
    * Writes a list of courses to a JSON file

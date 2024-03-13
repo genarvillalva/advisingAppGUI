@@ -1,9 +1,10 @@
 [
   {
     "clusterName":"Lab Science Electives",
-    "courses":[
+    "requiredAmount": 5,
+    "Lab Science Electives":[
       {
-        "courseID":"ANTH161"
+        "ANTH161":"True"
       },
       {
         "courseID":"ASTR101"

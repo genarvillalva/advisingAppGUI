@@ -7,10 +7,10 @@ import java.util.HashMap;
 public class test {
 
   public static void main(String[] args) {
-    // testGetAllStudents();
+    testGetAllStudents();
     // testGetAllAdvisors();
     // testGetAllCourses();
-    testGetAllMajors();
+    // testGetAllMajors();
     // testGetAllStudentPortfolios();
     // testStudentPortfolio();
     // testWriteUsers();
@@ -126,6 +126,7 @@ public class test {
       "Take Chem 101 next semester."
     );
     students.add(s);
+    System.out.println(students.get(1).getPortfolio().getCurrentCourses());
     DataWriter.saveUsers(students, advisors);
   }
 }

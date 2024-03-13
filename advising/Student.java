@@ -1,6 +1,7 @@
 package advising;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class Student extends User {
   private String major;
@@ -10,6 +11,7 @@ public class Student extends User {
   private String applicationArea;
   private CourseList courseList;
   private String advisingNotes;
+  private UUID uuid;
 
   /**
    * Constructor for the Student class
@@ -44,7 +46,10 @@ public class Student extends User {
     this.studentPortfolio = portfolio;
     this.applicationArea = applicationArea;
     this.advisingNotes = advisingNotes;
+    this.uuid = UUID.randomUUID();
   }
+
+  
 
   /**
    * Get the first name of the student
@@ -52,6 +57,10 @@ public class Student extends User {
    */
   public String getFirstName() {
     return firstName;
+  }
+
+  public String getStudentPortfolioUUID() {
+    return studentPortfolio.getUUID();
   }
 
   /**
