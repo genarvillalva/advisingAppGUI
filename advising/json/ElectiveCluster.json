@@ -77,4 +77,233 @@
       }
     ]
   }
+  ,
+{
+  "clusterName": "Computer Science and Engineering Electives",
+  "CSCE Electives": [
+    {
+      "courseID": "CSCE500",
+      "title": "Computer Programming and Applications",
+      "credits": 3
+    },
+    {
+      "courseID": "CSCE510",
+      "title": "System Programming",
+      "credits": 3,
+      "prerequisites": ["CSCE215", "CSCE240"]
+    },
+    {
+      "courseID": "CSCE512",
+      "title": "System Performance Evaluation",
+      "credits": 3,
+      "prerequisites": ["CSCE311", "STAT509", "STAT515"]
+    },
+    {
+      "courseID": "CSCE513",
+      "title": "Computer Architecture",
+      "credits": 3,
+      "prerequisites": ["CSCE211", "CSCE212"],
+      "semestersOffered": ["Fall"]
+    },
+    {
+      "courseID": "CSCE515",
+      "title": "Computer Network Programming",
+      "credits": 3,
+      "prerequisites": ["CSCE311"]
+    },
+    {
+      "courseID": "CSCE516",
+      "title": "Computer Networks",
+      "credits": 3,
+      "prerequisites": ["STAT509", "STAT515"]
+    },
+    {
+      "courseID": "CSCE517",
+      "title": "Computer Crime and Forensics",
+      "credits": 3,
+      "prerequisites": ["CSCE215"]
+    },
+    {
+      "courseID": "CSCE518",
+      "title": "Ethical Hacking",
+      "credits": 3,
+      "prerequisites": ["CSCE215"]
+    },
+    {
+      "courseID": "CSCE520",
+      "title": "Database System Design",
+      "credits": 3,
+      "prerequisites": ["CSCE240", "GEOG563"]
+    },
+    {
+      "courseID": "CSCE522",
+      "title": "Information Security Principles",
+      "credits": 3,
+      "prerequisites": ["CSCE146", "MATH374", "MATH174"],
+      "semestersOffered": ["Fall"]
+    },
+    {
+      "courseID": "CSCE526",
+      "title": "Service Oriented Computing",
+      "credits": 3,
+      "prerequisites": ["CSCE311"]
+    },
+    {
+      "courseID": "CSCE531",
+      "title": "Compiler Construction",
+      "credits": 3,
+      "prerequisites": ["CSCE240"],
+      "semestersOffered": ["Spring"]
+    },
+    {
+      "courseID": "CSCE546",
+      "title": "Mobile Application Development",
+      "credits": 3,
+      "prerequisites": ["CSCE240"],
+      "semestersOffered": ["Spring"]    
+    },
+    {
+      "courseID": "CSCE547",
+      "title": "Windows Programming",
+      "credits": 3,
+      "prerequisites": ["CSCE240"]
+    },
+    {
+      "courseID": "CSCE548",
+      "title": "Building Secure Software",
+      "credits": 3,
+      "prerequisites": ["CSCE240"]
+    },
+    {
+      "courseID": "CSCE551",
+      "title": "Theory of Computation",
+      "credits": 3,
+      "prerequisites": ["CSCE350"],
+      "semestersOffered": ["Spring"]
+    },
+    {
+      "courseID": "CSCE552",
+      "title": "Computer Game Development",
+      "credits": 3,
+      "prerequisites": ["CSCE240", "CSCE350"],
+      "semestersOffered": ["Spring"]
+    },
+    {
+      "courseID": "CSCE555",
+      "title": "Algorithms in Bioinformatics",
+      "credits": 3,
+      "prerequisites": ["CSCE350"]
+    },
+    {
+      "courseID": "CSCE556",
+      "title": "Data Analysis in Python: Application to Neuroscience",
+      "credits": 3,
+      "prerequisites": ["CSCE240"]
+    },
+    {
+      "courseID": "CSCE557",
+      "title": "Introduction to Cryptography",
+      "credits": 3,
+      "prerequisites": ["CSCE145"]
+    },
+    {
+      "courseID": "CSCE561",
+      "title": "Numerical Analysis",
+      "credits": 3,
+      "prerequisites": ["MATH242"]
+    },
+    {
+      "courseID": "CSCE564",
+      "title": "Computational Science",
+      "credits": 3,
+      "prerequisites": ["MATH526", "CSCE146"]
+    },
+    {
+      "courseID": "CSCE565",
+      "title": "Introduction to Computer Graphics",
+      "credits": 3,
+      "prerequisites": ["CSCE240", "MATH526"]
+    },
+    {
+      "courseID": "CSCE567",
+      "title": "Visualization Tools",
+      "credits": 3,
+      "prerequisites": ["CSCE145"]
+    },
+    {
+      "courseID": "CSCE569",
+      "title": "Parallel Computing",
+      "credits": 3,
+      "prerequisites": ["MATH526"]
+    },
+    {
+      "courseID": "CSCE571",
+      "title": "Critical Interactives",
+      "credits": 3
+    },
+    {
+      "courseID": "CSCE572",
+      "title": "Human-Computer Interaction",
+      "credits": 3,
+      "semestersOffered": ["Fall"]
+    },
+    {
+      "courseID": "CSCE574",
+      "title": "Robotics",
+      "credits": 3,
+      "prerequisites": ["CSCE211", "CSCE212", "CSCE240"]
+    },
+    {
+      "courseID": "CSCE578",
+      "title": "Text Processing",
+      "credits": 3,
+      "prerequisites": ["CSCE330", "CSCE355"]
+    },
+    {
+      "courseID": "CSCE580",
+      "title": "Artificial Intelligence",
+      "credits": 3,
+      "prerequisites": ["CSCE350"],
+      "semestersOffered": ["Fall", "Spring"]
+    },
+    {
+      "courseID": "CSCE581",
+      "title": "Trusted Artificial Intelligence",
+      "credits": 3,
+      "prerequisites": ["CSCE240", "CSCE350"]
+    },
+    {
+      "courseID": "CSCE582",
+      "title": "Bayesian Networks and Decision Graphs",
+      "credits": 3,
+      "prerequisites": ["CSCE350", "STAT509"]
+    },
+    {
+      "courseID": "CSCE585",
+      "title": "Machine Learning Systems",
+      "credits": 3,
+      "prerequisites": ["CSCE240"],
+      "semestersOffered": ["Fall"]
+    },
+    {
+      "courseID": "CSCE587",
+      "title": "Big Data Analytics",
+      "credits": 3,
+      "prerequisites": ["STAT509"],
+      "semestersOffered": ["Fall", "Spring"]
+    },
+    {
+      "courseID": "CSCE590",
+      "title": "Topics in Information Technology",
+      "credits": 3,
+      "semestersOffered": ["Fall", "Spring"]
+    },
+    {
+      "courseID": "CSCE594",
+      "title": "Strategic Management of Information Systems",
+      "credits": 3,
+      "semestersOffered": ["Spring"]
+    }
+  ]
+}  
 ]
