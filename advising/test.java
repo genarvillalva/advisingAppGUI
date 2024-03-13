@@ -121,13 +121,12 @@ public class test {
       "Computer Science",
       null,
       studentYear,
-      StudentPortfolio.get(0),
-      "Application Area",
+      null,
+      null,
       "Take Chem 101 next semester."
     );
     students.add(s);
-    System.out.println(students.get(1).getPortfolio().getCurrentCourses());
     DataWriter.saveUsers(students, advisors);
-    System.out.println(s.getAdvisor());
+    System.out.println(s.getPortfolio());
   }
 }
