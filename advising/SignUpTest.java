@@ -1,6 +1,8 @@
 package advising;
 
 import java.util.Scanner;
+import advising.StudentYear;
+
 
 public class SignUpTest {
     public static void main(String[] args) {
@@ -47,7 +49,7 @@ public class SignUpTest {
 
         // Close scanner
         scanner.close();
-        System.out.println("Thank you for using the Advising System. Goodbye!");
+        System.out.println("Thank you for using DegreeWorks!");
     }
 
     // Method for signing up a new user
@@ -56,6 +58,8 @@ public class SignUpTest {
         String firstName = null; // Initialize first name
         String lastName = null; // Initialize last name
         String major = null; // Initialize major
+        StudentYear studentYear = StudentYear.FRESHMAN; // Initialize studentYear
+
 
 
 
@@ -71,6 +75,9 @@ public class SignUpTest {
             lastName = scanner.nextLine();
             System.out.print("Major: ");
             major = scanner.nextLine();
+            System.out.print("Student Year (FRESHMAN/SOPHOMORE/JUNIOR/SENIOR): ");
+            studentYear = StudentYear.valueOf(scanner.nextLine());
+            
 
         }
         
@@ -89,7 +96,7 @@ public class SignUpTest {
         String password = scanner.nextLine();
 
         // Call sign up method in AuditFacade
-        auditFacade.signUp(userName, password, userType, firstName, lastName, major);
+        auditFacade.signUp(userName, password, userType, firstName, lastName, major, studentYear);
     }
 
     // Method for logging in a user
@@ -106,7 +113,7 @@ public class SignUpTest {
         boolean success = auditFacade.login(userName, password, userType);
 
         // Display login result
-        if (success) {
+        if (success) {            
             System.out.println("Login successful for: " + userType + " - " + userName);
         } else {
             System.out.println("Login failed. Please check your credentials and try again.");
