@@ -1,7 +1,6 @@
 package advising;
 
 import java.util.Scanner;
-import advising.StudentYear;
 
 
 public class SignUpTest {
@@ -77,8 +76,7 @@ public class SignUpTest {
             major = scanner.nextLine();
             System.out.print("Student Year (FRESHMAN/SOPHOMORE/JUNIOR/SENIOR): ");
             studentYear = StudentYear.valueOf(scanner.nextLine());
-            
-
+        
         }
         
         // If user type is advisor, prompt for additional information
@@ -98,6 +96,8 @@ public class SignUpTest {
         // Call sign up method in AuditFacade
         auditFacade.signUp(userName, password, userType, firstName, lastName, major, studentYear);
     }
+
+
 
     // Method for logging in a user
     private static void login(AuditFacade auditFacade, Scanner scanner) {
