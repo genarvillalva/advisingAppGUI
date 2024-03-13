@@ -26,11 +26,8 @@ public class DataLoader extends DataConstants {
       if (advisor.getUsername().equals(username)) {
         return advisor;
       }
-      
     }
-    throw new IllegalArgumentException(
-      "Advisor with username " + username + " not found"
-    );
+    return null;
   }
 
   /**

@@ -139,6 +139,13 @@ public class DataWriter extends DataConstants {
    */
   @SuppressWarnings("unchecked")
   private static JSONObject toStudentJSON(Student student) {
+    Advisor a = student.getAdvisor();
+    String advisor = "";
+    if(a == null) {
+      advisor = null;
+    } else {
+      advisor = a.getUsername();
+    }
     JSONObject studentObject = new JSONObject();
     studentObject.put(FIRST_NAME, student.getFirstName());
     studentObject.put(LAST_NAME, student.getLastName());
@@ -146,7 +153,7 @@ public class DataWriter extends DataConstants {
     studentObject.put(PASSWORD, student.getPassword());
     studentObject.put(MAJOR, student.getMajor());
     studentObject.put(USER_TYPE, "Student");
-    studentObject.put(ADVISOR, student.getAdvisor().getUsername());
+    studentObject.put(ADVISOR, advisor);
     studentObject.put(STUDENT_YEAR, student.getStudentClass());
     studentObject.put(PORTFOLIO, student.getUsername());
     studentObject.put(APPLICATION_AREA, student.getApplicationArea());

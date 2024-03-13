@@ -119,7 +119,7 @@ public class test {
       "password",
       "Student",
       "Computer Science",
-      advisors.get(0),
+      null,
       studentYear,
       StudentPortfolio.get(0),
       "Application Area",
@@ -128,5 +128,6 @@ public class test {
     students.add(s);
     System.out.println(students.get(1).getPortfolio().getCurrentCourses());
     DataWriter.saveUsers(students, advisors);
+    System.out.println(s.getAdvisor());
   }
 }
