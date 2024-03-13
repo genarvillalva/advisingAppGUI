@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class SignUpTest {
     public static void main(String[] args) {
-        AuditFacade auditFacade = new AuditFacade(); // Ensure this matches your AuditFacade implementation
+        AuditFacade auditFacade = new AuditFacade();
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Welcome to Degree Works");
@@ -24,11 +24,11 @@ public class SignUpTest {
 
             switch (choice) {
                 case "1":
-                    // Call login functionality
+                    // Call login 
                     login(auditFacade, scanner);
                     break;
                 case "2":
-                    // Call sign up functionality
+                    // Call sign up 
                     signUp(auditFacade, scanner);
                     break;
                 case "3":
