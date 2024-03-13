@@ -147,7 +147,7 @@ public void printUsers() { //debugging
 
   //Need a method to allow advisor to remove a student from the list if they fail out.
   public void removeStudentFromProgram(String username, String major) {
-
+    UserList.getInstance().removeStudentFromProgram(username, major);
   }
 
 
