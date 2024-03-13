@@ -154,8 +154,7 @@ public class Advisor extends User{
             "Username: " + username + "\n" +
             "Password: " + password + "\n" +
             "User Type: " + userType + "\n" +
-            "List of Advised Students: " + listofAdvisedStudents + "\n" +
-            "Advising Notes: " + advisingNotes;
+            "List of Advised Students: " + listofAdvisedStudents + "\n";
 }
 
   public void courseLookup(String course) {
