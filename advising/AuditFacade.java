@@ -34,6 +34,7 @@ public class AuditFacade {
             //created User account!
             userList.createAccount(newUser);
         }
+        DataWriter.saveStudents(userList.getStudents());
     }
 
     
