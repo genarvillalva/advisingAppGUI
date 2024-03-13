@@ -113,9 +113,37 @@ public class Advisor extends User{
     return " ";
   }
 
-  public void sendFailureNotification(Student student) {}
+  /**
+   * Notify the student that they are at risk of failing a course
+   * @param username
+   */
+  public void sendFailureNotification(String username) {
+    for (Student student : this.listofAdvisedStudents) {
+      System.out.println(student.getUsername());
+      if (student.getUsername().equals(username)) {
+          System.out.println("Adding note to: " + student.getUsername());
+          student.addAdvisingNotes("You are at risk of failing your course");
+          return;
+      }
+  }
+  System.out.println("Student not found in advisor's list."); 
+  }
 
-  public void sendScholarshipNotification() {}
+  /**
+   * Notify the student that they are at risk of losing a scholarship
+   * @param username
+   */
+  public void sendScholarshipNotification(String username) {
+    for (Student student : this.listofAdvisedStudents) {
+      System.out.println(student.getUsername());
+      if (student.getUsername().equals(username)) {
+          System.out.println("Adding note to: " + student.getUsername());
+          student.addAdvisingNotes("You are at risk of losing your scholarships");
+          return;
+      }
+  }
+  System.out.println("Student not found in advisor's list."); 
+  }
 
   public void generateEightSemesterPlan() {}
 

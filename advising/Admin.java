@@ -22,7 +22,9 @@ public class Admin extends User {
         courseList.removeCourse(course);
     }
 
-
+  /**
+   * Finds a course from the course list
+   */
     public void courseLookup(String course) {
         courseList.findCourse(course);
     }  

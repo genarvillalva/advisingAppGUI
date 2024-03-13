@@ -74,6 +74,10 @@ public class Faculty extends User {
         }
     }
     
+    /**
+     * Finds the course from course list
+     * @param course
+     */
     public void courseLookup(String course) {
         courseList.findCourse(course);
     }

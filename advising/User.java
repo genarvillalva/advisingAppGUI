@@ -22,21 +22,42 @@ public abstract class User {
     this.isLoggedIn = false;
   }
 
+  /**
+   * Gets the first name of user
+   * @return The first name of user
+   */
   public String getFirstName() {
     return this.firstName;
   }
+
+  /**
+   * Gets the last name of user
+   * @return The last name of user
+   */
   public String getLastName() {
     return this.lastName;
   }
 
+  /**
+   * Gets the username of user
+   * @return The username of user
+   */
   public String getUsername() {
     return this.username;
 }
 
+  /**
+   * Gets the password of user
+   * @return The password of user
+   */
   public String getPassword() {
     return this.password;
   }
 
+  /**
+   * Gets the type of user
+   * @return The type of user
+   */
   public String getUserType() {
     return this.userType;
   }
@@ -86,6 +107,10 @@ public abstract class User {
     isLoggedIn = false; 
     System.out.println("Logged out successfully.");
 }
+
+  /**
+   * String representation of a user
+   */
   public String toString() {
     return "First Name: " + firstName + "\nLast Name: " + lastName + "\nUsername: " + username + "\nPassword: " + password + "\nUser Type: " + userType;
   }

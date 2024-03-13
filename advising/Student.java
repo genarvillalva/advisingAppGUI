@@ -166,6 +166,10 @@ public class Student extends User {
       "Advising Notes: " + advisingNotes  + "\n";
 }
 
+    /**
+     * Finds the course from course list
+     * @param course
+     */
   public void courseLookup(String course) {
     courseList.findCourse(course);
   }

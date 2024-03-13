@@ -12,18 +12,30 @@ public class ElectiveCluster {
   public ElectiveCluster() {
     this.Courses = new HashMap<Course, Boolean>();
   } 
+
+  /**
+   * Calculates if the elective cluster is finished
+   * @return True if user has enough hours to complete a cluster
+   */
   public boolean isClusterComplete() {
 
-    return true;
+    return (hoursCompleted >= hoursRequired);
   }
 
+  /**
+   * Gets credit hours from an elective cluster
+   * @return Hours in a elective cluster completed
+   */
   public int hoursCompleted() {
 
     return hoursCompleted;
   }
 
   
-  
+  /**
+   * Gets credit hours needed to complete an elective cluster
+   * @return Hours in a elective cluster required
+   */
   public int hoursRequired() { 
 
     return hoursRequired;

@@ -28,15 +28,14 @@ public class CourseList {
     public ArrayList<Course> getCourses() {
         return courses;
     }
+
+    /**
+     * Finds the course from course list
+     * @param course
+     */
     public void findCourse(String course) {
-        
-
-
-
-
+        courseList.findCourse(course);
     }
-
-
 
     public void addCourse(Course course) {
         if (courses == null) {
