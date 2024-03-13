@@ -65,7 +65,8 @@ public void createAccount(User newUser) {
       advisors.add((Advisor) newUser);
       DataWriter.saveAdvisors(advisors);
   } else if (newUser instanceof Student) {
-    DataWriter.saveStudents(students);
+      students.add((Student) newUser);
+      DataWriter.saveStudents(students);
   }
 }
 
