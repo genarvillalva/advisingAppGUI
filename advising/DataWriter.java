@@ -106,6 +106,7 @@ public class DataWriter extends DataConstants {
     saveStudents(students);
     saveAdvisors(advisors);
   }
+
   /**
    * Saves all students to a JSON file
    */
@@ -124,6 +125,7 @@ public class DataWriter extends DataConstants {
         " " +
         students.get(i).getLastName()
       );
+      
       jsonStudents.add(toStudentJSON(students.get(i)));
     }
     writeToFile(jsonStudents, "advising/json/studenttest.json");
