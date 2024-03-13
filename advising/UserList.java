@@ -5,9 +5,7 @@ import java.util.Scanner;
 
 
 public class UserList {
-  // Why are we initializing UserList Twice?
   private static UserList instance = null;
-  // private UserList userList;
   private ArrayList<User> userAccounts = new ArrayList<User>();
   private ArrayList<Admin> admins; //added Admin ArrayList
   private ArrayList<Advisor> advisors;
@@ -18,6 +16,7 @@ public class UserList {
     private UserList() {
       userAccounts = new ArrayList<>();
       admins = new ArrayList<Admin>();
+
       advisors = DataLoader.getAllAdvisors();
       students = DataLoader.getAllStudents();
     
@@ -31,12 +30,14 @@ public class UserList {
       return instance;
   }
 
+
+
   // Getters for user accounts 
     public ArrayList<User> getUserAccounts() {
       return new ArrayList<>(userAccounts); 
 }
 
-    public ArrayList<Admin> getFacultys() {
+    public ArrayList<Admin> getAdmins() {
       return new ArrayList<>(admins); 
 }
 
@@ -51,17 +52,30 @@ public class UserList {
 
 
 
-  //The createAccount method adds new users to the general userAccounts list
   public void createAccount(User newUser) {
-      userAccounts.add(newUser);
-  }
-
-  public void addStudent(Student student) {
-    this.students.add(student);
+    // Always add to the general list
+    userAccounts.add(newUser);
+    
+    //sort into the specific list based on the user's type
+    if (newUser instanceof Admin) {
+        admins.add((Admin) newUser);
+    } else if (newUser instanceof Advisor) {
+        advisors.add((Advisor) newUser);
+    } else if (newUser instanceof Student) {
+        students.add((Student) newUser);
+    }
 }
 
 
 
+public void printUsers() { //debugging
+  System.out.println("Displaying all users:");
+
+  // Iterate over userAccounts list and print username and user type
+  for (User user : userAccounts) {
+      System.out.println("Username: " + user.getUsername() + ", Type: " + user.getUserType());
+  }
+}
 
 //Methods isUsernameValid and isPasswordValid provide basic 
 //validation for usernames and passwords, checking for non-null values and a minimum length requirement.
