@@ -10,9 +10,8 @@ public class UserList {
   private ArrayList<Admin> admins; //added Admin ArrayList
   private ArrayList<Advisor> advisors;
   private ArrayList<Student> students;
-
-
-
+  private StudentPortfolio studentPortfolio;
+  
     private UserList() {
       userAccounts = new ArrayList<>();
       admins = new ArrayList<Admin>();
@@ -52,21 +51,37 @@ public class UserList {
 
 
 
-public void createAccount(User newUser) {
-  // Always add to the general list
-  userAccounts.add(newUser);
-  
-  //sort into the specific list based on the user's type
-  if (newUser instanceof Admin) {
-      admins.add((Admin) newUser);
-      //For once the admin is added to the Data Writer
-      //DataWriter.saveAdmin(admins);
-  } else if (newUser instanceof Advisor) {
-      advisors.add((Advisor) newUser);
-      DataWriter.saveAdvisors(advisors);
-  } else if (newUser instanceof Student) {
-      students.add((Student) newUser);
-      DataWriter.saveStudents(students);
+public void createAccount(String userName, String password, String userType, String firstName, String lastName, String major, StudentYear studentYear) {
+  User newUser = null;
+  switch (userType.toLowerCase()) {
+      case "student": // student is being signed up 
+          newUser = new Student(firstName, lastName, userName, password, userType, major, null, studentYear, studentPortfolio, null, ""); // Assuming an empty string for application area and advising notes
+          break;
+      case "advisor": // advisor is being signed up 
+          newUser = new Advisor(firstName, lastName, userName, password, userType, null); 
+          break;
+      case "admin": // admin is being signed up 
+          newUser = new Admin(firstName, lastName, userName, password, userType); 
+  }
+
+  if (newUser != null) {
+      System.out.println("Successfully created and added user: " + userName);
+      System.out.println("New User Details: " + newUser.toString());
+      // Add the new user to the appropriate list
+      userAccounts.add(newUser);
+      
+      // Sort into the specific list based on the user's type
+      if (newUser instanceof Admin) {
+          admins.add((Admin) newUser);
+          //DataWriter.saveAdmin(admins);
+      } else if (newUser instanceof Advisor) {
+          advisors.add((Advisor) newUser);
+          DataWriter.saveAdvisors(advisors);
+      } else if (newUser instanceof Student) {
+          students.add((Student) newUser);
+          System.out.println("Students after adding: " + students);
+          DataWriter.saveStudents(students);
+      }
   }
 }
 
