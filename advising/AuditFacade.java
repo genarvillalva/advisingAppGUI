@@ -15,11 +15,11 @@ public class AuditFacade {
     }
 
     
-    public void signUp(String userName, String password, String userType, String firstName, String lastName, String major) {
+    public void signUp(String userName, String password, String userType, String firstName, String lastName, String major, StudentYear studentYear ) {
         User newUser = null;
         switch (userType.toLowerCase()) {
             case "student": // student  is being signed up 
-                newUser = new Student(firstName, lastName, userName, password, userType, major, null, null, studentPortfolio, null, ""); // Assuming an empty string for application area and advising notes
+                newUser = new Student(firstName, lastName, userName, password, userType, major, null, studentYear, studentPortfolio, null, ""); // Assuming an empty string for application area and advising notes
                 break;
             case "advisor": // advisor is being signed up 
                 newUser = new Advisor(firstName, lastName, userName, password, userType, null); 
@@ -35,6 +35,9 @@ public class AuditFacade {
             userList.createAccount(newUser);
         }
     }
+
+    
+
 
     
 /**
