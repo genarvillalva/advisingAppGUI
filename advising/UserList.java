@@ -52,18 +52,22 @@ public class UserList {
 
 
 
-  public void createAccount(User newUser) {
-    // Always add to the general list
-    userAccounts.add(newUser);
-    
-    //sort into the specific list based on the user's type
-    if (newUser instanceof Admin) {
-        admins.add((Admin) newUser);
-    } else if (newUser instanceof Advisor) {
-        advisors.add((Advisor) newUser);
-    } else if (newUser instanceof Student) {
-        students.add((Student) newUser);
-    }
+public void createAccount(User newUser) {
+  // Always add to the general list
+  userAccounts.add(newUser);
+  
+  //sort into the specific list based on the user's type
+  if (newUser instanceof Admin) {
+      admins.add((Admin) newUser);
+      //For once the admin is added to the Data Writer
+      //DataWriter.saveAdmin(admins);
+  } else if (newUser instanceof Advisor) {
+      advisors.add((Advisor) newUser);
+      DataWriter.saveAdvisors(advisors);
+  } else if (newUser instanceof Student) {
+      students.add((Student) newUser);
+      DataWriter.saveStudents(students);
+  }
 }
 
 
@@ -147,7 +151,15 @@ public void printUsers() { //debugging
 
   //Need a method to allow advisor to remove a student from the list if they fail out.
   public void removeStudentFromProgram(String username, String major) {
-    UserList.getInstance().removeStudentFromProgram(username, major);
+
+    for (Student student : students) {
+        if (student.getUsername().equals(username) && student.getMajor().equals(major)) {
+            students.remove(student);
+            System.out.println("Student " + username + " removed from " + major + " program.");
+            return;
+        }
+    }
+    System.out.println("Student " + username + " not found in " + major + " program.");
   }
 
 
