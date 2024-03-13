@@ -272,6 +272,7 @@ public ArrayList<ElectiveCluster> getElectiveClusterArray() {
     }
   }
 
+
   /**
    * Calculates the amount of course credit left for a student to graduate
    * @return the int of total minus completed

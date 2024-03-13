@@ -8,10 +8,17 @@ public class AuditFacade {
     private Admin admin;
     private Student student;
     private StudentPortfolio studentPortfolio;
+    private Advisor advisor;
+
+    
     // private RequiredCourses requiredCourses;
 
     public AuditFacade() {
         this.userList = UserList.getInstance(); // This line ensures userList is initialized
+    }
+
+    public AuditFacade(Advisor advisor) {
+        this.advisor = advisor;
     }
 
     
@@ -39,7 +46,12 @@ public boolean login(String username, String password, String userType) {
             return UserList.getInstance().verifyLoginAdmin(username, password);
         case "advisor":
             // Verify login for advisor user
-            return UserList.getInstance().verifyLoginAdvisor(username, password);
+            boolean success = UserList.getInstance().verifyLoginAdvisor(username, password);
+            if (success) {
+                // Set the logged-in advisor
+                advisor = UserList.getInstance().getAdvisor(username);
+            }
+            return success;
         default:
             // Invalid user type
             System.out.println("Invalid user type for login.");
@@ -101,6 +113,16 @@ public boolean login(String username, String password, String userType) {
 
     public void adviseStudent(String notes, String Username) {
 
+    }
+  
+
+    public Student lookUpStudent(String advisorUsername, String studentUsername) {
+        if (advisor != null) {
+            return advisor.lookUpStudent(studentUsername);
+        } else {
+            System.out.println("No advisor available to perform student lookup.");
+            return null;
+        }
     }
 
     public void switchMajor(Student student, String major) {

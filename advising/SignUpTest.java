@@ -115,8 +115,67 @@ public class SignUpTest {
         // Display login result
         if (success) {            
             System.out.println("Login successful for: " + userType + " - " + userName);
+            advisorMenu(userName, auditFacade, scanner);
+
+            
         } else {
             System.out.println("Login failed. Please check your credentials and try again.");
         }
+    
     }
+    private static void advisorMenu(String advisorUsername, AuditFacade auditFacade, Scanner scanner) {
+        boolean running = true;
+        while (running) {
+            // Display advisor menu options
+            System.out.println("\nAdvisor Menu:");
+            System.out.println("1. Look up a student");
+            //System.out.println("2. Suggest courses");
+            //System.out.println("3. Add student to advisor");
+            //System.out.println("4. Remove student from program");
+            //System.out.println("5. Write a note");
+            //System.out.println("6. Generate eight semester plan");
+            System.out.println("0. Logout");
+    
+            // Prompt user for choice
+            System.out.print("Enter your choice: ");
+            String choice = scanner.nextLine();
+    
+            switch (choice) {
+                case "1":
+                    // Look up a student
+                    lookUpStudent(advisorUsername, auditFacade, scanner);
+                    break;
+                case "0":
+                    // Logout
+                    running = false;
+                    break;
+                default:
+                    // Invalid option
+                    System.out.println("Invalid option, please try again.");
+            }
+        }
+    }
+    
+    private static void lookUpStudent(String advisorUsername, AuditFacade auditFacade, Scanner scanner) {
+        // Prompt for student username
+        System.out.print("Enter Student Username: ");
+        String studentUsername = scanner.nextLine();
+    
+        // Look up the student by advisor
+        Student student = auditFacade.lookUpStudent(advisorUsername, studentUsername);
+    
+        // Display result
+        if (student != null) {
+            // Student found, do something with the student object
+            System.out.println("Student found: " + student);
+            boolean success = true;
+        } else {
+            // Student not found
+            System.out.println("Student not found.");
+            // Set success to false or perform further actions
+            boolean success = false;
+        }
+        
+    }
+
 }

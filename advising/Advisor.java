@@ -145,6 +145,22 @@ public class Advisor extends User{
   System.out.println("Student not found in advisor's list."); 
   }
 
+  public Student lookUpStudent(String username) {
+    if (listofAdvisedStudents == null) {
+        System.out.println("Advisor's list of advised students is not initialized.");
+        return null;
+    }
+
+    for (Student student : listofAdvisedStudents) {
+        if (student.getUsername().equals(username)) {
+            System.out.println("Student found: " + student);
+            return student;
+        }
+    }
+    System.out.println("Student not found in advisor's list.");
+    return null;
+}
+
   public void generateEightSemesterPlan() {}
 
   public String toString() {
