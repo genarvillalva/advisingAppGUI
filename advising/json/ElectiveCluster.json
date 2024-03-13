@@ -1,7 +1,7 @@
 [
   {
     "clusterName": "Lab Science Electives",
-    "hoursRequired": 5,
+    "hoursRequired": 4,
     "hoursDone": 0,
     "Lab Science Electives": {
       "ANTH161": false,
