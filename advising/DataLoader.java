@@ -134,7 +134,10 @@ public class DataLoader extends DataConstants {
     addPrerequisiteCourses(courses);
     return courses;
   }
-
+/**
+ * Adds the prerequisite courses to the courses
+ * @param courses list of all courses
+ */
   private static void addPrerequisiteCourses(ArrayList<Course> courses) {
     try {
       FileReader reader = new FileReader("advising/json/Course.json");
