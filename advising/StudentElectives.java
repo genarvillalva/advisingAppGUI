@@ -7,7 +7,11 @@ public class StudentElectives {
 
   private String studentName;
   private ArrayList<ElectiveCluster> electives;
-
+/**
+ * Constructor for the StudentElectives class
+ * @param studentName Name of a student
+ * @param electives Electives for a student
+ */
   public StudentElectives(
     String studentName,
     ArrayList<ElectiveCluster> electives
@@ -15,14 +19,23 @@ public class StudentElectives {
     this.studentName = studentName;
     this.electives = electives;
   }
-
+/**
+ * Gets the name of a student
+ * @return Name of a student
+ */
   public String getStudentName() {
     return studentName;
   }
-
+/**
+ * Gets the electives for a student
+ * @return Electives for a student
+ */
   public ArrayList<ElectiveCluster> getElectives() {
     return electives;
   }
+  /**
+   * String representation of a student's electives
+   */
   public String toString() {
     return "studentName: "+studentName + " \nElectives:" + electives + "\n";
   }
@@ -42,7 +55,10 @@ public class StudentElectives {
             createElectiveClassesForCSCE() 
         );
     
-
+/**
+ * Creates a hashmap of elective classes for lab science
+ * @return HashMap
+ */
     private static HashMap<String, Boolean> createElectiveClassesForLabScience() {
         HashMap<String, Boolean> classes = new HashMap<>();
         classes.put("ANTH161", false);
@@ -71,7 +87,10 @@ public class StudentElectives {
         classes.put("PHYS211L", false);
         return classes;
     }
-
+/**
+ * Creates a hashmap of elective classes for CSCE
+ * @return HashMap 
+ */
     private static HashMap<String, Boolean> createElectiveClassesForCSCE() {
         HashMap<String, Boolean> classes = new HashMap<>();
         classes.put("CSCE500", false);

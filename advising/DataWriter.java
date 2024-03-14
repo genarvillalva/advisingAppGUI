@@ -158,7 +158,11 @@ public class DataWriter extends DataConstants {
     return studentObject;
     
   }
-
+/**
+ * Converts a student's portfolio to a JSON object
+ * @param portfolio Student's portfolio to convert
+ * @return JSONObject of student's portfolio
+ */
   private static JSONObject toPortfolioJSON(StudentPortfolio portfolio) {
     System.out.println(portfolio + "\n\n\n\n\n");
     JSONObject portfolioObject = new JSONObject();
@@ -184,7 +188,11 @@ public class DataWriter extends DataConstants {
     
     return portfolioObject;
   }
-
+/**
+ * Converts a list of required courses to a JSON array
+ * @param requiredCourses List of required courses to convert
+ * @return  JSONArray of required courses
+ */
   private static JSONArray toRequiredCoursesJSON(ArrayList<Course> requiredCourses) {
     JSONArray requiredCoursesArray = new JSONArray();
     for (Course course : requiredCourses) {
@@ -192,7 +200,11 @@ public class DataWriter extends DataConstants {
     }
     return requiredCoursesArray;
 }
-
+/**
+ * Converts a list of failed courses to a JSON object
+ * @param failedCourses List of failed courses to convert
+ * @return JSONObject of failed courses
+ */
   private static JSONObject toFailedCoursesJSON(HashMap<Course, Integer> failedCourses) {
     JSONObject failedCoursesObject = new JSONObject();
     for (Course course : failedCourses.keySet()) {
@@ -201,7 +213,11 @@ public class DataWriter extends DataConstants {
     return failedCoursesObject;
 }
 
-
+/**
+ * Converts a list of completed courses to a JSON object
+ * @param completedCourses List of completed courses to convert
+ * @return JSONObject of completed courses
+ */
   private static JSONObject toCompletedCourseJSON(HashMap<Course, Double> completedCourses) {
     JSONObject completedCoursesObject = new JSONObject();
     for (Course course : completedCourses.keySet()) {
@@ -210,7 +226,11 @@ public class DataWriter extends DataConstants {
     return completedCoursesObject;
 }
 
-
+/**
+ * Converts a list of current courses to a JSON array
+ * @param currentCourses List of current courses to convert
+ * @return JSONArray of current courses
+ */
   private static JSONArray toCurrentCourseJSON(ArrayList<Course> currentCourses) {
     JSONArray currentCourseArray = new JSONArray();
     for (Course course : currentCourses) {
@@ -218,7 +238,11 @@ public class DataWriter extends DataConstants {
     }
     return currentCourseArray;
   }
-
+/**
+ *  Converts a hashmap of an eight semeester plan to a JSON object
+ * @param eightSemesterPlan HashMap of eight semester plan to convert 
+ * @return JSONObject of eight semester plan
+ */
   private static JSONObject toEightSemesterPlanJSON(HashMap<String, ArrayList<Course>> eightSemesterPlan) {
     JSONObject eightSemesterPlanObject = new JSONObject();
     for (String semester : eightSemesterPlan.keySet()) {
@@ -262,7 +286,11 @@ public class DataWriter extends DataConstants {
 
 
 
-  
+  /**
+   * Helper function for saveAdvisors to convert each user to JSON format
+   * @param advisor to convert to JSON object 
+   * @return JSONObject of advisor
+   */
   @SuppressWarnings("unchecked")
   private static JSONObject getAdvisorJSON(Advisor advisor) {
     JSONObject advisorObject = new JSONObject();
