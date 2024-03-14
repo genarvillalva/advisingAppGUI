@@ -65,47 +65,35 @@ public class UserList {
       // Determine the type of user based on the userType parameter
       switch (userType.toLowerCase()) {
           case "student":
-              System.out.println("Creating new student..."); // Debug statement
               // Create a new Student object
               newUser = new Student(firstName, lastName, userName, password, userType, major, null, studentYear, null, null, null);
               break;
           case "advisor":
-              System.out.println("Creating new advisor..."); // Debug statement
               // Create a new Advisor object
               newUser = new Advisor(firstName, lastName, userName, password, userType, null);
               break;
           case "admin":
-              System.out.println("Creating new admin..."); // Debug statement
               // Create a new Admin object
               newUser = new Admin(firstName, lastName, userName, password, userType);
               break;
       }
   
       if (newUser != null) { // Check if a new user was created successfully
-          System.out.println("User created: " + newUser); // Debug statement
           userAccounts.add(newUser); // Add the new user to the list of users
-          System.out.println("User added to users list."); // Debug statement
           
           // Save the list of students to JSON if the new user is an instance of Student
           if (newUser instanceof Student) {
-              System.out.println("Adding student to list..."); // Debug statement
-              students.add((Student) newUser); // Add the student to the students list
-              System.out.println("Students after adding: " + students); // Debug statement
-              System.out.println("Starting saveStudents. Number of new students to save: " + students.size() + ". Number of existing students: " + students.size()); // Debug statement
-              try {
-                System.out.println("Saving students list with size: " + students.size());
-                    for (Student s : students) {
-                        System.out.println(s); // Assuming Student.toString() gives meaningful output.
-                    }
+              students.add((Student) newUser); 
                   DataWriter.saveStudents(students); // Save the students to JSON
-                  System.out.println("Students saved successfully."); // Debug statement
-              } catch (Exception e) {
-                  System.err.println("Error saving students to JSON: " + e.getMessage()); // Debug statement
-                  e.printStackTrace(); // Print the stack trace if an error occurs
               }
           }
-      }
-  }
+
+          if (newUser instanceof Advisor) {
+            advisors.add((Advisor) newUser); 
+                DataWriter.saveAdvisors(advisors); // Save the advisors to JSON
+            } 
+        }
+  
   
   
   
