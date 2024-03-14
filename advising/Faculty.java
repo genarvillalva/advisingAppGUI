@@ -52,7 +52,7 @@ public class Faculty extends User {
                 profileDetails.append("Total Credit Hours Integrative Course: ").append(portfolio.getTotalCreditHoursIntegrativeCourse()).append("\n");
                 profileDetails.append("Total Credit Hours Program Requirements: ").append(portfolio.getTotalCreditHoursProgramRequirements()).append("\n");
                 profileDetails.append("Total Credit Hours Major Requirements: ").append(portfolio.getTotalCreditHoursMajorRequirements()).append("\n");
-                profileDetails.append("Elective Clusters: ").append(studentPortfolio.getElectiveClusterArray()).append("\n");
+                profileDetails.append("Elective Clusters: ").append(studentPortfolio.getStudentElectives()).append("\n");
             break;
             }
         }
