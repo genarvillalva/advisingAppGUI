@@ -5,16 +5,16 @@ import java.util.Scanner;
 
 
 public class UserList {
-  private static UserList instance = null;
+  private static UserList instance;
   private ArrayList<User> userAccounts = new ArrayList<User>();
-  private ArrayList<Admin> admins; //added Admin ArrayList
+  private ArrayList<Admin> admins = new ArrayList<Admin>(); //added Admin ArrayList
   private ArrayList<Advisor> advisors;
-  private ArrayList<Student> students;
+  private ArrayList<Student> students = new ArrayList<Student>();
   private StudentPortfolio studentPortfolio;
   
     private UserList() {
-      userAccounts = new ArrayList<>();
-      admins = new ArrayList<Admin>();
+      this.userAccounts = new ArrayList<>();
+      this.students = new ArrayList<>();
 
       advisors = DataLoader.getAllAdvisors();
       students = DataLoader.getAllStudents();
@@ -59,43 +59,56 @@ public class UserList {
     }
 
 
-public void createAccount(String userName, String password, String userType, String firstName, String lastName, String major, StudentYear studentYear) {
-  User newUser = null;
-  switch (userType.toLowerCase()) {
-      case "student": // student is being signed up 
-          newUser = new Student(firstName, lastName, userName, password, userType, major, null, studentYear, studentPortfolio, null, ""); // Assuming an empty string for application area and advising notes
-          break;
-      case "advisor": // advisor is being signed up 
-          newUser = new Advisor(firstName, lastName, userName, password, userType, null); 
-          break;
-      case "admin": // admin is being signed up 
-          newUser = new Admin(firstName, lastName, userName, password, userType); 
-  }
-
-  if (newUser != null) {
-      System.out.println("Successfully created and added user: " + userName);
-      System.out.println("New User Details: " + newUser.toString());
-      // Add the new user to the appropriate list
-      userAccounts.add(newUser);
-      
-      // Sort into the specific list based on the user's type
-      if (newUser instanceof Admin) {
-          admins.add((Admin) newUser);
-          //DataWriter.saveAdmin(admins);
-      } else if (newUser instanceof Advisor) {
-          advisors.add((Advisor) newUser);
-          DataWriter.saveAdvisors(advisors);
-      } else if (newUser instanceof Student) {
-          students.add((Student) newUser);
-          ///System.out.println("Students after adding: " + students);
-          DataWriter.saveStudents(students);
+    public void createAccount(String userName, String password, String userType, String firstName, String lastName, String major, StudentYear studentYear) {
+      User newUser = null; // Initialize a new user object
+  
+      // Determine the type of user based on the userType parameter
+      switch (userType.toLowerCase()) {
+          case "student":
+              System.out.println("Creating new student..."); // Debug statement
+              // Create a new Student object
+              newUser = new Student(firstName, lastName, userName, password, userType, major, null, studentYear, null, null, null);
+              break;
+          case "advisor":
+              System.out.println("Creating new advisor..."); // Debug statement
+              // Create a new Advisor object
+              newUser = new Advisor(firstName, lastName, userName, password, userType, null);
+              break;
+          case "admin":
+              System.out.println("Creating new admin..."); // Debug statement
+              // Create a new Admin object
+              newUser = new Admin(firstName, lastName, userName, password, userType);
+              break;
+      }
+  
+      if (newUser != null) { // Check if a new user was created successfully
+          System.out.println("User created: " + newUser); // Debug statement
+          userAccounts.add(newUser); // Add the new user to the list of users
+          System.out.println("User added to users list."); // Debug statement
+          
+          // Save the list of students to JSON if the new user is an instance of Student
+          if (newUser instanceof Student) {
+              System.out.println("Adding student to list..."); // Debug statement
+              students.add((Student) newUser); // Add the student to the students list
+              System.out.println("Students after adding: " + students); // Debug statement
+              System.out.println("Starting saveStudents. Number of new students to save: " + students.size() + ". Number of existing students: " + students.size()); // Debug statement
+              try {
+                System.out.println("Saving students list with size: " + students.size());
+                    for (Student s : students) {
+                        System.out.println(s); // Assuming Student.toString() gives meaningful output.
+                    }
+                  DataWriter.saveStudents(students); // Save the students to JSON
+                  System.out.println("Students saved successfully."); // Debug statement
+              } catch (Exception e) {
+                  System.err.println("Error saving students to JSON: " + e.getMessage()); // Debug statement
+                  e.printStackTrace(); // Print the stack trace if an error occurs
+              }
+          }
       }
   }
-}
-
-
-
-
+  
+  
+  
 
 public void printUsers() { //debugging
   System.out.println("Displaying all users:");

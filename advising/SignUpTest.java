@@ -1,5 +1,7 @@
 package advising;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -17,6 +19,16 @@ public class SignUpTest {
             System.out.println("1. Login");
             System.out.println("2. Sign Up");
             System.out.println("3. See All Users");
+            
+                    /*Advisor a =null;
+                    StudentYear studentYear2 = StudentYear.FRESHMAN;
+                    Student timmy = new Student("Timmy","Alexander","timey","helloworld","Student","Computer_Science",a,studentYear2,null,null,null);
+                    
+                    ArrayList<Student>students = new ArrayList<Student>();
+                    students.add(timmy);
+                    DataWriter.saveStudents(students);
+*/
+
             System.out.println("0. Exit");
 
             // Prompt user for choice
@@ -59,9 +71,6 @@ public class SignUpTest {
         String major = null; // Initialize major
         StudentYear studentYear = StudentYear.FRESHMAN; // Initialize studentYear
 
-
-
-
         // Prompt user for user type
         System.out.print("User Type (student/advisor/admin): ");
         userType = scanner.nextLine();
@@ -78,6 +87,8 @@ public class SignUpTest {
             studentYear = StudentYear.valueOf(scanner.nextLine());
         
         }
+
+
         
         // If user type is advisor, prompt for additional information
         if (userType.equalsIgnoreCase("advisor")) {
