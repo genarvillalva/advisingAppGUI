@@ -66,7 +66,8 @@ public class UserList {
       switch (userType.toLowerCase()) {
           case "student":
               // Create a new Student object
-              newUser = new Student(firstName, lastName, userName, password, userType, major, null, studentYear, null, null, null);
+              StudentPortfolio portfolio = new StudentPortfolio(userName);
+              newUser = new Student(firstName, lastName, userName, password, userType, major, null, studentYear, portfolio, null, null);
               break;
           case "advisor":
               // Create a new Advisor object

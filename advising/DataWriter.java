@@ -39,6 +39,7 @@ public class DataWriter extends DataConstants {
     }
     return true;
   }
+
   /**
    * Converts a course to a JSON object
    * @param course Course to convert
@@ -53,17 +54,24 @@ public class DataWriter extends DataConstants {
     courseObject.put(CREDIT_HOURS, course.getCreditHours());
     courseObject.put(MIN_GRADE, course.getMinGrade());
     courseObject.put(SEMESTER, course.getSemester().toString());
-    courseObject.put(PREREQUISITE_COURSES, toPrereqCourseJSON(course.getPrerequisiteCourses()));
-    courseObject.put(COREQUISITE_COURSES, toCoreqCourseJSON(course.getCorequisiteCourses()));
+    courseObject.put(
+      PREREQUISITE_COURSES,
+      toPrereqCourseJSON(course.getPrerequisiteCourses())
+    );
+    courseObject.put(
+      COREQUISITE_COURSES,
+      toCoreqCourseJSON(course.getCorequisiteCourses())
+    );
     courseObject.put(PREREQ_COREQ, toPrereqCoreqJSON(course.getPrereqCoreq()));
     courseObject.put(PREFERRED_SEMESTER, course.getPreferredSemester());
     return courseObject;
   }
-/**
- * Converts a list of prereq courses to a JSON array
- * @param courses List of courses to convert
- * @return JSONArray of courses
- */
+
+  /**
+   * Converts a list of prereq courses to a JSON array
+   * @param courses List of courses to convert
+   * @return JSONArray of courses
+   */
   @SuppressWarnings("unchecked")
   private static JSONArray toPrereqCourseJSON(ArrayList<Course> courses) {
     JSONArray courseArray = new JSONArray();
@@ -72,6 +80,7 @@ public class DataWriter extends DataConstants {
     }
     return courseArray;
   }
+
   /**
    * Converts a list of coreq courses to a JSON array
    * @param courses
@@ -85,9 +94,10 @@ public class DataWriter extends DataConstants {
     }
     return courseArray;
   }
+
   /**
    * Converts a list of prereq and coreq courses to a JSON array
-   * @param courses List of courses to convert 
+   * @param courses List of courses to convert
    * @return JSONArray of courses
    */
   @SuppressWarnings("unchecked")
@@ -99,11 +109,14 @@ public class DataWriter extends DataConstants {
     return courseArray;
   }
 
-////////////////////////////////////////////
+  ////////////////////////////////////////////
   /**
    * Saves all users to JSON files
    */
-  public static void saveUsers(ArrayList<Student> students, ArrayList<Advisor> advisors) {
+  public static void saveUsers(
+    ArrayList<Student> students,
+    ArrayList<Advisor> advisors
+  ) {
     saveStudents(students);
     saveAdvisors(advisors);
   }
@@ -112,27 +125,42 @@ public class DataWriter extends DataConstants {
    * Saves all students to a JSON file
    */
   @SuppressWarnings("unchecked")
- public static void saveStudents(ArrayList<Student> students) {
+  public static void saveStudents(ArrayList<Student> students) {
+    UserList userList = UserList.getInstance();
+    ArrayList<Student> existingStudents = userList.getStudents();
+    existingStudents.addAll(students);
 
-       // Load existing students using DataLoader
-       ArrayList<Student> existingStudents = DataLoader.getAllStudents();
-    
-       // Combine existing and new advisors
-       existingStudents.addAll(students); 
-      
     JSONArray jsonStudents = new JSONArray();
     JSONArray jsonStudentPortfolios = new JSONArray();
     for (Student student : students) {
-        System.out.println("Saving Student: " + student.getFirstName() + " " + student.getLastName());
-        jsonStudents.add(toStudentJSON(student));
-        jsonStudentPortfolios.add(toPortfolioJSON(student.getPortfolio()));
+      System.out.println(
+        "Saving Student: " +
+        student.getFirstName() +
+        " " +
+        student.getLastName()
+      );
+
+
+
+
+
+
+
+      
+      // if (!existingStudents.contains(student)) {
+      //   JSONObject studentElectives = createStudentElectives(student);
+      //   student.setStudentElectives(studentElectives);
+      // }
+      jsonStudents.add(toStudentJSON(student));
+      jsonStudentPortfolios.add(toPortfolioJSON(student.getPortfolio()));
     }
 
-    System.out.println("Number of students being written to JSON: " + jsonStudents.size());
+    System.out.println(
+      "Number of students being written to JSON: " + jsonStudents.size()
+    );
     writeToFile(jsonStudents, "advising/json/studenttest.json");
     writeToFile(jsonStudentPortfolios, "advising/json/portftest.json");
-}
-
+  }
 
   /**
    * Helper function for saveStudents to convert each user to JSON format
@@ -144,7 +172,7 @@ public class DataWriter extends DataConstants {
   private static JSONObject toStudentJSON(Student student) {
     Advisor a = student.getAdvisor();
     String advisor = "";
-    if(a == null) {
+    if (a == null) {
       advisor = null;
     } else {
       advisor = a.getUsername();
@@ -163,108 +191,157 @@ public class DataWriter extends DataConstants {
     studentObject.put(APPLICATION_AREA, student.getApplicationArea());
     studentObject.put(ADVISING_NOTES, student.getAdvisingNotes());
     return studentObject;
-    
   }
-/**
- * Converts a student's portfolio to a JSON object
- * @param portfolio Student's portfolio to convert
- * @return JSONObject of student's portfolio
- */
+
+  /**
+   * Converts a student's portfolio to a JSON object
+   * @param portfolio Student's portfolio to convert
+   * @return JSONObject of student's portfolio
+   */
   private static JSONObject toPortfolioJSON(StudentPortfolio portfolio) {
     System.out.println(portfolio + "\n\n\n\n\n");
     JSONObject portfolioObject = new JSONObject();
     portfolioObject.put(PORTFOLIO_UUID, portfolio.getPortfolioUUID());
     portfolioObject.put(GPA, portfolio.getGpa());
     portfolioObject.put(FAIL_COUNT, portfolio.getFailCount());
-    portfolioObject.put(SEMESTER_CREDIT_COUNT, portfolio.getSemesterCreditCount());
-    portfolioObject.put(REQUIRED_COURSES, toRequiredCoursesJSON(portfolio.getRequiredCourses()));
-    portfolioObject.put(EIGHT_SEMESTER_PLAN, toEightSemesterPlanJSON(portfolio.getEightSemesterPlan()));
-    portfolioObject.put(CURRENT_COURSES, toCurrentCourseJSON(portfolio.getCurrentCourses()));
-    portfolioObject.put(COMPLETED_COURSES, toCompletedCourseJSON(portfolio.getCompletedCourses()));
-    portfolioObject.put(FAILED_COURSES, toFailedCoursesJSON(portfolio.getFailedCourses()));
+    portfolioObject.put(
+      SEMESTER_CREDIT_COUNT,
+      portfolio.getSemesterCreditCount()
+    );
+    portfolioObject.put(
+      REQUIRED_COURSES,
+      toRequiredCoursesJSON(portfolio.getRequiredCourses())
+    );
+    portfolioObject.put(
+      EIGHT_SEMESTER_PLAN,
+      toEightSemesterPlanJSON(portfolio.getEightSemesterPlan())
+    );
+    portfolioObject.put(
+      CURRENT_COURSES,
+      toCurrentCourseJSON(portfolio.getCurrentCourses())
+    );
+    portfolioObject.put(
+      COMPLETED_COURSES,
+      toCompletedCourseJSON(portfolio.getCompletedCourses())
+    );
+    portfolioObject.put(
+      FAILED_COURSES,
+      toFailedCoursesJSON(portfolio.getFailedCourses())
+    );
     portfolioObject.put(SCHOLARSHIP, portfolio.getScholarship());
-    portfolioObject.put(SCHOLARSHIP_CREDIT_HOURS_LEFT, portfolio.getScholarshipCreditHoursLeft());
+    portfolioObject.put(
+      SCHOLARSHIP_CREDIT_HOURS_LEFT,
+      portfolio.getScholarshipCreditHoursLeft()
+    );
     portfolioObject.put(YEAR_CREDIT_HOURS, portfolio.getYearCreditCount());
     portfolioObject.put(TOTAL_CREDIT_HOURS, portfolio.getTotalCreditHours());
-    portfolioObject.put(TOTAL_CREDIT_HOURS_FOUND_DOCU, portfolio.getTotalCreditHoursFoundDocu());
-    portfolioObject.put(TOTAL_CREDIT_HOURS_CC, portfolio.getTotalCreditHoursCC());
-    portfolioObject.put(TOTAL_CREDIT_HOURS_INTEGRATIVE_COURSE, portfolio.getTotalCreditHoursIntegrativeCourse());
-    portfolioObject.put(TOTAL_CREDIT_HOURS_PROGRAM_REQUIREMENTS, portfolio.getTotalCreditHoursProgramRequirements());
-    portfolioObject.put(TOTAL_CREDIT_HOURS_MAJOR_REQUIREMENTS, portfolio.getTotalCreditHoursMajorRequirements());
+    portfolioObject.put(
+      TOTAL_CREDIT_HOURS_FOUND_DOCU,
+      portfolio.getTotalCreditHoursFoundDocu()
+    );
+    portfolioObject.put(
+      TOTAL_CREDIT_HOURS_CC,
+      portfolio.getTotalCreditHoursCC()
+    );
+    portfolioObject.put(
+      TOTAL_CREDIT_HOURS_INTEGRATIVE_COURSE,
+      portfolio.getTotalCreditHoursIntegrativeCourse()
+    );
+    portfolioObject.put(
+      TOTAL_CREDIT_HOURS_PROGRAM_REQUIREMENTS,
+      portfolio.getTotalCreditHoursProgramRequirements()
+    );
+    portfolioObject.put(
+      TOTAL_CREDIT_HOURS_MAJOR_REQUIREMENTS,
+      portfolio.getTotalCreditHoursMajorRequirements()
+    );
     portfolioObject.put(STUDENT_ELECTIVES, portfolio.getPortfolioUUID());
-    
+
     return portfolioObject;
   }
-/**
- * Converts a list of required courses to a JSON array
- * @param requiredCourses List of required courses to convert
- * @return  JSONArray of required courses
- */
-  private static JSONArray toRequiredCoursesJSON(ArrayList<Course> requiredCourses) {
+
+  /**
+   * Converts a list of required courses to a JSON array
+   * @param requiredCourses List of required courses to convert
+   * @return  JSONArray of required courses
+   */
+  private static JSONArray toRequiredCoursesJSON(
+    ArrayList<Course> requiredCourses
+  ) {
     JSONArray requiredCoursesArray = new JSONArray();
     for (Course course : requiredCourses) {
-        requiredCoursesArray.add(course.getCourseID());
+      requiredCoursesArray.add(course.getCourseID());
     }
     return requiredCoursesArray;
-}
-/**
- * Converts a list of failed courses to a JSON object
- * @param failedCourses List of failed courses to convert
- * @return JSONObject of failed courses
- */
-  private static JSONObject toFailedCoursesJSON(HashMap<Course, Integer> failedCourses) {
+  }
+
+  /**
+   * Converts a list of failed courses to a JSON object
+   * @param failedCourses List of failed courses to convert
+   * @return JSONObject of failed courses
+   */
+  private static JSONObject toFailedCoursesJSON(
+    HashMap<Course, Integer> failedCourses
+  ) {
     JSONObject failedCoursesObject = new JSONObject();
     for (Course course : failedCourses.keySet()) {
-        failedCoursesObject.put(course.getCourseID(), failedCourses.get(course));
+      failedCoursesObject.put(course.getCourseID(), failedCourses.get(course));
     }
     return failedCoursesObject;
-}
+  }
 
-/**
- * Converts a list of completed courses to a JSON object
- * @param completedCourses List of completed courses to convert
- * @return JSONObject of completed courses
- */
-  private static JSONObject toCompletedCourseJSON(HashMap<Course, Double> completedCourses) {
+  /**
+   * Converts a list of completed courses to a JSON object
+   * @param completedCourses List of completed courses to convert
+   * @return JSONObject of completed courses
+   */
+  private static JSONObject toCompletedCourseJSON(
+    HashMap<Course, Double> completedCourses
+  ) {
     JSONObject completedCoursesObject = new JSONObject();
     for (Course course : completedCourses.keySet()) {
-        completedCoursesObject.put(course.getCourseID(), completedCourses.get(course));
+      completedCoursesObject.put(
+        course.getCourseID(),
+        completedCourses.get(course)
+      );
     }
     return completedCoursesObject;
-}
+  }
 
-/**
- * Converts a list of current courses to a JSON array
- * @param currentCourses List of current courses to convert
- * @return JSONArray of current courses
- */
-  private static JSONArray toCurrentCourseJSON(ArrayList<Course> currentCourses) {
+  /**
+   * Converts a list of current courses to a JSON array
+   * @param currentCourses List of current courses to convert
+   * @return JSONArray of current courses
+   */
+  private static JSONArray toCurrentCourseJSON(
+    ArrayList<Course> currentCourses
+  ) {
     JSONArray currentCourseArray = new JSONArray();
     for (Course course : currentCourses) {
       currentCourseArray.add(course.getCourseID());
     }
     return currentCourseArray;
   }
-/**
- *  Converts a hashmap of an eight semeester plan to a JSON object
- * @param eightSemesterPlan HashMap of eight semester plan to convert 
- * @return JSONObject of eight semester plan
- */
-  private static JSONObject toEightSemesterPlanJSON(HashMap<String, ArrayList<Course>> eightSemesterPlan) {
+
+  /**
+   *  Converts a hashmap of an eight semeester plan to a JSON object
+   * @param eightSemesterPlan HashMap of eight semester plan to convert
+   * @return JSONObject of eight semester plan
+   */
+  private static JSONObject toEightSemesterPlanJSON(
+    HashMap<String, ArrayList<Course>> eightSemesterPlan
+  ) {
     JSONObject eightSemesterPlanObject = new JSONObject();
     for (String semester : eightSemesterPlan.keySet()) {
-        JSONArray courseIdsArray = new JSONArray();
-        ArrayList<Course> courses = eightSemesterPlan.get(semester);
-        for (Course course : courses) {
-            courseIdsArray.add(course.getCourseID()); // Assuming getId() returns the course ID
-        }
-        eightSemesterPlanObject.put(semester, courseIdsArray);
+      JSONArray courseIdsArray = new JSONArray();
+      ArrayList<Course> courses = eightSemesterPlan.get(semester);
+      for (Course course : courses) {
+        courseIdsArray.add(course.getCourseID()); // Assuming getId() returns the course ID
+      }
+      eightSemesterPlanObject.put(semester, courseIdsArray);
     }
     return eightSemesterPlanObject;
-}
-
-
-
+  }
 
   ////////////////////////////////////////////
   /**
@@ -273,30 +350,31 @@ public class DataWriter extends DataConstants {
   @SuppressWarnings("unchecked")
   public static void saveAdvisors(ArrayList<Advisor> advisors) {
     System.out.println("Saving advisors to JSON...");
-     // Load existing advisors using DataLoader
-     ArrayList<Advisor> existingAdvisors = DataLoader.getAllAdvisors();
-    
-     // Combine existing and new advisors
-     existingAdvisors.addAll(advisors); 
-    
-    
+    // Load existing advisors using DataLoader
+    ArrayList<Advisor> existingAdvisors = DataLoader.getAllAdvisors();
+
+    // Combine existing and new advisors
+    existingAdvisors.addAll(advisors);
+
     JSONArray jsonAdvisors = new JSONArray();
 
     for (Advisor advisor : advisors) {
-        JSONObject advisorJson = getAdvisorJSON(advisor);
-        System.out.println("Converting advisor to JSON: " + advisor.getUsername());
-        jsonAdvisors.add(advisorJson);
+      JSONObject advisorJson = getAdvisorJSON(advisor);
+      System.out.println(
+        "Converting advisor to JSON: " + advisor.getUsername()
+      );
+      jsonAdvisors.add(advisorJson);
     }
 
-    System.out.println("Number of advisors being written to JSON: " + jsonAdvisors.size());
+    System.out.println(
+      "Number of advisors being written to JSON: " + jsonAdvisors.size()
+    );
     writeToFile(jsonAdvisors, "advising/json/advisorstest.json");
-}
-
-
+  }
 
   /**
    * Helper function for saveAdvisors to convert each user to JSON format
-   * @param advisor to convert to JSON object 
+   * @param advisor to convert to JSON object
    * @return JSONObject of advisor
    */
   @SuppressWarnings("unchecked")
@@ -314,9 +392,7 @@ public class DataWriter extends DataConstants {
     return advisorObject;
   }
 
-////////////////////////////////////////////
-  
-
+  ////////////////////////////////////////////
 
   /**
    * Writes a list of courses to a JSON file

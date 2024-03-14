@@ -7,6 +7,12 @@ public class StudentElectives {
 
   private String studentName;
   private ArrayList<ElectiveCluster> electives;
+
+  public StudentElectives(String studentName){
+    this.studentName = studentName;
+    this.electives = new ArrayList<ElectiveCluster>();
+    setupElectives();
+  }
 /**
  * Constructor for the StudentElectives class
  * @param studentName Name of a student
@@ -25,6 +31,11 @@ public class StudentElectives {
  */
   public String getStudentName() {
     return studentName;
+  }
+
+  public void setupElectives() {
+    electives.add(labScienceElectives);
+    electives.add(csceElectives);
   }
 /**
  * Gets the electives for a student
