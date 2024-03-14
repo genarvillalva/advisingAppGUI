@@ -216,13 +216,19 @@ public class DataWriter extends DataConstants {
   private static JSONArray toEightSemesterPlanJSON(HashMap<String, ArrayList<Course>> eightSemesterPlan) {
     JSONArray eightSemesterPlanArray = new JSONArray();
     for (String semester : eightSemesterPlan.keySet()) {
-      JSONObject semesterObject = new JSONObject();
-      semesterObject.put(semester, eightSemesterPlan.get(semester));
-      eightSemesterPlanArray.add(semesterObject);
-      eightSemesterPlan.get(semester);
+        JSONObject semesterObject = new JSONObject();
+        JSONArray courseIdsArray = new JSONArray();
+        ArrayList<Course> courses = eightSemesterPlan.get(semester);
+        for (Course course : courses) {
+            courseIdsArray.add(course.getCourseID()); // Assuming getId() returns the course ID
+        }
+        semesterObject.put(semester, courseIdsArray);
+        eightSemesterPlanArray.add(semesterObject);
     }
     return eightSemesterPlanArray;
-  }
+}
+
+
 
   ////////////////////////////////////////////
   /**

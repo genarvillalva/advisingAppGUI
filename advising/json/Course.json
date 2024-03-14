@@ -84,6 +84,30 @@
     "preferredSemester":1
   },
   {
+    "courseID":"ENGL101",
+    "title":"Critical Reading and Composition",
+    "courseCode":"CMW",
+    "creditHours":3,
+    "minGrade":"C", 
+    "semester":"FALLSPRING",
+    "prerequisiteCourses":["MATH 111","MATH 115","MATH122","MATH141"],
+    "corequisiteCourses":["CHEM111L"],
+    "prereqCoreq": [],
+    "preferredSemester":1
+  },
+  {
+    "courseID":"SPCH140",
+    "title":"Public Communication",
+    "courseCode":"CMS",
+    "creditHours":3,
+    "minGrade":"C",
+    "semester":"FALLSPRING",
+    "prerequisiteCourses":["MATH 111","MATH 115","MATH122","MATH141"],
+    "corequisiteCourses":["CHEM111L"],
+    "prereqCoreq": [],
+    "preferredSemester":1
+  },
+  {
     "courseID":"CHEM111L",
     "title":"General Chemistry I Lab",
     "courseCode":"SCI",
@@ -106,6 +130,18 @@
     "corequisiteCourses":["CHEM111L"],
     "prereqCoreq":["PHYS211L"],
     "preferredSemester":2
+  },
+  {
+    "courseID":"PHIL102",
+    "title":"Philosophy 102",
+    "courseCode":"ARP",
+    "creditHours":3,
+    "minGrade":"C",
+    "semester":"FALLSPRING",
+    "prerequisiteCourses":[],
+    "corequisiteCourses":[],
+    "prereqCoreq": [],
+    "preferredSemester":1
   },
   {
     "courseID":"PHYS211L",
@@ -146,6 +182,18 @@
   {
     "courseID":"CHEM112",
     "title":"General Chemistry II",
+    "courseCode":"SCI",
+    "creditHours":3,
+    "minGrade":"",
+    "semester":"FALLSPRING",
+    "prerequisiteCourses":["CHEM111","MATH141"],
+    "corequisiteCourses":["CHEM112L"],
+    "prereqCoreq": [],
+    "preferredSemester":3
+  },
+  {
+    "courseID":"CHEM112REC",
+    "title":"General Chemistry II Recitation",
     "courseCode":"SCI",
     "creditHours":3,
     "minGrade":"",
@@ -240,6 +288,43 @@
     "prereqCoreq":[],
     "preferredSemester":4
   },
+  {
+    "courseID":"HIST111",
+    "title":"UNITED STATES HISTORY TO 1865",
+    "courseCode":"GHS",
+    "creditHours":3,
+    "minGrade":"C",
+    "semester":"FALLSPRING",
+    "prerequisiteCourses":[],
+    "corequisiteCourses":[],
+    "prereqCoreq": [],
+    "preferredSemester":1
+  },
+  {
+    "courseID":"UNIV101",
+    "title":"University 101: The Student in the University",
+    "courseCode":"GHS",
+    "creditHours":3,
+    "minGrade":"C",
+    "semester":"FALLSPRING",
+    "prerequisiteCourses":[],
+    "corequisiteCourses":[],
+    "prereqCoreq": [],
+    "preferredSemester":1
+  },
+  {
+    "courseID":"ARTE260",
+    "title":"INTERDISCIPLINARY RELATIONSHIPS IN THE ARTS",
+    "courseCode":"AIU",
+    "creditHours":3,
+    "minGrade":"C",
+    "semester":"FALLSPRING",
+    "prerequisiteCourses":[],
+    "corequisiteCourses":[],
+    "prereqCoreq": [],
+    "preferredSemester":1
+  },
+
   {
     "courseID":"CSCE247",
     "title":"Software Engineering",
