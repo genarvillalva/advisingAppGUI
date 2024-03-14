@@ -62,6 +62,7 @@ public class StudentPortfolio {
     eightSemesterPlan1.put("6", createCoursesForSemester6());
     eightSemesterPlan1.put("7", createCoursesForSemester7());
     eightSemesterPlan1.put("8", createCoursesForSemester8());
+    System.out.println("\n\n\n\n\n\n\n Eight Semester Plan" + eightSemesterPlan1 + "\n\n\n\n\n\n\n");
     this.eightSemesterPlan = eightSemesterPlan1;
   }
 
@@ -69,7 +70,6 @@ public class StudentPortfolio {
         ArrayList<Course> courses = new ArrayList<>();
         CourseList courseList = CourseList.getInstance();
         ArrayList<Course> existingCourses = courseList.getCourses();
-        courses.add(CourseList.getCourseByID("CSCE101"));
         courses.add(CourseList.getCourseByID("CSCE190"));
         courses.add(CourseList.getCourseByID("ARTE260"));
         courses.add(CourseList.getCourseByID("UNIV101"));
