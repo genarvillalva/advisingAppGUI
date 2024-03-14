@@ -53,15 +53,15 @@ public class StudentPortfolio {
     this.totalCreditHoursMajorRequirements = 0; 
     this.studentElectives = new StudentElectives(
         username);
-    HashMap<String, ArrayList<Course>> eightSemesterPlan1 = new HashMap<>();
-    eightSemesterPlan.put("1", createCoursesForSemester1());
-    eightSemesterPlan.put("2", createCoursesForSemester2());
-    eightSemesterPlan.put("3", createCoursesForSemester3());
-    eightSemesterPlan.put("4", createCoursesForSemester4());
-    eightSemesterPlan.put("5", createCoursesForSemester5());
-    eightSemesterPlan.put("6", createCoursesForSemester6());
-    eightSemesterPlan.put("7", createCoursesForSemester7());
-    eightSemesterPlan.put("8", createCoursesForSemester8());
+    HashMap<String, ArrayList<Course>> eightSemesterPlan1 = new HashMap<String, ArrayList<Course>>();
+    eightSemesterPlan1.put("1", createCoursesForSemester1());
+    eightSemesterPlan1.put("2", createCoursesForSemester2());
+    eightSemesterPlan1.put("3", createCoursesForSemester3());
+    eightSemesterPlan1.put("4", createCoursesForSemester4());
+    eightSemesterPlan1.put("5", createCoursesForSemester5());
+    eightSemesterPlan1.put("6", createCoursesForSemester6());
+    eightSemesterPlan1.put("7", createCoursesForSemester7());
+    eightSemesterPlan1.put("8", createCoursesForSemester8());
     this.eightSemesterPlan = eightSemesterPlan1;
   }
 
