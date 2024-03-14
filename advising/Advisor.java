@@ -146,15 +146,13 @@ public class Advisor extends User{
   }
 
   public Student lookUpStudent(String username) {
-    // Directly fetch the Student object from a central repository (e.g., UserList)
-    // where all students are stored, without limiting the search to the advisor's advised students.
     Student student = UserList.getInstance().getStudentByUsername(username);
     
     if (student != null) {
-        // If a student with the provided username is found, return the student.
+        // If a student with the provided username is found return the student.
         return student;
     } else {
-        // If no matching student is found in the central list, print a message and return null.
+        // If no matching student is found in list, print  message and return null.
         System.out.println("No student found with username: " + username);
         return null;
     }

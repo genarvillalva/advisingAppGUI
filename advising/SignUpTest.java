@@ -1,6 +1,4 @@
 package advising;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -18,15 +16,6 @@ public class SignUpTest {
             System.out.println("\nPlease choose an option:");
             System.out.println("1. Login");
             System.out.println("2. Sign Up");            
-                    /*Advisor a =null;
-                    StudentYear studentYear2 = StudentYear.FRESHMAN;
-                    Student timmy = new Student("Timmy","Alexander","timey","helloworld","Student","Computer_Science",a,studentYear2,null,null,null);
-                    
-                    ArrayList<Student>students = new ArrayList<Student>();
-                    students.add(timmy);
-                    DataWriter.saveStudents(students);
-*/
-
             System.out.println("0. Exit");
 
             // Prompt user for choice
@@ -137,11 +126,11 @@ public class SignUpTest {
             // Display advisor menu options
             System.out.println("\nAdvisor Menu:");
             System.out.println("1. Look up a student");
-            //System.out.println("2. Suggest courses");
+            //System.out.println(" Suggest courses");
             System.out.println("2. Add student to advisor");
-            //System.out.println("4. Remove student from program");
+            //System.out.println(" Remove student from program");
             System.out.println("3. Write a note");
-            //System.out.println("6. Generate eight semester plan");
+            //System.out.println("Generate eight semester plan");
             System.out.println("0. Logout");
     
             // Prompt user for choice
@@ -152,6 +141,17 @@ public class SignUpTest {
                 case "1":
                     // Look up a student
                     lookUpStudent(advisorUsername, auditFacade, scanner);
+                    break;
+                case "2":
+                    System.out.println("adding student");
+                    break;
+                case "3":
+                    System.out.println("Type your note (press Enter when finished):");
+                    String note = scanner.nextLine(); // Get the note from the advisor
+                    
+                    //auditFacade.adviseStudent(note);
+                     //System.out.println("Note added to.");
+                    
                     break;
                 case "0":
                     // Logout
@@ -177,8 +177,20 @@ public class SignUpTest {
     
             switch (choice) {
                 case "1":
-                    // View courses action
-                    System.out.println("Courses displayed here...");
+                System.out.println("\n--- Student Progress ---");
+                break;
+                case "2":
+                    System.out.println("Pick Course...");
+                    break;
+                case "3":
+                    System.out.println("Choose Application Area...");
+                    break;
+                case "4":
+                    System.out.println("Generating 8-Semester Plan...");
+                    
+                    //plan goes here---
+
+                    System.out.println("8-Semester plan generated.");
                     break;
                 case "0":
                     running = false;
@@ -199,13 +211,12 @@ public class SignUpTest {
     
         // Display result
         if (student != null) {
-            // Student found, do something with the student object
             System.out.println("Student found: " + student);
             boolean success = true;
         } else {
             // Student not found
             System.out.println("Student not found.");
-            // Set success to false or perform further actions
+            // Set success to false 
             boolean success = false;
         }
         

@@ -111,10 +111,11 @@ public boolean login(String username, String password, String userType) {
 
     //}
 
-    public void adviseStudent(String notes, String Username) {
+    public void adviseStudent(String notes, String username) {
+        advisor.adviseStudent(username,notes);
 
     }
-  
+
 
     public Student lookUpStudent(String advisorUsername, String studentUsername) {
             return advisor.lookUpStudent(studentUsername);
