@@ -1,1 +1,30 @@
-[{"firstName":"Timmy","lastName":"Alexander","advisor":null,"advisingNotes":null,"password":"helloworld","major":"Computer_Science","portfolio":"timey","userType":"Student","applicationArea":null,"studentYear":"FRESHMAN","username":"timey"}]
+
+[
+  {
+    "firstName": "Brax",
+    "lastName": "West",
+    "username": "bwest",
+    "password": "pass",
+    "userType": "Student",
+    "major": "Computer_Science",
+    "advisor": "gregtomlin24",
+    "studentYear": "JUNIOR",
+    "portfolio": "bwest",
+    "applicationArea": null,
+    "advisingNotes": ""
+  },
+  {
+    "firstName": "Tawnie",
+    "lastName": "Hill",
+    "username": "thill",
+    "password": "fgndsj46",
+    "userType": "Student",
+    "major": "Computer_Information_Systems",
+    "advisor": null,
+    "studentYear": "FRESHMAN",
+    "portfolio": "thill",
+    "applicationArea": "ART",
+    "advisingNotes": ""
+  }
+]
+
