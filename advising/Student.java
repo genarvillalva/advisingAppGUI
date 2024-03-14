@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class Student extends User {
+
   private String major;
   private Advisor advisor;
   private StudentYear studentYear;
@@ -11,7 +12,6 @@ public class Student extends User {
   private String applicationArea;
   private CourseList courseList;
   private String advisingNotes;
-  private UUID uuid;
 
   /**
    * Constructor for the Student class
@@ -46,10 +46,7 @@ public class Student extends User {
     this.studentPortfolio = portfolio;
     this.applicationArea = applicationArea;
     this.advisingNotes = advisingNotes;
-    this.uuid = UUID.randomUUID();
   }
-
-  
 
   /**
    * Get the first name of the student
@@ -102,19 +99,21 @@ public class Student extends User {
   public Advisor getAdvisor() {
     return advisor;
   }
-/**
- * Get the advising notes of the student
- * @return The advising notes of the student
- */
+
+  /**
+   * Get the advising notes of the student
+   * @return The advising notes of the student
+   */
   public String getAdvisingNotes() {
     return advisingNotes;
   }
+
   /**
    * Get the student year of the student
    * @return The student year of the student
    */
   public String getStudentClass() {
-    return studentYear+"";
+    return studentYear + "";
   }
 
   /**
@@ -133,8 +132,6 @@ public class Student extends User {
     return applicationArea;
   }
 
- 
-
   public void addCoursesToStudentPortfolio(Course course) {
     // this.studentPortfolio.addCourse(course);
   }
@@ -148,59 +145,77 @@ public class Student extends User {
   public void displayStudentPortfolio() {
     this.studentPortfolio.toString();
   }
-/**
- * String representation of a student
- */
 
-
- 
+  /**
+   * String representation of a student
+   */
   public String toString() {
-
     // Check if an advisor is assigned to the student.
-  // If an advisor is assigned, get the advisor's username.
-  // Otherwise say "No advisor assigned" as the username.
-    String advisorUsername = (advisor != null)  ? advisor.getUsername() : "No advisor assigned";
-    
+    // If an advisor is assigned, get the advisor's username.
+    // Otherwise say "No advisor assigned" as the username.
+    String advisorUsername = (advisor != null)
+      ? advisor.getUsername()
+      : "No advisor assigned";
+
     // Check if an application area is assigned.
     // If an application area is assigned, display it.
     // Otherwise, say "No application area assigned".
-    String applicationAreaInfo = (applicationArea != null) ? applicationArea : "No application area assigned";
+    String applicationAreaInfo = (applicationArea != null)
+      ? applicationArea
+      : "No application area assigned";
 
-    
-    return "Student:\n" +
-      "First Name: " + firstName + "\n" +
-      "Last Name: " + lastName + "\n" +
-      "Username: " + username + "\n" +
-      "Password: " + password + "\n" +
-      "User Type: " + userType + "\n" +
-      "Major: " + major + "\n" +
-      "Advisor: " + advisorUsername + "\n" + 
-      "Student Year: " + studentYear + "\n" +
-     
-      "Student Portfolio: " + studentPortfolio + "\n" +
-      
-      "Application Area: " + applicationAreaInfo + "\n" +
-      "Advising Notes: " + advisingNotes  + "\n";
-}
+    return (
+      "Student:\n" +
+      "First Name: " +
+      firstName +
+      "\n" +
+      "Last Name: " +
+      lastName +
+      "\n" +
+      "Username: " +
+      username +
+      "\n" +
+      "Password: " +
+      password +
+      "\n" +
+      "User Type: " +
+      userType +
+      "\n" +
+      "Major: " +
+      major +
+      "\n" +
+      "Advisor: " +
+      advisorUsername +
+      "\n" +
+      "Student Year: " +
+      studentYear +
+      "\n" +
+      "Student Portfolio: " +
+      studentPortfolio +
+      "\n" +
+      "Application Area: " +
+      applicationAreaInfo +
+      "\n" +
+      "Advising Notes: " +
+      advisingNotes +
+      "\n"
+    );
+  }
 
-    /**
-     * Finds the course from course list
-     * @param course
-     */
+  /**
+   * Finds the course from course list
+   * @param course
+   */
   public void courseLookup(String course) {
     courseList.findCourse(course);
   }
 
   // Adds a new advising note to the student's record.
   public void addAdvisingNotes(String note) {
-    if (this.advisingNotes == null) { 
-        this.advisingNotes = note; // Since there are no existing notes a new note will be intialized. 
+    if (this.advisingNotes == null) {
+      this.advisingNotes = note; // Since there are no existing notes a new note will be intialized.
     } else {
-        this.advisingNotes += note; // Append new note to existing notes
+      this.advisingNotes += note; // Append new note to existing notes
     }
   }
-
-  
-
-
 }

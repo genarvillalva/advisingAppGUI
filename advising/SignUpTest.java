@@ -122,7 +122,7 @@ public class SignUpTest {
 
         // Attempt login
         boolean success = auditFacade.login(userName, password, userType);
-
+        
         // Display login result
         if (success) {            
             System.out.println("Login successful for: " + userType + " - " + userName);

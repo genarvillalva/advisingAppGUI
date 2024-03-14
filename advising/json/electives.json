@@ -1,0 +1,37 @@
+[
+    {
+        "student":"student1",
+        "hoursRequired":9,
+        "hoursCompleted":0,
+        "electiveCluters":
+        [
+            
+        ]
+        "classes": {
+            "ANTH161": false,
+            "ASTR101": false,
+            "BIOL101": false,
+            "BIO101L": false,
+            "CHEM111": false,
+            "CHEM111L": false,
+            "ENVR101": false,
+            "ENVR101L": false,
+            "GEOG201": false,
+            "GEOG202": false,
+            "GEOL101": false,
+            "GEOL103": false,
+            "GEOL201": false,
+            "GEOL215": false,
+            "GEOL215L": false,
+            "GEOL302": false,
+            "MSCI101": false,
+            "MSCI102": false,
+            "MSCI210": false,
+            "MSCI210L": false,
+            "MSCI215": false,
+            "MSCI215L": false,
+            "PHYS211": false,
+            "PHYS211L": false
+        }
+    }
+]
