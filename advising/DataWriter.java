@@ -289,7 +289,7 @@ public class DataWriter extends DataConstants {
     }
 
     System.out.println("Number of advisors being written to JSON: " + jsonAdvisors.size());
-    writeToFile(jsonAdvisors, "advising/json/advisors.json");
+    writeToFile(jsonAdvisors, "advising/json/advisorstest.json");
 }
 
 
