@@ -1,5 +1,8 @@
 package advising;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -361,5 +364,41 @@ public ArrayList<ElectiveCluster> getElectiveClusterArray() {
       electiveClusterArray + '\n'
     );
     return result;
+  }
+
+  /**
+   * Generates an 8-semester plan for the student and prints it to a text file.
+   * Includes completed courses with grades and clearly highlights the upcoming semester.
+   *
+   * @param fileName The name of the text file to write the plan to.
+   */
+  public void generateSemesterPlanToFile(String fileName) {
+      try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+          int currentSemester = 1;
+          for (int i = 0; i < 8; i++) {
+              writer.write("Semester " + currentSemester + ":\n");
+
+              if (i == 0) {
+                  writer.write("-> Upcoming Semester\n");
+              }
+
+              // Get courses for this semester
+              ArrayList<Course> semesterCourses = eightSemesterPlan.get("Semester " + currentSemester);
+              if (semesterCourses != null) {
+                  for (Course course : semesterCourses) {
+                      writer.write(course.getCourseID() + " - " + course.getCourseTitle());
+                        // Check if course is completed
+                      if (completedCourses.containsKey(course)) {
+                          writer.write(" - Grade: " + completedCourses.get(course));
+                      }
+                      writer.write("\n");
+                  }
+              }
+              writer.write("\n");
+              currentSemester++;
+          }
+      } catch (IOException e) {
+          e.printStackTrace();
+      }
   }
 }
