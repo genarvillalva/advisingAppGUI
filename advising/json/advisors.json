@@ -6,17 +6,17 @@
     "password": "insecurepassword",
     "userType": "Advisor",
     "listOfAdvisedStudents": [
-      "tombrown24"
+      "bwest"
     ]
   },
   {
-    "firstName": "Mike",
-    "lastName": "Dawson",
-    "username": "mikedawson24",
+    "firstName": "Osbert",
+    "lastName": "Odden",
+    "username": "osberto",
     "password": "apassword",
     "userType": "Advisor",
     "listOfAdvisedStudents": [
-      "johnhop36"
+      null
     ]
   }
 ]

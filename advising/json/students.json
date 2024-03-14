@@ -1,28 +1,28 @@
 [
-    {
-      "firstName":"Tom",
-      "lastName":"Brown",
-      "username":"tombrown24",
-      "password":"mdhj738",
-      "userType":"Student",
-      "major":"Computer_Science",
-      "advisor":"gregtomlin24",
-      "studentYear":"JUNIOR",
-      "portfolio":"tombrown24",
-      "applicationArea":"MATH",
-      "advisingNotes" : ""
-    },
-    {
-      "firstName":"John",
-      "lastName":"Hop",
-      "username":"johnhop36",
-      "password":"fgndsj46",
-      "userType":"Student",
-      "major":"Computer_Information_Systems",
-      "advisor":"mikedawson24",
-      "studentYear":"FRESHMAN",
-      "portfolio":"johnhop36",
-      "applicationArea":"ART",
-      "advisingNotes" : ""
-    }
-  ]
+  {
+    "firstName": "Brax",
+    "lastName": "West",
+    "username": "bwest",
+    "password": "pass",
+    "userType": "Student",
+    "major": "Computer_Science",
+    "advisor": "gregtomlin24",
+    "studentYear": "JUNIOR",
+    "portfolio": "bwest",
+    "applicationArea": null,
+    "advisingNotes": ""
+  },
+  {
+    "firstName": "Tawnie",
+    "lastName": "Hill",
+    "username": "thill",
+    "password": "fgndsj46",
+    "userType": "Student",
+    "major": "Computer_Information_Systems",
+    "advisor": null,
+    "studentYear": "FRESHMAN",
+    "portfolio": "thill",
+    "applicationArea": "ART",
+    "advisingNotes": ""
+  }
+]

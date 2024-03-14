@@ -1,6 +1,6 @@
 [
   {
-      "portfolioUUID": "tombrown24",
+      "portfolioUUID": "bwest",
       "requiredCourses":["ENGL101", "MATH141", "CSCE145", "CSCE190", "CSCE212", "SPCH140", 
       "STAT509", "MATH241", "HIST111", "CSCE215", "ARTE260", "CHEM111", "CHEM111L", "CHEM112", "CHEM112L", 
       "CHEM112REC", "MATH374", "CSCE146", "UNIV101"],
@@ -38,7 +38,7 @@
       "studentElectives": "tombrown24"
   },
   {
-    "portfolioUUID": "johnhop36",
+    "portfolioUUID": "thill",
     "requiredCourses":["ENGL101", "MATH141", "CSCE145", "CSCE190", "CSCE212", "SPCH140", 
     "STAT509", "MATH241", "HIST111", "CSCE215", "ARTE260", "CHEM111", "CHEM111L", "CHEM112", "CHEM112L", 
     "CHEM112REC", "MATH374", "CSCE146", "UNIV101"],
