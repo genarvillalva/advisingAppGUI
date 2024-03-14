@@ -434,6 +434,18 @@
     "preferredSemester":6
   },
   {
+    "courseID":"STAT110",
+    "title":"Introduction to Statistical Reasoning",
+    "courseCode":"ARP",
+    "creditHours":3,
+    "minGrade":"C",
+    "semester":"FALLSPRING",
+    "prerequisiteCourses":[],
+    "corequisiteCourses":[],
+    "prereqCoreq":[],
+    "preferredSemester":3
+  },
+  {
     "courseID":"STAT509",
     "title":"Statistics for Engineers",
     "courseCode":"PR",
