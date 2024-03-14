@@ -82,6 +82,7 @@ public class ElectiveCluster {
         System.out.println("Course not found in elective cluster");
     }
   }
+
   /**
    * Gets the string representation of an elective cluster
    */
@@ -93,4 +94,5 @@ public class ElectiveCluster {
               ", electives=" + electives +
               '}';
   }
+
 }

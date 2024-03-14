@@ -3,6 +3,7 @@ package advising;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -113,13 +114,16 @@ public class DataWriter extends DataConstants {
   @SuppressWarnings("unchecked")
  public static void saveStudents(ArrayList<Student> students) {
     JSONArray jsonStudents = new JSONArray();
+    JSONArray jsonStudentPortfolios = new JSONArray();
     for (Student student : students) {
         System.out.println("Saving Student: " + student.getFirstName() + " " + student.getLastName());
         jsonStudents.add(toStudentJSON(student));
+        jsonStudentPortfolios.add(toPortfolioJSON(student.getPortfolio()));
     }
 
     System.out.println("Number of students being written to JSON: " + jsonStudents.size());
     writeToFile(jsonStudents, "advising/json/studenttest.json");
+    writeToFile(jsonStudentPortfolios, "advising/json/portftest.json");
 }
 
 
@@ -155,7 +159,70 @@ public class DataWriter extends DataConstants {
     
   }
 
+  private static JSONObject toPortfolioJSON(StudentPortfolio portfolio) {
+    System.out.println(portfolio + "\n\n\n\n\n");
+    JSONObject portfolioObject = new JSONObject();
+    portfolioObject.put(PORTFOLIO_UUID, portfolio.getPortfolioUUID());
+    portfolioObject.put(GPA, portfolio.getGpa());
+    portfolioObject.put(FAIL_COUNT, portfolio.getFailCount());
+    portfolioObject.put(SEMESTER_CREDIT_COUNT, portfolio.getSemesterCreditCount());
+    portfolioObject.put(REQUIRED_COURSES, portfolio.getRequiredCourses());
+    portfolioObject.put(EIGHT_SEMESTER_PLAN, toEightSemesterPlanJSON(portfolio.getEightSemesterPlan()));
+    portfolioObject.put(CURRENT_COURSES, toCurrentCourseJSON(portfolio.getCurrentCourses()));
+    portfolioObject.put(COMPLETED_COURSES, toCompletedCourseJSON(portfolio.getCompletedCourses()));
+    portfolioObject.put(FAILED_COURSES, toFailedCoursesJSON(portfolio.getFailedCourses()));
+    portfolioObject.put(SCHOLARSHIP, portfolio.getScholarship());
+    portfolioObject.put(SCHOLARSHIP_CREDIT_HOURS_LEFT, portfolio.getScholarshipCreditHoursLeft());
+    portfolioObject.put(YEAR_CREDIT_HOURS, portfolio.getYearCreditCount());
+    portfolioObject.put(TOTAL_CREDIT_HOURS, portfolio.getTotalCreditHours());
+    portfolioObject.put(TOTAL_CREDIT_HOURS_FOUND_DOCU, portfolio.getTotalCreditHoursFoundDocu());
+    portfolioObject.put(TOTAL_CREDIT_HOURS_CC, portfolio.getTotalCreditHoursCC());
+    portfolioObject.put(TOTAL_CREDIT_HOURS_INTEGRATIVE_COURSE, portfolio.getTotalCreditHoursIntegrativeCourse());
+    portfolioObject.put(TOTAL_CREDIT_HOURS_PROGRAM_REQUIREMENTS, portfolio.getTotalCreditHoursProgramRequirements());
+    portfolioObject.put(TOTAL_CREDIT_HOURS_MAJOR_REQUIREMENTS, portfolio.getTotalCreditHoursMajorRequirements());
+    portfolioObject.put(STUDENT_ELECTIVES, portfolio.getPortfolioUUID());
+    
+    return portfolioObject;
+  }
 
+  private static JSONArray toFailedCoursesJSON(HashMap<Course, Integer> failedCourses) {
+    JSONArray failedCourseArray = new JSONArray();
+    for (Course course : failedCourses.keySet()) {
+      JSONObject courseObject = new JSONObject();
+      courseObject.put(course.getCourseID(), failedCourses.get(course));
+      failedCourseArray.add(courseObject);
+    }
+    return failedCourseArray;
+  }
+
+  private static JSONArray toCompletedCourseJSON(HashMap<Course, Double> completedCourses) {
+    JSONArray completedCourseArray = new JSONArray();
+    for (Course course : completedCourses.keySet()) {
+      JSONObject courseObject = new JSONObject();
+      courseObject.put(course.getCourseID(), completedCourses.get(course));
+      completedCourseArray.add(courseObject);
+    }
+    return completedCourseArray;
+  }
+
+  private static JSONArray toCurrentCourseJSON(ArrayList<Course> currentCourses) {
+    JSONArray currentCourseArray = new JSONArray();
+    for (Course course : currentCourses) {
+      currentCourseArray.add(course.getCourseID());
+    }
+    return currentCourseArray;
+  }
+
+  private static JSONArray toEightSemesterPlanJSON(HashMap<String, ArrayList<Course>> eightSemesterPlan) {
+    JSONArray eightSemesterPlanArray = new JSONArray();
+    for (String semester : eightSemesterPlan.keySet()) {
+      JSONObject semesterObject = new JSONObject();
+      semesterObject.put(semester, eightSemesterPlan.get(semester));
+      eightSemesterPlanArray.add(semesterObject);
+      eightSemesterPlan.get(semester);
+    }
+    return eightSemesterPlanArray;
+  }
 
   ////////////////////////////////////////////
   /**
