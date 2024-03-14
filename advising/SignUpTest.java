@@ -17,9 +17,7 @@ public class SignUpTest {
             // Display menu options
             System.out.println("\nPlease choose an option:");
             System.out.println("1. Login");
-            System.out.println("2. Sign Up");
-            System.out.println("3. See All Users");
-            
+            System.out.println("2. Sign Up");            
                     /*Advisor a =null;
                     StudentYear studentYear2 = StudentYear.FRESHMAN;
                     Student timmy = new Student("Timmy","Alexander","timey","helloworld","Student","Computer_Science",a,studentYear2,null,null,null);
@@ -43,10 +41,6 @@ public class SignUpTest {
                 case "2":
                     // Call sign up 
                     signUp(auditFacade, scanner);
-                    break;
-                case "3":
-                    // Display all users
-                    UserList.getInstance().printUsers();
                     break;
                 case "0":
                     // Exit the program
@@ -126,13 +120,16 @@ public class SignUpTest {
         // Display login result
         if (success) {            
             System.out.println("Login successful for: " + userType + " - " + userName);
-            advisorMenu(userName, auditFacade, scanner);
-
-            
+            // Display different menus based on the user type
+            if ("advisor".equalsIgnoreCase(userType)) {
+                advisorMenu(userName, auditFacade, scanner);
+            } else if ("student".equalsIgnoreCase(userType)) {
+                //displays the student menu
+                studentMenu(userName, auditFacade, scanner);
+            }       
         } else {
             System.out.println("Login failed. Please check your credentials and try again.");
         }
-    
     }
     private static void advisorMenu(String advisorUsername, AuditFacade auditFacade, Scanner scanner) {
         boolean running = true;
@@ -141,9 +138,9 @@ public class SignUpTest {
             System.out.println("\nAdvisor Menu:");
             System.out.println("1. Look up a student");
             //System.out.println("2. Suggest courses");
-            //System.out.println("3. Add student to advisor");
+            System.out.println("2. Add student to advisor");
             //System.out.println("4. Remove student from program");
-            //System.out.println("5. Write a note");
+            System.out.println("3. Write a note");
             //System.out.println("6. Generate eight semester plan");
             System.out.println("0. Logout");
     
@@ -162,6 +159,31 @@ public class SignUpTest {
                     break;
                 default:
                     // Invalid option
+                    System.out.println("Invalid option, please try again.");
+            }
+        }
+    }
+
+
+    private static void studentMenu(String studentUsername, AuditFacade auditFacade, Scanner scanner) {
+        boolean running = true;
+        while (running) {
+            System.out.println("\nStudent Menu:");
+            System.out.println("1. View Courses");
+            System.out.println("0. Logout");
+    
+            System.out.print("Enter your choice: ");
+            String choice = scanner.nextLine();
+    
+            switch (choice) {
+                case "1":
+                    // View courses action
+                    System.out.println("Courses displayed here...");
+                    break;
+                case "0":
+                    running = false;
+                    break;
+                default:
                     System.out.println("Invalid option, please try again.");
             }
         }

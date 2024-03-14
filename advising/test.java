@@ -13,7 +13,7 @@ public class test {
     // testGetAllMajors();
     // testGetAllStudentPortfolios();
     // testStudentPortfolio();
-    // testWriteUsers();
+    testWriteUsers();
 
     // testSaveCourses();
   }
@@ -107,7 +107,7 @@ public class test {
     DataWriter.saveCourses(courses);
   }
 
-  public static void testWriteUsers() {
+  /*public static void testWriteUsers() {
     ArrayList<Student> students = DataLoader.getAllStudents();
     ArrayList<Advisor> advisors = DataLoader.getAllAdvisors();
     StudentYear studentYear = StudentYear.FRESHMAN;
@@ -130,4 +130,5 @@ public class test {
     DataWriter.saveUsers(students, advisors);
     System.out.println(s.getPortfolio());
   }
+  */
 }

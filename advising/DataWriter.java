@@ -112,6 +112,13 @@ public class DataWriter extends DataConstants {
    */
   @SuppressWarnings("unchecked")
  public static void saveStudents(ArrayList<Student> students) {
+
+       // Load existing students using DataLoader
+       ArrayList<Student> existingStudents = DataLoader.getAllStudents();
+    
+       // Combine existing and new advisors
+       existingStudents.addAll(students); 
+      
     JSONArray jsonStudents = new JSONArray();
     for (Student student : students) {
         System.out.println("Saving Student: " + student.getFirstName() + " " + student.getLastName());
@@ -119,7 +126,7 @@ public class DataWriter extends DataConstants {
     }
 
     System.out.println("Number of students being written to JSON: " + jsonStudents.size());
-    writeToFile(jsonStudents, "advising/json/studenttest.json");
+    writeToFile(jsonStudents, "advising/json/students.json");
 }
 
 
@@ -163,28 +170,27 @@ public class DataWriter extends DataConstants {
    */
   @SuppressWarnings("unchecked")
   public static void saveAdvisors(ArrayList<Advisor> advisors) {
-    UserList userList = UserList.getInstance();
-    ArrayList<Advisor> oldAdvisors = userList.getAdvisors();
+    System.out.println("Saving advisors to JSON...");
+     // Load existing advisors using DataLoader
+     ArrayList<Advisor> existingAdvisors = DataLoader.getAllAdvisors();
+    
+     // Combine existing and new advisors
+     existingAdvisors.addAll(advisors); 
+    
+    
     JSONArray jsonAdvisors = new JSONArray();
-    for (int i = 0; i < advisors.size(); i++) {
-      if (oldAdvisors.contains(advisors.get(i))) {
-        continue;
-      }
-      System.out.println(
-        "Saving Advisor: " +
-        advisors.get(i).getFirstName() +
-        " " +
-        advisors.get(i).getLastName()
-      );
-      jsonAdvisors.add(getAdvisorJSON(advisors.get(i)));
+
+    for (Advisor advisor : advisors) {
+        JSONObject advisorJson = getAdvisorJSON(advisor);
+        System.out.println("Converting advisor to JSON: " + advisor.getUsername());
+        jsonAdvisors.add(advisorJson);
     }
-    writeToFile(jsonAdvisors, "advising/json/advisorstest.json");
-  }
+
+    System.out.println("Number of advisors being written to JSON: " + jsonAdvisors.size());
+    writeToFile(jsonAdvisors, "advising/json/advisors.json");
+}
 
 
-
-
-  
   @SuppressWarnings("unchecked")
   private static JSONObject getAdvisorJSON(Advisor advisor) {
     JSONObject advisorObject = new JSONObject();
