@@ -26,7 +26,10 @@ public class ElectiveCluster {
     this.electives = electives;
     this.electiveName = electiveName;
   }
-
+/**
+ * Gets the name of an elective cluster
+ * @return Name of an elective cluster
+ */
   public String getElectiveName() {
     return electiveName;
   }
