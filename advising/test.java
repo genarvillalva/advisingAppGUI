@@ -108,7 +108,7 @@ public class test {
     DataWriter.saveCourses(courses);
   }
 
-  public static void testWriteUsers() {
+  /*public static void testWriteUsers() {
     ArrayList<Student> students = DataLoader.getAllStudents();
     ArrayList<Student> student = new ArrayList<Student>();
     student.add(students.get(0));
@@ -162,4 +162,5 @@ public class test {
     DataWriter.saveUsers(student, advisors);
     // System.out.println(s.getPortfolio());
   }
+  */
 }
