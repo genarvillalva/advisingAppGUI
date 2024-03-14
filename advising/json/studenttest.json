@@ -26,16 +26,17 @@
         "username": "thill"
     },
     {
-        "firstName": "genar",
-        "lastName": "villalva",
+        "firstName": "Genar",
+        "lastName": "Villalva",
         "advisor": null,
         "advisingNotes": null,
         "password": "jj",
         "major": "Computer_Science",
-        "portfolio": "genarv",
+        "portfolio": "genar",
         "userType": "Student",
         "applicationArea": null,
         "studentYear": "FRESHMAN",
-        "username": "genarv"
+        "username": "genar"
     }
 ]
+
