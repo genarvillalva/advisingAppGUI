@@ -15,7 +15,7 @@ public class Testapp {
                     //Student klay = new Student("Klay","Alexander","timey","helloworld","Student","Computer_Science",a,studentYear2,null,null,null);
                     //Student lebron = new Student("Lerbon","Alexander","timey","helloworld","Student","Computer_Science",a,studentYear2,null,null,null);
 
-                    ArrayList<Student>students = new ArrayList<Student>();
+                    //ArrayList<Student>students = new ArrayList<Student>();
                     //students.add(timmy);
                     //students.add(john);
                     //students.add(klay);
@@ -24,7 +24,7 @@ public class Testapp {
 
 
 
-                    DataWriter.saveStudents(students);
+                    //DataWriter.saveStudents(students);
 
 
 

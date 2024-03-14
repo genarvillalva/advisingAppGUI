@@ -1,0 +1,26 @@
+[
+  {
+    "firstName": "Greg",
+    "lastName": "Tomlin",
+    "listOfAdvisedStudents": ["bwest"],
+    "password": "insecurepassword",
+    "userType": "Advisor",
+    "username": "gregtomlin24"
+  },
+  {
+    "firstName": "Osbert",
+    "lastName": "Odden",
+    "listOfAdvisedStudents": [null],
+    "password": "apassword",
+    "userType": "Advisor",
+    "username": "osberto"
+  },
+  {
+    "firstName": "Osbert",
+    "lastName": "Odden",
+    "listOfAdvisedStudents": null,
+    "password": "apassword",
+    "userType": "Advisor",
+    "username": "osberto"
+  }
+]
