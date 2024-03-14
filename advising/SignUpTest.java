@@ -169,7 +169,12 @@ public class SignUpTest {
         boolean running = true;
         while (running) {
             System.out.println("\nStudent Menu:");
-            System.out.println("1. View Courses");
+            System.out.println("1. View Progress");
+            System.out.println("2. Pick Course");
+            System.out.println("3. Pick Application Area");
+            System.out.println("4. Generate 8-Semester Plan");
+
+
             System.out.println("0. Logout");
     
             System.out.print("Enter your choice: ");
@@ -177,8 +182,16 @@ public class SignUpTest {
     
             switch (choice) {
                 case "1":
-                    // View courses action
-                    System.out.println("Courses displayed here...");
+                    System.out.println("Progress displayed here...");
+                    break;
+                case "2":
+                    System.out.println("Pick Course...");
+                    break;
+                case "3":
+                    System.out.println("Choose Application Area...");
+                    break;
+                case "4":
+                    System.out.println("Generating 8-Semester Plan...");
                     break;
                 case "0":
                     running = false;
