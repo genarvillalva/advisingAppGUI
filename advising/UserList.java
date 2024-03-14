@@ -89,23 +89,28 @@ public class UserList {
           }
 
           if (newUser instanceof Advisor) {
-            advisors.add((Advisor) newUser); 
-                DataWriter.saveAdvisors(advisors); // Save the advisors to JSON
+            System.out.println("Creating Advisor: " + newUser.toString());
+            advisors.add((Advisor) newUser);
+            System.out.println("Advisors list size: " + advisors.size());
+            for (Advisor advisor : advisors) {
+                System.out.println("Advisor in list: " + advisor.getUsername());
+            }               
+             DataWriter.saveAdvisors(advisors); // Save the advisors to JSON
             } 
         }
-  
-  
-  
-  
 
-public void printUsers() { //debugging
-  System.out.println("Displaying all users:");
+        
+
+      
+  
+//public void printUsers() { //debugging
+  //System.out.println("Displaying all users:");
 
   // Iterate over userAccounts list and print username and user type
-  for (User user : userAccounts) {
-      System.out.println("Username: " + user.getUsername() + ", Type: " + user.getUserType());
-  }
-}
+  //for (User user : userAccounts) {
+      //System.out.println("Username: " + user.getUsername() + ", Type: " + user.getUserType());
+  //}
+//}
 
 //Methods isUsernameValid and isPasswordValid provide basic 
 //validation for usernames and passwords, checking for non-null values and a minimum length requirement.
@@ -129,6 +134,28 @@ public void printUsers() { //debugging
       }
       return false; // No user with the given username exists
     }
+
+
+    /**
+ *  Retrieves a Student object based on a given username.
+ *  This method iterates through a list of Student objects
+ * */
+
+ public Student getStudentByUsername(String username) {
+  System.out.println("Before saving, students size: " + students.size());
+  for (Student student : this.students) {
+      // Print each student's username for debugging purposes
+      System.out.println("Student Username: " + student.getUsername());
+
+      if (student.getUsername().equals(username)) {
+          System.out.println("Debug: Found matching student for username: " + username);
+          return student;
+      }
+  }
+
+  System.out.println("Debug: No student found with username: " + username);
+  return null; // No matching student found
+}
 
 
 

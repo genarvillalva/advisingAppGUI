@@ -117,12 +117,8 @@ public boolean login(String username, String password, String userType) {
   
 
     public Student lookUpStudent(String advisorUsername, String studentUsername) {
-        if (advisor != null) {
             return advisor.lookUpStudent(studentUsername);
-        } else {
-            System.out.println("No advisor available to perform student lookup.");
-            return null;
-        }
+            
     }
 
     public void switchMajor(Student student, String major) {

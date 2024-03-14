@@ -60,8 +60,8 @@ public class AdvisorTest {
 
 
         
-        UserList.getInstance().createAccount(student1);
-        UserList.getInstance().createAccount(student2);
+        //UserList.getInstance().createAccount(student1);
+        //UserList.getInstance().createAccount(student2);
 
         // See student being added to UserList
         System.out.println("Students in UserList:");
