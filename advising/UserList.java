@@ -149,12 +149,12 @@ public class UserList {
       System.out.println("Student Username: " + student.getUsername());
 
       if (student.getUsername().equals(username)) {
-          System.out.println("Debug: Found matching student for username: " + username);
+          System.out.println("Found matching student for username: " + username);
           return student;
       }
   }
 
-  System.out.println("Debug: No student found with username: " + username);
+  System.out.println("No student found with username: " + username);
   return null; // No matching student found
 }
 
