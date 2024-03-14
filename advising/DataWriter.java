@@ -111,25 +111,17 @@ public class DataWriter extends DataConstants {
    * Saves all students to a JSON file
    */
   @SuppressWarnings("unchecked")
-  public static void saveStudents(ArrayList<Student> students) {
-    UserList userList = UserList.getInstance();
-    ArrayList<Student> oldStudents = userList.getStudents();
+ public static void saveStudents(ArrayList<Student> students) {
     JSONArray jsonStudents = new JSONArray();
-    for (int i = 0; i < students.size(); i++) {
-      if (oldStudents.contains(students.get(i))) {
-        continue;
-      }
-      System.out.println(
-        "Saving Student: " +
-        students.get(i).getFirstName() +
-        " " +
-        students.get(i).getLastName()
-      );
-      
-      jsonStudents.add(toStudentJSON(students.get(i)));
+    for (Student student : students) {
+        System.out.println("Saving Student: " + student.getFirstName() + " " + student.getLastName());
+        jsonStudents.add(toStudentJSON(student));
     }
+
+    System.out.println("Number of students being written to JSON: " + jsonStudents.size());
     writeToFile(jsonStudents, "advising/json/studenttest.json");
-  }
+}
+
 
   /**
    * Helper function for saveStudents to convert each user to JSON format

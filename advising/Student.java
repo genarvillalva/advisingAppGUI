@@ -151,6 +151,9 @@ public class Student extends User {
 /**
  * String representation of a student
  */
+
+
+ 
   public String toString() {
 
     // Check if an advisor is assigned to the student.

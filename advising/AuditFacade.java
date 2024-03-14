@@ -22,7 +22,7 @@ public class AuditFacade {
     }
 
     
-    public void signUp(String userName, String password, String userType, String firstName, String lastName, String major, StudentYear studentYear ) {
+    public void signUp(String userName, String password, String userType, String firstName, String lastName, String major, StudentYear studentYear) {
         userList.createAccount(userName, password, userType, firstName, lastName, major, studentYear);
     }
 
