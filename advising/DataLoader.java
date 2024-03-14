@@ -389,6 +389,7 @@ public class DataLoader extends DataConstants {
       FileReader reader = new FileReader("advising/json/StudentElectives.json");
       JSONParser parser = new JSONParser();
       JSONArray studentElectivesJSON = (JSONArray) parser.parse(reader);
+      System.out.println("Student Electives JSON size:  " + studentElectivesJSON.size());
       for (int i = 0; i < studentElectivesJSON.size(); i++) {
         JSONObject studentElectiveJSON = (JSONObject) studentElectivesJSON.get(i);
         String studentName = (String) studentElectiveJSON.get("studentName");

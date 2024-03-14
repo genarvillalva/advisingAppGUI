@@ -29,6 +29,114 @@ public class StudentPortfolio {
   private int totalCreditHoursMajorRequirements;
   private StudentElectives studentElectives;
 
+
+/**
+ * Constructor for the StudentPortfolio class with default values
+ */
+  public StudentPortfolio(String username) {
+    this.portfolioUUID = username; 
+    this.requiredCourses = new ArrayList<Course>();
+    this.currentCourses = new ArrayList<Course>();
+    this.completedCourses = new HashMap<Course, Double>();
+    this.failedCourses = new HashMap<Course, Integer>();
+    this.scholarship = ""; 
+    this.scholarshipCreditHoursLeft = 0; 
+    this.gpa = 0.0; 
+    this.failCount = 0; 
+    this.semesterCreditCount = 0; 
+    this.yearCreditCount = 0; 
+    this.totalCreditHours = 0; 
+    this.totalCreditHoursFoundDocu = 0; 
+    this.totalCreditHoursCC = 0; 
+    this.totalCreditHoursIntegrativeCourse = 0; 
+    this.totalCreditHoursProgramRequirements = 0; 
+    this.totalCreditHoursMajorRequirements = 0; 
+    this.studentElectives = new StudentElectives(
+        username);
+    HashMap<String, ArrayList<Course>> eightSemesterPlan1 = new HashMap<>();
+    eightSemesterPlan.put("1", createCoursesForSemester1());
+    eightSemesterPlan.put("2", createCoursesForSemester2());
+    eightSemesterPlan.put("3", createCoursesForSemester3());
+    eightSemesterPlan.put("4", createCoursesForSemester4());
+    eightSemesterPlan.put("5", createCoursesForSemester5());
+    eightSemesterPlan.put("6", createCoursesForSemester6());
+    eightSemesterPlan.put("7", createCoursesForSemester7());
+    eightSemesterPlan.put("8", createCoursesForSemester8());
+    this.eightSemesterPlan = eightSemesterPlan1;
+  }
+
+    private static ArrayList<Course> createCoursesForSemester1() {
+        ArrayList<Course> courses = new ArrayList<>();
+        CourseList courseList = CourseList.getInstance();
+        ArrayList<Course> existingCourses = courseList.getCourses();
+        courses.add(CourseList.getCourseByID("CSCE101"));
+        courses.add(CourseList.getCourseByID("CSCE190"));
+        courses.add(CourseList.getCourseByID("ARTE260"));
+        courses.add(CourseList.getCourseByID("UNIV101"));
+        return courses;
+    }
+
+    private static ArrayList<Course> createCoursesForSemester2() {
+        ArrayList<Course> courses = new ArrayList<>();
+        courses.add(CourseList.getCourseByID("CSCE146"));
+        courses.add(CourseList.getCourseByID("CHEM111"));
+        courses.add(CourseList.getCourseByID("CHEM111L"));
+        courses.add(CourseList.getCourseByID("CSCE215"));
+        courses.add(CourseList.getCourseByID("HIST111"));
+        courses.add(CourseList.getCourseByID("MATH241"));
+        return courses;
+    }
+private ArrayList<Course> createCoursesForSemester3() {
+  ArrayList<Course> courses = new ArrayList<>();
+  courses.add(CourseList.getCourseByID("CSCE240"));
+  courses.add(CourseList.getCourseByID("CSCE211"));
+  courses.add(CourseList.getCourseByID("MATH374"));
+  courses.add(CourseList.getCourseByID("CHEM112"));
+  courses.add(CourseList.getCourseByID("CHEM112L"));
+  courses.add(CourseList.getCourseByID("CHEM112REC"));
+  courses.add(CourseList.getCourseByID("SPCH140"));
+  return courses;
+}
+
+private ArrayList<Course> createCoursesForSemester4() {
+  ArrayList<Course> courses = new ArrayList<>();
+  courses.add(CourseList.getCourseByID("ENGL463"));
+  courses.add(CourseList.getCourseByID("CSCE350"));
+  courses.add(CourseList.getCourseByID("CSCE212"));
+  courses.add(CourseList.getCourseByID("CSCE247"));
+  courses.add(CourseList.getCourseByID("STAT509"));
+  return courses;
+}
+
+private ArrayList<Course> createCoursesForSemester5() {
+  ArrayList<Course> courses = new ArrayList<>();
+  courses.add(CourseList.getCourseByID("CSCE311"));
+  courses.add(CourseList.getCourseByID("CSCE330"));
+  courses.add(CourseList.getCourseByID("CSCE390"));
+  return courses;
+}
+
+private ArrayList<Course> createCoursesForSemester6() {
+  ArrayList<Course> courses = new ArrayList<>();
+  courses.add(CourseList.getCourseByID("CSCE416"));
+  courses.add(CourseList.getCourseByID("PHIL102"));
+  return courses;
+}
+
+private ArrayList<Course> createCoursesForSemester7() {
+  ArrayList<Course> courses = new ArrayList<>();
+  courses.add(CourseList.getCourseByID("CSCE490"));
+  courses.add(CourseList.getCourseByID("MATH344"));
+  return courses;
+}
+
+private ArrayList<Course> createCoursesForSemester8() {
+  ArrayList<Course> courses = new ArrayList<>();
+  courses.add(CourseList.getCourseByID("CSCE492"));
+  return courses;
+}
+
+
   public StudentPortfolio(
     String portfolioUUID,
     ArrayList<Course> requiredCourses,
