@@ -434,7 +434,7 @@ public int getTotalCreditHoursMajorRequirements() {
       "\nrequiredCourses=" +
       requiredCourses +
       "\neightSemesterPlan=" +
-      
+      eightSemesterPlan+
       "\ncurrentCourses=" +
       currentCourses +
       "\ncompletedCourses=" +
