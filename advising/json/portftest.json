@@ -1,86 +1,62 @@
 [
     {
         "semesterCreditCount": 15,
-        "eightSemesterPlan": [
-            {
-                "1": [
-                    "CSCE145",
-                    "CSCE190",
-                    "ARTE260",
-                    "UNIV101"
-                ]
-            },
-            {
-                "2": [
-                    "CSCE146",
-                    "CHEM111",
-                    "CHEM111L",
-                    "CSCE215",
-                    "HIST111",
-                    "MATH241"
-                ]
-            },
-            {
-                "3": [
-                    "CSCE240",
-                    "CSCE211",
-                    "MATH374",
-                    "CHEM112",
-                    "CHEM112L",
-                    "CHEM112REC",
-                    "SPCH140"
-                ]
-            },
-            {
-                "4": [
-                    "ENGL463",
-                    "CSCE350",
-                    "CSCE212",
-                    "CSCE247",
-                    "STAT509"
-                ]
-            },
-            {
-                "5": [
-                    "CSCE311",
-                    "CSCE330",
-                    "CSCE390"
-                ]
-            },
-            {
-                "6": [
-                    "CSCE416",
-                    "PHIL102"
-                ]
-            },
-            {
-                "7": [
-                    "CSCE490",
-                    "MATH344"
-                ]
-            },
-            {
-                "8": [
-                    "CSCE492"
-                ]
-            }
-        ],
+        "eightSemesterPlan": {
+            "1": [
+                "CSCE145",
+                "CSCE190",
+                "ARTE260",
+                "UNIV101"
+            ],
+            "2": [
+                "CSCE146",
+                "CHEM111",
+                "CHEM111L",
+                "CSCE215",
+                "HIST111",
+                "MATH241"
+            ],
+            "3": [
+                "CSCE240",
+                "CSCE211",
+                "MATH374",
+                "CHEM112",
+                "CHEM112L",
+                "CHEM112REC",
+                "SPCH140"
+            ],
+            "4": [
+                "ENGL463",
+                "CSCE350",
+                "CSCE212",
+                "CSCE247",
+                "STAT509"
+            ],
+            "5": [
+                "CSCE311",
+                "CSCE330",
+                "CSCE390"
+            ],
+            "6": [
+                "CSCE416",
+                "PHIL102"
+            ],
+            "7": [
+                "CSCE490",
+                "MATH344"
+            ],
+            "8": [
+                "CSCE492"
+            ]
+        },
         "totalCreditHoursMajorRequirements": 1,
         "failCount": 1,
-        "completedCourses": [
-            {
-                "CSCE145": 90.5
-            },
-            {
-                "UNIV101": 100.0
-            },
-            {
-                "ARTE260": 98.0
-            },
-            {
-                "CSCE190": 85.0
-            }
-        ],
+        "completedCourses": {
+            "CSCE190": 85.0,
+            "CSCE145": 90.5,
+            "UNIV101": 100.0,
+            "ARTE260": 98.0
+        },
         "studentElectives": "tombrown24",
         "totalCreditHoursIntegrativeCourse": 0,
         "currentCourses": [
@@ -91,11 +67,9 @@
             "HIST111",
             "MATH241"
         ],
-        "failedCourses": [
-            {
-                "MATH241": 1
-            }
-        ],
+        "failedCourses": {
+            "MATH241": 1
+        },
         "portfolioUUID": "tombrown24",
         "totalCreditHoursFoundDocu": 0,
         "totalCreditHours": 11,
@@ -103,177 +77,26 @@
         "totalCreditHoursCC": 6,
         "gpa": 3.893,
         "totalCreditHoursProgramRequirements": 5,
-        "requiredCourses": [CourseID: ENGL101
-Title: Critical Reading and Composition
-Course Code: CMW
-Credit Hours: 3
-Minimum Grade: C
-Semester: FALLSPRING
-Prerequisite Courses: Calculus I
-Corequisite Courses: General Chemistry I Lab
-PrereqCoreq: None
-,CourseID: MATH141
-Title: Calculus I
-Course Code: ARP
-Credit Hours: 4
-Minimum Grade: C
-Semester: FALLSPRING
-Prerequisite Courses: None
-Corequisite Courses: None
-PrereqCoreq: None
-,CourseID: CSCE145
-Title: Algorithmic Design I
-Course Code: PR
-Credit Hours: 4
-Minimum Grade: C
-Semester: FALLSPRING
-Prerequisite Courses: None
-Corequisite Courses: None
-PrereqCoreq: None
-,CourseID: CSCE190
-Title: Computing in the Modern World
-Course Code: PR
-Credit Hours: 1
-Minimum Grade: C
-Semester: FALLSPRING
-Prerequisite Courses: Algorithmic Design I
-Corequisite Courses: Algorithmic Design I
-PrereqCoreq: None
-,CourseID: CSCE212
-Title: Intro to Computer Architecture
-Course Code: PR
-Credit Hours: 3
-Minimum Grade: C
-Semester: FALLSPRING
-Prerequisite Courses: Algorithmic Design I, Digital Logic Design
-Corequisite Courses: None
-PrereqCoreq: None
-,CourseID: SPCH140
-Title: Public Communication
-Course Code: CMS
-Credit Hours: 3
-Minimum Grade: C
-Semester: FALLSPRING
-Prerequisite Courses: Calculus I
-Corequisite Courses: General Chemistry I Lab
-PrereqCoreq: None
-,CourseID: STAT509
-Title: Statistics for Engineers
-Course Code: PR
-Credit Hours: 3
-Minimum Grade: 
-Semester: FALLSPRING
-Prerequisite Courses: Calculus II
-Corequisite Courses: None
-PrereqCoreq: None
-,CourseID: MATH241
-Title: Vector Calculus
-Course Code: PR
-Credit Hours: 3
-Minimum Grade: 
-Semester: FALLSPRING
-Prerequisite Courses: Calculus II
-Corequisite Courses: None
-PrereqCoreq: None
-,CourseID: HIST111
-Title: UNITED STATES HISTORY TO 1865
-Course Code: GHS
-Credit Hours: 3
-Minimum Grade: C
-Semester: FALLSPRING
-Prerequisite Courses: None
-Corequisite Courses: None
-PrereqCoreq: None
-,CourseID: CSCE215
-Title: UNIX/Linux Fundamentals
-Course Code: PR
-Credit Hours: 1
-Minimum Grade: C
-Semester: FALLSPRING
-Prerequisite Courses: Algorithmic Design I
-Corequisite Courses: None
-PrereqCoreq: None
-,CourseID: ARTE260
-Title: INTERDISCIPLINARY RELATIONSHIPS IN THE ARTS
-Course Code: AIU
-Credit Hours: 3
-Minimum Grade: C
-Semester: FALLSPRING
-Prerequisite Courses: None
-Corequisite Courses: None
-PrereqCoreq: None
-,CourseID: CHEM111
-Title: General Chemistry I
-Course Code: SCI
-Credit Hours: 3
-Minimum Grade: C
-Semester: FALLSPRING
-Prerequisite Courses: Calculus I
-Corequisite Courses: General Chemistry I Lab
-PrereqCoreq: None
-,CourseID: CHEM111L
-Title: General Chemistry I Lab
-Course Code: SCI
-Credit Hours: 1
-Minimum Grade: C
-Semester: FALLSPRING
-Prerequisite Courses: None
-Corequisite Courses: None
-PrereqCoreq: General Chemistry I
-,CourseID: CHEM112
-Title: General Chemistry II
-Course Code: SCI
-Credit Hours: 3
-Minimum Grade: 
-Semester: FALLSPRING
-Prerequisite Courses: General Chemistry I, Calculus I
-Corequisite Courses: General Chemistry I Lab
-PrereqCoreq: None
-,CourseID: CHEM112L
-Title: General Chemistry I Lab
-Course Code: SCI
-Credit Hours: 1
-Minimum Grade: 
-Semester: FALLSPRING
-Prerequisite Courses: None
-Corequisite Courses: General Chemistry II
-PrereqCoreq: General Chemistry I
-,CourseID: CHEM112REC
-Title: General Chemistry II Recitation
-Course Code: SCI
-Credit Hours: 3
-Minimum Grade: 
-Semester: FALLSPRING
-Prerequisite Courses: General Chemistry I, Calculus I
-Corequisite Courses: General Chemistry I Lab
-PrereqCoreq: None
-,CourseID: MATH374
-Title: Discrete Structures
-Course Code: PR
-Credit Hours: 3
-Minimum Grade: C
-Semester: FALLSPRING
-Prerequisite Courses: Calculus II, Algorithmic Design II
-Corequisite Courses: None
-PrereqCoreq: None
-,CourseID: CSCE146
-Title: Algorithmic Design II
-Course Code: PR
-Credit Hours: 4
-Minimum Grade: C
-Semester: FALLSPRING
-Prerequisite Courses: Calculus I
-Corequisite Courses: None
-PrereqCoreq: None
-,CourseID: UNIV101
-Title: University 101: The Student in the University
-Course Code: GHS
-Credit Hours: 3
-Minimum Grade: C
-Semester: FALLSPRING
-Prerequisite Courses: None
-Corequisite Courses: None
-PrereqCoreq: None
+        "requiredCourses": [
+            "ENGL101",
+            "MATH141",
+            "CSCE145",
+            "CSCE190",
+            "CSCE212",
+            "SPCH140",
+            "STAT509",
+            "MATH241",
+            "HIST111",
+            "CSCE215",
+            "ARTE260",
+            "CHEM111",
+            "CHEM111L",
+            "CHEM112",
+            "CHEM112L",
+            "CHEM112REC",
+            "MATH374",
+            "CSCE146",
+            "UNIV101"
         ],
         "scholarshipCreditHoursLeft": 19,
         "yearCreditHours": 11

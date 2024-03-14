@@ -166,7 +166,7 @@ public class DataWriter extends DataConstants {
     portfolioObject.put(GPA, portfolio.getGpa());
     portfolioObject.put(FAIL_COUNT, portfolio.getFailCount());
     portfolioObject.put(SEMESTER_CREDIT_COUNT, portfolio.getSemesterCreditCount());
-    portfolioObject.put(REQUIRED_COURSES, portfolio.getRequiredCourses());
+    portfolioObject.put(REQUIRED_COURSES, toRequiredCoursesJSON(portfolio.getRequiredCourses()));
     portfolioObject.put(EIGHT_SEMESTER_PLAN, toEightSemesterPlanJSON(portfolio.getEightSemesterPlan()));
     portfolioObject.put(CURRENT_COURSES, toCurrentCourseJSON(portfolio.getCurrentCourses()));
     portfolioObject.put(COMPLETED_COURSES, toCompletedCourseJSON(portfolio.getCompletedCourses()));
@@ -185,25 +185,31 @@ public class DataWriter extends DataConstants {
     return portfolioObject;
   }
 
-  private static JSONArray toFailedCoursesJSON(HashMap<Course, Integer> failedCourses) {
-    JSONArray failedCourseArray = new JSONArray();
-    for (Course course : failedCourses.keySet()) {
-      JSONObject courseObject = new JSONObject();
-      courseObject.put(course.getCourseID(), failedCourses.get(course));
-      failedCourseArray.add(courseObject);
+  private static JSONArray toRequiredCoursesJSON(ArrayList<Course> requiredCourses) {
+    JSONArray requiredCoursesArray = new JSONArray();
+    for (Course course : requiredCourses) {
+        requiredCoursesArray.add(course.getCourseID());
     }
-    return failedCourseArray;
-  }
+    return requiredCoursesArray;
+}
 
-  private static JSONArray toCompletedCourseJSON(HashMap<Course, Double> completedCourses) {
-    JSONArray completedCourseArray = new JSONArray();
-    for (Course course : completedCourses.keySet()) {
-      JSONObject courseObject = new JSONObject();
-      courseObject.put(course.getCourseID(), completedCourses.get(course));
-      completedCourseArray.add(courseObject);
+  private static JSONObject toFailedCoursesJSON(HashMap<Course, Integer> failedCourses) {
+    JSONObject failedCoursesObject = new JSONObject();
+    for (Course course : failedCourses.keySet()) {
+        failedCoursesObject.put(course.getCourseID(), failedCourses.get(course));
     }
-    return completedCourseArray;
-  }
+    return failedCoursesObject;
+}
+
+
+  private static JSONObject toCompletedCourseJSON(HashMap<Course, Double> completedCourses) {
+    JSONObject completedCoursesObject = new JSONObject();
+    for (Course course : completedCourses.keySet()) {
+        completedCoursesObject.put(course.getCourseID(), completedCourses.get(course));
+    }
+    return completedCoursesObject;
+}
+
 
   private static JSONArray toCurrentCourseJSON(ArrayList<Course> currentCourses) {
     JSONArray currentCourseArray = new JSONArray();
@@ -213,20 +219,19 @@ public class DataWriter extends DataConstants {
     return currentCourseArray;
   }
 
-  private static JSONArray toEightSemesterPlanJSON(HashMap<String, ArrayList<Course>> eightSemesterPlan) {
-    JSONArray eightSemesterPlanArray = new JSONArray();
+  private static JSONObject toEightSemesterPlanJSON(HashMap<String, ArrayList<Course>> eightSemesterPlan) {
+    JSONObject eightSemesterPlanObject = new JSONObject();
     for (String semester : eightSemesterPlan.keySet()) {
-        JSONObject semesterObject = new JSONObject();
         JSONArray courseIdsArray = new JSONArray();
         ArrayList<Course> courses = eightSemesterPlan.get(semester);
         for (Course course : courses) {
             courseIdsArray.add(course.getCourseID()); // Assuming getId() returns the course ID
         }
-        semesterObject.put(semester, courseIdsArray);
-        eightSemesterPlanArray.add(semesterObject);
+        eightSemesterPlanObject.put(semester, courseIdsArray);
     }
-    return eightSemesterPlanArray;
+    return eightSemesterPlanObject;
 }
+
 
 
 
