@@ -37,6 +37,7 @@ public abstract class DataConstants {
   public static final String SCHOLARSHIP = "scholarship";
   public static final String YEARLY_SCHOLARSHIP_CREDIT_HOURS_LEFT =
     "yearlySholarshipCreditHoursLeft";
+  public static final String SCHOLARSHIP_CREDIT_HOURS_LEFT = "scholarshipCreditHoursLeft";
   public static final String GPA = "gpa";
   public static final String FAIL_COUNT = "failCount";
   public static final String SEMESTER_CREDIT_COUNT = "semesterCreditCount";
@@ -72,6 +73,7 @@ public abstract class DataConstants {
   public static final String STUDENTS_FILE_NAME = "advising/json/students.json";
   public static final String COURSES_FILE_NAME = "advising/json/Course.json";
   public static final String MAJORS_FILE_NAME = "advising/json/Major.json";
+  public static final String STUDENT_ELECTIVES = "studentElectives";
   public static final String STUDENT_PORTFOLIOS_FILE_NAME = "advising/json/StudentPortfolios.json";
   public static final String APPLICATION_AREA_FILE_NAME = "advising/json/applicationArea.json";
   public static final String ELECTIVE_CLUSTER_FILE_NAME = "advising/json/ElectiveCluster.json";

@@ -3,17 +3,18 @@ package advising;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class test {
 
   public static void main(String[] args) {
-    testGetAllStudents();
+    // testGetAllStudents();
     // testGetAllAdvisors();
     // testGetAllCourses();
     // testGetAllMajors();
     // testGetAllStudentPortfolios();
     // testStudentPortfolio();
-    // testWriteUsers();
+    testWriteUsers();
 
     // testSaveCourses();
   }
@@ -109,25 +110,56 @@ public class test {
 
   public static void testWriteUsers() {
     ArrayList<Student> students = DataLoader.getAllStudents();
+    ArrayList<Student> student = new ArrayList<Student>();
+    student.add(students.get(0));
     ArrayList<Advisor> advisors = DataLoader.getAllAdvisors();
     StudentYear studentYear = StudentYear.FRESHMAN;
-    ArrayList<StudentPortfolio> StudentPortfolio = DataLoader.getAllStudentPortfolios();
-    
-    Student s = new Student(
+
+
+
+
+
+    StudentElectives ec = new StudentElectives(
       "James",
-      "Son",
-      "jamesson1",
-      "password",
-      "Student",
-      "Computer Science",
-      null,
-      studentYear,
-      null,
-      null,
-      "Take Chem 101 next semester."
+      new ArrayList<ElectiveCluster>()
     );
-    students.add(s);
-    DataWriter.saveUsers(students, advisors);
-    System.out.println(s.getPortfolio());
+    
+    StudentPortfolio sp = new StudentPortfolio(
+      "123",
+      new ArrayList<Course>(),
+      new HashMap<String, ArrayList<Course>>(),
+      new ArrayList<Course>(),
+      new HashMap<Course, Double>(),
+      new HashMap<Course, Integer>(),
+      "LIFE Scholarship",
+      0,
+      0.0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      ec
+    );
+    // Student s = new Student(
+    //   "James",
+    //   "Son",
+    //   "jamesson1",
+    //   "password",
+    //   "Student",
+    //   "Computer Science",
+    //   null,
+    //   studentYear,
+    //   sp,
+    //   null,
+    //   "Take Chem 101 next semester."
+    // );
+    // students.add(s);
+    DataWriter.saveUsers(student, advisors);
+    // System.out.println(s.getPortfolio());
   }
 }
