@@ -261,6 +261,7 @@ public class DataLoader extends DataConstants {
    * @return ArrayList<StudentPortfolio>
    */
   public static ArrayList<StudentPortfolio> getAllStudentPortfolios() {
+    ArrayList<StudentElectives> studentElectives = getAllStudentElectives();
     try {
       ArrayList<StudentPortfolio> studentPortfolios = new ArrayList<StudentPortfolio>();
       FileReader reader = new FileReader(
@@ -325,6 +326,9 @@ public class DataLoader extends DataConstants {
 
         // gpa 
         double gpa = ((Number) studentPortfolioJSON.get(GPA)).doubleValue();
+
+        // student electives 
+        StudentElectives se = studentElectives.get(i);
         StudentPortfolio studentPortfolio = new StudentPortfolio(
           (String) studentPortfolioJSON.get(PORTFOLIO_UUID),
           requiredCourses,
@@ -362,7 +366,7 @@ public class DataLoader extends DataConstants {
               TOTAL_CREDIT_HOURS_MAJOR_REQUIREMENTS
             )
           ).intValue(),
-          (ArrayList<ElectiveCluster>) studentPortfolioJSON.get("0")
+          se
         );
         studentPortfolios.add(studentPortfolio);
       }
@@ -371,5 +375,49 @@ public class DataLoader extends DataConstants {
       e.printStackTrace();
     }
     return null;
+  }
+  /**
+   * Reads the StudentElectives.json file and returns an ArrayList of StudentElectives
+   * @return ArrayList<StudentElectives>
+   */
+  public static ArrayList<StudentElectives> getAllStudentElectives() {
+    ArrayList<StudentElectives> studentElectives = new ArrayList<StudentElectives>();
+    try {
+      FileReader reader = new FileReader("advising/json/StudentElectives.json");
+      JSONParser parser = new JSONParser();
+      JSONArray studentElectivesJSON = (JSONArray) parser.parse(reader);
+      for (int i = 0; i < studentElectivesJSON.size(); i++) {
+        JSONObject studentElectiveJSON = (JSONObject) studentElectivesJSON.get(i);
+        String studentName = (String) studentElectiveJSON.get("studentName");
+        ArrayList<ElectiveCluster> electives = new ArrayList<ElectiveCluster>();
+        JSONArray electivesJSON = (JSONArray) studentElectiveJSON.get("electives");
+        for (int j = 0; j < electivesJSON.size(); j++) {
+          JSONObject electiveJSON = (JSONObject) electivesJSON.get(j);
+          String electiveName = (String) electiveJSON.get("electiveName");
+          int hoursRequired = ((Long) electiveJSON.get("hoursRequired")).intValue();
+          int hoursCompleted = ((Long) electiveJSON.get("hoursCompleted")).intValue();
+          HashMap<String, Boolean> electiveCourses = new HashMap<String, Boolean>();
+          JSONObject electiveCoursesJSON = (JSONObject) electiveJSON.get("classes");
+          for (Object courseCode : electiveCoursesJSON.keySet()) {
+            electiveCourses.put(
+              (String) courseCode,
+              (Boolean) electiveCoursesJSON.get(courseCode)
+            );
+          }
+          ElectiveCluster electiveCluster = new ElectiveCluster(
+            electiveName,
+            hoursRequired,
+            hoursCompleted,
+            electiveCourses
+          );
+          electives.add(electiveCluster);
+        }
+        StudentElectives studentElective = new StudentElectives(studentName, electives);
+        studentElectives.add(studentElective);
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    return studentElectives;
   }
 }

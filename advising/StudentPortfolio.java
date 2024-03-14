@@ -24,7 +24,7 @@ public class StudentPortfolio {
   private int totalCreditHoursIntegrativeCourse;
   private int totalCreditHoursProgramRequirements;
   private int totalCreditHoursMajorRequirements;
-  private ArrayList<ElectiveCluster> electiveClusterArray;
+  private StudentElectives studentElectives;
 
   public StudentPortfolio(
     String portfolioUUID,
@@ -45,7 +45,7 @@ public class StudentPortfolio {
     int totalCreditHoursIntegrativeCourse,
     int totalCreditHoursProgramRequirements,
     int totalCreditHoursMajorRequirements,
-    ArrayList<ElectiveCluster> electiveClusterArray
+    StudentElectives electiveCluster
   ) {
     this.semesterCreditCount = semesterCreditCount;
     this.failCount = failCount;
@@ -66,7 +66,7 @@ public class StudentPortfolio {
     this.totalCreditHoursProgramRequirements =
       totalCreditHoursProgramRequirements;
     this.totalCreditHoursMajorRequirements = totalCreditHoursMajorRequirements;
-    this.electiveClusterArray = electiveClusterArray;
+    this.studentElectives = electiveCluster;
   }
   /**
    * Returns the student's portfolio UUID
@@ -74,13 +74,18 @@ public class StudentPortfolio {
    */
   public String getPortfolioUUID() {
     return portfolioUUID;
-}
+  }
+
 /**
  * Returns the student's required courses
  * @return student's required courses
  */
 public ArrayList<Course> getRequiredCourses() {
     return requiredCourses;
+}
+
+public StudentElectives getStudentElectives() {
+  return studentElectives;
 }
 /**
  * Returns the student's eight semester plan
@@ -201,20 +206,13 @@ public int getTotalCreditHoursProgramRequirements() {
 public int getTotalCreditHoursMajorRequirements() {
     return totalCreditHoursMajorRequirements;
 }
-/**
- * Returns the student's elective cluster array
- * @return student's elective cluster array
- */
-public ArrayList<ElectiveCluster> getElectiveClusterArray() {
-    return electiveClusterArray;
-}
+
   public void requiredCourses(String courseName, String courseNumber) {
     requiredCourses = new ArrayList<>();
     eightSemesterPlan = new HashMap();
     currentCourses = new ArrayList<>();
     completedCourses = new HashMap();
     failedCourses = new HashMap();
-    electiveClusterArray = new ArrayList();
   }
 
   /**
@@ -357,8 +355,8 @@ public ArrayList<ElectiveCluster> getElectiveClusterArray() {
       totalCreditHoursProgramRequirements +
       ", totalCreditHoursMajorRequirements=" +
       totalCreditHoursMajorRequirements +
-      "\n electiveClusterArray=" +
-      electiveClusterArray + '\n'
+      "\n studentElectives=" +
+      studentElectives + '\n'
     );
     return result;
   }

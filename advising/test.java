@@ -7,13 +7,13 @@ import java.util.HashMap;
 public class test {
 
   public static void main(String[] args) {
-    // testGetAllStudents();
+    testGetAllStudents();
     // testGetAllAdvisors();
     // testGetAllCourses();
     // testGetAllMajors();
     // testGetAllStudentPortfolios();
     // testStudentPortfolio();
-    testWriteUsers();
+    // testWriteUsers();
 
     // testSaveCourses();
   }
@@ -22,7 +22,7 @@ public class test {
     ArrayList<Student> students = DataLoader.getAllStudents();
     System.out.println("List of Students:");
     for (Student student : students) {
-      System.out.println(student);
+      System.out.println(student.getPortfolio().getStudentElectives().getElectives().get(0).getElectiveName());
     }
   }
 

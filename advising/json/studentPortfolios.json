@@ -34,8 +34,8 @@
       "totalCreditHoursCC": 6,
       "totalCreditHoursIntegrativeCourse": 0,
       "totalCreditHoursProgramRequirements": 5, 
-      "totalCreditHoursMajorRequirements": 1
-      
+      "totalCreditHoursMajorRequirements": 1,
+      "studentElectives": "tombrown24"
   },
   {
     "portfolioUUID": "johnhop36",
@@ -72,6 +72,7 @@
     "totalCreditHoursCC": 6,
     "totalCreditHoursIntegrativeCourse": 0,
     "totalCreditHoursProgramRequirements": 5, 
-    "totalCreditHoursMajorRequirements": 1
+    "totalCreditHoursMajorRequirements": 1,
+    "studentElectives":"johnhop36"
 }
 ]
