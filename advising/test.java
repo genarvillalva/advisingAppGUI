@@ -112,6 +112,7 @@ public class test {
     ArrayList<Advisor> advisors = DataLoader.getAllAdvisors();
     StudentYear studentYear = StudentYear.FRESHMAN;
     ArrayList<StudentPortfolio> StudentPortfolio = DataLoader.getAllStudentPortfolios();
+    
     Student s = new Student(
       "James",
       "Son",
