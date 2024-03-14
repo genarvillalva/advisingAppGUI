@@ -43,7 +43,7 @@
     "STAT509", "MATH241", "HIST111", "CSCE215", "ARTE260", "CHEM111", "CHEM111L", "CHEM112", "CHEM112L", 
     "CHEM112REC", "MATH374", "CSCE146", "UNIV101"],
     "eightSemesterPlan": {
-        "1": ["CSCE145", "CSCE190", "ARTE260", "UNIV101"],
+        "1": ["STAT112", "CSCE190", "ARTE260", "UNIV101"],
         "2": ["CSCE146", "CHEM111", "CHEM111L", "CSCE215", "HIST111", "MATH241"],
         "3": ["CSCE240", "CSCE211", "MATH374", "CHEM112", "CHEM112L", "CHEM112REC", "SPCH140"],
         "4": ["ENGL463", "CSCE350", "CSCE212", "CSCE247", "STAT509"],
@@ -52,12 +52,14 @@
         "7": ["CSCE490", "MATH344"],
         "8": ["CSCE492"]
       },
-    "currentCourses": ["CSCE146", "CHEM111", "CHEM111L", "CSCE215", "HIST111", "MATH241"],
+    "currentCourses": ["CSCE146", "CHEM111", "CHEM111L", "CSCE215", "HIST111"],
     "completedCourses": {
       "CSCE145": 90.5,
       "CSCE190": 85.0,
       "ARTE260": 98.0, 
-      "UNIV101": 100.0
+      "UNIV101": 100.0,
+      "STAT509": 99.0,
+      "STAT112": 87.2
     },
     "failedCourses": {"none": null
     },
