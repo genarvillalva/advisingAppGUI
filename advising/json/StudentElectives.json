@@ -80,6 +80,7 @@
         "electiveName": "Liberal Arts Electives",
         "hoursRequired": 9,
         "hoursCompleted": 0,
+
         "classes": {
           "AERO401": false,
           "AERO402": false,
@@ -138,12 +139,88 @@
           "FREN109": false,
           "FREN615": false
         }
+      },
+      {
+      "electiveName": "Speech Electives",
+      "hoursRequired": 9,
+      "hoursCompleted": 0,
+      "classes": {
+        "SPCH 330" : false,
+        "SPCH 331" : false,
+        "SPCH 340" : false,
+        "SPCH 380" : false,
+        "SPCH 387" : false,
+        "SPCH 399" : false,
+        "SPCH 411" : false
       }
+     },
+
+    {
+      "electiveName": "Math Electives",
+      "hoursRequired": 9,
+      "hoursCompleted": 0,
+      "classes": {
+        "MATH 300" : false,
+        "MATH 328" : false,
+        "MATH 511" : false,
+        "MATH 514" : false,
+        "MATH 515" : false,
+        "MATH 520" : false,
+        "MATH 521" : false
+        }
+      },
+
+    {
+      "electiveName": "Digital Design Electives",
+      "hoursRequired": 9,
+      "hoursCompleted": 0,
+      "classes": {
+        "MART 201" : false,
+        "MART 210" : false,
+        "MART 371" : false,
+        "MART 380" : false,
+        "MART 571C" : false,
+        "MART 581D" : false
+      }
+     },
+
+
+    {
+      "electiveName": "Robotics Electives",
+      "hoursRequired": 9,
+      "hoursCompleted": 0,
+      "classes": {
+        
+        "EMCH 535" : false,
+        "ELCT 331" : false,
+        "ELCT 531" : false
+      }
+     },
+
+    {
+      "electiveName": "Science Electives",
+      "hoursRequired": 9,
+      "hoursCompleted": 0,
+      "classes": {
+        "SPCH 330" : false,
+        "SPCH 331" : false,
+        "SPCH 340" : false,
+        "SPCH 380" : false,
+        "SPCH 387" : false,
+        "SPCH 399" : false,
+        "SPCH 411" : false
+      }
+
+      }
+
     ]
   },
+
+
   {
     "studentName": "thill",
-    "electives": [
+    "electives": 
+          [
       {
         "electiveName": "Lab Science Electives",
         "hoursRequired": 4,
@@ -176,7 +253,7 @@
         }
       },
       {
-        "clusterName": "Computer Science and Engineering Electives",
+        "electiveName": "Computer Science and Engineering Electives",
         "hoursRequired": 9,
         "hoursCompleted": 0,
         "classes": {
@@ -222,6 +299,7 @@
         "electiveName": "Liberal Arts Electives",
         "hoursRequired": 9,
         "hoursCompleted": 0,
+
         "classes": {
           "AERO401": false,
           "AERO402": false,
@@ -280,7 +358,80 @@
           "FREN109": false,
           "FREN615": false
         }
+      },
+      {
+      "electiveName": "Speech Electives",
+      "hoursRequired": 9,
+      "hoursCompleted": 0,
+      "classes": {
+        "SPCH 330" : false,
+        "SPCH 331" : false,
+        "SPCH 340" : false,
+        "SPCH 380" : false,
+        "SPCH 387" : false,
+        "SPCH 399" : false,
+        "SPCH 411" : false
       }
+     },
+
+    {
+      "electiveName": "Math Electives",
+      "hoursRequired": 9,
+      "hoursCompleted": 0,
+      "classes": {
+        "MATH 300" : false,
+        "MATH 328" : false,
+        "MATH 511" : false,
+        "MATH 514" : false,
+        "MATH 515" : false,
+        "MATH 520" : false,
+        "MATH 521" : false
+        }
+      },
+
+    {
+      "electiveName": "Digital Design Electives",
+      "hoursRequired": 9,
+      "hoursCompleted": 0,
+      "classes": {
+        "MART 201" : false,
+        "MART 210" : false,
+        "MART 371" : false,
+        "MART 380" : false,
+        "MART 571C" : false,
+        "MART 581D" : false
+      }
+     },
+
+
+    {
+      "electiveName": "Robotics Electives",
+      "hoursRequired": 9,
+      "hoursCompleted": 0,
+      "classes": {
+        
+        "EMCH 535" : false,
+        "ELCT 331" : false,
+        "ELCT 531" : false
+      }
+     },
+
+    {
+      "electiveName": "Science Electives",
+      "hoursRequired": 9,
+      "hoursCompleted": 0,
+      "classes": {
+        "SPCH 330" : false,
+        "SPCH 331" : false,
+        "SPCH 340" : false,
+        "SPCH 380" : false,
+        "SPCH 387" : false,
+        "SPCH 399" : false,
+        "SPCH 411" : false
+      }
+
+      }
+
     ]
   }
 ]
