@@ -140,13 +140,6 @@ public class DataWriter extends DataConstants {
         student.getLastName()
       );
 
-
-
-
-
-
-
-      
       // if (!existingStudents.contains(student)) {
       //   JSONObject studentElectives = createStudentElectives(student);
       //   student.setStudentElectives(studentElectives);
@@ -385,10 +378,9 @@ public class DataWriter extends DataConstants {
     advisorObject.put(USER_NAME, advisor.getUsername());
     advisorObject.put(PASSWORD, advisor.getPassword());
     advisorObject.put(USER_TYPE, "Advisor");
-    advisorObject.put(
-      LIST_OF_ADVISED_STUDENTS,
-      advisor.getListofAdvisedStudents()
-    );
+    for (Student s : advisor.getListofAdvisedStudents()) {
+      advisorObject.put(LIST_OF_ADVISED_STUDENTS, s.getUsername());
+    }
     return advisorObject;
   }
 
