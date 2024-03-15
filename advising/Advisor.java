@@ -20,7 +20,7 @@ public class Advisor extends User{
                  String password, String userType, ArrayList<Student> listOfAdvisedStudents
    ) {
     super(firstName, lastName, username, password, userType);
-    this.listofAdvisedStudents = listOfAdvisedStudents;
+    this.listofAdvisedStudents = new ArrayList<>();
   }
 
   /**
@@ -88,7 +88,20 @@ public class Advisor extends User{
   public void suggestCourses(ArrayList<Course> courses) {}
 
 
-
+  public Student lookUpStudent(String username) {
+    // Directly fetch the Student object from a central repository (e.g., UserList)
+    // where all students are stored, without limiting the search to the advisor's advised students.
+    Student student = UserList.getInstance().getStudentByUsername(username);
+    
+    if (student != null) {
+        // If a student with the provided username is found, return the student.
+        return student;
+    } else {
+        // If no matching student is found in the central list, print a message and return null.
+        System.out.println("No student found with username: " + username);
+        return null;
+    }
+  }
 
   public void addStudentToAdvisor(String username, ArrayList<Student> listOfAdvisedStudents) {
     for (Student student : UserList.getInstance().getStudents()) {
@@ -101,7 +114,7 @@ public class Advisor extends User{
         }
     }
     System.out.println("Student " + username + " not found.");
-}
+  }
 
 
 
@@ -145,20 +158,10 @@ public class Advisor extends User{
   System.out.println("Student not found in advisor's list."); 
   }
 
-  public Student lookUpStudent(String username) {
-    Student student = UserList.getInstance().getStudentByUsername(username);
-    
-    if (student != null) {
-        // If a student with the provided username is found return the student.
-        return student;
-    } else {
-        // If no matching student is found in list, print  message and return null.
-        System.out.println("No student found with username: " + username);
-        return null;
-    }
-}
 
-  public void generateEightSemesterPlan() {}
+  public void generateEightSemesterPlan() {
+    
+  }
 
   public String toString() {
     return "Advisor:\n" +

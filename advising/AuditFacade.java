@@ -121,6 +121,13 @@ public boolean login(String username, String password, String userType) {
             return advisor.lookUpStudent(studentUsername);
             
     }
+    public void addStudentToAdvisor(String studentUsername) {
+        if (advisor != null) {
+            advisor.addStudentToAdvisor(studentUsername, advisor.getListofAdvisedStudents());
+        } else {
+            System.out.println("Advisor not logged in.");
+        }
+    }
 
     public void switchMajor(Student student, String major) {
 

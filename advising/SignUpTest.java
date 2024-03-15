@@ -143,6 +143,7 @@ public class SignUpTest {
                     lookUpStudent(advisorUsername, auditFacade, scanner);
                     break;
                 case "2":
+                    
                     System.out.println("adding student");
                     break;
                 case "3":
@@ -210,25 +211,39 @@ public class SignUpTest {
         }
     }
     
-    private static void lookUpStudent(String advisorUsername, AuditFacade auditFacade, Scanner scanner) {
-        // Prompt for student username
-        System.out.print("Enter Student Username: ");
-        String studentUsername = scanner.nextLine();
-    
-        // Look up the student by advisor
-        Student student = auditFacade.lookUpStudent(advisorUsername, studentUsername);
-    
-        // Display result
-        if (student != null) {
-            System.out.println("Student found: " + student);
-            boolean success = true;
-        } else {
-            // Student not found
-            System.out.println("Student not found.");
-            // Set success to false 
-            boolean success = false;
-        }
-        
+private static void lookUpStudent(String advisorUsername, AuditFacade auditFacade, Scanner scanner) {
+    // Prompt for student username
+    boolean addAdvisee = false;
+
+    System.out.print("Enter Student Username: ");
+    String studentUsername = scanner.nextLine();
+
+    // Look up the student by advisor
+    Student student = auditFacade.lookUpStudent(advisorUsername, studentUsername);
+
+    // Display result
+    if (student != null) {
+        System.out.println("Student found: " + student);
+        boolean success = true;
+    } else {
+        // Student not found
+        System.out.println("Student not found.");
+        // Set success to false 
+        boolean success = false;
+        return;
     }
+    System.out.println("Would you like to make this student an advisee? (yes/no)");
+    String answer = scanner.nextLine();
+    if (answer.equalsIgnoreCase("yes")) {
+        addAdvisee = true;
+    }
+    if (addAdvisee) {
+        // No need to pass any parameters here, as the auditFacade already has the advisor
+        auditFacade.addStudentToAdvisor(studentUsername);
+    }
+}
+
+    
+    
 
 }

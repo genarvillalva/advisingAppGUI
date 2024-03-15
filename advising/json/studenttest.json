@@ -24,19 +24,5 @@
         "applicationArea": null,
         "studentYear": "FRESHMAN",
         "username": "thill"
-    },
-    {
-        "firstName": "Genar",
-        "lastName": "Villalva",
-        "advisor": null,
-        "advisingNotes": null,
-        "password": "jj",
-        "major": "Computer_Science",
-        "portfolio": "genar",
-        "userType": "Student",
-        "applicationArea": null,
-        "studentYear": "FRESHMAN",
-        "username": "genar"
     }
 ]
-
