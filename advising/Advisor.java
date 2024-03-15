@@ -1,6 +1,7 @@
 package advising;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Advisor extends User{
 
@@ -18,10 +19,11 @@ public class Advisor extends User{
    */
   public Advisor(String firstName, String lastName, String username,
                  String password, String userType, ArrayList<Student> listOfAdvisedStudents
-   ) {
+   ) 
+   {
     super(firstName, lastName, username, password, userType);
-    this.listofAdvisedStudents = new ArrayList<>();
-  }
+    this.listofAdvisedStudents = listOfAdvisedStudents;
+   }
 
   /**
    * Get the first name of the advisor
@@ -63,6 +65,7 @@ public class Advisor extends User{
     return listofAdvisedStudents;
   }
 
+
   /**
    * Get the advising notes
    * @return The advising notes
@@ -81,10 +84,8 @@ public class Advisor extends User{
         }
     }
     System.out.println("Student not found in advisor's list."); 
-}
+  }
 
-
-  
   public void suggestCourses(ArrayList<Course> courses) {}
 
 
@@ -104,18 +105,21 @@ public class Advisor extends User{
   }
 
   public void addStudentToAdvisor(String username, ArrayList<Student> listOfAdvisedStudents) {
-    for (Student student : UserList.getInstance().getStudents()) {
-        //System.out.println(student.getUsername()); 
-        if (student.getUsername().equals(username)) {
-            listOfAdvisedStudents.add(student);
-            System.out.println(" ");
-            System.out.println("Student " + username + " added to " + firstName + "'s" + " list of advised students.");
-            return;
-        }
+    // Find the student with the given username
+    Student student = UserList.getInstance().getStudentByUsername(username);
+    
+    if (student != null) {
+        // Update the advisor's list of advised students with the student's username
+        this.listofAdvisedStudents.add(student);
+        
+        // Save the updated advisor information
+        DataWriter.saveAdvisors(UserList.getInstance().getAdvisors());
+        
+        System.out.println("Student " + username + " added to " + firstName + "'s list of advised students.");
+    } else {
+        System.out.println("Student " + username + " not found.");
     }
-    System.out.println("Student " + username + " not found.");
-  }
-
+}
 
 
   public void removeStudentFromProgram(String username, String major) {

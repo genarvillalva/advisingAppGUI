@@ -214,8 +214,17 @@ public class Student extends User {
   public void addAdvisingNotes(String note) {
     if (this.advisingNotes == null) {
       this.advisingNotes = note; // Since there are no existing notes a new note will be intialized.
+      DataWriter.saveStudents(null);
     } else {
       this.advisingNotes += note; // Append new note to existing notes
     }
+    ArrayList<Student> students = DataLoader.getAllStudents();
+    for (Student student : students) {
+        if (student.getUsername().equals(this.getUsername())) {
+            student.addAdvisingNotes(this.advisingNotes); // Update advising notes for the specific student
+            break;
+        }
+    }
+    DataWriter.saveStudents(students);
   }
 }

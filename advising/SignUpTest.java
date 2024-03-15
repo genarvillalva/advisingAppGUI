@@ -127,9 +127,8 @@ public class SignUpTest {
             System.out.println("\nAdvisor Menu:");
             System.out.println("1. Look up a student");
             //System.out.println(" Suggest courses");
-            System.out.println("2. Add student to advisor");
             //System.out.println(" Remove student from program");
-            System.out.println("3. Write a note");
+            System.out.println("2. Write a note");
             //System.out.println("Generate eight semester plan");
             System.out.println("0. Logout");
     
@@ -143,10 +142,6 @@ public class SignUpTest {
                     lookUpStudent(advisorUsername, auditFacade, scanner);
                     break;
                 case "2":
-                    
-                    System.out.println("adding student");
-                    break;
-                case "3":
                     System.out.println("Type your note (press Enter when finished):");
                     String note = scanner.nextLine(); // Get the note from the advisor
                     
