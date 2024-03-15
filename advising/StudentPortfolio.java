@@ -473,38 +473,115 @@ public int getTotalCreditHoursMajorRequirements() {
   }
 
   /**
+   * Prints the values from student portfolio to the terminal
+   */
+  public static void printAllStudentPortfolios() {
+    ArrayList<StudentPortfolio> studentPortfolios = DataLoader.getAllStudentPortfolios();
+    if (studentPortfolios != null) {
+        for (StudentPortfolio portfolio : studentPortfolios) {
+            System.out.println("Portfolio UUID: " + portfolio.getPortfolioUUID());
+            //System.out.println("Required Courses: " + portfolio.getRequiredCourses());
+            System.out.println("Eight Semester Plan:");
+            portfolio.getEightSemesterPlan().forEach((semester, courses) -> {
+                System.out.print("Semester " + semester + ": ");
+                courses.forEach(course -> System.out.print(course + ", "));
+                System.out.println();
+            });
+            System.out.println("Completed Courses: ");
+            portfolio.getCompletedCourses().forEach((course, grade) -> {
+                System.out.println(course + "-Grade: " + grade);
+            });
+            System.out.println("Current Courses: " + portfolio.getCurrentCourses());
+            System.out.println("Failed Courses: " + portfolio.getFailedCourses());
+            //System.out.println("Scholarship: " + portfolio.getScholarship());
+            //System.out.println("Yearly Scholarship Credit Hours Left: " + portfolio.getYearlyScholarshipCreditHoursLeft());
+            System.out.println("GPA: " + portfolio.getGpa());
+            //System.out.println("Fail Count: " + portfolio.getFailCount());
+            System.out.println("Semester Credit Count: " + portfolio.getSemesterCreditCount());
+            //System.out.println("Year Credit Hours: " + portfolio.getYearCreditHours());
+            System.out.println("Total Credit Hours: " + portfolio.getTotalCreditHours());
+            //System.out.println("Total Credit Hours Found Docu: " + portfolio.getTotalCreditHoursFoundDocu());
+            //System.out.println("Total Credit Hours CC: " + portfolio.getTotalCreditHoursCC());
+            //System.out.println("Total Credit Hours Integrative Course: " + portfolio.getTotalCreditHoursIntegrativeCourse());
+            //System.out.println("Total Credit Hours Program Requirements: " + portfolio.getTotalCreditHoursProgramRequirements());
+            //System.out.println("Total Credit Hours Major Requirements: " + portfolio.getTotalCreditHoursMajorRequirements());
+            //System.out.println("Student Electives: " + portfolio.getStudentElectives());
+            System.out.println("-----------------------------------------------------------");
+        }
+    } else {
+        System.out.println("No student portfolios found.");
+    }
+}
+
+  /**
    * Generates an 8-semester plan for the student and prints it to a text file.
    * Includes completed courses with grades and clearly highlights the upcoming semester.
    *
    * @param fileName The name of the text file to write the plan to.
    */
-  public void generateSemesterPlanToFile(String fileName) {
-      try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
-          int currentSemester = 1;
-          for (int i = 0; i < 8; i++) {
-              writer.write("Semester " + currentSemester + ":\n");
+public static void printAllStudentPortfoliosToFile(String filePath) {
+  ArrayList<StudentPortfolio> studentPortfolios = DataLoader.getAllStudentPortfolios();
+  if (studentPortfolios != null) {
+      try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+          for (StudentPortfolio portfolio : studentPortfolios) {
+              writer.write("Portfolio UUID: " + portfolio.getPortfolioUUID());
+              writer.newLine();
 
-              if (i == 0) {
-                  writer.write("-> Upcoming Semester\n");
-              }
-
-              // Get courses for this semester
-              ArrayList<Course> semesterCourses = eightSemesterPlan.get("Semester " + currentSemester);
-              if (semesterCourses != null) {
-                  for (Course course : semesterCourses) {
-                      writer.write(course.getCourseID() + " - " + course.getCourseTitle());
-                        // Check if course is completed
-                      if (completedCourses.containsKey(course)) {
-                          writer.write(" - Grade: " + completedCourses.get(course));
-                      }
-                      writer.write("\n");
+              writer.write("\nEight Semester Plan:");
+              writer.newLine();
+              portfolio.getEightSemesterPlan().forEach((semester, courses) -> {
+                  try {
+                      writer.write("Semester " + semester + ": ");
+                      courses.forEach(course -> {
+                          try {
+                              writer.write(course + ", ");
+                          } catch (IOException e) {
+                              e.printStackTrace();
+                          }
+                      });
+                      writer.newLine();
+                  } catch (IOException e) {
+                      e.printStackTrace();
                   }
-              }
-              writer.write("\n");
-              currentSemester++;
+              });
+
+              writer.write("\nCompleted Courses:");
+              writer.newLine();
+              portfolio.getCompletedCourses().forEach((course, grade) -> {
+                  try {
+                      writer.write(course + "-Grade: " + grade);
+                      writer.newLine();
+                  } catch (IOException e) {
+                      e.printStackTrace();
+                  }
+              });
+
+              writer.write("\nCurrent Courses: " + portfolio.getCurrentCourses());
+              writer.newLine();
+
+              writer.write("\nFailed Courses: " + portfolio.getFailedCourses());
+              writer.newLine();
+
+              writer.write("\nGPA: " + portfolio.getGpa());
+              writer.newLine();
+
+              writer.write("Semester Credit Count: " + portfolio.getSemesterCreditCount());
+              writer.newLine();
+
+              writer.write("Total Credit Hours: " + portfolio.getTotalCreditHours());
+              writer.newLine();
+
+              writer.write("-----------------------------------------------------------");
+              writer.newLine();
           }
+          System.out.println("Student portfolios written to file: " + filePath);
       } catch (IOException e) {
+          System.err.println("Error writing student portfolios to file: " + filePath);
           e.printStackTrace();
       }
+  } else {
+      System.out.println("No student portfolios found.");
   }
+}
+
 }
