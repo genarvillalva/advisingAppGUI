@@ -193,7 +193,6 @@ public class DataWriter extends DataConstants {
    */
   @SuppressWarnings("unchecked")
   private static JSONObject toPortfolioJSON(StudentPortfolio portfolio) {
-    System.out.println(portfolio + "\n\n\n\n\n");
     JSONObject portfolioObject = new JSONObject();
     portfolioObject.put(PORTFOLIO_UUID, portfolio.getPortfolioUUID());
     portfolioObject.put(GPA, portfolio.getGpa());
@@ -330,7 +329,7 @@ public class DataWriter extends DataConstants {
       JSONArray courseIdsArray = new JSONArray();
       ArrayList<Course> courses = eightSemesterPlan.get(semester);
       for (Course course : courses) {
-        courseIdsArray.add(course.getCourseID()); // Assuming getId() returns the course ID
+        courseIdsArray.add(course.getCourseID()); 
       }
       eightSemesterPlanObject.put(semester, courseIdsArray);
     }
@@ -345,8 +344,6 @@ public class DataWriter extends DataConstants {
   public static void saveAdvisors(ArrayList<Advisor> advisors) {
     System.out.println("Saving advisors to JSON...");
     ArrayList<Advisor> oldAdvisors = DataLoader.getAllAdvisors();
-    // oldAdvisors.addAll(advisors);
-
     JSONArray jsonAdvisors = new JSONArray();
 
     for (Advisor advisor : advisors) {
@@ -361,15 +358,8 @@ public class DataWriter extends DataConstants {
         oldAdvisors.add(advisor);
       }
       JSONObject advisorJson = getAdvisorJSON(advisor);
-      System.out.println(
-        "Converting advisor to JSON: " + advisor.getUsername()
-      );
       jsonAdvisors.add(advisorJson);
     }
-
-    System.out.println(
-      "Number of advisors being written to JSON: " + jsonAdvisors.size()
-    );
     writeToFile(jsonAdvisors, "advising/json/advisorstest.json");
   }
 
@@ -387,7 +377,6 @@ public class DataWriter extends DataConstants {
     advisorObject.put(PASSWORD, advisor.getPassword());
     advisorObject.put(USER_TYPE, "Advisor");
     ArrayList<String> studentUsernames = new ArrayList<>();
-    System.out.println("L"+advisor.getListOfAdvisedStudents());
     for (Student student : advisor.getListOfAdvisedStudents()) {
       studentUsernames.add(student.getUsername());
     }

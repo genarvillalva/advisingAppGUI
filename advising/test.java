@@ -9,12 +9,12 @@ public class test {
 
   public static void main(String[] args) {
     // testGetAllStudents();
-    testGetAllAdvisors();
+    // testGetAllAdvisors();
     // testGetAllCourses();
     // testGetAllMajors();
     // testGetAllStudentPortfolios();
     // testStudentPortfolio();
-    // testWriteUsers();
+    testWriteUsers();
 
     // testSaveCourses();
   }
@@ -118,6 +118,7 @@ public class test {
     Advisor a = advisors.get(1);
     a.addToAdviseeList("thill");
     test.add(a);
+    test.add(advisors.get(0));
     DataWriter.saveAdvisors(test);
   }
   

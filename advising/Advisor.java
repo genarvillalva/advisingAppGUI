@@ -1,7 +1,6 @@
 package advising;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Advisor extends User {
 
@@ -26,7 +25,7 @@ public class Advisor extends User {
     ArrayList<Student> listOfAdvisedStudents
   ) {
     super(firstName, lastName, username, password, userType);
-    this.listOfAdvisedStudents = listOfAdvisedStudents;
+    this.listOfAdvisedStudents = new ArrayList<Student>();
   }
 
   /**
@@ -79,7 +78,7 @@ public class Advisor extends User {
 
   public void addToAdviseeList(Student student) {
     System.out.println(
-      "Adding student to advisor's list: " +
+      "Adding student to "+getUsername() +  " list: " +
       student.getFirstName() +
       " " +
       student.getLastName()
@@ -91,7 +90,7 @@ public class Advisor extends User {
     UserList userList = advising.UserList.getInstance();
     Student student = userList.getStudentByUsername(studentUsername);
     System.out.println(
-      "Adding student to advisor's list: " +
+      "Adding student to "+getUsername() +  " list: " +
       student.getFirstName() +
       " " +
       student.getLastName()
@@ -132,11 +131,9 @@ public class Advisor extends User {
     String username,
     ArrayList<Student> listOfAdvisedStudents
   ) {
-    // Find the student with the given username
     Student student = UserList.getInstance().getStudentByUsername(username);
 
     if (student != null) {
-      // Update the advisor's list of advised students with the student's username
       this.listOfAdvisedStudents.add(student);
 
       // Save the updated advisor information

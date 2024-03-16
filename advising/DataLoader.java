@@ -112,37 +112,44 @@ public class DataLoader extends DataConstants {
  * @param advisors list of all advisors
  * @return the list of advisors with their respective advisees
  */
-  private static ArrayList<Advisor> addAdviseesToAdvisors(ArrayList<Advisor> advisors) {
-    try {
-      ArrayList<Student> students = getAllStudents();
-      ArrayList<Advisor> advisorsWithAdvisees = new ArrayList<Advisor>();
-      ArrayList<Advisor> advisorsWithoutAdvisees = getAllAdvisorsWithoutAdvisees();
-        FileReader reader = new FileReader("advising/json/advisors.json");
-        JSONParser parser = new JSONParser();
-        JSONArray advisorsJSON = (JSONArray) parser.parse(reader);
-        for (int i = 0; i < advisorsJSON.size(); i++) {
+private static ArrayList<Advisor> addAdviseesToAdvisors(ArrayList<Advisor> advisorsWithoutAdvisees) {
+  ArrayList<Student> students = getAllStudents();
+  ArrayList<Advisor> advisorsWithAdvisees = new ArrayList<>();
+
+  try {
+      FileReader reader = new FileReader("advising/json/advisors.json");
+      JSONParser parser = new JSONParser();
+      JSONArray advisorsJSON = (JSONArray) parser.parse(reader);
+
+      for (int i = 0; i < advisorsJSON.size(); i++) {
           JSONObject advisorJSON = (JSONObject) advisorsJSON.get(i);
           String advisorUsername = (String) advisorJSON.get(USER_NAME);
-          Advisor advisor = findAdvisorByUsername(advisorsWithoutAdvisees,advisorUsername);
+
+          Advisor advisor = findAdvisorByUsername(advisorsWithoutAdvisees, advisorUsername);
           if (advisor != null) {
-            JSONArray adviseesJSON = (JSONArray) advisorJSON.get(LIST_OF_ADVISED_STUDENTS);
-            for (Object adviseeObject : adviseesJSON) {
-              String adviseeUsername = (String) adviseeObject;
-              Student student = findStudentByUsername(students, adviseeUsername);
-              if (student != null) {
-                advisor.addToAdviseeList(student);
+              advisor.getListOfAdvisedStudents().clear(); // Clear the existing list of advisees
+              JSONArray adviseesJSON = (JSONArray) advisorJSON.get(LIST_OF_ADVISED_STUDENTS);
+
+              if (adviseesJSON != null && !adviseesJSON.isEmpty()) {
+                  for (Object adviseeObject : adviseesJSON) {
+                      String adviseeUsername = (String) adviseeObject;
+                      Student student = findStudentByUsername(students, adviseeUsername);
+                      if (student != null) {
+                          advisor.addToAdviseeList(student);
+                      }
+                  }
               }
-            }
-          } 
-          advisorsWithAdvisees.add(advisor);
-        }
-        return advisorsWithAdvisees;//
-       }
-       catch (Exception e) {
-        e.printStackTrace();
-    }
-    return null;
+              advisorsWithAdvisees.add(advisor);
+          }
+      }
+      return advisorsWithAdvisees;
+  } catch (Exception e) {
+      e.printStackTrace();
+  }
+  return null;
 }
+
+
 
 /**
  * Finds the student by its username
