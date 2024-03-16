@@ -29,6 +29,14 @@ public class UserList {
       return instance;
   }
 
+  public Advisor getAdvisorByUsername(String username) {
+    for (Advisor advisor : advisors) {
+        if (advisor.getUsername().equals(username)) {
+            return advisor;
+        }
+    }
+    return null; 
+  }
 
 
   // Getters for user accounts 

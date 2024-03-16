@@ -8,8 +8,8 @@ import java.util.Map;
 public class test {
 
   public static void main(String[] args) {
-    testGetAllStudents();
-    // testGetAllAdvisors();
+    // testGetAllStudents();
+    testGetAllAdvisors();
     // testGetAllCourses();
     // testGetAllMajors();
     // testGetAllStudentPortfolios();
@@ -22,16 +22,18 @@ public class test {
   public static void testGetAllStudents() {
     ArrayList<Student> students = DataLoader.getAllStudents();
     System.out.println("List of Students:");
-    for (Student student : students) {
-      System.out.println(student);
-    }
+    // for (Student student : students) {
+    //   System.out.println(student);
+    // }
+    System.out.println(students.get(0).getAdvisor());
   }
 
   public static void testGetAllAdvisors() {
+    
     ArrayList<Advisor> advisors = DataLoader.getAllAdvisors();
     System.out.println("List of Advisors:");
     for (Advisor advisor : advisors) {
-      System.out.println(advisor);
+      System.out.println(advisor.getListOfAdvisedStudents().get(0).getFirstName());
     }
   }
 
@@ -108,59 +110,14 @@ public class test {
     DataWriter.saveCourses(courses);
   }
 
-  /*public static void testWriteUsers() {
+  public static void testWriteUsers() {
     ArrayList<Student> students = DataLoader.getAllStudents();
     ArrayList<Student> student = new ArrayList<Student>();
     student.add(students.get(0));
     ArrayList<Advisor> advisors = DataLoader.getAllAdvisors();
     StudentYear studentYear = StudentYear.FRESHMAN;
+    advisors.get(1).addStudentToAdvisor(null, students);
 
-
-
-
-
-    StudentElectives ec = new StudentElectives(
-      "James",
-      new ArrayList<ElectiveCluster>()
-    );
-    
-    StudentPortfolio sp = new StudentPortfolio(
-      "123",
-      new ArrayList<Course>(),
-      new HashMap<String, ArrayList<Course>>(),
-      new ArrayList<Course>(),
-      new HashMap<Course, Double>(),
-      new HashMap<Course, Integer>(),
-      "LIFE Scholarship",
-      0,
-      0.0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      ec
-    );
-    // Student s = new Student(
-    //   "James",
-    //   "Son",
-    //   "jamesson1",
-    //   "password",
-    //   "Student",
-    //   "Computer Science",
-    //   null,
-    //   studentYear,
-    //   sp,
-    //   null,
-    //   "Take Chem 101 next semester."
-    // );
-    // students.add(s);
-    DataWriter.saveUsers(student, advisors);
-    // System.out.println(s.getPortfolio());
   }
-  */
+  
 }
