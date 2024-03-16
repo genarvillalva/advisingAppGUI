@@ -142,10 +142,11 @@ public class SignUpTest {
                     lookUpStudent(advisorUsername, auditFacade, scanner);
                     break;
                 case "2":
+                    System.out.println("Enter the student's username");
+                    String username = scanner.nextLine();
                     System.out.println("Type your note (press Enter when finished):");
                     String note = scanner.nextLine(); // Get the note from the advisor
-                    
-                    //auditFacade.adviseStudent(note);
+                    auditFacade.adviseStudent(note, username);
                      //System.out.println("Note added to.");
                     
                     break;

@@ -98,16 +98,22 @@ public class Advisor extends User {
     this.listOfAdvisedStudents.add(student);
   }
 
-  public void adviseStudent(String username, String note) {
-    for (Student student : this.listOfAdvisedStudents) {
-      System.out.println(student.getUsername());
-      if (student.getUsername().equals(username)) {
-        System.out.println("Adding note to: " + student.getUsername());
-        student.addAdvisingNotes(note);
-        return;
-      }
+  public void addAdvisingNotes(String note, String username) {
+    if (this.advisingNotes == null) {
+      this.advisingNotes = "Note: " + note; // Since there are no existing notes a new note will be intialized.
+    } else {
+      this.advisingNotes +="\n" + "Note:" + note; // Append new note to existing notes
+    }
+    ArrayList<Student> students = DataLoader.getAllStudents();
+    for (Student student : students) {
+        if (student.getUsername().equals(username)) {
+            student.addAdvisingNotes(this.advisingNotes); // Update advising notes for the specific student
+            DataWriter.saveStudents(students);
+            return;
+        }
     }
     System.out.println("Student not found in advisor's list.");
+    
   }
 
   public void suggestCourses(ArrayList<Course> courses) {}

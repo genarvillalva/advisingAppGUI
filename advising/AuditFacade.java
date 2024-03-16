@@ -112,7 +112,7 @@ public boolean login(String username, String password, String userType) {
     //}
 
     public void adviseStudent(String notes, String username) {
-        advisor.adviseStudent(username,notes);
+        advisor.addAdvisingNotes(notes, username);
 
     }
 

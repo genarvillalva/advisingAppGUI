@@ -11,7 +11,7 @@ public class Student extends User {
   private StudentPortfolio studentPortfolio;
   private String applicationArea;
   private CourseList courseList;
-  private String advisingNotes;
+  private ArrayList<String> advisingNotes;
 
   /**
    * Constructor for the Student class
@@ -45,7 +45,7 @@ public class Student extends User {
     this.studentYear = studentYear;
     this.studentPortfolio = portfolio;
     this.applicationArea = applicationArea;
-    this.advisingNotes = advisingNotes;
+    this.advisingNotes = new ArrayList();
   }
 
   /**
@@ -105,8 +105,13 @@ public class Student extends User {
    * @return The advising notes of the student
    */
   public String getAdvisingNotes() {
-    return advisingNotes;
+    StringBuilder notesStringBuilder = new StringBuilder();
+    for (String note : advisingNotes) {
+        notesStringBuilder.append(note).append("\n");
+    }
+    return notesStringBuilder.toString();
   }
+  
 
   /**
    * Get the student year of the student
@@ -213,19 +218,6 @@ public class Student extends User {
 
   // Adds a new advising note to the student's record.
   public void addAdvisingNotes(String note) {
-    if (this.advisingNotes == null) {
-      this.advisingNotes = note; // Since there are no existing notes a new note will be intialized.
-      DataWriter.saveStudents(null);
-    } else {
-      this.advisingNotes += note; // Append new note to existing notes
-    }
-    ArrayList<Student> students = DataLoader.getAllStudents();
-    for (Student student : students) {
-        if (student.getUsername().equals(this.getUsername())) {
-            student.addAdvisingNotes(this.advisingNotes); // Update advising notes for the specific student
-            break;
-        }
-    }
-    DataWriter.saveStudents(students);
+    this.advisingNotes.add(note);
   }
 }
