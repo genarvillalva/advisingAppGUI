@@ -87,6 +87,18 @@ public class Advisor extends User {
     this.listOfAdvisedStudents.add(student);
   }
 
+  public void addToAdviseeList(String studentUsername) {
+    UserList userList = advising.UserList.getInstance();
+    Student student = userList.getStudentByUsername(studentUsername);
+    System.out.println(
+      "Adding student to advisor's list: " +
+      student.getFirstName() +
+      " " +
+      student.getLastName()
+    );
+    this.listOfAdvisedStudents.add(student);
+  }
+
   public void adviseStudent(String username, String note) {
     for (Student student : this.listOfAdvisedStudents) {
       System.out.println(student.getUsername());

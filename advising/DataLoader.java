@@ -126,12 +126,6 @@ public class DataLoader extends DataConstants {
           Advisor advisor = findAdvisorByUsername(advisorsWithoutAdvisees,advisorUsername);
           if (advisor != null) {
             JSONArray adviseesJSON = (JSONArray) advisorJSON.get(LIST_OF_ADVISED_STUDENTS);
-            ArrayList<String> test = new ArrayList<String>();
-            for (Object adviseeObject : adviseesJSON) {
-              String adviseeUsername = (String) adviseeObject;
-              test.add(adviseeUsername);
-          }
-          System.out.println("TEST: "+test);
             for (Object adviseeObject : adviseesJSON) {
               String adviseeUsername = (String) adviseeObject;
               Student student = findStudentByUsername(students, adviseeUsername);
@@ -139,7 +133,6 @@ public class DataLoader extends DataConstants {
                 advisor.addToAdviseeList(student);
               }
             }
-            System.out.println("advisor "+ advisor.getUsername() + " has " + advisor.getListOfAdvisedStudents().size() + " advisees");
           } 
           advisorsWithAdvisees.add(advisor);
         }

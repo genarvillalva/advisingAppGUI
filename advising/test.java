@@ -9,12 +9,12 @@ public class test {
 
   public static void main(String[] args) {
     // testGetAllStudents();
-    // testGetAllAdvisors();
+    testGetAllAdvisors();
     // testGetAllCourses();
     // testGetAllMajors();
     // testGetAllStudentPortfolios();
     // testStudentPortfolio();
-    testWriteUsers();
+    // testWriteUsers();
 
     // testSaveCourses();
   }
@@ -32,9 +32,9 @@ public class test {
     
     ArrayList<Advisor> advisors = DataLoader.getAllAdvisors();
     System.out.println("List of Advisors:");
-    // for (Advisor advisor : advisors) {
-    //   System.out.println(advisor.getListOfAdvisedStudents().get(0).getFirstName());
-    // }
+    for (Advisor advisor : advisors) {
+      System.out.println(advisor);
+    }
   }
 
   ///////////////////
@@ -111,13 +111,14 @@ public class test {
   }
 
   public static void testWriteUsers() {
+    UserList userList = UserList.getInstance();
     ArrayList<Student> students = DataLoader.getAllStudents();
-    ArrayList<Student> student = new ArrayList<Student>();
-    student.add(students.get(0));
     ArrayList<Advisor> advisors = DataLoader.getAllAdvisors();
-    StudentYear studentYear = StudentYear.FRESHMAN;
-    advisors.get(1).addStudentToAdvisor(null, students);
-
+    ArrayList<Advisor> test = new ArrayList<Advisor>();
+    Advisor a = advisors.get(1);
+    a.addToAdviseeList("thill");
+    test.add(a);
+    DataWriter.saveAdvisors(test);
   }
   
 }
