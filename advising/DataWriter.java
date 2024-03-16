@@ -344,15 +344,22 @@ public class DataWriter extends DataConstants {
   @SuppressWarnings("unchecked")
   public static void saveAdvisors(ArrayList<Advisor> advisors) {
     System.out.println("Saving advisors to JSON...");
-    // Load existing advisors using DataLoader
-    ArrayList<Advisor> existingAdvisors = DataLoader.getAllAdvisors();
-
-    // Combine existing and new advisors
-    existingAdvisors.addAll(advisors);
+    ArrayList<Advisor> oldAdvisors = DataLoader.getAllAdvisors();
+    // oldAdvisors.addAll(advisors);
 
     JSONArray jsonAdvisors = new JSONArray();
 
     for (Advisor advisor : advisors) {
+      boolean exists = false;
+      for (Advisor oldAdvisor : oldAdvisors) {
+        if (oldAdvisor.getUsername().equals(advisor.getUsername())) {
+          exists = true;
+          break;
+        }
+      }
+      if(!exists){
+        oldAdvisors.add(advisor);
+      }
       JSONObject advisorJson = getAdvisorJSON(advisor);
       System.out.println(
         "Converting advisor to JSON: " + advisor.getUsername()
@@ -379,7 +386,6 @@ public class DataWriter extends DataConstants {
     advisorObject.put(USER_NAME, advisor.getUsername());
     advisorObject.put(PASSWORD, advisor.getPassword());
     advisorObject.put(USER_TYPE, "Advisor");
-    System.out.println("TEST\n\n");
     ArrayList<String> studentUsernames = new ArrayList<>();
     System.out.println("L"+advisor.getListOfAdvisedStudents());
     for (Student student : advisor.getListOfAdvisedStudents()) {

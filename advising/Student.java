@@ -173,32 +173,33 @@ public class Student extends User {
       lastName +
       "\n" +
       "Username: " +
-      username +
-      "\n" +
-      "Password: " +
-      password +
-      "\n" +
-      "User Type: " +
-      userType +
-      "\n" +
-      "Major: " +
-      major +
-      "\n" +
-      "Advisor: " +
-      advisorUsername +
-      "\n" +
-      "Student Year: " +
-      studentYear +
-      "\n" +
-      "Student Portfolio: " +
-      studentPortfolio +
-      "\n" +
-      "Application Area: " +
-      applicationAreaInfo +
-      "\n" +
-      "Advising Notes: " +
-      advisingNotes +
-      "\n"
+      username 
+      // +
+      // "\n" +
+      // "Password: " +
+      // password +
+      // "\n" +
+      // "User Type: " +
+      // userType +
+      // "\n" +
+      // "Major: " +
+      // major +
+      // "\n" +
+      // "Advisor: " +
+      // advisorUsername +
+      // "\n" +
+      // "Student Year: " +
+      // studentYear +
+      // "\n" +
+      // "Student Portfolio: " +
+      // studentPortfolio +
+      // "\n" +
+      // "Application Area: " +
+      // applicationAreaInfo +
+      // "\n" +
+      // "Advising Notes: " +
+      // advisingNotes +
+      // "\n"
     );
   }
 
