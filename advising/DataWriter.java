@@ -191,6 +191,7 @@ public class DataWriter extends DataConstants {
    * @param portfolio Student's portfolio to convert
    * @return JSONObject of student's portfolio
    */
+  @SuppressWarnings("unchecked")
   private static JSONObject toPortfolioJSON(StudentPortfolio portfolio) {
     System.out.println(portfolio + "\n\n\n\n\n");
     JSONObject portfolioObject = new JSONObject();
@@ -378,9 +379,13 @@ public class DataWriter extends DataConstants {
     advisorObject.put(USER_NAME, advisor.getUsername());
     advisorObject.put(PASSWORD, advisor.getPassword());
     advisorObject.put(USER_TYPE, "Advisor");
-    for (Student s : advisor.getListofAdvisedStudents()) {
-      advisorObject.put(LIST_OF_ADVISED_STUDENTS, s.getUsername());
+    System.out.println("TEST\n\n");
+    ArrayList<String> studentUsernames = new ArrayList<>();
+    System.out.println("L"+advisor.getListOfAdvisedStudents());
+    for (Student student : advisor.getListOfAdvisedStudents()) {
+      studentUsernames.add(student.getUsername());
     }
+    advisorObject.put(LIST_OF_ADVISED_STUDENTS, studentUsernames);
     return advisorObject;
   }
 

@@ -35,7 +35,7 @@ public class DataLoader extends DataConstants {
    * @return ArrayList<Student>
    */
   public static ArrayList<Student> getAllStudents() {
-    ArrayList<Advisor> advisors = getAllAdvisors();
+    ArrayList<Advisor> advisors = getAllAdvisorsWithoutAdvisees();
     ArrayList<StudentPortfolio> studentPortfolios = getAllStudentPortfolios();
     ArrayList<Student> students = new ArrayList<Student>();
 
@@ -71,14 +71,15 @@ public class DataLoader extends DataConstants {
   }
 
   /**
-   * Reads the advisors.json file and returns an ArrayList of Advisors
+   * Helper method that reads the advisors.json file and returns an ArrayList of Advisors without advisees
    * @return ArrayList<Advisor>
    */
-  public static ArrayList<Advisor> getAllAdvisors() {
+  public static ArrayList<Advisor> getAllAdvisorsWithoutAdvisees() {
     ArrayList<Advisor> advisors = new ArrayList<Advisor>();
     try {
       FileReader reader = new FileReader("advising/json/advisors.json");
       JSONParser parser = new JSONParser();
+      ArrayList<Student> emptyList = new ArrayList<Student>();
       JSONArray advisorsJSON = (JSONArray) parser.parse(reader);
       for (int i = 0; i < advisorsJSON.size(); i++) {
         JSONObject advisorJSON = (JSONObject) advisorsJSON.get(i);
@@ -88,7 +89,7 @@ public class DataLoader extends DataConstants {
           (String) advisorJSON.get(USER_NAME),
           (String) advisorJSON.get(PASSWORD),
           (String) advisorJSON.get(USER_TYPE),
-          (ArrayList<Student>) advisorJSON.get(LIST_OF_ADVISED_STUDENTS)
+          emptyList
         );
         advisors.add(advisor);
       }
@@ -97,7 +98,72 @@ public class DataLoader extends DataConstants {
     }
     return advisors;
   }
+/**
+ * Gets all advisors with advisees
+ * @return ArrayList of all advisors with advisees 
+ */
+  public static ArrayList<Advisor> getAllAdvisors() {
+    ArrayList<Advisor> advisors = getAllAdvisorsWithoutAdvisees();
+    advisors = addAdviseesToAdvisors(advisors);
+    return advisors;
+  }
+/**
+ * Helper method to add advisees to advisors
+ * @param advisors list of all advisors
+ * @return the list of advisors with their respective advisees
+ */
+  private static ArrayList<Advisor> addAdviseesToAdvisors(ArrayList<Advisor> advisors) {
+    try {
+      ArrayList<Student> students = getAllStudents();
+      ArrayList<Advisor> advisorsWithAdvisees = new ArrayList<Advisor>();
+      ArrayList<Advisor> advisorsWithoutAdvisees = getAllAdvisorsWithoutAdvisees();
+        FileReader reader = new FileReader("advising/json/advisors.json");
+        JSONParser parser = new JSONParser();
+        JSONArray advisorsJSON = (JSONArray) parser.parse(reader);
+        for (int i = 0; i < advisorsJSON.size(); i++) {
+          JSONObject advisorJSON = (JSONObject) advisorsJSON.get(i);
+          String advisorUsername = (String) advisorJSON.get(USER_NAME);
+          Advisor advisor = findAdvisorByUsername(advisorsWithoutAdvisees,advisorUsername);
+          if (advisor != null) {
+            JSONArray adviseesJSON = (JSONArray) advisorJSON.get(LIST_OF_ADVISED_STUDENTS);
+            for (Object adviseeObject : adviseesJSON) {
+              String adviseeUsername = (String) adviseeObject;
+              Student student = findStudentByUsername(students, adviseeUsername);
+              if (student != null) {
+                advisor.addToAdviseeList(student);
+              }
+            }
+          } 
+          advisorsWithAdvisees.add(advisor);
+        }
+        return advisorsWithAdvisees;
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    return null;
+}
 
+/**
+ * Finds the student by its username
+ * @param students list of all students
+ * @param username the username of the student
+ * @return the student with the given username
+ */
+private static Student findStudentByUsername(
+  ArrayList<Student> students,
+  String username
+) {
+  for (Student student : students) {
+    if (student.getUsername().equals(username)) {
+      return student;
+    }
+  }
+  return null;
+}
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
   /**
    * Reads the Course.json file and returns an ArrayList of Courses
    * @return ArrayList<Course>
@@ -389,7 +455,6 @@ public class DataLoader extends DataConstants {
       FileReader reader = new FileReader("advising/json/StudentElectives.json");
       JSONParser parser = new JSONParser();
       JSONArray studentElectivesJSON = (JSONArray) parser.parse(reader);
-      System.out.println("Student Electives JSON size:  " + studentElectivesJSON.size());
       for (int i = 0; i < studentElectivesJSON.size(); i++) {
         JSONObject studentElectiveJSON = (JSONObject) studentElectivesJSON.get(i);
         String studentName = (String) studentElectiveJSON.get("studentName");

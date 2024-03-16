@@ -123,7 +123,7 @@ public boolean login(String username, String password, String userType) {
     }
     public void addStudentToAdvisor(String studentUsername) {
         if (advisor != null) {
-            advisor.addStudentToAdvisor(studentUsername, advisor.getListofAdvisedStudents());
+            advisor.addStudentToAdvisor(studentUsername, advisor.getListOfAdvisedStudents());
         } else {
             System.out.println("Advisor not logged in.");
         }

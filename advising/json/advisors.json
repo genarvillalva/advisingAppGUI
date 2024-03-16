@@ -4,7 +4,7 @@
     "firstName": "Greg",
     "lastName": "Tomlin",
     "username": "gregtomlin24",
-    "password": "insecurepassword",
+    "password": "1",
     "userType": "Advisor",
     "listOfAdvisedStudents": [
       "bwest"

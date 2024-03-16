@@ -3,28 +3,22 @@
         "firstName": "Greg",
         "lastName": "Tomlin",
         "listOfAdvisedStudents": [
-            "bwest"
+            "test",
+            "test2"
         ],
-        "password": "insecurepassword",
+        "password": "1",
         "userType": "Advisor",
-        "username": "gregtomlin24"
+        "username": "1"
     },
     {
         "firstName": "Osbert",
         "lastName": "Odden",
         "listOfAdvisedStudents": [
-            null
+            "test",
+            "test2"
         ],
         "password": "apassword",
         "userType": "Advisor",
         "username": "osberto"
-    },
-    {
-        "firstName": "Robbie",
-        "lastName": "Vann",
-        "listOfAdvisedStudents": null,
-        "password": "rob2v",
-        "userType": "Advisor",
-        "username": "Rob1v"
     }
 ]
