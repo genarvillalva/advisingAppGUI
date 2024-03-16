@@ -3,19 +3,19 @@
         "firstName": "Greg",
         "lastName": "Tomlin",
         "listOfAdvisedStudents": [
-            "test",
-            "test2"
+            "bwest",
+            "thill"
         ],
         "password": "1",
         "userType": "Advisor",
-        "username": "1"
+        "username": "gregtomlin24"
     },
     {
         "firstName": "Osbert",
         "lastName": "Odden",
         "listOfAdvisedStudents": [
-            "test",
-            "test2"
+            "bwest",
+            "thill"
         ],
         "password": "apassword",
         "userType": "Advisor",

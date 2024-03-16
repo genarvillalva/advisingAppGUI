@@ -9,12 +9,12 @@ public class test {
 
   public static void main(String[] args) {
     // testGetAllStudents();
-    testGetAllAdvisors();
+    // testGetAllAdvisors();
     // testGetAllCourses();
     // testGetAllMajors();
     // testGetAllStudentPortfolios();
     // testStudentPortfolio();
-    // testWriteUsers();
+    testWriteUsers();
 
     // testSaveCourses();
   }
@@ -32,9 +32,9 @@ public class test {
     
     ArrayList<Advisor> advisors = DataLoader.getAllAdvisors();
     System.out.println("List of Advisors:");
-    for (Advisor advisor : advisors) {
-      System.out.println(advisor.getListOfAdvisedStudents().get(0).getFirstName());
-    }
+    // for (Advisor advisor : advisors) {
+    //   System.out.println(advisor.getListOfAdvisedStudents().get(0).getFirstName());
+    // }
   }
 
   ///////////////////
