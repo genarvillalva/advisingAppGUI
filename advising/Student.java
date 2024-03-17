@@ -151,6 +151,9 @@ public class Student extends User {
     this.studentPortfolio.toString();
   }
 
+  public void logout() {
+    super.logout(); // Call the logout() method from the superclass
+  }
   /**
    * String representation of a student
    */
