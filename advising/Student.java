@@ -100,6 +100,10 @@ public class Student extends User {
     return advisor;
   }
 
+  public void setAdvisor(Advisor advisor) {
+    this.advisor = advisor;
+  }
+
   /**
    * Get the advising notes of the student
    * @return The advising notes of the student

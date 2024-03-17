@@ -118,7 +118,7 @@ public boolean login(String username, String password, String userType) {
 
 
     public Student lookUpStudent(String advisorUsername, String studentUsername) {
-            return advisor.lookUpStudent(studentUsername);
+        return advisor.lookUpStudent(studentUsername);
             
     }
     public void addStudentToAdvisor(String studentUsername) {

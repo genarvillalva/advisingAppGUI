@@ -14,7 +14,7 @@ public class test {
     // testGetAllMajors();
     // testGetAllStudentPortfolios();
     // testStudentPortfolio();
-    testWriteUsers();
+    // testWriteUsers();
 
     // testSaveCourses();
   }

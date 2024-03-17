@@ -151,7 +151,7 @@ public class DataWriter extends DataConstants {
     System.out.println(
       "Number of students being written to JSON: " + jsonStudents.size()
     );
-    writeToFile(jsonStudents, "advising/json/studenttest.json");
+    writeToFile(jsonStudents, "advising/json/students.json");
     writeToFile(jsonStudentPortfolios, "advising/json/portftest.json");
   }
 
@@ -360,7 +360,7 @@ public class DataWriter extends DataConstants {
       JSONObject advisorJson = getAdvisorJSON(advisor);
       jsonAdvisors.add(advisorJson);
     }
-    writeToFile(jsonAdvisors, "advising/json/advisorstest.json");
+    writeToFile(jsonAdvisors, "advising/json/advisors.json");
   }
 
   /**

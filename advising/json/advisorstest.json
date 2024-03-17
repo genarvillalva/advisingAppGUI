@@ -13,7 +13,7 @@
         "firstName": "Osbert",
         "lastName": "Odden",
         "listOfAdvisedStudents": [
-            "thill"
+            null
         ],
         "password": "apassword",
         "userType": "Advisor",

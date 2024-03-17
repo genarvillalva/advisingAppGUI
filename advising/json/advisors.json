@@ -9,16 +9,6 @@
     "listOfAdvisedStudents": [
       "bwest"
     ]
-  },
-  {
-    "firstName": "Osbert",
-    "lastName": "Odden",
-    "username": "osberto",
-    "password": "apassword",
-    "userType": "Advisor",
-    "listOfAdvisedStudents": [
-      null
-    ]
   }
 ]
 
