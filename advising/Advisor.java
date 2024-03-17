@@ -76,27 +76,17 @@ public class Advisor extends User {
     return advisingNotes;
   }
 
-  public void addToAdviseeList(Student student) {
-    System.out.println(
-      "Adding student to "+getUsername() +  " list: " +
-      student.getFirstName() +
-      " " +
-      student.getLastName()
-    );
-    this.listOfAdvisedStudents.add(student);
-  }
-
-  public void addToAdviseeList(String studentUsername) {
-    UserList userList = advising.UserList.getInstance();
-    Student student = userList.getStudentByUsername(studentUsername);
-    System.out.println(
-      "Adding student to "+getUsername() +  " list: " +
-      student.getFirstName() +
-      " " +
-      student.getLastName()
-    );
-    this.listOfAdvisedStudents.add(student);
-  }
+  // public void addToAdviseeList(String studentUsername) {
+  //   UserList userList = advising.UserList.getInstance();
+  //   Student student = userList.getStudentByUsername(studentUsername);
+  //   System.out.println(
+  //     "Adding student to "+getUsername() +  " list: " +
+  //     student.getFirstName() +
+  //     " " +
+  //     student.getLastName()
+  //   );
+  //   this.listOfAdvisedStudents.add(student);
+  // }
 
   public void addAdvisingNotes(String note, String username) {
     if (this.advisingNotes == null) {
@@ -122,7 +112,7 @@ public class Advisor extends User {
     // Directly fetch the Student object from a central repository (e.g., UserList)
     // where all students are stored, without limiting the search to the advisor's advised students.
     Student student = UserList.getInstance().getStudentByUsername(username);
-
+    System.out.println(student.getPortfolio());
     if (student != null) {
       // If a student with the provided username is found, return the student.
       return student;
@@ -133,10 +123,30 @@ public class Advisor extends User {
     }
   }
 
-  public void addStudentToAdvisor(
-    String username,
-    ArrayList<Student> listOfAdvisedStudents
-  ) {
+  public void addToAdviseeList(Student student) {
+    System.out.println(
+      "Adding student to "+getUsername() +  " list: " +
+      student.getFirstName() +
+      " " +
+      student.getLastName()
+    );
+    this.listOfAdvisedStudents.add(student);
+  }
+
+  public void addAdvisorToAdvisee(String username) {
+    ArrayList<Student> students = DataLoader.getAllStudents(); // Load all students
+    for (Student stu : students) {
+        if (username.equals(stu.getUsername())) {
+            // Update the specific student in the list
+            stu.setAdvisor(this);
+            break;
+        }
+    }
+    DataWriter.saveStudents(students);
+  }
+
+  public void addStudentToAdvisor(String username, ArrayList<Student> listOfAdvisedStudents)
+   {
     Student student = UserList.getInstance().getStudentByUsername(username);
 
     if (student != null) {
@@ -152,6 +162,8 @@ public class Advisor extends User {
         firstName +
         "'s list of advised students."
       );
+      addAdvisorToAdvisee(username);
+
     } else {
       System.out.println("Student " + username + " not found.");
     }
