@@ -102,7 +102,7 @@ public class Advisor extends User {
     if (this.advisingNotes == null) {
       this.advisingNotes = "Note: " + note; // Since there are no existing notes a new note will be intialized.
     } else {
-      this.advisingNotes +="\n" + "Note:" + note; // Append new note to existing notes
+      this.advisingNotes +="\n" + " Note: " + note; // Append new note to existing notes
     }
     ArrayList<Student> students = DataLoader.getAllStudents();
     for (Student student : students) {

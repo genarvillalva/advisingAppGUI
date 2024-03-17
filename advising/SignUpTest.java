@@ -121,15 +121,14 @@ public class SignUpTest {
         }
     }
     private static void advisorMenu(String advisorUsername, AuditFacade auditFacade, Scanner scanner) {
+        String username;
         boolean running = true;
         while (running) {
             // Display advisor menu options
             System.out.println("\nAdvisor Menu:");
             System.out.println("1. Look up a student");
-            //System.out.println(" Suggest courses");
-            //System.out.println(" Remove student from program");
-            System.out.println("2. Write a note");
-            //System.out.println("Generate eight semester plan");
+            System.out.println("2. Add student as advisee");
+            System.out.println("3. Write a note");
             System.out.println("0. Logout");
     
             // Prompt user for choice
@@ -143,7 +142,12 @@ public class SignUpTest {
                     break;
                 case "2":
                     System.out.println("Enter the student's username");
-                    String username = scanner.nextLine();
+                    username = scanner.nextLine();
+                    auditFacade.addStudentToAdvisor(username);
+                    break;
+                case "3":
+                    System.out.println("Enter the student's username");
+                    username = scanner.nextLine();
                     System.out.println("Type your note (press Enter when finished):");
                     String note = scanner.nextLine(); // Get the note from the advisor
                     auditFacade.adviseStudent(note, username);
@@ -208,9 +212,6 @@ public class SignUpTest {
     }
     
 private static void lookUpStudent(String advisorUsername, AuditFacade auditFacade, Scanner scanner) {
-    // Prompt for student username
-    boolean addAdvisee = false;
-
     System.out.print("Enter Student Username: ");
     String studentUsername = scanner.nextLine();
 
@@ -227,15 +228,6 @@ private static void lookUpStudent(String advisorUsername, AuditFacade auditFacad
         // Set success to false 
         boolean success = false;
         return;
-    }
-    System.out.println("Would you like to make this student an advisee? (yes/no)");
-    String answer = scanner.nextLine();
-    if (answer.equalsIgnoreCase("yes")) {
-        addAdvisee = true;
-    }
-    if (addAdvisee) {
-        // No need to pass any parameters here, as the auditFacade already has the advisor
-        auditFacade.addStudentToAdvisor(studentUsername);
     }
 }
 
