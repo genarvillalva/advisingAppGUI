@@ -19,7 +19,7 @@ public class DataWriter extends DataConstants {
    * @param filePath The path to the JSON file
    */
   @SuppressWarnings("unchecked")
-  public static boolean saveCourses(ArrayList<Course> _courses) {
+  public static void saveCourses(ArrayList<Course> _courses) {
     ArrayList<Course> courses = _courses;
     ArrayList<Course> oldCourses = DataLoader.getAllCourses();
     JSONArray jsonCourses = new JSONArray();
@@ -37,7 +37,6 @@ public class DataWriter extends DataConstants {
     } catch (IOException e) {
       e.printStackTrace();
     }
-    return true;
   }
 
   /**
