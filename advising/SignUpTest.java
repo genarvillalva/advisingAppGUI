@@ -156,7 +156,9 @@ public class SignUpTest {
                     break;
                 case "0":
                     // Logout
-                    running = false;
+                    System.out.println("User is being logged out");
+                    auditFacade.logoutAdvisor();
+                    login(auditFacade, scanner);
                     break;
                 default:
                     // Invalid option
@@ -203,7 +205,8 @@ public class SignUpTest {
 
                     break;
                 case "0":
-                    running = false;
+                    auditFacade.logoutAdvisor();
+                    login(auditFacade, scanner);
                     break;
                 default:
                     System.out.println("Invalid option, please try again.");
