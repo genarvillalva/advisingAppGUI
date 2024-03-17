@@ -106,7 +106,7 @@ public abstract class User {
   public void logout() {
     isLoggedIn = false; 
     System.out.println("Logged out successfully.");
-}
+  }
 
   /**
    * String representation of a user
