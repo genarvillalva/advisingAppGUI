@@ -129,6 +129,14 @@ public boolean login(String username, String password, String userType) {
         }
     }
 
+    public void logoutAdvisor() {
+        advisor.logout();
+    }
+    
+    public void logoutStudent() {
+        student.logout();
+    }
+
     public void switchMajor(Student student, String major) {
 
     }

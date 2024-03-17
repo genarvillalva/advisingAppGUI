@@ -199,6 +199,10 @@ public class Advisor extends User {
 
   public void generateEightSemesterPlan() {}
 
+  public void logout() {
+    super.logout(); // Call the logout() method from the superclass
+  }
+
   public String toString() {
     return (
       "Advisor:\n" +
