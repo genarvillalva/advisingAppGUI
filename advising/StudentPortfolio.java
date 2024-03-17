@@ -15,7 +15,6 @@ public class StudentPortfolio {
   private ArrayList<Course> requiredCourses;
   private HashMap<String, ArrayList<Course>> eightSemesterPlan;
   private ArrayList<Course> currentCourses;
-  //Completed Course method?
   private HashMap<Course, Double> completedCourses;
   private HashMap<Course, Integer> failedCourses;
   private String scholarship;
@@ -318,13 +317,6 @@ public int getTotalCreditHoursMajorRequirements() {
     return totalCreditHoursMajorRequirements;
 }
 
-  public void requiredCourses(String courseName, String courseNumber) {
-    requiredCourses = new ArrayList<>();
-    eightSemesterPlan = new HashMap();
-    currentCourses = new ArrayList<>();
-    completedCourses = new HashMap();
-    failedCourses = new HashMap();
-  }
 
   /**
    * Converts the grade into a GPA int
