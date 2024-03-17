@@ -537,7 +537,7 @@ public static void printAllStudentPortfoliosToFile(String filePath) {
                   try {
                     String currentSemester = portfolio.getSemester();
                     if (currentSemester.equals(semester)) {
-                      writer.write("\nCurrent Semester!!!!!!!!!!!!!!!!!!!!!!!!");
+                      writer.write("\nCurrent Semester!!!");
                     }
                       writer.write("\nSemester " + semester + ": \n");
                       courses.forEach(course -> {
@@ -591,5 +591,90 @@ public static void printAllStudentPortfoliosToFile(String filePath) {
       System.out.println("No student portfolios found.");
   }
 }
+
+public static void printAStudentPortfolioToFile(String filePath, String portfolioUUID) {
+  ArrayList<StudentPortfolio> studentPortfolios = DataLoader.getAllStudentPortfolios();
+  StudentPortfolio finalStudentPortfolio = null;
+
+  // Find the student portfolio with the specified UUID
+  if (studentPortfolios != null) {
+      for (StudentPortfolio portfolio : studentPortfolios) {
+          if (portfolio.getPortfolioUUID().equals(portfolioUUID)) {
+              finalStudentPortfolio = portfolio;
+              break;
+          }
+      }
+  }
+
+  final StudentPortfolio studentPortfolio = finalStudentPortfolio;
+
+  // If the student portfolio is found, print it to the file
+  if (studentPortfolio != null) {
+      try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+          writer.write("Portfolio UUID: " + studentPortfolio.getPortfolioUUID());
+          writer.newLine();
+
+          writer.write("\nEight Semester Plan:");
+          writer.newLine();
+          studentPortfolio.getEightSemesterPlan().forEach((semester, courses) -> {
+              try {
+                  String currentSemester = studentPortfolio.getSemester();
+                  if (currentSemester.equals(semester)) {
+                      writer.write("\nCurrent Semester!!!");
+                  }
+                  writer.write("\nSemester " + semester + ": \n");
+                  courses.forEach(course -> {
+                      try {
+                          writer.write(course + "\n");
+                      } catch (IOException e) {
+                          e.printStackTrace();
+                      }
+                  });
+                  writer.newLine();
+              } catch (IOException e) {
+                  e.printStackTrace();
+              }
+          });
+
+          writer.write("\nCompleted Courses:");
+          writer.newLine();
+          studentPortfolio.getCompletedCourses().forEach((course, grade) -> {
+              try {
+                  writer.write("\n" + course + "Grade: " + grade);
+                  writer.newLine();
+              } catch (IOException e) {
+                  e.printStackTrace();
+              }
+          });
+
+          writer.write("\nCurrent Courses: " + studentPortfolio.getCurrentCourses());
+          writer.newLine();
+
+          writer.write("\nFailed Courses: " + studentPortfolio.getFailedCourses());
+          writer.newLine();
+
+          writer.write("\nGPA: " + studentPortfolio.getGpa());
+          writer.newLine();
+
+          writer.write("Semester Credit Count: " + studentPortfolio.getSemesterCreditCount());
+          writer.newLine();
+
+          writer.write("Total Credit Hours: " + studentPortfolio.getTotalCreditHours());
+          writer.newLine();
+
+          writer.write("-----------------------------------------------------------");
+          writer.newLine();
+
+          System.out.println("Student portfolio for UUID " + portfolioUUID + " written to file: " + filePath);
+      } catch (IOException e) {
+          System.err.println("Error writing student portfolio to file: " + filePath);
+          e.printStackTrace();
+      }
+  } else {
+      System.out.println("Student portfolio with UUID " + portfolioUUID + " not found.");
+  }
+}
+
+
 
 }
