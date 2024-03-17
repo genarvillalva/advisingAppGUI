@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class StudPortTestFile {
     public static void main(String[] args) {
         
-/*
+
         UserList userList = UserList.getInstance();
         ArrayList<Student> students = userList.getStudents();
        // System.out.println(students.get(0).getPortfolio().getEightSemesterPlan());
@@ -19,7 +19,7 @@ public class StudPortTestFile {
                 courses.forEach(course -> System.out.print(course +"\n"));
             });
 
-*/
+
 
 
       
