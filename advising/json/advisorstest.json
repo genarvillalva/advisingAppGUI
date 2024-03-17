@@ -3,7 +3,8 @@
         "firstName": "Greg",
         "lastName": "Tomlin",
         "listOfAdvisedStudents": [
-            "bwest"
+            "bwest",
+            "thill"
         ],
         "password": "1",
         "userType": "Advisor",
@@ -12,9 +13,7 @@
     {
         "firstName": "Osbert",
         "lastName": "Odden",
-        "listOfAdvisedStudents": [
-            "thill"
-        ],
+        "listOfAdvisedStudents": [],
         "password": "apassword",
         "userType": "Advisor",
         "username": "osberto"
