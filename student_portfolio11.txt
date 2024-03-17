@@ -2,6 +2,7 @@ Portfolio UUID: bwest
 
 Eight Semester Plan:
 
+Current Semester!!!!!!!!!!!!!!!!!!!!!!!!
 Semester 1: 
 CourseID: CSCE145
 Title: Algorithmic Design I
@@ -45,7 +46,6 @@ PrereqCoreq: None
 
 
 
-Current Semester!!!!!!!!!!!!!!!!!!!!!!!!
 Semester 2: 
 CourseID: CSCE146
 Title: Algorithmic Design II
@@ -328,6 +328,7 @@ PrereqCoreq: None
 
 
 Completed Courses:
+
 CourseID: CSCE190
 Title: Computing in the Modern World
 Course Code: PR
@@ -337,7 +338,8 @@ Semester: FALLSPRING
 Prerequisite Courses: Algorithmic Design I
 Corequisite Courses: Algorithmic Design I
 PrereqCoreq: None
--Grade: 85.0
+Grade: 85.0
+
 CourseID: ARTE260
 Title: INTERDISCIPLINARY RELATIONSHIPS IN THE ARTS
 Course Code: AIU
@@ -347,7 +349,8 @@ Semester: FALLSPRING
 Prerequisite Courses: None
 Corequisite Courses: None
 PrereqCoreq: None
--Grade: 98.0
+Grade: 98.0
+
 CourseID: UNIV101
 Title: University 101: The Student in the University
 Course Code: GHS
@@ -357,7 +360,8 @@ Semester: FALLSPRING
 Prerequisite Courses: None
 Corequisite Courses: None
 PrereqCoreq: None
--Grade: 100.0
+Grade: 100.0
+
 CourseID: CSCE145
 Title: Algorithmic Design I
 Course Code: PR
@@ -367,7 +371,7 @@ Semester: FALLSPRING
 Prerequisite Courses: None
 Corequisite Courses: None
 PrereqCoreq: None
--Grade: 90.5
+Grade: 90.5
 
 Current Courses: [CourseID: CSCE146
 Title: Algorithmic Design II
@@ -425,7 +429,6 @@ Corequisite Courses: None
 PrereqCoreq: None
 ]
 
-
 Failed Courses: {CourseID: MATH241
 Title: Vector Calculus
 Course Code: PR
@@ -445,6 +448,7 @@ Portfolio UUID: thill
 
 Eight Semester Plan:
 
+Current Semester!!!!!!!!!!!!!!!!!!!!!!!!
 Semester 1: 
 CourseID: CSCE190
 Title: Computing in the Modern World
@@ -478,7 +482,6 @@ PrereqCoreq: None
 
 
 
-Current Semester!!!!!!!!!!!!!!!!!!!!!!!!
 Semester 2: 
 CourseID: CSCE146
 Title: Algorithmic Design II
@@ -761,6 +764,7 @@ PrereqCoreq: None
 
 
 Completed Courses:
+
 CourseID: CSCE190
 Title: Computing in the Modern World
 Course Code: PR
@@ -770,7 +774,8 @@ Semester: FALLSPRING
 Prerequisite Courses: Algorithmic Design I
 Corequisite Courses: Algorithmic Design I
 PrereqCoreq: None
--Grade: 85.0
+Grade: 85.0
+
 CourseID: ARTE260
 Title: INTERDISCIPLINARY RELATIONSHIPS IN THE ARTS
 Course Code: AIU
@@ -780,7 +785,8 @@ Semester: FALLSPRING
 Prerequisite Courses: None
 Corequisite Courses: None
 PrereqCoreq: None
--Grade: 98.0
+Grade: 98.0
+
 CourseID: UNIV101
 Title: University 101: The Student in the University
 Course Code: GHS
@@ -790,7 +796,8 @@ Semester: FALLSPRING
 Prerequisite Courses: None
 Corequisite Courses: None
 PrereqCoreq: None
--Grade: 100.0
+Grade: 100.0
+
 CourseID: CSCE145
 Title: Algorithmic Design I
 Course Code: PR
@@ -800,7 +807,8 @@ Semester: FALLSPRING
 Prerequisite Courses: None
 Corequisite Courses: None
 PrereqCoreq: None
--Grade: 90.5
+Grade: 90.5
+
 CourseID: STAT509
 Title: Statistics for Engineers
 Course Code: PR
@@ -810,7 +818,7 @@ Semester: FALLSPRING
 Prerequisite Courses: Calculus II
 Corequisite Courses: None
 PrereqCoreq: None
--Grade: 99.0
+Grade: 99.0
 
 Current Courses: [CourseID: CSCE146
 Title: Algorithmic Design II
@@ -858,7 +866,6 @@ Prerequisite Courses: None
 Corequisite Courses: None
 PrereqCoreq: None
 ]
-
 
 Failed Courses: {}
 

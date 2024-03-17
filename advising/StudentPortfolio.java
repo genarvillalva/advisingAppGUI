@@ -317,6 +317,18 @@ public int getTotalCreditHoursMajorRequirements() {
     return totalCreditHoursMajorRequirements;
 }
 
+public String getSemester() {
+  int totalCreditHours = getTotalCreditHours();
+
+  // Calculate semester based on total credit hours
+  int semesterNumber = (totalCreditHours / 15) + 1;
+
+  // Convert the semester number to a String representation
+  String semester = String.valueOf(semesterNumber);
+
+  return semester;
+}
+
 
   /**
    * Converts the grade into a GPA int
@@ -523,10 +535,14 @@ public static void printAllStudentPortfoliosToFile(String filePath) {
               writer.newLine();
               portfolio.getEightSemesterPlan().forEach((semester, courses) -> {
                   try {
-                      writer.write("Semester " + semester + ": ");
+                    String currentSemester = portfolio.getSemester();
+                    if (currentSemester.equals(semester)) {
+                      writer.write("\nCurrent Semester!!!!!!!!!!!!!!!!!!!!!!!!");
+                    }
+                      writer.write("\nSemester " + semester + ": \n");
                       courses.forEach(course -> {
                           try {
-                              writer.write(course + ", ");
+                              writer.write(course + "\n");
                           } catch (IOException e) {
                               e.printStackTrace();
                           }
@@ -541,7 +557,7 @@ public static void printAllStudentPortfoliosToFile(String filePath) {
               writer.newLine();
               portfolio.getCompletedCourses().forEach((course, grade) -> {
                   try {
-                      writer.write(course + "-Grade: " + grade);
+                      writer.write("\n" + course + "Grade: " + grade);
                       writer.newLine();
                   } catch (IOException e) {
                       e.printStackTrace();

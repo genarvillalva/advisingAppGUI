@@ -45,7 +45,7 @@ public class StudPortTestFile {
 
 
         //Student.printAllStudentPortfolios();
-        String filePath = "student_portfolio7.txt";
+        String filePath = "student_portfolio11.txt";
         StudentPortfolio.printAllStudentPortfoliosToFile(filePath);
 
     }

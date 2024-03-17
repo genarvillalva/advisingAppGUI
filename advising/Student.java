@@ -265,7 +265,7 @@ public class Student extends User {
     }
 }
 
-
+/* 
 public static void printEightSemesterPlan() {
   StudentPortfolio studentPortfolio = StudentPortfolio.printAllStudentPortfolios();
   System.out.println("Portfolio UUID: " + studentPortfolio.getPortfolioUUID());
@@ -276,6 +276,7 @@ public static void printEightSemesterPlan() {
     System.out.println();
   });
 }
+*/
 
 /*
 public static void printEightSemesterPlan() {
