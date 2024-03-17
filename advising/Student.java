@@ -227,4 +227,72 @@ public class Student extends User {
   public void addAdvisingNotes(String note) {
     this.advisingNotes.add(note);
   }
+
+  /**
+   * Prints the values from student portfolio to the terminal
+   */
+  public static void printAllStudentPortfolios() {
+    ArrayList<StudentPortfolio> studentPortfolios = DataLoader.getAllStudentPortfolios();
+    if (studentPortfolios != null) {
+        for (StudentPortfolio portfolio : studentPortfolios) {
+            System.out.println("Portfolio UUID: " + portfolio.getPortfolioUUID());
+            //System.out.println("Required Courses: " + portfolio.getRequiredCourses());
+            System.out.println("\nEight Semester Plan:");
+            portfolio.getEightSemesterPlan().forEach((semester, courses) -> {
+                System.out.print("\nSemester " + semester + ": \n");
+                courses.forEach(course -> System.out.print(course + "\n"));
+                System.out.println();
+            });
+            System.out.println("Completed Courses: ");
+            portfolio.getCompletedCourses().forEach((course, grade) -> {
+                System.out.println(course + "-Grade: " + grade);
+            });
+            System.out.println("\nCurrent Courses: " + portfolio.getCurrentCourses());
+            System.out.println("\nFailed Courses: " + portfolio.getFailedCourses());
+            //System.out.println("Scholarship: " + portfolio.getScholarship());
+            //System.out.println("Yearly Scholarship Credit Hours Left: " + portfolio.getYearlyScholarshipCreditHoursLeft());
+            System.out.println("\nGPA: " + portfolio.getGpa());
+            //System.out.println("Fail Count: " + portfolio.getFailCount());
+            System.out.println("Semester Credit Count: " + portfolio.getSemesterCreditCount());
+            //System.out.println("Year Credit Hours: " + portfolio.getYearCreditHours());
+            System.out.println("Total Credit Hours: " + portfolio.getTotalCreditHours());
+            //System.out.println("Total Credit Hours Found Docu: " + portfolio.getTotalCreditHoursFoundDocu());
+            //System.out.println("Total Credit Hours CC: " + portfolio.getTotalCreditHoursCC());
+            //System.out.println("Total Credit Hours Integrative Course: " + portfolio.getTotalCreditHoursIntegrativeCourse());
+            //System.out.println("Total Credit Hours Program Requirements: " + portfolio.getTotalCreditHoursProgramRequirements());
+            //System.out.println("Total Credit Hours Major Requirements: " + portfolio.getTotalCreditHoursMajorRequirements());
+            //System.out.println("Student Electives: " + portfolio.getStudentElectives());
+            System.out.println("-----------------------------------------------------------");
+        }
+    } else {
+        System.out.println("No student portfolios found.");
+    }
+}
+
+/* 
+public static void printEightSemesterPlan() {
+  StudentPortfolio studentPortfolio = StudentPortfolio.printAllStudentPortfolios();
+  System.out.println("Portfolio UUID: " + studentPortfolio.getPortfolioUUID());
+  System.out.println("\nEight Semester Plan:");
+  studentPortfolio.getEightSemesterPlan().forEach((semester, courses) -> {
+    System.out.print("\nSemester " + semester + ": ");
+    courses.forEach(course -> System.out.print(course + ", "));
+    System.out.println();
+  });
+}
+*/
+
+/*
+public static void printEightSemesterPlan() {
+  StudentPortfolio studentPortfolios = studentPortfolio;
+          System.out.println("Portfolio UUID: " + studentPortfolio.getPortfolioUUID());
+          //System.out.println("Required Courses: " + portfolio.getRequiredCourses());
+          System.out.println("\nEight Semester Plan:");
+          studentPortfolio.getEightSemesterPlan().forEach((semester, courses) -> {
+              System.out.print("\nSemester " + semester + ": ");
+              courses.forEach(course -> System.out.print(course + ", "));
+              System.out.println();
+          });
+        }
+    */
 }

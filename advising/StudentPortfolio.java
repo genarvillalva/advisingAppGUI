@@ -15,7 +15,6 @@ public class StudentPortfolio {
   private ArrayList<Course> requiredCourses;
   private HashMap<String, ArrayList<Course>> eightSemesterPlan;
   private ArrayList<Course> currentCourses;
-  //Completed Course method?
   private HashMap<Course, Double> completedCourses;
   private HashMap<Course, Integer> failedCourses;
   private String scholarship;
@@ -318,13 +317,18 @@ public int getTotalCreditHoursMajorRequirements() {
     return totalCreditHoursMajorRequirements;
 }
 
-  public void requiredCourses(String courseName, String courseNumber) {
-    requiredCourses = new ArrayList<>();
-    eightSemesterPlan = new HashMap();
-    currentCourses = new ArrayList<>();
-    completedCourses = new HashMap();
-    failedCourses = new HashMap();
-  }
+public String getSemester() {
+  int totalCreditHours = getTotalCreditHours();
+
+  // Calculate semester based on total credit hours
+  int semesterNumber = (totalCreditHours / 15) + 1;
+
+  // Convert the semester number to a String representation
+  String semester = String.valueOf(semesterNumber);
+
+  return semester;
+}
+
 
   /**
    * Converts the grade into a GPA int
@@ -481,9 +485,9 @@ public int getTotalCreditHoursMajorRequirements() {
         for (StudentPortfolio portfolio : studentPortfolios) {
             System.out.println("Portfolio UUID: " + portfolio.getPortfolioUUID());
             //System.out.println("Required Courses: " + portfolio.getRequiredCourses());
-            System.out.println("Eight Semester Plan:");
+            System.out.println("\nEight Semester Plan:");
             portfolio.getEightSemesterPlan().forEach((semester, courses) -> {
-                System.out.print("Semester " + semester + ": ");
+                System.out.print("\nSemester " + semester + ": ");
                 courses.forEach(course -> System.out.print(course + ", "));
                 System.out.println();
             });
@@ -491,11 +495,11 @@ public int getTotalCreditHoursMajorRequirements() {
             portfolio.getCompletedCourses().forEach((course, grade) -> {
                 System.out.println(course + "-Grade: " + grade);
             });
-            System.out.println("Current Courses: " + portfolio.getCurrentCourses());
-            System.out.println("Failed Courses: " + portfolio.getFailedCourses());
+            System.out.println("\nCurrent Courses: " + portfolio.getCurrentCourses());
+            System.out.println("\nFailed Courses: " + portfolio.getFailedCourses());
             //System.out.println("Scholarship: " + portfolio.getScholarship());
             //System.out.println("Yearly Scholarship Credit Hours Left: " + portfolio.getYearlyScholarshipCreditHoursLeft());
-            System.out.println("GPA: " + portfolio.getGpa());
+            System.out.println("\nGPA: " + portfolio.getGpa());
             //System.out.println("Fail Count: " + portfolio.getFailCount());
             System.out.println("Semester Credit Count: " + portfolio.getSemesterCreditCount());
             //System.out.println("Year Credit Hours: " + portfolio.getYearCreditHours());
@@ -531,10 +535,14 @@ public static void printAllStudentPortfoliosToFile(String filePath) {
               writer.newLine();
               portfolio.getEightSemesterPlan().forEach((semester, courses) -> {
                   try {
-                      writer.write("Semester " + semester + ": ");
+                    String currentSemester = portfolio.getSemester();
+                    if (currentSemester.equals(semester)) {
+                      writer.write("\nCurrent Semester!!!!!!!!!!!!!!!!!!!!!!!!");
+                    }
+                      writer.write("\nSemester " + semester + ": \n");
                       courses.forEach(course -> {
                           try {
-                              writer.write(course + ", ");
+                              writer.write(course + "\n");
                           } catch (IOException e) {
                               e.printStackTrace();
                           }
@@ -549,7 +557,7 @@ public static void printAllStudentPortfoliosToFile(String filePath) {
               writer.newLine();
               portfolio.getCompletedCourses().forEach((course, grade) -> {
                   try {
-                      writer.write(course + "-Grade: " + grade);
+                      writer.write("\n" + course + "Grade: " + grade);
                       writer.newLine();
                   } catch (IOException e) {
                       e.printStackTrace();
