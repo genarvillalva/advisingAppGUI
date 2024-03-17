@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 
 public class SignUpTest {
+    static Student currentStudent = null;
+
     public static void main(String[] args) {
         AuditFacade auditFacade = new AuditFacade();
         Scanner scanner = new Scanner(System.in);
@@ -95,7 +97,7 @@ public class SignUpTest {
 
     // Method for logging in a user
     private static void login(AuditFacade auditFacade, Scanner scanner) {
-        // Prompt for username, password, and user type
+        UserList userList = UserList.getInstance();
         System.out.print("Username: ");
         String userName = scanner.nextLine();
         System.out.print("Password: ");
@@ -113,6 +115,7 @@ public class SignUpTest {
             if ("advisor".equalsIgnoreCase(userType)) {
                 advisorMenu(userName, auditFacade, scanner);
             } else if ("student".equalsIgnoreCase(userType)) {
+                currentStudent = userList.getStudentByUsername(userName);
                 //displays the student menu
                 studentMenu(userName, auditFacade, scanner);
             }       
@@ -152,6 +155,7 @@ public class SignUpTest {
                     String note = scanner.nextLine(); // Get the note from the advisor
                     auditFacade.adviseStudent(note, username);
                      //System.out.println("Note added to.");
+                     
                     
                     break;
                 case "0":
@@ -197,12 +201,10 @@ public class SignUpTest {
                     break;
                 case "4":
                     System.out.println("Generating 8-Semester Plan...");
-
                     
                     //plan goes here---
 
                     System.out.println("8-Semester plan generated.");
-
                     break;
                 case "0":
                     auditFacade.logoutAdvisor();

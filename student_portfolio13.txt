@@ -2,6 +2,7 @@ Portfolio UUID: bwest
 
 Eight Semester Plan:
 
+Current Semester!!!
 Semester 1: 
 CourseID: CSCE145
 Title: Algorithmic Design I
@@ -181,7 +182,6 @@ PrereqCoreq: None
 
 
 
-Current Semester!!!
 Semester 4: 
 CourseID: ENGL463
 Title: Business Writing
@@ -340,16 +340,16 @@ Corequisite Courses: Algorithmic Design I
 PrereqCoreq: None
 Grade: 85.0
 
-CourseID: ARTE260
-Title: INTERDISCIPLINARY RELATIONSHIPS IN THE ARTS
-Course Code: AIU
-Credit Hours: 3
+CourseID: CSCE145
+Title: Algorithmic Design I
+Course Code: PR
+Credit Hours: 4
 Minimum Grade: C
 Semester: FALLSPRING
 Prerequisite Courses: None
 Corequisite Courses: None
 PrereqCoreq: None
-Grade: 98.0
+Grade: 90.5
 
 CourseID: UNIV101
 Title: University 101: The Student in the University
@@ -362,16 +362,16 @@ Corequisite Courses: None
 PrereqCoreq: None
 Grade: 100.0
 
-CourseID: CSCE145
-Title: Algorithmic Design I
-Course Code: PR
-Credit Hours: 4
+CourseID: ARTE260
+Title: INTERDISCIPLINARY RELATIONSHIPS IN THE ARTS
+Course Code: AIU
+Credit Hours: 3
 Minimum Grade: C
 Semester: FALLSPRING
 Prerequisite Courses: None
 Corequisite Courses: None
 PrereqCoreq: None
-Grade: 90.5
+Grade: 98.0
 
 Current Courses: [CourseID: CSCE146
 Title: Algorithmic Design II
@@ -442,5 +442,5 @@ PrereqCoreq: None
 
 GPA: 3.893
 Semester Credit Count: 15
-Total Credit Hours: 50
+Total Credit Hours: 11
 -----------------------------------------------------------
