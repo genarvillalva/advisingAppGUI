@@ -236,6 +236,13 @@ private static void lookUpStudent(String advisorUsername, AuditFacade auditFacad
     }
 }
 
+
+private double percentComplete() {
+    int totalCreditHours = currentStudent.getPortfolio().getTotalCreditHours(); 
+    double percent = (totalCreditHours / 130) * 100;
+    System.out.println("Percent complete with degree: " + percent + "%");
+    return percent;
+}
     
     
 

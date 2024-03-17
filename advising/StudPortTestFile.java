@@ -8,7 +8,7 @@ public class StudPortTestFile {
 
         UserList userList = UserList.getInstance();
         ArrayList<Student> students = userList.getStudents();
-       // System.out.println(students.get(0).getPortfolio().getEightSemesterPlan());
+       //System.out.println(students.get(0).getPortfolio().getEightSemesterPlan());
 
         
         System.out.println("Portfolio UUID: " + students.get(0).getPortfolio().getPortfolioUUID());
@@ -40,12 +40,12 @@ public class StudPortTestFile {
         }
         Student.printEightSemesterPlan();
 
+
 */
 
-
-        String filePath = "student_portfolio13.txt";
-        String portfolioUUID = "bwest"; // or any other UUID
-        StudentPortfolio.printAStudentPortfolioToFile(filePath, portfolioUUID);
+       // String filePath = "student_portfolio13.txt";
+        //String portfolioUUID = "bwest"; // or any other UUID
+        //StudentPortfolio.printAStudentPortfolioToFile(filePath, portfolioUUID);
 
         //Student.printAllStudentPortfolios();
         //String filePath = "student_portfolio12.txt";
