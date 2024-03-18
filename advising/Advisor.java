@@ -120,7 +120,7 @@ public class Advisor extends User {
             break;
         }
     }
-      System.out.println(student.getApplicationArea());
+      System.out.println("Application Area: " + student.getApplicationArea());
       // If a student with the provided username is found, return the student.
       return student;
     } else {
