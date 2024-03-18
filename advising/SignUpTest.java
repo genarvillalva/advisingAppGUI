@@ -35,17 +35,14 @@ public class SignUpTest {
                     break;
                 case "0":
                     // Exit the program
-                    running = false;
-                    break;
+                    scanner.close();
+                    System.out.println("Thank you for using DegreeWorks!");
+                    System.exit(0);
                 default:
                     // Invalid option
                     System.out.println("Invalid option, please try again.");
             }
         }
-
-        // Close scanner
-        scanner.close();
-        System.out.println("Thank you for using DegreeWorks!");
     }
 
     // Method for signing up a new user
@@ -105,6 +102,7 @@ public class SignUpTest {
         System.out.print("User Type (student/advisor/admin): ");
         String userType = scanner.nextLine();
 
+
         // Attempt login
         boolean success = auditFacade.login(userName, password, userType);
         
@@ -162,7 +160,7 @@ public class SignUpTest {
                     // Logout
                     System.out.println("User is being logged out");
                     auditFacade.logoutAdvisor();
-                    login(auditFacade, scanner);
+                    main(null);
                     break;
                 default:
                     // Invalid option
@@ -206,6 +204,7 @@ public class SignUpTest {
 
                     System.out.println("8-Semester plan generated.");
                     break;
+
                 case "0":
                     auditFacade.logoutAdvisor();
                     login(auditFacade, scanner);
