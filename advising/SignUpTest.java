@@ -203,11 +203,35 @@ public class SignUpTest {
 
                 case "2":
                     showRequiredCourses(currentStudent);
+
                     break;
                 case "3":
-                    System.out.println("Here are the available Application Areas:");
+                    showApplicationAreas(currentStudent);
+                    break;
+                case "4":
+                    System.out.println("Generating 8-Semester Plan...");                  
+                    //plan goes here---
+                    String filePath = "BraxWestFile.txt";
+                    StudentPortfolio.printAStudentPortfolioToFile(filePath, studentUsername);
+                    //System.out.println("8-Semester plan generated.");
+                    break;
+
+                case "0":
+                    System.out.println("User is being logged out");
+                    auditFacade.logoutStudent();
+                    login(auditFacade, scanner);
+                    break;
+                default:
+                    System.out.println("Invalid option, please try again.");
+            }
+        }
+    }
+
+    private static void showApplicationAreas(Student currentStudent) {
+        System.out.println("Here are the available Application Areas:");
                     currentStudent.showApplicationAreas();
                     System.out.println("Do you want to choose a new Application Area? (yes/no)");
+                    Scanner scanner = new Scanner(System.in);
                     String response = scanner.nextLine();
                     if (response.equalsIgnoreCase("yes")) {
                         System.out.println("Enter the name of the Application Area you want to choose:");
@@ -239,27 +263,11 @@ public class SignUpTest {
                             System.out.println("Portfolio not found for " + currentStudent.getFirstName() + ".");
                         }
                     }
-                        
-                    
-                    break;
-                case "4":
-                    System.out.println("Generating 8-Semester Plan...");                  
-                    //plan goes here---
-                    String filePath = "BraxWestFile.txt";
-                    StudentPortfolio.printAStudentPortfolioToFile(filePath, studentUsername);
-                    //System.out.println("8-Semester plan generated.");
-                    break;
-
-                case "0":
-                    System.out.println("User is being logged out");
-                    auditFacade.logoutStudent();
-                    login(auditFacade, scanner);
-                    break;
-                default:
-                    System.out.println("Invalid option, please try again.");
-            }
-        }
     }
+    /**
+     * Shows the required courses/elective clusters for a student to complete
+     * @param currentStudent
+     */
     private static void showRequiredCourses(Student currentStudent) {
         HashSet<String> titlesToMatch = new HashSet<>();
         titlesToMatch.add("CMW");
