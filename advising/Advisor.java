@@ -112,8 +112,9 @@ public class Advisor extends User {
     // Directly fetch the Student object from a central repository (e.g., UserList)
     // where all students are stored, without limiting the search to the advisor's advised students.
     Student student = UserList.getInstance().getStudentByUsername(username);
-    System.out.println(student.getPortfolio());
     if (student != null) {
+      System.out.println(student.getPortfolio());
+      System.out.println(student.getApplicationArea());
       // If a student with the provided username is found, return the student.
       return student;
     } else {

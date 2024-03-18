@@ -138,7 +138,7 @@ public class Student extends User {
    * @return The application area of the student
    */
   public String getApplicationArea() {
-    return applicationArea;
+    return "Application Area: " + applicationArea;
   }
 
   public void addCoursesToStudentPortfolio(Course course) {

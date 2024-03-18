@@ -87,16 +87,16 @@ public class AdvisorTest {
         System.out.println(" ");
         
         
-        advisor.addStudentToAdvisor("mylescarter", advisor.getListofAdvisedStudents());
+        // advisor.addStudentToAdvisor("mylescarter", advisor.getListofAdvisedStudents());
 
         
         
         
-        // Print out the advising notes for Myles Carter
-        System.out.println(" ");
+        // // Print out the advising notes for Myles Carter
+        // System.out.println(" ");
 
-        advisor.adviseStudent("mylescarter", note);
-        System.out.println("Advising Notes for Myles Carter: " + student1.getAdvisingNotes());
+        // advisor.adviseStudent("mylescarter", note);
+        // System.out.println("Advising Notes for Myles Carter: " + student1.getAdvisingNotes());
 
     }
 }
