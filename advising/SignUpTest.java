@@ -222,6 +222,7 @@ public class SignUpTest {
                     //System.out.println("8-Semester plan generated.");
                     break;
                 case "0":
+                    System.out.println("User is being logged out");
                     auditFacade.logoutAdvisor();
                     login(auditFacade, scanner);
                     break;
