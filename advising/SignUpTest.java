@@ -179,7 +179,7 @@ public class SignUpTest {
             System.out.println("2. View required elective clusters progress");
             System.out.println("3. Show Application Areas");
             System.out.println("4. Generate 8-Semester Plan");
-
+            System.out.println("5. Add Courses To Next Semester");
 
             System.out.println("0. Logout");
     
@@ -203,7 +203,6 @@ public class SignUpTest {
 
                 case "2":
                     showRequiredCourses(currentStudent);
-
                     break;
                 case "3":
                     showApplicationAreas(currentStudent);
