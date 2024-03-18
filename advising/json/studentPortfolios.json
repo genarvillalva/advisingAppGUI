@@ -15,6 +15,7 @@
           "8": ["CSCE492"]
         },
       "currentCourses": ["CSCE311", "CSCE330", "CSCE390"],
+      "nextSemesterCourses":[],
       "completedCourses": {
         "CSCE145": 90.5,
         "CSCE190": 85.0,
@@ -54,6 +55,7 @@
         "8": ["CSCE492"]
       },
     "currentCourses": ["CSCE146", "CHEM111", "CHEM111L", "CSCE215", "HIST111"],
+    "nextSemesterCourses":[],
     "completedCourses": {
       "CSCE145": 90.5,
       "CSCE190": 85.0,

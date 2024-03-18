@@ -32,6 +32,7 @@ public abstract class DataConstants {
   public static final String REQUIRED_COURSES = "requiredCourses";
   public static final String EIGHT_SEMESTER_PLAN = "eightSemesterPlan";
   public static final String CURRENT_COURSES = "currentCourses";
+  public static final String NEXT_SEMESTER_COURSES = "nextSemesterCourses";
   public static final String COMPLETED_COURSES = "completedCourses";
   public static final String FAILED_COURSES = "failedCourses";
   public static final String SCHOLARSHIP = "scholarship";
