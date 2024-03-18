@@ -76,17 +76,21 @@ public class Advisor extends User {
     return advisingNotes;
   }
 
-  // public void addToAdviseeList(String studentUsername) {
-  //   UserList userList = advising.UserList.getInstance();
-  //   Student student = userList.getStudentByUsername(studentUsername);
-  //   System.out.println(
-  //     "Adding student to "+getUsername() +  " list: " +
-  //     student.getFirstName() +
-  //     " " +
-  //     student.getLastName()
-  //   );
-  //   this.listOfAdvisedStudents.add(student);
-  // }
+  /**
+   * 
+   * @param studentUsername
+   */
+  public void addToAdviseeListByUsername(String studentUsername) {
+      UserList userList = advising.UserList.getInstance();
+      Student student = userList.getStudentByUsername(studentUsername);
+      System.out.println(
+          "Adding student to "+getUsername() +  " list: " +
+          student.getFirstName() +
+          " " +
+          student.getLastName()
+      );
+      this.listOfAdvisedStudents.add(student);
+  }
 
   public void addAdvisingNotes(String note, String username) {
     if (this.advisingNotes == null) {
@@ -242,4 +246,5 @@ public class Advisor extends User {
   public void courseLookup(String course) {
     courseList.findCourse(course);
   }
+
 }
