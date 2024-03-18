@@ -446,6 +446,18 @@
     "preferredSemester":3
   },
   {
+    "courseID":"STAT112",
+    "title":"Statistics and the Media",
+    "courseCode":"ARP",
+    "creditHours":3,
+    "minGrade":"C",
+    "semester":"FALLSPRING",
+    "prerequisiteCourses":[],
+    "corequisiteCourses":[],
+    "prereqCoreq":[],
+    "preferredSemester":3
+  },
+  {
     "courseID":"STAT509",
     "title":"Statistics for Engineers",
     "courseCode":"PR",
