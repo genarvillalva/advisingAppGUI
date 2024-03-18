@@ -1,5 +1,6 @@
 package advising;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Scanner;
 
 
@@ -175,7 +176,7 @@ public class SignUpTest {
         while (running) {
             System.out.println("\nStudent Menu:");
             System.out.println("1. View Progress");
-            System.out.println("2. Pick Course");
+            System.out.println("2. View required elective clusters progress");
             System.out.println("3. Show Application Areas");
             System.out.println("4. Generate 8-Semester Plan");
 
@@ -201,9 +202,7 @@ public class SignUpTest {
                 break;
 
                 case "2":
-                    System.out.println("Pick Course...");
-                    System.out.println("Which GFL course would you like to take:\nSpanish101, French101, or German101");
-                    String GFLCourse = scanner.nextLine();
+                    showRequiredCourses(currentStudent);
                     break;
                 case "3":
                     System.out.println("Here are the available Application Areas:");
@@ -260,6 +259,56 @@ public class SignUpTest {
                     System.out.println("Invalid option, please try again.");
             }
         }
+    }
+    private static void showRequiredCourses(Student currentStudent) {
+
+        HashSet<String> titlesToMatch = new HashSet<>();
+        titlesToMatch.add("CMW");
+        titlesToMatch.add("ARP");
+        titlesToMatch.add("SCI");
+        titlesToMatch.add("GFL");
+        titlesToMatch.add("GHS");
+        titlesToMatch.add("AIU");
+        titlesToMatch.add("CMS");
+        titlesToMatch.add("INF");
+        titlesToMatch.add("VSR");
+        titlesToMatch.add("PR");
+        titlesToMatch.add("MR");
+        titlesToMatch.add("IC");
+        titlesToMatch.add("FD");
+
+        if (currentStudent != null) {
+            StudentPortfolio portfolio = currentStudent.getPortfolio();
+            if (portfolio != null) {
+                ArrayList<ElectiveCluster> electives = portfolio.getStudentElectives().getElectives();
+                if (electives != null) {
+                    boolean found = false;
+                    for (ElectiveCluster elective : electives) {
+                        String electiveName = elective.getElectiveName();
+                        if (electiveName != null && titlesToMatch.contains(electiveName)) {
+                            System.out.println("Course options to fulfill " + electiveName);
+                            for (String courseId : elective.getElectives().keySet()) {
+                                System.out.println(courseId);
+                            }
+                            found = true;
+                            break;
+                        }
+                    }
+                    
+                    if (!found) {
+                        System.out.println("No matching elective found for the current student.");
+                    }
+                } else {
+                    System.out.println("No electives found for the current student.");
+                }
+            } else {
+                System.out.println("Portfolio not found for the current student.");
+            }
+        } else {
+            System.out.println("Current student is null.");
+        }
+
+        
     }
     
 private static void lookUpStudent(String advisorUsername, AuditFacade auditFacade, Scanner scanner) {

@@ -34,6 +34,15 @@
         }
       },
       {
+        "electiveName": "GFL",
+        "hoursRequired": 3,
+        "hoursCompleted": 0,
+        "classes": {
+          "SPAN101": false,
+          "ARAB121": false
+        }
+      },
+      {
         "electiveName": "Computer Science and Engineering Electives",
         "hoursRequired": 9,
         "hoursCompleted": 0,
@@ -238,6 +247,15 @@
           "MSCI215L": false,
           "PHYS211": false,
           "PHYS211L": false
+        }
+      },
+      {
+        "electiveName": "GFL",
+        "hoursRequired": 3,
+        "hoursCompleted": 0,
+        "classes": {
+          "SPAN101": false,
+          "ARAB121": false
         }
       },
       {
