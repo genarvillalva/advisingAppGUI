@@ -353,6 +353,7 @@ private static Student findStudentByUsername(
         );
         String portfolioUUID = (String) studentPortfolioJSON.get(PORTFOLIO_UUID);
         ArrayList<Course> requiredCourses = new ArrayList();
+        @SuppressWarnings("unchecked")
         ArrayList<String> requiredCoursesString = (ArrayList<String>) studentPortfolioJSON.get(REQUIRED_COURSES);
         for(String s: requiredCoursesString){
           requiredCourses.add(CourseList.getCourseByID(s));
@@ -383,10 +384,18 @@ private static Student findStudentByUsername(
             completedCourses.put(course, (Double) completedCoursesJSON.get(courseID));
         }
 
+        // Next Semester Courses
+        ArrayList<Course> nextSemesterCourses = new ArrayList();
+        ArrayList<String> nextSemesterCoursesString = (ArrayList<String>) studentPortfolioJSON.get(NEXT_SEMESTER_COURSES);
+        for(String s: nextSemesterCoursesString){
+          if(s!=null)
+            nextSemesterCourses.add(CourseList.getCourseByID(s));
+        }
         // current courses 
         ArrayList<Course> currentCourses = new ArrayList();
         ArrayList<String> currentCoursesString = (ArrayList<String>) studentPortfolioJSON.get(CURRENT_COURSES);
         for(String s: currentCoursesString){
+          if(s!=null)
           currentCourses.add(CourseList.getCourseByID(s));
         }
 
@@ -411,6 +420,7 @@ private static Student findStudentByUsername(
           requiredCourses,
           eightSemesterPlan,
           currentCourses,
+          nextSemesterCourses,
           completedCourses,
           failedCourses,
           (String) studentPortfolioJSON.get(SCHOLARSHIP),

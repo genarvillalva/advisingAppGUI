@@ -211,7 +211,13 @@ public class StudentPortfolio {
   public void addCurrentCourse(Course course) {
     currentCourses.add(course);
   }
-
+  /**
+   * Adds a course to the student's next semester courses
+   * @param course The course to be added to the next semester
+   */
+  public void addNextSemesterCourse(Course course) {
+    nextSemesterCourses.add(course);
+  }
   /**
    * Returns the student's eight semester plan
    * @return student's eight semester plan
@@ -219,7 +225,13 @@ public class StudentPortfolio {
   public HashMap<String, ArrayList<Course>> getEightSemesterPlan() {
     return eightSemesterPlan;
   }
-
+  /**
+   * Returns the student's next semester courses
+   * @return student's next semester courses
+   */
+  public ArrayList<Course> getNextSemesterCourses() {
+    return nextSemesterCourses;
+  }
   /**
    * Returns the the UUID of student's portfolio
    * @return the UUID of student's portfolio

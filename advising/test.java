@@ -83,8 +83,8 @@ public class test {
     ArrayList<StudentPortfolio> studentPortfolios = DataLoader.getAllStudentPortfolios();
     System.out.println("List of Student Portfolios:");
     // Assuming students is an ArrayList<Student>
-
-    students.get(0).showApplicationAreas();
+    students.get(0).getPortfolio().addNextSemesterCourse(csce145);
+    System.out.println(students.get(0).getPortfolio().getNextSemesterCourses());
 // for (Student student : students) {
 //   StudentPortfolio portfolio = student.getPortfolio();
 //   if (portfolio != null) {
