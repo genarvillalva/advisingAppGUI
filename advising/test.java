@@ -12,9 +12,9 @@ public class test {
     // testGetAllAdvisors();
     // testGetAllCourses();
     // testGetAllMajors();
-    // testGetAllStudentPortfolios();
+    testGetAllStudentPortfolios();
     // testStudentPortfolio();
-    testWriteUsers();
+    // testWriteUsers();
 
     // testSaveCourses();
   }
@@ -76,13 +76,32 @@ public class test {
 
   public static void testGetAllStudentPortfolios() {
     CourseList.getInstance();
+    UserList userList = UserList.getInstance();
+    ArrayList<Student> students = userList.getStudents();
     ArrayList<Course> courses = DataLoader.getAllCourses();
     Course csce145 = CourseList.getCourseByID("CSCE190");
     ArrayList<StudentPortfolio> studentPortfolios = DataLoader.getAllStudentPortfolios();
     System.out.println("List of Student Portfolios:");
-    for (StudentPortfolio studentPortfolio : studentPortfolios) {
-      System.out.println(studentPortfolio.getStudentElectives().getElectives().get(1).getElectiveName() + "\n\n");
-    }
+    // Assuming students is an ArrayList<Student>
+
+    students.get(0).showApplicationAreas();
+// for (Student student : students) {
+//   StudentPortfolio portfolio = student.getPortfolio();
+//   if (portfolio != null) {
+//       ArrayList<ElectiveCluster> electives = portfolio.getStudentElectives().getElectives();
+//       if (electives != null) {
+//           for (ElectiveCluster elective : electives) {
+//               String electiveName = elective.getElectiveName();
+//               if (electiveName != null && electiveName.startsWith("Application Area")) {
+//                   System.out.println(electiveName);
+//               }
+//           }
+//       }
+//   }
+// }
+
+      // System.out.println(students.get(0).getPortfolio().getStudentElectives().getElectives().get(4).getElectiveName() + "\n\n");
+  
   }
 
   public static void testSaveCourses() {

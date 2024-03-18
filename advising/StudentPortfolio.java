@@ -356,6 +356,7 @@ public String getSemester() {
     }
   }
 
+
   public void LookupCourse(String courseName, String courseNumber) {}
 
   /**
