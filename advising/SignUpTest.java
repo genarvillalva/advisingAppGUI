@@ -224,6 +224,7 @@ public class SignUpTest {
                                     String electiveName = elective.getElectiveName();
                                     if (electiveName != null && electiveName.equalsIgnoreCase(inputElectiveName)) {
                                         System.out.println("Elective found: " + electiveName);
+                                        System.out.println(elective.getElectives());
                                         found = true;
                                         break;
                                     }
