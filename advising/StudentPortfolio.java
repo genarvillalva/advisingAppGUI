@@ -199,6 +199,10 @@ public ArrayList<Course> getRequiredCourses() {
 public StudentElectives getStudentElectives() {
   return studentElectives;
 }
+
+public void addCurrentCourse(Course course) {
+  currentCourses.add(course);
+}
 /**
  * Returns the student's eight semester plan
  * @return student's eight semester plan

@@ -14,7 +14,7 @@ public class test {
     // testGetAllMajors();
     // testGetAllStudentPortfolios();
     // testStudentPortfolio();
-    // testWriteUsers();
+    testWriteUsers();
 
     // testSaveCourses();
   }
@@ -81,7 +81,7 @@ public class test {
     ArrayList<StudentPortfolio> studentPortfolios = DataLoader.getAllStudentPortfolios();
     System.out.println("List of Student Portfolios:");
     for (StudentPortfolio studentPortfolio : studentPortfolios) {
-      System.out.println(studentPortfolio.getTotalCreditHoursMajorRequirements() + "\n\n");
+      System.out.println(studentPortfolio.getStudentElectives().getElectives().get(1).getElectiveName() + "\n\n");
     }
   }
 
@@ -115,11 +115,17 @@ public class test {
     ArrayList<Student> students = DataLoader.getAllStudents();
     ArrayList<Advisor> advisors = DataLoader.getAllAdvisors();
     ArrayList<Advisor> test = new ArrayList<Advisor>();
-    Advisor a = advisors.get(1);
-    a.addToAdviseeListByUsername("thill");
-    test.add(a);
-    test.add(advisors.get(0));
-    DataWriter.saveAdvisors(test);
+    // Advisor a = advisors.get(1);
+    // a.addToAdviseeListByUsername("thill");
+    // test.add(a);
+    // test.add(advisors.get(0));
+    // DataWriter.saveAdvisors(test);
+    CourseList courseList = CourseList.getInstance();
+    ArrayList<Course> courses = courseList.getCourses();
+    System.out.println(courses.get(2));
+    students.get(0).getPortfolio().addCurrentCourse(courses.get(2));
+    System.out.println(students.get(0).getPortfolio().getCurrentCourses());
+    DataWriter.saveStudents(students);
   }
   
 }
