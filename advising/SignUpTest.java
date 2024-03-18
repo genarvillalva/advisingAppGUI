@@ -1,6 +1,7 @@
 package advising;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Scanner;
 
 
@@ -232,37 +233,63 @@ public class SignUpTest {
                     System.out.println("Do you want to choose a new Application Area? (yes/no)");
                     Scanner scanner = new Scanner(System.in);
                     String response = scanner.nextLine();
-                    if (response.equalsIgnoreCase("yes")) {
-                        System.out.println("Enter the name of the Application Area you want to choose:");
-                        StudentPortfolio portfolio = currentStudent.getPortfolio();
-                        if (portfolio != null) {
-                            ArrayList<ElectiveCluster> electives = portfolio.getStudentElectives().getElectives();
-                            if (electives != null) {
-                                System.out.println("Enter the name of the elective:");
+                    
+                    
+                    // imma loop through this 3 times bcc 3 courses = 1 application area.  3 credits each 
+                    for (int i = 1; i < 4; i++) {
+                        
+                        // if the user wants to choose a new application area
+                        if (response.equalsIgnoreCase("yes")) {
+                            // asks the user to enter the name of the application area
+                            System.out.println("Enter the name of Application Area Elective #" + i + " you want to choose:");
+                            StudentPortfolio portfolio = currentStudent.getPortfolio();
+                            
+                            // check if the students portfolio is even there
+                            if (portfolio != null) {
+                                // get the list of electives from the student portfolio
+                                ArrayList<ElectiveCluster> electives = portfolio.getStudentElectives().getElectives();
+                                
+                                // ask the user to enter the name of the elective they want to choose
                                 String inputElectiveName = scanner.nextLine();
                                 
+                                // prints an input statement
+                                System.out.println("Searching for elective: " + inputElectiveName);
                                 boolean found = false;
-                                for (ElectiveCluster elective : electives) {
-                                    String electiveName = elective.getElectiveName();
-                                    if (electiveName != null && electiveName.equalsIgnoreCase(inputElectiveName)) {
-                                        System.out.println("Elective found: " + electiveName);
-                                        System.out.println(elective.getElectives());
-                                        found = true;
-                                        break;
-                                    }
-                                }
                                 
-                                if (!found) {
-                                    System.out.println("Elective not found for " + currentStudent.getFirstName() + ".");
+                                // checks to see if electives exist
+                                if (electives != null) {
+                                    // finnnaaa loop thought elective cluster to see if the elective is there
+                                    for (ElectiveCluster electiveCluster : electives) {
+                                        // gonna get the electives for the current cluster
+                                        Map<String, Boolean> clusterElectives = electiveCluster.getElectives();
+                                        
+                                        // check if the elective name exists in the current cluster
+                                        if (clusterElectives.containsKey(inputElectiveName)) {
+                                            // print that it found the elective and its application area
+                                            System.out.println("Elective found: " + inputElectiveName);
+                                            System.out.println(" -- Application Area-- " + electiveCluster.getElectiveName());
+                                            found = true;
+                                            break; 
+                                        }
+                                    }
+                                    
+                                    // if the elective is not found print thissss
+                                    if (!found) {
+                                        System.out.println("Elective not found for " + currentStudent.getFirstName() + ".");
+                                    }
+                                } else {
+                                    System.out.println("No electives found for " + currentStudent.getFirstName() + ".");
                                 }
                             } else {
-                                System.out.println("No electives found for " + currentStudent.getFirstName() + ".");
+                                System.out.println("Portfolio not found for " + currentStudent.getFirstName() + ".");
                             }
-                        } else {
-                            System.out.println("Portfolio not found for " + currentStudent.getFirstName() + ".");
                         }
                     }
-    }
+                    }
+
+
+                
+    
     /**
      * Shows the required courses/elective clusters for a student to complete
      * @param currentStudent
