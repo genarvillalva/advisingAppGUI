@@ -173,7 +173,7 @@ public class Advisor extends User {
     UserList.getInstance().removeStudentFromProgram(username, major);
   }
 
-  public String AddStudentApplicationArea(Student applicationArea) {
+  public String addStudentApplicationArea(Student applicationArea) {
     return " ";
   }
 

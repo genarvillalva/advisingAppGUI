@@ -1,14 +1,12 @@
-
 [
-  {
-    "firstName": "Greg",
-    "lastName": "Tomlin",
-    "username": "gregtomlin24",
-    "password": "1",
-    "userType": "Advisor",
-    "listOfAdvisedStudents": [
-      "bwest"
-    ]
-  }
+    {
+        "firstName": "Greg",
+        "lastName": "Tomlin",
+        "listOfAdvisedStudents": [
+            "bwest"
+        ],
+        "password": "1",
+        "userType": "Advisor",
+        "username": "gregtomlin24"
+    }
 ]
-
