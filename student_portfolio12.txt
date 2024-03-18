@@ -2,7 +2,6 @@ Portfolio UUID: bwest
 
 Eight Semester Plan:
 
-Current Semester!!!!!!!!!!!!!!!!!!!!!!!!
 Semester 1: 
 CourseID: CSCE145
 Title: Algorithmic Design I
@@ -182,6 +181,7 @@ PrereqCoreq: None
 
 
 
+Current Semester!!!!!!!!!!!!!!!!!!!!!!!!
 Semester 4: 
 CourseID: ENGL463
 Title: Business Writing
@@ -442,7 +442,7 @@ PrereqCoreq: None
 
 GPA: 3.893
 Semester Credit Count: 15
-Total Credit Hours: 11
+Total Credit Hours: 50
 -----------------------------------------------------------
 Portfolio UUID: thill
 

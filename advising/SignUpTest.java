@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 
 public class SignUpTest {
+    static Student currentStudent = null;
+
     public static void main(String[] args) {
         AuditFacade auditFacade = new AuditFacade();
         Scanner scanner = new Scanner(System.in);
@@ -92,7 +94,7 @@ public class SignUpTest {
 
     // Method for logging in a user
     private static void login(AuditFacade auditFacade, Scanner scanner) {
-        // Prompt for username, password, and user type
+        UserList userList = UserList.getInstance();
         System.out.print("Username: ");
         String userName = scanner.nextLine();
         System.out.print("Password: ");
@@ -111,6 +113,7 @@ public class SignUpTest {
             if ("advisor".equalsIgnoreCase(userType)) {
                 advisorMenu(userName, auditFacade, scanner);
             } else if ("student".equalsIgnoreCase(userType)) {
+                currentStudent = userList.getStudentByUsername(userName);
                 //displays the student menu
                 studentMenu(userName, auditFacade, scanner);
             }       
@@ -150,6 +153,7 @@ public class SignUpTest {
                     String note = scanner.nextLine(); // Get the note from the advisor
                     auditFacade.adviseStudent(note, username);
                      //System.out.println("Note added to.");
+                     
                     
                     break;
                 case "0":
@@ -183,29 +187,40 @@ public class SignUpTest {
     
             switch (choice) {
                 case "1":
-
                 System.out.println("\n--- Student Progress ---");
+                StudentPortfolio.printStudentPortfolioByUsername(studentUsername);
+                System.out.println();
+
+                System.out.println("Portfolio UUID: " + currentStudent.getPortfolio().getPortfolioUUID());
+                    //System.out.println("Required Courses: " + portfolio.getRequiredCourses());
+                    System.out.println("\nEight Semester Plan:");
+                    currentStudent.getPortfolio().getEightSemesterPlan().forEach((semester, courses) -> {
+                        System.out.print("\nSemester " + semester + ": \n");
+                        courses.forEach(course -> System.out.print(course +"\n"));
+                    });
                 break;
 
                 case "2":
                     System.out.println("Pick Course...");
+                    System.out.println("Which course would you like to take:\nSpanish101, French101, or German101");
+                    String GFLCourse = scanner.nextLine();
                     break;
                 case "3":
                     System.out.println("Choose Application Area...");
+                    System.out.println("Which application area would you like to take:\nScience, Math, Digital Design, Robotics, and Speech");
+                    String applicationArea = scanner.nextLine();
+                    System.out.println("You picked " + applicationArea + ". Here are the classes for that application area: MART201, MART210, and MART371");
                     break;
                 case "4":
-                    System.out.println("Generating 8-Semester Plan...");
-                    String username;
-                    String semester;
-                    String courseid;
-                    
+                    System.out.println("Generating 8-Semester Plan...");                  
                     //plan goes here---
-
-                    System.out.println("8-Semester plan generated.");
-
+                    String filePath = "BraxWestFile.txt";
+                    StudentPortfolio.printAStudentPortfolioToFile(filePath, studentUsername);
+                    //System.out.println("8-Semester plan generated.");
                     break;
 
                 case "0":
+                    System.out.println("User is being logged out");
                     auditFacade.logoutAdvisor();
                     login(auditFacade, scanner);
                     break;
@@ -235,6 +250,13 @@ private static void lookUpStudent(String advisorUsername, AuditFacade auditFacad
     }
 }
 
+
+private static void percentComplete() {
+    int totalCreditHours = currentStudent.getPortfolio().getTotalCreditHours(); 
+    System.out.println(currentStudent.getPortfolio().getTotalCreditHours());
+    double percent = ((totalCreditHours / 130) * 100);
+    System.out.println("Percent complete with degree: " + percent + "%");
+}
     
     
 

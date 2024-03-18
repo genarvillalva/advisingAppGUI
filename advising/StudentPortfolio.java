@@ -5,7 +5,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class StudentPortfolio {
   private String portfolioUUID;
@@ -483,7 +485,7 @@ public String getSemester() {
     ArrayList<StudentPortfolio> studentPortfolios = DataLoader.getAllStudentPortfolios();
     if (studentPortfolios != null) {
         for (StudentPortfolio portfolio : studentPortfolios) {
-            System.out.println("Portfolio UUID: " + portfolio.getPortfolioUUID());
+            //System.out.println("Portfolio UUID: " + portfolio.getPortfolioUUID());
             //System.out.println("Required Courses: " + portfolio.getRequiredCourses());
             System.out.println("\nEight Semester Plan:");
             portfolio.getEightSemesterPlan().forEach((semester, courses) -> {
@@ -499,7 +501,7 @@ public String getSemester() {
             System.out.println("\nFailed Courses: " + portfolio.getFailedCourses());
             //System.out.println("Scholarship: " + portfolio.getScholarship());
             //System.out.println("Yearly Scholarship Credit Hours Left: " + portfolio.getYearlyScholarshipCreditHoursLeft());
-            System.out.println("\nGPA: " + portfolio.getGpa());
+            //System.out.println("\nGPA: " + portfolio.getGpa());
             //System.out.println("Fail Count: " + portfolio.getFailCount());
             System.out.println("Semester Credit Count: " + portfolio.getSemesterCreditCount());
             //System.out.println("Year Credit Hours: " + portfolio.getYearCreditHours());
@@ -511,6 +513,47 @@ public String getSemester() {
             //System.out.println("Total Credit Hours Major Requirements: " + portfolio.getTotalCreditHoursMajorRequirements());
             //System.out.println("Student Electives: " + portfolio.getStudentElectives());
             System.out.println("-----------------------------------------------------------");
+        }
+    } else {
+        System.out.println("No student portfolios found.");
+    }
+}
+
+public static void printStudentPortfolioByUsername(String username) {
+    ArrayList<StudentPortfolio> studentPortfolios = DataLoader.getAllStudentPortfolios();
+    if (studentPortfolios != null) {
+        // Filter the list based on the username
+        List<StudentPortfolio> filteredPortfolios = studentPortfolios.stream()
+            .filter(portfolio -> portfolio.getUUID().equals(username))
+            .collect(Collectors.toList());
+
+        if (!filteredPortfolios.isEmpty()) {
+            for (StudentPortfolio portfolio : filteredPortfolios) {
+                //System.out.println("Portfolio UUID: " + portfolio.getPortfolioUUID());
+                //System.out.println("Required Courses: " + portfolio.getRequiredCourses());
+                System.out.println("Completed Courses: \n");
+                portfolio.getCompletedCourses().forEach((course, grade) -> {
+                    System.out.println(course + "Grade: " + grade + "\n");
+                });
+                System.out.println("\nCurrent Courses: " + portfolio.getCurrentCourses());
+                System.out.println("\nFailed Courses: " + portfolio.getFailedCourses());
+                //System.out.println("Scholarship: " + portfolio.getScholarship());
+                //System.out.println("Yearly Scholarship Credit Hours Left: " + portfolio.getYearlyScholarshipCreditHoursLeft());
+                //System.out.println("\nGPA: " + portfolio.getGpa());
+                //System.out.println("Fail Count: " + portfolio.getFailCount());
+                System.out.println("Semester Credit Count: " + portfolio.getSemesterCreditCount());
+                //System.out.println("Year Credit Hours: " + portfolio.getYearCreditHours());
+                System.out.println("Total Credit Hours: " + portfolio.getTotalCreditHours());
+                //System.out.println("Total Credit Hours Found Docu: " + portfolio.getTotalCreditHoursFoundDocu());
+                //System.out.println("Total Credit Hours CC: " + portfolio.getTotalCreditHoursCC());
+                //System.out.println("Total Credit Hours Integrative Course: " + portfolio.getTotalCreditHoursIntegrativeCourse());
+                //System.out.println("Total Credit Hours Program Requirements: " + portfolio.getTotalCreditHoursProgramRequirements());
+                //System.out.println("Total Credit Hours Major Requirements: " + portfolio.getTotalCreditHoursMajorRequirements());
+                //System.out.println("Student Electives: " + portfolio.getStudentElectives());
+                System.out.println("-----------------------------------------------------------");
+            }
+        } else {
+            System.out.println("No student portfolio found for username: " + username);
         }
     } else {
         System.out.println("No student portfolios found.");
@@ -537,7 +580,7 @@ public static void printAllStudentPortfoliosToFile(String filePath) {
                   try {
                     String currentSemester = portfolio.getSemester();
                     if (currentSemester.equals(semester)) {
-                      writer.write("\nCurrent Semester!!!!!!!!!!!!!!!!!!!!!!!!");
+                      writer.write("\nCurrent Semester!!!");
                     }
                       writer.write("\nSemester " + semester + ": \n");
                       courses.forEach(course -> {
@@ -589,6 +632,89 @@ public static void printAllStudentPortfoliosToFile(String filePath) {
       }
   } else {
       System.out.println("No student portfolios found.");
+  }
+}
+
+public static void printAStudentPortfolioToFile(String filePath, String portfolioUUID) {
+  ArrayList<StudentPortfolio> studentPortfolios = DataLoader.getAllStudentPortfolios();
+  StudentPortfolio finalStudentPortfolio = null;
+
+  // Find the student portfolio with the specified UUID
+  if (studentPortfolios != null) {
+      for (StudentPortfolio portfolio : studentPortfolios) {
+          if (portfolio.getPortfolioUUID().equals(portfolioUUID)) {
+              finalStudentPortfolio = portfolio;
+              break;
+          }
+      }
+  }
+
+  final StudentPortfolio studentPortfolio = finalStudentPortfolio;
+
+  // If the student portfolio is found, print it to the file
+  if (studentPortfolio != null) {
+      try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+          writer.write("Portfolio UUID: " + studentPortfolio.getPortfolioUUID());
+          writer.newLine();
+
+          writer.write("\nEight Semester Plan:");
+          writer.newLine();
+          studentPortfolio.getEightSemesterPlan().forEach((semester, courses) -> {
+              try {
+                  String currentSemester = studentPortfolio.getSemester();
+                  if (currentSemester.equals(semester)) {
+                      writer.write("\nCurrent Semester!!!");
+                  }
+                  writer.write("\nSemester " + semester + ": \n");
+                  courses.forEach(course -> {
+                      try {
+                          writer.write(course + "\n");
+                      } catch (IOException e) {
+                          e.printStackTrace();
+                      }
+                  });
+                  writer.newLine();
+              } catch (IOException e) {
+                  e.printStackTrace();
+              }
+          });
+
+          writer.write("\nCompleted Courses:");
+          writer.newLine();
+          studentPortfolio.getCompletedCourses().forEach((course, grade) -> {
+              try {
+                  writer.write("\n" + course + "Grade: " + grade);
+                  writer.newLine();
+              } catch (IOException e) {
+                  e.printStackTrace();
+              }
+          });
+
+          writer.write("\nCurrent Courses: " + studentPortfolio.getCurrentCourses());
+          writer.newLine();
+
+          writer.write("\nFailed Courses: " + studentPortfolio.getFailedCourses());
+          writer.newLine();
+
+          writer.write("\nGPA: " + studentPortfolio.getGpa());
+          writer.newLine();
+
+          writer.write("Semester Credit Count: " + studentPortfolio.getSemesterCreditCount());
+          writer.newLine();
+
+          writer.write("Total Credit Hours: " + studentPortfolio.getTotalCreditHours());
+          writer.newLine();
+
+          writer.write("-----------------------------------------------------------");
+          writer.newLine();
+
+          System.out.println("Student portfolio for UUID " + portfolioUUID + " written to file: " + filePath);
+      } catch (IOException e) {
+          System.err.println("Error writing student portfolio to file: " + filePath);
+          e.printStackTrace();
+      }
+  } else {
+      System.out.println("Student portfolio with UUID " + portfolioUUID + " not found.");
   }
 }
 

@@ -10,26 +10,27 @@
           "3": ["CSCE240", "CSCE211", "MATH374", "CHEM112", "CHEM112L", "CHEM112REC", "SPCH140"],
           "4": ["ENGL463", "CSCE350", "CSCE212", "CSCE247", "STAT509"],
           "5": ["CSCE311", "CSCE330", "CSCE390"],
-          "6": ["CSCE416", "PHIL102"],
+          "6": ["CSCE416", "PHIL102","SPAN101","MART201"],
           "7": ["CSCE490", "MATH344"],
           "8": ["CSCE492"]
         },
-      "currentCourses": ["CSCE146", "CHEM111", "CHEM111L", "CSCE215", "HIST111", "MATH241"],
+      "currentCourses": ["CSCE311", "CSCE330", "CSCE390"],
       "completedCourses": {
         "CSCE145": 90.5,
         "CSCE190": 85.0,
         "ARTE260": 98.0, 
-        "UNIV101": 100.0
+        "UNIV101": 100.0,
+        "CSCE146": 87.2
       },
       "failedCourses": {"MATH241": 1
       },
       "scholarship": "Life Scholarship",
       "yearlySholarshipCreditHoursLeft" : 19,
-      "gpa": 3.893,
+      "gpa": 3.6,
       "failCount": 1,
       "semesterCreditCount": 15, 
       "yearCreditHours": 11,
-      "totalCreditHours": 11, 
+      "totalCreditHours": 65, 
       "totalCreditHoursFoundDocu": 0,
       "totalCreditHoursCC": 6,
       "totalCreditHoursIntegrativeCourse": 0,
@@ -59,7 +60,7 @@
       "ARTE260": 98.0, 
       "UNIV101": 100.0,
       "STAT509": 99.0,
-      "STAT112": 87.2
+      "STAT110": 87.2
     },
     "failedCourses": {"none": null
     },
