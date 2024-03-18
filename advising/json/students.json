@@ -15,7 +15,7 @@
     {
         "firstName": "Tawnie",
         "lastName": "Hill",
-        "advisor": "osberto",
+        "advisor": null,
         "advisingNotes": "",
         "password": "fgndsj46",
         "major": "Computer_Information_Systems",

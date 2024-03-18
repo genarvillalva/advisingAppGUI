@@ -113,8 +113,14 @@ public class Advisor extends User {
     // where all students are stored, without limiting the search to the advisor's advised students.
     Student student = UserList.getInstance().getStudentByUsername(username);
     if (student != null) {
-      System.out.println(student.getPortfolio());
-      System.out.println(student.getApplicationArea());
+      ArrayList<StudentPortfolio> portfolios = DataLoader.getAllStudentPortfolios();
+      for (StudentPortfolio portfolio : portfolios) {
+        if (portfolio.getPortfolioUUID().equals(username)) {
+            System.out.println(portfolio.getCompletedCourses());
+            break;
+        }
+    }
+      System.out.println("Application Area: " + student.getApplicationArea());
       // If a student with the provided username is found, return the student.
       return student;
     } else {
