@@ -176,7 +176,7 @@ public class SignUpTest {
             System.out.println("\nStudent Menu:");
             System.out.println("1. View Progress");
             System.out.println("2. Pick Course");
-            System.out.println("3. Pick Application Area");
+            System.out.println("3. Show Application Areas");
             System.out.println("4. Generate 8-Semester Plan");
 
 
@@ -206,10 +206,41 @@ public class SignUpTest {
                     String GFLCourse = scanner.nextLine();
                     break;
                 case "3":
-                    System.out.println("Choose Application Area...");
-                    System.out.println("Which application area would you like to take:\nScience, Math, Digital Design, Robotics, and Speech");
-                    String applicationArea = scanner.nextLine();
-                    System.out.println("You picked " + applicationArea + ". Here are the classes for that application area: MART201, MART210, and MART371");
+                    System.out.println("Here are the available Application Areas:");
+                    currentStudent.showApplicationAreas();
+                    System.out.println("Do you want to choose a new Application Area? (yes/no)");
+                    String response = scanner.nextLine();
+                    if (response.equalsIgnoreCase("yes")) {
+                        System.out.println("Enter the name of the Application Area you want to choose:");
+                        StudentPortfolio portfolio = currentStudent.getPortfolio();
+                        if (portfolio != null) {
+                            ArrayList<ElectiveCluster> electives = portfolio.getStudentElectives().getElectives();
+                            if (electives != null) {
+                                System.out.println("Enter the name of the elective:");
+                                String inputElectiveName = scanner.nextLine();
+                                
+                                boolean found = false;
+                                for (ElectiveCluster elective : electives) {
+                                    String electiveName = elective.getElectiveName();
+                                    if (electiveName != null && electiveName.equalsIgnoreCase(inputElectiveName)) {
+                                        System.out.println("Elective found: " + electiveName);
+                                        found = true;
+                                        break;
+                                    }
+                                }
+                                
+                                if (!found) {
+                                    System.out.println("Elective not found for " + currentStudent.getFirstName() + ".");
+                                }
+                            } else {
+                                System.out.println("No electives found for " + currentStudent.getFirstName() + ".");
+                            }
+                        } else {
+                            System.out.println("Portfolio not found for " + currentStudent.getFirstName() + ".");
+                        }
+                    }
+                        
+                    
                     break;
                 case "4":
                     System.out.println("Generating 8-Semester Plan...");                  
@@ -221,7 +252,7 @@ public class SignUpTest {
 
                 case "0":
                     System.out.println("User is being logged out");
-                    auditFacade.logoutAdvisor();
+                    auditFacade.logoutStudent();
                     login(auditFacade, scanner);
                     break;
                 default:
