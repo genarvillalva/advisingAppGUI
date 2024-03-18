@@ -195,7 +195,9 @@ public class SignUpTest {
                     break;
                 case "4":
                     System.out.println("Generating 8-Semester Plan...");
-
+                    String username;
+                    String semester;
+                    String courseid;
                     
                     //plan goes here---
 
