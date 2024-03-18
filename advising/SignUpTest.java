@@ -261,7 +261,6 @@ public class SignUpTest {
         }
     }
     private static void showRequiredCourses(Student currentStudent) {
-
         HashSet<String> titlesToMatch = new HashSet<>();
         titlesToMatch.add("CMW");
         titlesToMatch.add("ARP");
@@ -276,27 +275,28 @@ public class SignUpTest {
         titlesToMatch.add("MR");
         titlesToMatch.add("IC");
         titlesToMatch.add("FD");
-
+    
         if (currentStudent != null) {
             StudentPortfolio portfolio = currentStudent.getPortfolio();
             if (portfolio != null) {
                 ArrayList<ElectiveCluster> electives = portfolio.getStudentElectives().getElectives();
                 if (electives != null) {
-                    boolean found = false;
                     for (ElectiveCluster elective : electives) {
                         String electiveName = elective.getElectiveName();
                         if (electiveName != null && titlesToMatch.contains(electiveName)) {
-                            System.out.println("Course options to fulfill " + electiveName);
+                            if(elective.getHoursRequired() < elective.getHoursCompleted()) {
+                                System.out.println("\nYou have completed the required hours for this elective: " + electiveName);
+                            } else {
+                                System.out.println("You have not completed the required hours for this elective");
+                                System.out.println("Hours required: " + elective.getHoursRequired());
+                                System.out.println("Hours completed: " + elective.getHoursCompleted());
+                            }
+                            System.out.println("Course options to fulfill " + electiveName + "\n");
                             for (String courseId : elective.getElectives().keySet()) {
                                 System.out.println(courseId);
                             }
-                            found = true;
-                            break;
+                            System.out.println();
                         }
-                    }
-                    
-                    if (!found) {
-                        System.out.println("No matching elective found for the current student.");
                     }
                 } else {
                     System.out.println("No electives found for the current student.");
@@ -307,9 +307,8 @@ public class SignUpTest {
         } else {
             System.out.println("Current student is null.");
         }
-
-        
     }
+    
     
 private static void lookUpStudent(String advisorUsername, AuditFacade auditFacade, Scanner scanner) {
     System.out.print("Enter Student Username: ");
