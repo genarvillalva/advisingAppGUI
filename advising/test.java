@@ -116,7 +116,7 @@ public class test {
     ArrayList<Advisor> advisors = DataLoader.getAllAdvisors();
     ArrayList<Advisor> test = new ArrayList<Advisor>();
     Advisor a = advisors.get(1);
-    //a.addToAdviseeList("thill");
+    a.addToAdviseeListByUsername("thill");
     test.add(a);
     test.add(advisors.get(0));
     DataWriter.saveAdvisors(test);
