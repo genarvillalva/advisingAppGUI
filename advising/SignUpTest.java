@@ -202,7 +202,7 @@ public class SignUpTest {
 
                 case "2":
                     System.out.println("Pick Course...");
-                    System.out.println("Which course would you like to take:\nSpanish101, French101, or German101");
+                    System.out.println("Which GFL course would you like to take:\nSpanish101, French101, or German101");
                     String GFLCourse = scanner.nextLine();
                     break;
                 case "3":
