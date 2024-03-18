@@ -132,7 +132,23 @@ public class Student extends User {
   public StudentPortfolio getPortfolio() {
     return studentPortfolio;
   }
-
+/**
+ * Show available Application Areas for the student
+ */
+  public void showApplicationAreas(){
+    StudentPortfolio portfolio = getPortfolio();
+  if (portfolio != null) {
+      ArrayList<ElectiveCluster> electives = portfolio.getStudentElectives().getElectives();
+      if (electives != null) {
+          for (ElectiveCluster elective : electives) {
+              String electiveName = elective.getElectiveName();
+              if (electiveName != null && electiveName.startsWith("Application Area")) {
+                  System.out.println(electiveName);
+              }
+          }
+      }
+  }
+  }
   /**
    * Get the application area of the student
    * @return The application area of the student
