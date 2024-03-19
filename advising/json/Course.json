@@ -542,6 +542,18 @@
     "preferredSemester":6
   },
   {
+    "courseID":"ARAB121",
+    "title":"Elementary Arabic",
+    "courseCode":"GFL",
+    "creditHours":3,
+    "minGrade":"",
+    "semester":"FALLSPRING",
+    "prerequisiteCourses":[],
+    "corequisiteCourses":[],
+    "prereqCoreq":[],
+    "preferredSemester":6
+  },
+  {
     "courseID":"MART201",
     "title":"Foundations of Media Art Production",
     "courseCode":"AIU",

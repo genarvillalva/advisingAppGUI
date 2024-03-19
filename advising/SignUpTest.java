@@ -1,5 +1,7 @@
 package advising;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Map;
 import java.util.Scanner;
 
 
@@ -175,10 +177,10 @@ public class SignUpTest {
         while (running) {
             System.out.println("\nStudent Menu:");
             System.out.println("1. View Progress");
-            System.out.println("2. Pick Course");
-            System.out.println("3. Pick Application Area");
+            System.out.println("2. View required elective clusters progress");
+            System.out.println("3. Show Application Areas");
             System.out.println("4. Generate 8-Semester Plan");
-
+            System.out.println("5. Add Courses To Next Semester");
 
             System.out.println("0. Logout");
     
@@ -201,15 +203,10 @@ public class SignUpTest {
                 break;
 
                 case "2":
-                    System.out.println("Pick Course...");
-                    System.out.println("Which GFL course would you like to take:\nSpanish101, French101, or German101");
-                    String GFLCourse = scanner.nextLine();
+                    showRequiredCourses(currentStudent);
                     break;
                 case "3":
-                    System.out.println("Choose Application Area...");
-                    System.out.println("Which application area would you like to take:\nScience, Math, Digital Design, Robotics, and Speech");
-                    String applicationArea = scanner.nextLine();
-                    System.out.println("You picked " + applicationArea + ". Here are the classes for that application area: MART201, MART210, and MART371");
+                    showApplicationAreas(currentStudent);
                     break;
                 case "4":
                     System.out.println("Generating 8-Semester Plan...");                  
@@ -221,7 +218,7 @@ public class SignUpTest {
 
                 case "0":
                     System.out.println("User is being logged out");
-                    auditFacade.logoutAdvisor();
+                    auditFacade.logoutStudent();
                     login(auditFacade, scanner);
                     break;
                 default:
@@ -229,6 +226,123 @@ public class SignUpTest {
             }
         }
     }
+
+    private static void showApplicationAreas(Student currentStudent) {
+        System.out.println("Here are the available Application Areas:");
+                    currentStudent.showApplicationAreas();
+                    System.out.println("Do you want to choose a new Application Area? (yes/no)");
+                    Scanner scanner = new Scanner(System.in);
+                    String response = scanner.nextLine();
+                    
+                    
+                    // imma loop through this 3 times bcc 3 courses = 1 application area.  3 credits each 
+                    for (int i = 1; i < 4; i++) {
+                        
+                        // if the user wants to choose a new application area
+                        if (response.equalsIgnoreCase("yes")) {
+                            // asks the user to enter the name of the application area
+                            System.out.println("Enter the name of Application Area Elective #" + i + " you want to choose:");
+                            StudentPortfolio portfolio = currentStudent.getPortfolio();
+                            
+                            // check if the students portfolio is even there
+                            if (portfolio != null) {
+                                // get the list of electives from the student portfolio
+                                ArrayList<ElectiveCluster> electives = portfolio.getStudentElectives().getElectives();
+                                
+                                // ask the user to enter the name of the elective they want to choose
+                                String inputElectiveName = scanner.nextLine();
+                                
+                                // prints an input statement
+                                System.out.println("Searching for elective: " + inputElectiveName);
+                                boolean found = false;
+                                
+                                // checks to see if electives exist
+                                if (electives != null) {
+                                    // finnnaaa loop thought elective cluster to see if the elective is there
+                                    for (ElectiveCluster electiveCluster : electives) {
+                                        // gonna get the electives for the current cluster
+                                        Map<String, Boolean> clusterElectives = electiveCluster.getElectives();
+                                        
+                                        // check if the elective name exists in the current cluster
+                                        if (clusterElectives.containsKey(inputElectiveName)) {
+                                            // print that it found the elective and its application area
+                                            System.out.println("Elective found: " + inputElectiveName);
+                                            System.out.println(" -- Application Area-- " + electiveCluster.getElectiveName());
+                                            found = true;
+                                            break; 
+                                        }
+                                    }
+                                    
+                                    // if the elective is not found print thissss
+                                    if (!found) {
+                                        System.out.println("Elective not found for " + currentStudent.getFirstName() + ".");
+                                    }
+                                } else {
+                                    System.out.println("No electives found for " + currentStudent.getFirstName() + ".");
+                                }
+                            } else {
+                                System.out.println("Portfolio not found for " + currentStudent.getFirstName() + ".");
+                            }
+                        }
+                    }
+                    }
+
+
+                
+    
+    /**
+     * Shows the required courses/elective clusters for a student to complete
+     * @param currentStudent
+     */
+    private static void showRequiredCourses(Student currentStudent) {
+        HashSet<String> titlesToMatch = new HashSet<>();
+        titlesToMatch.add("CMW");
+        titlesToMatch.add("ARP");
+        titlesToMatch.add("SCI");
+        titlesToMatch.add("GFL");
+        titlesToMatch.add("GHS");
+        titlesToMatch.add("AIU");
+        titlesToMatch.add("CMS");
+        titlesToMatch.add("INF");
+        titlesToMatch.add("VSR");
+        titlesToMatch.add("PR");
+        titlesToMatch.add("MR");
+        titlesToMatch.add("IC");
+        titlesToMatch.add("FD");
+    
+        if (currentStudent != null) {
+            StudentPortfolio portfolio = currentStudent.getPortfolio();
+            if (portfolio != null) {
+                ArrayList<ElectiveCluster> electives = portfolio.getStudentElectives().getElectives();
+                if (electives != null) {
+                    for (ElectiveCluster elective : electives) {
+                        String electiveName = elective.getElectiveName();
+                        if (electiveName != null && titlesToMatch.contains(electiveName)) {
+                            if(elective.getHoursRequired() < elective.getHoursCompleted()) {
+                                System.out.println("\nYou have completed the required hours for this elective: " + electiveName);
+                            } else {
+                                System.out.println("You have not completed the required hours for this elective");
+                                System.out.println("Hours required: " + elective.getHoursRequired());
+                                System.out.println("Hours completed: " + elective.getHoursCompleted());
+                            }
+                            System.out.println("Course options to fulfill " + electiveName + "\n");
+                            for (String courseId : elective.getElectives().keySet()) {
+                                System.out.println(courseId);
+                            }
+                            System.out.println();
+                        }
+                    }
+                } else {
+                    System.out.println("No electives found for the current student.");
+                }
+            } else {
+                System.out.println("Portfolio not found for the current student.");
+            }
+        } else {
+            System.out.println("Current student is null.");
+        }
+    }
+    
     
 private static void lookUpStudent(String advisorUsername, AuditFacade auditFacade, Scanner scanner) {
     System.out.print("Enter Student Username: ");

@@ -1,6 +1,7 @@
 package advising;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.UUID;
 
 public class Student extends User {
@@ -132,7 +133,61 @@ public class Student extends User {
   public StudentPortfolio getPortfolio() {
     return studentPortfolio;
   }
+/**
+ * Show available Application Areas for the student
+ */
+  public void showApplicationAreas(){
+    StudentPortfolio portfolio = getPortfolio();
+    if (portfolio != null) {
+        ArrayList<ElectiveCluster> electives = portfolio.getStudentElectives().getElectives();
+        if (electives != null) {
+            for (ElectiveCluster elective : electives) {
+                String electiveName = elective.getElectiveName();
+                if (electiveName != null && electiveName.startsWith("Application Area")) {
+                    System.out.println(electiveName);
+                }
+            }
+        }
+    }
+  }
 
+  public void showRequiredCourses(Student currentStudent){
+    HashSet<String> titlesToMatch = new HashSet<>();
+    titlesToMatch.add("CMW");
+    titlesToMatch.add("ARP");
+    titlesToMatch.add("SCI");
+    titlesToMatch.add("GFL");
+    titlesToMatch.add("GHS");
+    titlesToMatch.add("AIU");
+    titlesToMatch.add("CMS");
+    titlesToMatch.add("INF");
+    titlesToMatch.add("VSR");
+    titlesToMatch.add("PR");
+    titlesToMatch.add("MR");
+    titlesToMatch.add("IC");
+    titlesToMatch.add("FD");
+    StudentPortfolio portfolio = currentStudent.getPortfolio();
+    if (portfolio != null) {
+        ArrayList<ElectiveCluster> electives = portfolio.getStudentElectives().getElectives();
+        if (electives != null) {
+            boolean found = false;
+            for (ElectiveCluster elective : electives) {
+                String electiveName = elective.getElectiveName();
+                if (electiveName != null && titlesToMatch.contains(electiveName)) {
+                    System.out.println("Elective found: " + electiveName);
+                    found = true;
+                }
+            }
+            if (!found) {
+                System.out.println("No matching electives found for the current student.");
+            }
+        } else {
+            System.out.println("No electives found for the current student.");
+        }
+    } else {
+        System.out.println("Portfolio not found for the current student.");
+    }
+  }
   /**
    * Get the application area of the student
    * @return The application area of the student

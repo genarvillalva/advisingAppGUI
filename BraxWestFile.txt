@@ -360,6 +360,17 @@ Corequisite Courses: Algorithmic Design I
 PrereqCoreq: None
 Grade: 85.0
 
+CourseID: CSCE145
+Title: Algorithmic Design I
+Course Code: PR
+Credit Hours: 4
+Minimum Grade: C
+Semester: FALLSPRING
+Prerequisite Courses: None
+Corequisite Courses: None
+PrereqCoreq: None
+Grade: 90.5
+
 CourseID: ARTE260
 Title: INTERDISCIPLINARY RELATIONSHIPS IN THE ARTS
 Course Code: AIU
@@ -370,17 +381,6 @@ Prerequisite Courses: None
 Corequisite Courses: None
 PrereqCoreq: None
 Grade: 98.0
-
-CourseID: CSCE146
-Title: Algorithmic Design II
-Course Code: PR
-Credit Hours: 4
-Minimum Grade: C
-Semester: FALLSPRING
-Prerequisite Courses: Calculus I
-Corequisite Courses: None
-PrereqCoreq: None
-Grade: 87.2
 
 CourseID: UNIV101
 Title: University 101: The Student in the University
@@ -393,16 +393,16 @@ Corequisite Courses: None
 PrereqCoreq: None
 Grade: 100.0
 
-CourseID: CSCE145
-Title: Algorithmic Design I
+CourseID: CSCE146
+Title: Algorithmic Design II
 Course Code: PR
 Credit Hours: 4
 Minimum Grade: C
 Semester: FALLSPRING
-Prerequisite Courses: None
+Prerequisite Courses: Calculus I
 Corequisite Courses: None
 PrereqCoreq: None
-Grade: 90.5
+Grade: 87.2
 
 Current Courses: [CourseID: CSCE311
 Title: Operating Systems

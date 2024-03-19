@@ -51,7 +51,6 @@ public class StudentElectives {
     return "studentName: "+studentName + " \nElectives:" + electives + "\n";
   }
 
-  //TODO add electives to studentElectives array
   ElectiveCluster labScienceElectives = new ElectiveCluster(
             "Lab Science Electives", 
             4, 

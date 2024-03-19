@@ -12,7 +12,7 @@ public class test {
     // testGetAllAdvisors();
     // testGetAllCourses();
     // testGetAllMajors();
-    // testGetAllStudentPortfolios();
+    testGetAllStudentPortfolios();
     // testStudentPortfolio();
     // testWriteUsers();
 
@@ -76,13 +76,32 @@ public class test {
 
   public static void testGetAllStudentPortfolios() {
     CourseList.getInstance();
+    UserList userList = UserList.getInstance();
+    ArrayList<Student> students = userList.getStudents();
     ArrayList<Course> courses = DataLoader.getAllCourses();
     Course csce145 = CourseList.getCourseByID("CSCE190");
     ArrayList<StudentPortfolio> studentPortfolios = DataLoader.getAllStudentPortfolios();
     System.out.println("List of Student Portfolios:");
-    for (StudentPortfolio studentPortfolio : studentPortfolios) {
-      System.out.println(studentPortfolio.getTotalCreditHoursMajorRequirements() + "\n\n");
-    }
+    // Assuming students is an ArrayList<Student>
+    students.get(0).getPortfolio().addNextSemesterCourse(csce145);
+    System.out.println(students.get(0).getPortfolio().getNextSemesterCourses());
+// for (Student student : students) {
+//   StudentPortfolio portfolio = student.getPortfolio();
+//   if (portfolio != null) {
+//       ArrayList<ElectiveCluster> electives = portfolio.getStudentElectives().getElectives();
+//       if (electives != null) {
+//           for (ElectiveCluster elective : electives) {
+//               String electiveName = elective.getElectiveName();
+//               if (electiveName != null && electiveName.startsWith("Application Area")) {
+//                   System.out.println(electiveName);
+//               }
+//           }
+//       }
+//   }
+// }
+
+      // System.out.println(students.get(0).getPortfolio().getStudentElectives().getElectives().get(4).getElectiveName() + "\n\n");
+  
   }
 
   public static void testSaveCourses() {
@@ -115,11 +134,17 @@ public class test {
     ArrayList<Student> students = DataLoader.getAllStudents();
     ArrayList<Advisor> advisors = DataLoader.getAllAdvisors();
     ArrayList<Advisor> test = new ArrayList<Advisor>();
-    Advisor a = advisors.get(1);
-    //a.addToAdviseeList("thill");
-    test.add(a);
-    test.add(advisors.get(0));
-    DataWriter.saveAdvisors(test);
+    // Advisor a = advisors.get(1);
+    // a.addToAdviseeListByUsername("thill");
+    // test.add(a);
+    // test.add(advisors.get(0));
+    // DataWriter.saveAdvisors(test);
+    CourseList courseList = CourseList.getInstance();
+    ArrayList<Course> courses = courseList.getCourses();
+    System.out.println(courses.get(2));
+    students.get(0).getPortfolio().addCurrentCourse(courses.get(2));
+    System.out.println(students.get(0).getPortfolio().getCurrentCourses());
+    DataWriter.saveStudents(students);
   }
   
 }

@@ -213,6 +213,10 @@ public class DataWriter extends DataConstants {
       toCurrentCourseJSON(portfolio.getCurrentCourses())
     );
     portfolioObject.put(
+      NEXT_SEMESTER_COURSES,
+      toCurrentCourseJSON(portfolio.getNextSemesterCourses())
+    );
+    portfolioObject.put(
       COMPLETED_COURSES,
       toCompletedCourseJSON(portfolio.getCompletedCourses())
     );
