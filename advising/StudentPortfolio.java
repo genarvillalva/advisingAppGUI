@@ -392,7 +392,7 @@ public class StudentPortfolio {
     }
   }
 
-  public void LookupCourse(String courseName, String courseNumber) {}
+  //public void LookupCourse(String courseName, String courseNumber) {}
 
   /**
    * Adds a course to the student's portfolio.
