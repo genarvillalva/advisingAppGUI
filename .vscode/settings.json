@@ -1,5 +1,7 @@
 {
     "java.project.referencedLibraries": [
-        "advising/referencedLibraries/json-simple-1.1.1.jar"
+        "advising/referencedLibraries/json-simple-1.1.1.jar",
+        "advising/referencedLibraries/junit-platform-console-standalone-1.10.2-javadoc.jar",
+        "test-lib/**/*.jar"
     ]
 }
