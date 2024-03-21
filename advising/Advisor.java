@@ -110,7 +110,7 @@ public class Advisor extends User {
     
   }
 
-  public void suggestCourses(ArrayList<Course> courses) {}
+  //public void suggestCourses(ArrayList<Course> courses) {}
 
   public Student lookUpStudent(String username) {
     // Directly fetch the Student object from a central repository (e.g., UserList)
