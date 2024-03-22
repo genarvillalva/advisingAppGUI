@@ -1,0 +1,452 @@
+[
+    {
+      "studentName": "bwest",
+      "electives": [
+        {
+          "electiveName": "Lab Science Electives",
+          "hoursRequired": 4,
+          "hoursCompleted": 0,
+          "classes": {
+            "ANTH161": false,
+            "ASTR101": false,
+            "BIOL101": false,
+            "BIO101L": false,
+            "CHEM111": false,
+            "CHEM111L": false,
+            "ENVR101": false,
+            "ENVR101L": false,
+            "GEOG201": false,
+            "GEOG202": false,
+            "GEOL101": false,
+            "GEOL103": false,
+            "GEOL201": false,
+            "GEOL215": false,
+            "GEOL215L": false,
+            "GEOL302": false,
+            "MSCI101": false,
+            "MSCI102": false,
+            "MSCI210": false,
+            "MSCI210L": false,
+            "MSCI215": false,
+            "MSCI215L": false,
+            "PHYS211": false,
+            "PHYS211L": false
+          }
+        },
+        {
+          "electiveName": "GFL",
+          "hoursRequired": 3,
+          "hoursCompleted": 0,
+          "classes": {
+            "SPAN101": false,
+            "ARAB121": false
+          }
+        },
+        {
+          "electiveName": "ARP",
+          "hoursRequired": 9,
+          "hoursCompleted": 0,
+          "classes": {
+            "MATH141": false,
+            "MATH142": false
+          }
+        },
+        {
+          "electiveName": "Computer Science and Engineering Electives",
+          "hoursRequired": 9,
+          "hoursCompleted": 0,
+          "classes": {
+            "CSCE500": false,
+            "CSCE510": false,
+            "CSCE512": false,
+            "CSCE513": false,
+            "CSCE515": false,
+            "CSCE516": false,
+            "CSCE517": false,
+            "CSCE518": false,
+            "CSCE520": false,
+            "CSCE522": false,
+            "CSCE526": false,
+            "CSCE531": false,
+            "CSCE546": false,
+            "CSCE547": false,
+            "CSCE548": false,
+            "CSCE551": false,
+            "CSCE552": false,
+            "CSCE555": false,
+            "CSCE556": false,
+            "CSCE557": false,
+            "CSCE561": false,
+            "CSCE564": false,
+            "CSCE565": false,
+            "CSCE567": false,
+            "CSCE569": false,
+            "CSCE571": false,
+            "CSCE572": false,
+            "CSCE574": false,
+            "CSCE578": false,
+            "CSCE580": false,
+            "CSCE581": false,
+            "CSCE582": false,
+            "CSCE585": false,
+            "CSCE587": false,
+            "CSCE590": false,
+            "CSCE594": false
+          }
+        },
+        {
+          "electiveName": "Liberal Arts Electives",
+          "hoursRequired": 9,
+          "hoursCompleted": 0,
+          "classes": {
+            "AERO401": false,
+            "AERO402": false,
+            "AFAM201": false,
+            "AFAM202": false,
+            "AFAM207": false,
+            "AFAM218": false,
+            "AFAM303": false,
+            "AFAM308": false,
+            "AFAM330": false,
+            "AFAM331": false,
+            "AFAM332": false,
+            "AFAM335": false,
+            "AFAM342": false,
+            "AFAM343": false,
+            "AFAM348": false,
+            "AFAM350": false,
+            "AFAM353": false,
+            "AFAM355": false,
+            "AFAM364": false,
+            "AFAM365": false,
+            "AFAM366": false,
+            "AFAM378": false,
+            "AFAM380": false,
+            "AFAM382": false,
+            "AFAM393": false,
+            "AFAM397": false,
+            "AFAM398": false,
+            "AFAM399": false,
+            "ANTH100": false,
+            "ANTH499": false,
+            "ARMY401": false,
+            "ARMY402": false,
+            "ARTE101": false,
+            "ARTE260": false,
+            "ARTH105": false,
+            "ARTH366": false,
+            "ARTS103": false,
+            "ARTS261": false,
+            "CHIN103": false,
+            "CHIN550": false,
+            "CLAS220": false,
+            "CLAS598": false,
+            "CPLT150": false,
+            "CPLT597": false,
+            "CRJU100": false,
+            "CRJU494": false,
+            "DANC101": false,
+            "DANC381": false,
+            "ECON123": false,
+            "ECON499": false,
+            "ENGL270": false,
+            "ENGL499": false,
+            "FAMS180": false,
+            "FAMS597": false,
+            "FREN109": false,
+            "FREN615": false
+          }
+        },
+        {
+          "electiveName": "Application Area: Speech Electives",
+          "hoursRequired": 9,
+          "hoursCompleted": 0,
+          "classes": {
+            "SPCH 330": false,
+            "SPCH 331": false,
+            "SPCH 340": false,
+            "SPCH 380": false,
+            "SPCH 387": false,
+            "SPCH 399": false,
+            "SPCH 411": false
+          }
+        },
+        {
+          "electiveName": "Application Area: Math Electives",
+          "hoursRequired": 9,
+          "hoursCompleted": 0,
+          "classes": {
+            "MATH 300": false,
+            "MATH 328": false,
+            "MATH 511": false,
+            "MATH 514": false,
+            "MATH 515": false,
+            "MATH 520": false,
+            "MATH 521": false
+          }
+        },
+        {
+          "electiveName": "Application Area: Digital Design Electives",
+          "hoursRequired": 9,
+          "hoursCompleted": 0,
+          "classes": {
+            "MART 201": false,
+            "MART 210": false,
+            "MART 371": false,
+            "MART 380": false,
+            "MART 571C": false,
+            "MART 581D": false
+          }
+        },
+        {
+          "electiveName": "Application Area: Robotics Electives",
+          "hoursRequired": 9,
+          "hoursCompleted": 0,
+          "classes": {
+            "EMCH 535": false,
+            "ELCT 331": false,
+            "ELCT 531": false
+          }
+        },
+        {
+          "electiveName": "Application Area: Science Electives",
+          "hoursRequired": 9,
+          "hoursCompleted": 0,
+          "classes": {
+            "SPCH 330": false,
+            "SPCH 331": false,
+            "SPCH 340": false,
+            "SPCH 380": false,
+            "SPCH 387": false,
+            "SPCH 399": false,
+            "SPCH 411": false
+          }
+        }
+      ]
+    },
+    {
+      "studentName": "thill",
+      "electives": [
+        {
+          "electiveName": "Lab Science Electives",
+          "hoursRequired": 4,
+          "hoursCompleted": 0,
+          "classes": {
+            "ANTH161": false,
+            "ASTR101": false,
+            "BIOL101": false,
+            "BIO101L": false,
+            "CHEM111": false,
+            "CHEM111L": false,
+            "ENVR101": false,
+            "ENVR101L": false,
+            "GEOG201": false,
+            "GEOG202": false,
+            "GEOL101": false,
+            "GEOL103": false,
+            "GEOL201": false,
+            "GEOL215": false,
+            "GEOL215L": false,
+            "GEOL302": false,
+            "MSCI101": false,
+            "MSCI102": false,
+            "MSCI210": false,
+            "MSCI210L": false,
+            "MSCI215": false,
+            "MSCI215L": false,
+            "PHYS211": false,
+            "PHYS211L": false
+          }
+        },
+        {
+          "electiveName": "GFL",
+          "hoursRequired": 3,
+          "hoursCompleted": 0,
+          "classes": {
+            "SPAN101": false,
+            "ARAB121": false
+          }
+        },
+        {
+          "electiveName": "ARP",
+          "hoursRequired": 9,
+          "hoursCompleted": 0,
+          "classes": {
+            "MATH141": false,
+            "MATH142": false
+          }
+        },
+        {
+          "electiveName": "Computer Science and Engineering Electives",
+          "hoursRequired": 9,
+          "hoursCompleted": 0,
+          "classes": {
+            "CSCE500": false,
+            "CSCE510": false,
+            "CSCE512": false,
+            "CSCE513": false,
+            "CSCE515": false,
+            "CSCE516": false,
+            "CSCE517": false,
+            "CSCE518": false,
+            "CSCE520": false,
+            "CSCE522": false,
+            "CSCE526": false,
+            "CSCE531": false,
+            "CSCE546": false,
+            "CSCE547": false,
+            "CSCE548": false,
+            "CSCE551": false,
+            "CSCE552": false,
+            "CSCE555": false,
+            "CSCE556": false,
+            "CSCE557": false,
+            "CSCE561": false,
+            "CSCE564": false,
+            "CSCE565": false,
+            "CSCE567": false,
+            "CSCE569": false,
+            "CSCE571": false,
+            "CSCE572": false,
+            "CSCE574": false,
+            "CSCE578": false,
+            "CSCE580": false,
+            "CSCE581": false,
+            "CSCE582": false,
+            "CSCE585": false,
+            "CSCE587": false,
+            "CSCE590": false,
+            "CSCE594": false
+          }
+        },
+        {
+          "electiveName": "Liberal Arts Electives",
+          "hoursRequired": 9,
+          "hoursCompleted": 0,
+          "classes": {
+            "AERO401": false,
+            "AERO402": false,
+            "AFAM201": false,
+            "AFAM202": false,
+            "AFAM207": false,
+            "AFAM218": false,
+            "AFAM303": false,
+            "AFAM308": false,
+            "AFAM330": false,
+            "AFAM331": false,
+            "AFAM332": false,
+            "AFAM335": false,
+            "AFAM342": false,
+            "AFAM343": false,
+            "AFAM348": false,
+            "AFAM350": false,
+            "AFAM353": false,
+            "AFAM355": false,
+            "AFAM364": false,
+            "AFAM365": false,
+            "AFAM366": false,
+            "AFAM378": false,
+            "AFAM380": false,
+            "AFAM382": false,
+            "AFAM393": false,
+            "AFAM397": false,
+            "AFAM398": false,
+            "AFAM399": false,
+            "ANTH100": false,
+            "ANTH499": false,
+            "ARMY401": false,
+            "ARMY402": false,
+            "ARTE101": false,
+            "ARTE260": false,
+            "ARTH105": false,
+            "ARTH366": false,
+            "ARTS103": false,
+            "ARTS261": false,
+            "CHIN103": false,
+            "CHIN550": false,
+            "CLAS220": false,
+            "CLAS598": false,
+            "CPLT150": false,
+            "CPLT597": false,
+            "CRJU100": false,
+            "CRJU494": false,
+            "DANC101": false,
+            "DANC381": false,
+            "ECON123": false,
+            "ECON499": false,
+            "ENGL270": false,
+            "ENGL499": false,
+            "FAMS180": false,
+            "FAMS597": false,
+            "FREN109": false,
+            "FREN615": false
+          }
+        },
+        {
+          "electiveName": "Application Area: Speech Electives",
+          "hoursRequired": 9,
+          "hoursCompleted": 0,
+          "classes": {
+            "SPCH 330": false,
+            "SPCH 331": false,
+            "SPCH 340": false,
+            "SPCH 380": false,
+            "SPCH 387": false,
+            "SPCH 399": false,
+            "SPCH 411": false
+          }
+        },
+        {
+          "electiveName": "Application Area: Math Electives",
+          "hoursRequired": 9,
+          "hoursCompleted": 0,
+          "classes": {
+            "MATH 300": false,
+            "MATH 328": false,
+            "MATH 511": false,
+            "MATH 514": false,
+            "MATH 515": false,
+            "MATH 520": false,
+            "MATH 521": false
+          }
+        },
+        {
+          "electiveName": "Application Area: Digital Design Electives",
+          "hoursRequired": 9,
+          "hoursCompleted": 0,
+          "classes": {
+            "MART 201": false,
+            "MART 210": false,
+            "MART 371": false,
+            "MART 380": false,
+            "MART 571C": false,
+            "MART 581D": false
+          }
+        },
+        {
+          "electiveName": "Application Area: Robotics Electives",
+          "hoursRequired": 9,
+          "hoursCompleted": 0,
+          "classes": {
+            "EMCH 535": false,
+            "ELCT 331": false,
+            "ELCT 531": false
+          }
+        },
+        {
+          "electiveName": "Application Area: Science Electives",
+          "hoursRequired": 9,
+          "hoursCompleted": 0,
+          "classes": {
+            "SPCH 330": false,
+            "SPCH 331": false,
+            "SPCH 340": false,
+            "SPCH 380": false,
+            "SPCH 387": false,
+            "SPCH 399": false,
+            "SPCH 411": false
+          }
+        }
+      ]
+    }
+  ]

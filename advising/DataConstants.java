@@ -26,7 +26,12 @@ public abstract class DataConstants {
   public static final String COREQUISITE_COURSES = "corequisiteCourses";
   public static final String PREREQ_COREQ = "prereqCoreq";
 
-  
+  public static final String TEST_STUDENT_FILE = "advising/json/TESTStudents.json";
+  public static final String TEST_ADVISOR_FILE = "advising/json/TESTadvisors.json";
+  public static final String TEST_COURSES_FILE = "advising/json/TESTcourse.json";
+  public static final String TEST_MAJOR_FILE = "advising/json/TESTmajors.json";
+  public static final String TEST_PORTFOLIO_FILE = "advising/json/TESTportfolio.json";
+  public static final String TEST_ELECTIVES_FILE = "advising/json/TESTelectives.json";
 
   public static final String PORTFOLIO_UUID = "portfolioUUID";
   public static final String REQUIRED_COURSES = "requiredCourses";

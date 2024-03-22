@@ -1,0 +1,28 @@
+[
+    {
+        "firstName": "Brax",
+        "lastName": "West",
+        "advisor": "gregtomlin24",
+        "advisingNotes": "",
+        "password": "pass",
+        "major": "Computer_Science",
+        "portfolio": "bwest",
+        "userType": "Student",
+        "applicationArea": null,
+        "studentYear": "JUNIOR",
+        "username": "bwest"
+    },
+    {
+        "firstName": "Tawnie",
+        "lastName": "Hill",
+        "advisor": null,
+        "advisingNotes": "",
+        "password": "fgndsj46",
+        "major": "Computer_Information_Systems",
+        "portfolio": "thill",
+        "userType": "Student",
+        "applicationArea": null,
+        "studentYear": "FRESHMAN",
+        "username": "thill"
+    }
+]
