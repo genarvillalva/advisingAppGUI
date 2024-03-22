@@ -470,7 +470,7 @@ private static Student findStudentByUsername(
   public static ArrayList<StudentElectives> getAllStudentElectives() {
     ArrayList<StudentElectives> studentElectives = new ArrayList<StudentElectives>();
     try {
-      FileReader reader = new FileReader(TEST_PORTFOLIO_FILE);
+      FileReader reader = new FileReader(TEST_ELECTIVES_FILE);
       JSONParser parser = new JSONParser();
       JSONArray studentElectivesJSON = (JSONArray) parser.parse(reader);
       for (int i = 0; i < studentElectivesJSON.size(); i++) {
