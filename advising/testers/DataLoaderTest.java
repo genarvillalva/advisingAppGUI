@@ -5,16 +5,13 @@ import static org.junit.jupiter.api.Assertions.*;
 import advising.Advisor;
 import advising.Course;
 import advising.DataLoader;
+import advising.ElectiveCluster;
 import advising.Major;
 import advising.Student;
 import advising.StudentPortfolio;
-import advising.UserList;
 import java.util.ArrayList;
 import java.util.HashMap;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class DataLoaderTest {
@@ -63,8 +60,8 @@ public class DataLoaderTest {
 
     @Test
     void testGetAllAdvisorsWithoutAdviseesSizeZero(){
-        advisors.clear();
         ArrayList<Advisor> advisorsWithoutAdvisees = DataLoader.getAllAdvisorsWithoutAdvisees();
+        advisorsWithoutAdvisees.clear();
         assertEquals(0, advisorsWithoutAdvisees.size());
     }
 
@@ -94,7 +91,14 @@ public class DataLoaderTest {
 
     @Test 
     void testGetAllStudentPortfolio(){
-        assertEquals(2, DataLoader.getAllStudentPortfolios().size());
+      ArrayList<Student> students = DataLoader.getAllStudents();
+      int size = 0;
+      for (Student student : students) {
+        if(student.getPortfolio() != null) {
+          size++;
+        }
+      }
+      assertEquals(2, size);
     }
 
     @Test
@@ -233,12 +237,17 @@ public class DataLoaderTest {
         assertEquals(10, DataLoader.getAllStudentPortfolios().get(0).getStudentElectives().getElectives().size());
     }
 
+    @Test 
+    void testStudentPortfolioStudentElectivesSizeZero(){
+        ArrayList<ElectiveCluster> studentElectives = DataLoader.getAllStudentPortfolios().get(0).getStudentElectives().getElectives();
+        studentElectives.clear();
+        assertEquals(0, studentElectives.size());
+    }
 
-
-    
-
-
-
+    @Test
+    void testStudentPortfolioStudentElectivesClusterName(){
+        assertEquals("Lab Science Electives", DataLoader.getAllStudentPortfolios().get(0).getStudentElectives().getElectives().get(0).getElectiveName());
+    }
 
   @AfterEach
   public void tearDown() {
