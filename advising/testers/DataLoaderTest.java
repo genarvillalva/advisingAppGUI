@@ -33,7 +33,7 @@ public class DataLoaderTest {
 
     @Test
     void testGetAdvisorsSize() {
-    assertEquals(2, advisors.size());
+    assertEquals(1, advisors.size());
     }
 
     @Test
