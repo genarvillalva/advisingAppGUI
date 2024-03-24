@@ -184,9 +184,9 @@ public class Advisor extends User {
     UserList.getInstance().removeStudentFromProgram(username, major);
   }
 
-  public String addStudentApplicationArea(Student applicationArea) {
-    return " ";
-  }
+  // public String addStudentApplicationArea(Student applicationArea) {
+  //   return " ";
+  // }
 
   /**
    * Notify the student that they are at risk of failing a course
@@ -220,7 +220,7 @@ public class Advisor extends User {
     System.out.println("Student not found in advisor's list.");
   }
 
-  public void generateEightSemesterPlan() {}
+  // public void generateEightSemesterPlan() {}
 
   public void logout() {
     super.logout(); // Call the logout() method from the superclass
