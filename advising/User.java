@@ -77,6 +77,10 @@ public abstract class User {
     }
   }
 
+  public boolean isLoggedIn() {
+    return isLoggedIn;
+  }
+
   public void loginAdmin(String username, String password) {
     while(true) {
       if(UserList.getInstance().verifyLoginAdmin(username, password)) {

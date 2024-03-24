@@ -213,6 +213,7 @@ public class Student extends User {
   public void logout() {
     super.logout(); // Call the logout() method from the superclass
   }
+  
   /**
    * String representation of a student
    */
