@@ -18,6 +18,7 @@ public class UserList {
 
       advisors = DataLoader.getAllAdvisors();
       students = DataLoader.getAllStudents();
+      //admins = DataLoader.getAllAdmins();
     
 }
 
@@ -36,6 +37,14 @@ public class UserList {
         }
     }
     return null; 
+  }
+  public Admin getAdminByUsername(String username) {
+    for (Admin admin : admins) {
+      if (admin.getUsername().equals(username)) {
+          return admin;
+      }
+  }
+  return null; 
   }
 
 
@@ -105,8 +114,18 @@ public class UserList {
                 System.out.println("Advisor in list: " + advisor.getUsername());
             }               
              DataWriter.saveAdvisors(advisors); // Save the advisors to JSON
-            } 
-        }
+            }
+            if (newUser instanceof Admin) {
+              System.out.println("Creating Admin: " + newUser.toString());
+              admins.add((Admin) newUser);
+              System.out.println("Admin list size: " + admins.size());
+              for (Admin admin : admins) {
+                  System.out.println("Advisor in list: " + admin.getUsername());
+              }               
+              //DataWriter.saveAdmin(admins); // Save the admin to JSON
+              } 
+          } 
+        
 
         
 
@@ -225,7 +244,6 @@ public class UserList {
     }
     System.out.println("Student " + username + " not found in " + major + " program.");
   }
-
 
 
 }
