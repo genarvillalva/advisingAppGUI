@@ -8,7 +8,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import advising.Advisor;
+import advising.Major;
 import advising.Student;
+import advising.StudentYear;
+import advising.User;
 import advising.UserList;
 
 import java.util.ArrayList;
@@ -101,9 +104,11 @@ class AdvisorTest {
 
   @Test
   public void testAddToAdviseeListByUsername() {
-    Student student = new Student("Timmy", "Tim", "TimTim", "password", "student", "Computer_Science", advisor, null, null, null, null);
-    UserList userList = advising.UserList.getInstance();
-    student = userList.getStudentByUsername(student.getUsername());
+    UserList userList = UserList.getInstance();
+    userList.createAccount("Test", "Test", "Student", "Test", "Test", "Computer Science", StudentYear.FRESHMAN);
+    Major Computer_Science = new Major("Computer Science", "Computer_Science", null, 120);
+    Student student = userList.getStudentByUsername("Test");
+
     this.listOfAdvisedStudents.add(student);
     // Add student to advisor's list
     advisor.addToAdviseeListByUsername(student.getUsername());
@@ -114,12 +119,13 @@ class AdvisorTest {
   }
 
   @Test
-  public void testAddToAdviseeListByUsername_StudentNotFound() {
-      // Creating test data
-      String studentUsername = "nonexistentstudent";
-
+  public void testAddToAdviseeListByUsernameStudentNotFound() {
+      UserList userList = UserList.getInstance();
+      userList.createAccount("Test", "Test", "Student", "Test", "Test", "Computer Science", StudentYear.FRESHMAN);
+      Major Computer_Science = new Major("Computer Science", "Computer_Science", null, 120);
+      Student student = userList.getStudentByUsername("Test");
       // Add student to advisor's list
-      advisor.addToAdviseeListByUsername(studentUsername);
+      advisor.addToAdviseeListByUsername(student.getUsername());
 
       // Verify that the advisor's list remains unchanged
       assertTrue(advisor.getListOfAdvisedStudents().isEmpty());
@@ -128,8 +134,9 @@ class AdvisorTest {
   @Test
   public void testAddToAdviseeListByUsername_DuplicateStudent() {
       // Creating test data
-      Student student = new Student("Timmy", "Tim", "TimTim", "password", "student", "Computer_Science", advisor, null, null, null, null);
-
+      UserList userList = UserList.getInstance();
+      userList.createAccount("Test", "Test", "Student", "Test", "Test", "Computer Science", StudentYear.FRESHMAN);
+      Student student = userList.getStudentByUsername("Test");
       // Add the same student twice to advisor's list
       advisor.addToAdviseeListByUsername(student.getUsername());
       advisor.addToAdviseeListByUsername(student.getUsername());
@@ -137,12 +144,102 @@ class AdvisorTest {
       // Verify that the student is added only once to the advisor's list
       assertEquals(1, advisor.getListOfAdvisedStudents().size());
   }
+
+  @Test
+  public void testAddToAdviseeListByUsernameStudentAlreadyAdvised() {
+    
+    
+    UserList userList = UserList.getInstance();
+    userList.createAccount("Test", "Test", "Student", "Test", "Test", "Computer Science", StudentYear.FRESHMAN);
+    Student student = userList.getStudentByUsername("Test");
+
+    advisor.getListOfAdvisedStudents().add(student); // Simulate adding student to advisor's list
+    advisor.getListOfAdvisedStudents().add(student); // Try to add the student again
+    advisor.addToAdviseeListByUsername(student.getUsername());
+    
+    assertEquals(1, advisor.getListOfAdvisedStudents().size());
+  }
+
+  @Test
+  public void testAddToAdviseeListByUsernameNullStudent() {
+
+    UserList userList = UserList.getInstance();
+    userList.createAccount(null, "Test", "Student", "Test", "Test", "Computer Science", StudentYear.FRESHMAN);
+    Student student = userList.getStudentByUsername(null);
+    advisor.addToAdviseeListByUsername(student.getUsername());
+    assertTrue(advisor.getListOfAdvisedStudents().isEmpty());
+  }
+
+  @Test
+  public void testAddToAdviseeListByUsernameEmptyStudent() {
+    // Test whether the system handles adding an empty string as a student username
+    UserList userList = UserList.getInstance();
+    userList.createAccount("", "Test", "Student", "Test", "Test", "Computer Science", StudentYear.FRESHMAN);
+    Student student = userList.getStudentByUsername("");
+    advisor.addToAdviseeListByUsername(student.getUsername());
+    // Verify that the advisor's list remains unchanged
+    assertTrue(advisor.getListOfAdvisedStudents().isEmpty());
+  }
+
+  @Test
+  public void testAddStudentToAdvisorValidStudent() {
+    // Test whether the system correctly adds the student to the advisor's list of advised students
+    // with a valid username
+    UserList userList = UserList.getInstance();
+    userList.createAccount("test", "Test", "Student", "Test", "Test", "Computer Science", StudentYear.FRESHMAN);
+    Student student = userList.getStudentByUsername("test");
+    advisor.addStudentToAdvisor(student.getUsername(), advisor.getListOfAdvisedStudents());
+    // Verify that the student is added to the advisor's list
+    assertTrue(advisor.getListOfAdvisedStudents().contains(student));
+  }
+
+  @Test
+  public void testAddStudentToAdvisorBlankUsername() {
+    UserList userList = UserList.getInstance();
+    userList.createAccount("", "Test", "Student", "Test", "Test", "Computer Science", StudentYear.FRESHMAN);
+    Student student = userList.getStudentByUsername("");
+    advisor.addStudentToAdvisor(student.getUsername(), advisor.getListOfAdvisedStudents());
+    assertTrue(advisor.getListOfAdvisedStudents().isEmpty());
+  }
+
+  @Test
+  public void testAddStudentToAdvisorNullUsername() {
+    // Test whether the system handles adding a student to the advisor's list with a null username
+    UserList userList = UserList.getInstance();
+    userList.createAccount(null, "Test", "Student", "Test", "Test", "Computer Science", StudentYear.FRESHMAN);
+    Student student = userList.getStudentByUsername(null);
+    advisor.addStudentToAdvisor(student.getUsername(), advisor.getListOfAdvisedStudents());
+    // Verify that the advisor's list remains unchanged
+    assertTrue(advisor.getListOfAdvisedStudents().isEmpty());
+    
+  }
+
+  @Test
+  public void removeStudentFromProgramTest() {
+    UserList userList = UserList.getInstance();
+    userList.createAccount("Test", "Test", "Student", "Test", "Test", "Computer Science", StudentYear.FRESHMAN);
+    Student student = userList.getStudentByUsername("Test");
+    advisor.removeStudentFromProgram(student.getUsername(), student.getMajor());
+  }
+  @Test
+  public void removeStudentFromProgramNotInProgramTest() {
+    
+    Student student = new Student("Test", null, null, null, null, "Computer Science", advisor, null, null, null, null);
+    advisor.removeStudentFromProgram(student.getUsername(), student.getMajor());
+  }
+  @Test
+  public void removeStudentFromProgramMultipleTimesTest() {
+    UserList userList = UserList.getInstance();
+    userList.createAccount("Test", "Test", "Student", "Test", "Test", "Computer Science", StudentYear.FRESHMAN);
+    Student student = userList.getStudentByUsername("Test");
+    advisor.removeStudentFromProgram(student.getUsername(), student.getMajor());
+    advisor.removeStudentFromProgram(student.getUsername(), student.getMajor());
+    advisor.removeStudentFromProgram(student.getUsername(), student.getMajor());
+  }
+
   
 
 
 
 
-
-
-  
 }
