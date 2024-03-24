@@ -7,6 +7,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import advising.UserList;
+import advising.Admin;
+import advising.Advisor;
 import advising.Student;
 import advising.StudentYear;
 import advising.User;
@@ -31,43 +33,168 @@ class UserTest {
     }
 
     @Test
-    public void loginStudentSuccessfulTest() {
-        // Create a new user list instance
+    public void loginStudentNormalTest() {
         UserList userList = UserList.getInstance();
-    
-        // Create a new student account
         userList.createAccount("Test", "Test", "Student", "Test", "Test", "Computer_Science", StudentYear.FRESHMAN);
-        
-        // Retrieve the student object
         Student student = userList.getStudentByUsername("Test");
-    
-        // Call loginStudent with valid credentials directly on the student object
-        student.loginStudent(student.getUsername(), student.getPassword());
-    
-        // Check if the student is logged in
+        user.loginStudent(student.getUsername(), student.getPassword());
         assertTrue(student.isLoggedIn() == true);
     }
 
     @Test
-    public void testLoginStudent_Failed() {
-        // Mock the UserList's verifyLoginStudent method to return false
-        UserList.getInstance().verifyLoginStudent("invaliduser", "invalidpassword");
-        // Call loginStudent with invalid credentials
-        user.loginStudent("invaliduser", "invalidpassword");
+    public void testLoginStudentNullUsername() {
+        UserList userList = UserList.getInstance();
+        userList.createAccount(null, "Test", "Student", "Test", "Test", "Computer_Science", StudentYear.FRESHMAN);
+        Student student = userList.getStudentByUsername(null);
+        user.loginStudent(student.getUsername(), student.getPassword());
         assertFalse(user.isLoggedIn());
     }
 
     @Test
-    public void testLoginStudent_NullUsername() {
-        // Call loginStudent with null username
-        user.loginStudent(null, "password");
+    public void testLoginStudentNullPassword() {
+        UserList userList = UserList.getInstance();
+        userList.createAccount("Test", null, "Student", "Test", "Test", "Computer_Science", StudentYear.FRESHMAN);
+        Student student = userList.getStudentByUsername("Test");
+        student.loginStudent(student.getUsername(), student.getPassword());
+        assertFalse(user.isLoggedIn());
+    }
+    @Test
+    public void testLoginStudentEmptyName() {
+        UserList userList = UserList.getInstance();
+        userList.createAccount("", "test", "Student", "Test", "Test", "Computer_Science", StudentYear.FRESHMAN);
+        Student student = userList.getStudentByUsername("");
+        student.loginStudent("", student.getPassword());
+        assertFalse(user.isLoggedIn());
+    }
+    @Test
+    public void testLoginStudentEmptyPassword() {
+        UserList userList = UserList.getInstance();
+        userList.createAccount("test", "", "Student", "Test", "Test", "Computer_Science", StudentYear.FRESHMAN);
+        Student student = userList.getStudentByUsername("test");
+        student.loginStudent("", student.getPassword());
+        assertFalse(user.isLoggedIn());
+    }
+    @Test
+    public void testLoginStudentMismatchCapitals() {
+        UserList userList = UserList.getInstance();
+        userList.createAccount("Test", "Test", "Student", "Test", "Test", "Computer_Science", StudentYear.FRESHMAN);
+        Student student = userList.getStudentByUsername("Test");
+        user.loginStudent("test", student.getPassword());
         assertFalse(user.isLoggedIn());
     }
 
     @Test
-    public void testLoginStudent_NullPassword() {
-        // Call loginStudent with null password
-        user.loginStudent("johndoe", null);
+    public void loginAdvisorNormalTest() {
+        user.isLoggedIn();
+        UserList userList = UserList.getInstance();
+        userList.createAccount("Test", "Test", "Advisor", "Test", "Test", null, null);
+        Advisor advisor = userList.getAdvisorByUsername("Test");
+        user.loginAdvisor(advisor.getUsername(), advisor.getPassword());
+        assertTrue(user.isLoggedIn());
+    }
+
+    @Test
+    public void testLoginAdvisorNullUsername() {
+        UserList userList = UserList.getInstance();
+        userList.createAccount(null, "Test", "Advisor", "Test", "Test", null, null);
+        Advisor advisor = userList.getAdvisorByUsername(null);
+        user.loginAdvisor(advisor.getUsername(), advisor.getPassword());
         assertFalse(user.isLoggedIn());
     }
+
+    @Test
+    public void testLoginAdvisorNullPassword() {
+        UserList userList = UserList.getInstance();
+        userList.createAccount("Test", null, "Advisor", "Test", "Test", null, null);
+        Advisor advisor = userList.getAdvisorByUsername("Test");
+        user.loginAdvisor(advisor.getUsername(), null);
+        assertFalse(user.isLoggedIn());
+    }
+    @Test
+    public void testLoginAdvisorEmptyName() {
+        UserList userList = UserList.getInstance();
+        userList.createAccount("", "Test", "Advisor", "Test", "Test", null, null);
+        Advisor advisor = userList.getAdvisorByUsername("");
+        user.loginAdvisor(advisor.getUsername(), advisor.getPassword());
+        assertFalse(user.isLoggedIn());
+    }
+    @Test
+    public void testLoginAdvisorEmptyPassword() {
+        UserList userList = UserList.getInstance();
+        userList.createAccount("Test", "", "Advisor", "Test", "Test", null, null);
+        Advisor advisor = userList.getAdvisorByUsername("Test");
+        user.loginAdvisor(advisor.getUsername(), advisor.getPassword());
+        assertFalse(user.isLoggedIn());
+    }
+
+    @Test
+    public void testLoginAdvisorMismatchCapitals() {
+        UserList userList = UserList.getInstance();
+        userList.createAccount("TestingName", "Test", "Advisor", "Test", "Test", null, null);
+        Advisor advisor = userList.getAdvisorByUsername("TestingName");
+        user.loginAdvisor("testingname", advisor.getPassword());
+        assertFalse(user.isLoggedIn());
+    }
+
+    @Test
+    public void loginAdminNormalTest() {
+        user.isLoggedIn();
+        UserList userList = UserList.getInstance();
+        userList.createAccount("Test", "Test", "Admin", "Test", "Test", null, null);
+        Admin admin = userList.getAdminByUsername("Test");
+        user.loginAdmin(admin.getUsername(), admin.getPassword());
+        assertTrue(user.isLoggedIn());
+    }
+
+    @Test
+    public void testLoginAdminNullUsername() {
+        UserList userList = UserList.getInstance();
+        userList.createAccount(null, "Test", "Admin", "Test", "Test", null, null);
+        Admin admin = userList.getAdminByUsername(null);
+        user.loginAdmin(admin.getUsername(), admin.getPassword());
+        assertFalse(user.isLoggedIn());
+    }
+
+    @Test
+    public void testLoginAdminNullPassword() {
+        UserList userList = UserList.getInstance();
+        userList.createAccount("Test", null, "Admin", "Test", "Test", null, null);
+        Admin admin = userList.getAdminByUsername("Test");
+        user.loginAdvisor(admin.getUsername(), null);
+        assertFalse(user.isLoggedIn());
+    }
+    @Test
+    public void testLoginAdminEmptyName() {
+        UserList userList = UserList.getInstance();
+        userList.createAccount("", "Test", "Admin", "Test", "Test", null, null);
+        Admin admin = userList.getAdminByUsername("");
+        user.loginAdmin(admin.getUsername(), admin.getPassword());
+        assertFalse(user.isLoggedIn());
+    }
+    @Test
+    public void testLoginAdminEmptyPassword() {
+        UserList userList = UserList.getInstance();
+        userList.createAccount("Test", "", "ADmin", "Test", "Test", null, null);
+        Admin admin = userList.getAdminByUsername("Test");
+        user.loginAdvisor(admin.getUsername(), admin.getPassword());
+        assertFalse(user.isLoggedIn());
+    }
+
+    @Test
+    public void testLoginAdminMismatchCapitals() {
+        UserList userList = UserList.getInstance();
+        userList.createAccount("TestingName", "Test", "Admin", "Test", "Test", null, null);
+        Admin admin = userList.getAdminByUsername("TestingName");
+        user.loginAdmin("testingname", admin.getPassword());
+        assertFalse(user.isLoggedIn());
+    }
+
+    @Test
+    public void testLoginNonExistent() {
+        user.loginAdmin("fakename", "fakepass");
+        assertFalse(user.isLoggedIn());
+    }
+
+
+
 }

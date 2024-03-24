@@ -72,7 +72,9 @@ public abstract class User {
         break;
       }
       else {
+        isLoggedIn = false;
         System.out.println("Login Failed");
+        return;
       }
     }
   }
@@ -90,6 +92,8 @@ public abstract class User {
       }
       else {
         System.out.println("Login Failed");
+        isLoggedIn = false;
+        return;
       }
     }
   }
@@ -103,6 +107,8 @@ public abstract class User {
       }
       else {
         System.out.println("Login Failed");
+        isLoggedIn = false;
+        return;
       }
     }
   }
