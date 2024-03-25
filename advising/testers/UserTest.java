@@ -195,6 +195,31 @@ class UserTest {
         assertFalse(user.isLoggedIn());
     }
 
+    @Test
+    public void LogOutStudentTest() {
+    UserList userList = UserList.getInstance();
+    userList.createAccount("Test", "Test", "Student", "Test", "Test", "Computer_Science", StudentYear.FRESHMAN);
+    Student student = userList.getStudentByUsername("Test");
+    student.logout();
+    assertTrue(user.isLoggedIn() == false);
+    }
 
+    @Test
+    public void LogOutAdvisorTest() {
+    UserList userList = UserList.getInstance();
+    userList.createAccount("Test", "Test", "Advisor", "Test", "Test", "Computer_Science", StudentYear.FRESHMAN);
+    Advisor advisor = userList.getAdvisorByUsername("Test");
+    advisor.logout();
+    assertTrue(user.isLoggedIn() == false);
+    }
+
+    @Test
+    public void LogOutAdminTest() {
+    UserList userList = UserList.getInstance();
+    userList.createAccount("Test", "Test", "Admin", "Test", "Test", "Computer_Science", StudentYear.FRESHMAN);
+    Admin admin = userList.getAdminByUsername("Test");
+    admin.logout();
+    assertTrue(user.isLoggedIn() == false);
+    }
 
 }
