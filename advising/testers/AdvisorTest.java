@@ -24,10 +24,10 @@ class AdvisorTest {
   @BeforeEach
   public void setup() {
     // Initialize the advisor and other necessary objects before each test case
-    String firstName = "John";
-    String lastName = "Doe";
-    String username = "johndoe";
-    String password = "password";
+    String firstName = "Test";
+    String lastName = "Test";
+    String username = "Test";
+    String password = "Test";
     String userType = "Advisor";
     listOfAdvisedStudents = new ArrayList<>();
 
@@ -215,6 +215,41 @@ class AdvisorTest {
   }
 
   @Test
+  public void testAddAdvisorToStudentNormal() {
+    UserList userList = UserList.getInstance();
+    userList.createAccount("Student", "Test", "Student", "Test", "Test", "Computer Science", StudentYear.FRESHMAN);
+    userList.createAccount("Advisor", "Test", "Advisor", "Test", "Test", null, null);
+    Student student = userList.getStudentByUsername("Student");
+    Advisor advisor = userList.getAdvisorByUsername("Advisor");
+    student.setAdvisor(advisor);
+    assertTrue(student.getAdvisor() == advisor);
+  }
+
+  @Test
+  public void testAddAdvisorToStudentEmptyAdvisor() {
+    UserList userList = UserList.getInstance();
+    userList.createAccount("Student", "Test", "Student", "Test", "Test", "Computer Science", StudentYear.FRESHMAN);
+    userList.createAccount("", "", "", "", "", null, null);
+    Student student = userList.getStudentByUsername("Student");
+    Advisor advisor = userList.getAdvisorByUsername("");
+    student.setAdvisor(advisor);
+    assertTrue(student.getAdvisor() == null);
+  }
+  @Test
+  public void testAddAdvisorToStudentMoreThanOnce() {
+    UserList userList = UserList.getInstance();
+    userList.createAccount("Student", "Test", "Student", "Test", "Test", "Computer Science", StudentYear.FRESHMAN);
+    userList.createAccount("Advisor", "Test", "Advisor", "Test", "Test", null, null);
+    Student student = userList.getStudentByUsername("Student");
+    Advisor advisor = userList.getAdvisorByUsername("Advisor");
+    student.setAdvisor(advisor);
+    student.setAdvisor(advisor);
+    assertTrue(student.getAdvisor() == advisor);
+
+  }
+
+
+  @Test
   public void removeStudentFromProgramTest() {
     UserList userList = UserList.getInstance();
     userList.createAccount("Test", "Test", "Student", "Test", "Test", "Computer Science", StudentYear.FRESHMAN);
@@ -240,7 +275,7 @@ class AdvisorTest {
   @Test
   public void LogOutAdvisorTest() {
     UserList userList = UserList.getInstance();
-    userList.createAccount("Test", "Test", "Advisor", "Test", "Test", "Computer_Science", StudentYear.FRESHMAN);
+    userList.createAccount("Test", "Test", "Advisor", "Test", "Test", null, null);
     Advisor advisor = userList.getAdvisorByUsername("Test");
     advisor.logout();
     assertTrue(advisor.isLoggedIn() == false);

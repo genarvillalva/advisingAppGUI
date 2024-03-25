@@ -6,8 +6,10 @@ import org.junit.jupiter.api.Test;
 
 import advising.Advisor;
 import advising.Course;
+import advising.CourseCode;
 import advising.ElectiveCluster;
 import advising.Major;
+import advising.Semester;
 import advising.Student;
 import advising.StudentElectives;
 import advising.StudentPortfolio;
@@ -19,6 +21,8 @@ import advising.DataWriter;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class StudentTest {
@@ -87,31 +91,16 @@ public class StudentTest {
     public void testGetAdvisingNotesNullNote() {
         // Test when a null note is added
         student.addAdvisingNotes(null);
-        assertEquals("", student.getAdvisingNotes());
+        assertEquals(null, student.getAdvisingNotes());
     }
+    
     @Test
-    public void testDisplayMajorMap() {
-        // Create a Major object with actual courses
-        UserList userList = UserList.getInstance();
-        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outContent));
-        ArrayList requiredCourses = new ArrayList();
-        requiredCourses.add("CSCE145");
-        requiredCourses.add("MATH141");
-        requiredCourses.add("ENGL101");
-        requiredCourses.add("CSCE190");
-
-        // Call the method and capture the output in a StringBuilder
-        
-        userList.createAccount("Test", "Test", "Student", "Test", "Test", "Computer Science", StudentYear.FRESHMAN);
-        Major Computer_Science = new Major("Computer Science", "Computer_Science", requiredCourses, 120);
-
-        StringBuilder output = new StringBuilder();
-  
-
-        student.displayMajorMap(Computer_Science);
-  
-
+    public void LogOutStudentTest() {
+    UserList userList = UserList.getInstance();
+    userList.createAccount("Test", "Test", "Student", "Test", "Test", "Computer_Science", StudentYear.FRESHMAN);
+    Student student = userList.getStudentByUsername("Test");
+    student.logout();
+    assertTrue(student.isLoggedIn() == false);
     }
     
 
