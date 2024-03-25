@@ -1,6 +1,6 @@
 package advising;
 
-enum Semester {
+public enum Semester {
   FALL,
   SPRING,
   FALLSPRING,

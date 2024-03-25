@@ -146,11 +146,11 @@ public class UserList {
   public boolean isUsernameValid(String username) {
     return username != null && username.length() >5;
    
-  }
+  } ///WE DID NOT USE THIS
 
   public boolean isPasswordValid(String password) {
     return password != null && password.length() >5;
-  }
+  } ///WE DID NOT USE THIS
 
 //The userExists method checks if a 
 //user already exists in the system based on a provided username, iterating over the userAccounts list.
@@ -161,7 +161,7 @@ public class UserList {
         }
       }
       return false; // No user with the given username exists
-    }
+    } ///WE DID NOT USE THIS
 
 
     /**

@@ -3,14 +3,14 @@ package advising;
 import java.util.ArrayList;
 
 public class MajorList {
-    private MajorList majorList;
+    public MajorList majorList;
     private ArrayList<Major> majors;
 
 
     /**
      * Loads the arrayList majors with all majors in a JSON
      */
-    private MajorList() {
+    public MajorList() {
         majors = DataLoader.getAllMajors();
     }
 
@@ -23,5 +23,11 @@ public class MajorList {
             majorList = new MajorList();
         }
         return majorList;
+    }
+
+
+    // Getter method for majors
+    public ArrayList<Major> getMajors() {
+        return majors;
     }
 }
