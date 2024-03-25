@@ -3,6 +3,7 @@ package advising.testers;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -10,6 +11,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import advising.Course;
 import advising.DataLoader;
 import advising.StudentPortfolio;
 
@@ -124,5 +126,55 @@ public class studentPortfolioTester {
         boolean fact = portfolio.checkScholarship(gpa, yearCreditCount);
         assertFalse(fact);
     }
+
+    @Test
+    public void testCheckScholarshipLowerCredit() {
+        double gpa = 3.5;
+        int yearCreditCount = 20;
+        boolean fact = portfolio.checkScholarship(gpa, yearCreditCount);
+        assertFalse(fact);
+    }
+
+    @Test
+    public void testCheckScholarshipLowerBoth() {
+        double gpa = 2.9;
+        int yearCreditCount = 20;
+        boolean fact = portfolio.checkScholarship(gpa, yearCreditCount);
+        assertFalse(fact);
+    }
+
+
+    //CALCULATE COURSE CREDIT LEFT
+    @Test
+    public void testCalculateCourseCreditLeftValid() {
+        int result = portfolio.calculateCourseCreditLeft(90, 120);
+        assertEquals(30, result, "Completed 90 out of 120 total credit hours, should have 30 left");
+    }
+
+    @Test
+    public void testCalculateCourseCreditLeftZero() {
+        int result = portfolio.calculateCourseCreditLeft(120, 120);
+        assertEquals(0, result, "Completed all 120 credit hours, should have 0 left");
+    }
+
+    @Test
+    public void testCalculateCourseCreditLeftNegative() {
+        int result = portfolio.calculateCourseCreditLeft(150, 120);
+        assertEquals(0, result, "Completed 150 out of 120 total credit hours, should have 0 left");
+    }
+
+
+    //CALCULATE GPA
+    @Test
+    public void testCalculateGPANoCourses() {
+        // Create an empty HashMap of completed courses
+        HashMap<Course, Integer> completedCourses = new HashMap<>();
+
+        // Create a student portfolio
+        double gpa = portfolio.calculateGPA(completedCourses);
+
+        assertEquals(0.0, gpa); // GPA should be 0 with no completed courses
+    }
+
 
 }
