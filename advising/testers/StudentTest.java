@@ -93,6 +93,25 @@ public class StudentTest {
         student.addAdvisingNotes(null);
         assertEquals(null, student.getAdvisingNotes());
     }
+    @Test
+    public void testAddAdvisingNotesMultipleStudents() {
+        // Create multiple students and an advisor
+        UserList userList = UserList.getInstance();
+        userList.createAccount("Student1", "Test", "Student", "Test", "Test", "Computer_Science", StudentYear.FRESHMAN);
+        userList.createAccount("Student2", "Test", "Student", "Test", "Test", "Computer_Science", StudentYear.FRESHMAN);
+        userList.createAccount("Advisor", "Test", "Advisor", "Test", "Test", null, null);
+        Student student1 = userList.getStudentByUsername("Student1");
+        Student student2 = userList.getStudentByUsername("Student2");
+        Advisor advisor = userList.getAdvisorByUsername("Advisor");
+
+        // Add advising notes for both students
+        student1.addAdvisingNotes("Note 1");
+        student2.addAdvisingNotes("Note 2");
+
+        // Check if the notes are added correctly for each student
+        assertEquals("Note 1\n", student1.getAdvisingNotes());
+        assertEquals("Note 2\n", student2.getAdvisingNotes());
+    }
     
     @Test
     public void LogOutStudentTest() {
