@@ -237,11 +237,13 @@ class AdvisorTest {
   }
   @Test
   public void testAddAdvisorToStudentMoreThanOnce() {
+    // Test to add the same student to an advisor more than once
     UserList userList = UserList.getInstance();
     userList.createAccount("Student", "Test", "Student", "Test", "Test", "Computer Science", StudentYear.FRESHMAN);
     userList.createAccount("Advisor", "Test", "Advisor", "Test", "Test", null, null);
     Student student = userList.getStudentByUsername("Student");
     Advisor advisor = userList.getAdvisorByUsername("Advisor");
+    student.setAdvisor(advisor);
     student.setAdvisor(advisor);
     student.setAdvisor(advisor);
     assertTrue(student.getAdvisor() == advisor);
