@@ -17,7 +17,7 @@ import advising.UserList;
 import java.util.ArrayList;
 
 class AdvisorTest {
-
+  
   private Advisor advisor;
   private ArrayList<Student> listOfAdvisedStudents;
 
@@ -237,6 +237,14 @@ class AdvisorTest {
     advisor.removeStudentFromProgram(student.getUsername(), student.getMajor());
   }
 
+  @Test
+  public void LogOutAdvisorTest() {
+    UserList userList = UserList.getInstance();
+    userList.createAccount("Test", "Test", "Advisor", "Test", "Test", "Computer_Science", StudentYear.FRESHMAN);
+    Advisor advisor = userList.getAdvisorByUsername("Test");
+    advisor.logout();
+    assertTrue(advisor.isLoggedIn() == false);
+  }
   
 
 
