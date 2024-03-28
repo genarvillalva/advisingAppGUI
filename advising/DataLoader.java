@@ -40,7 +40,7 @@ public class DataLoader extends DataConstants {
     ArrayList<Student> students = new ArrayList<Student>();
 
     try {
-      FileReader reader = new FileReader(TEST_STUDENT_FILE);
+      FileReader reader = new FileReader(STUDENTS_FILE);
       JSONParser parser = new JSONParser();
       JSONArray studentsJSON = (JSONArray) parser.parse(reader);
       for (int i = 0; i < studentsJSON.size(); i++) {
@@ -77,7 +77,7 @@ public class DataLoader extends DataConstants {
   public static ArrayList<Advisor> getAllAdvisorsWithoutAdvisees() {
     ArrayList<Advisor> advisors = new ArrayList<Advisor>();
     try {
-      FileReader reader = new FileReader(TEST_ADVISOR_FILE);
+      FileReader reader = new FileReader(ADVISORS_FILE);
       JSONParser parser = new JSONParser();
       ArrayList<Student> emptyList = new ArrayList<Student>();
       JSONArray advisorsJSON = (JSONArray) parser.parse(reader);
@@ -117,7 +117,7 @@ private static ArrayList<Advisor> addAdviseesToAdvisors(ArrayList<Advisor> advis
   ArrayList<Advisor> advisorsWithAdvisees = new ArrayList<>();
 
   try {
-      FileReader reader = new FileReader(TEST_ADVISOR_FILE);
+      FileReader reader = new FileReader(ADVISORS_FILE);
       JSONParser parser = new JSONParser();
       JSONArray advisorsJSON = (JSONArray) parser.parse(reader);
 
@@ -179,7 +179,7 @@ private static Student findStudentByUsername(
   public static ArrayList<Course> getAllCourses() {
     ArrayList<Course> courses = new ArrayList<Course>();
     try {
-      FileReader reader = new FileReader(TEST_COURSES_FILE);
+      FileReader reader = new FileReader(COURSES_FILE);
       JSONParser parser = new JSONParser();
       JSONArray coursesJSON = (JSONArray) parser.parse(reader);
       for (int i = 0; i < coursesJSON.size(); i++) {
@@ -214,7 +214,7 @@ private static Student findStudentByUsername(
  */
   private static void addPrerequisiteCourses(ArrayList<Course> courses) {
     try {
-      FileReader reader = new FileReader(TEST_COURSES_FILE);
+      FileReader reader = new FileReader(COURSES_FILE);
       JSONParser parser = new JSONParser();
       JSONArray coursesJSON = (JSONArray) parser.parse(reader);
       for (int i = 0; i < coursesJSON.size(); i++) {
@@ -308,7 +308,7 @@ private static Student findStudentByUsername(
     ArrayList<Major> majors = new ArrayList<Major>();
     try {
       CourseList courseList = CourseList.getInstance();
-      FileReader reader = new FileReader(TEST_MAJOR_FILE);
+      FileReader reader = new FileReader(MAJORS_FILE);
       JSONParser parser = new JSONParser();
       JSONArray majorsJSON = (JSONArray) parser.parse(reader);
       for (int i = 0; i < majorsJSON.size(); i++) {
@@ -342,7 +342,7 @@ private static Student findStudentByUsername(
     try {
       ArrayList<StudentPortfolio> studentPortfolios = new ArrayList<StudentPortfolio>();
       FileReader reader = new FileReader(
-        TEST_PORTFOLIO_FILE
+        STUDENT_PORTFOLIOS_FILE
       );
       CourseList.getInstance();
       JSONParser parser = new JSONParser();
@@ -470,7 +470,7 @@ private static Student findStudentByUsername(
   public static ArrayList<StudentElectives> getAllStudentElectives() {
     ArrayList<StudentElectives> studentElectives = new ArrayList<StudentElectives>();
     try {
-      FileReader reader = new FileReader(TEST_ELECTIVES_FILE);
+      FileReader reader = new FileReader(ELECTIVES_FILE);
       JSONParser parser = new JSONParser();
       JSONArray studentElectivesJSON = (JSONArray) parser.parse(reader);
       for (int i = 0; i < studentElectivesJSON.size(); i++) {
