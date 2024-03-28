@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
-
 public class DataLoaderTest {
 
   private ArrayList<Student> students = DataLoader.getAllStudents();
@@ -42,6 +41,15 @@ public class DataLoaderTest {
         assertEquals(0, advisors.size());
     }
 
+    @Test 
+    void testGetAdvisorsGetFirsttName(){
+        assertEquals("Greg", advisors.get(0).getFirstName());
+    }
+    @Test
+    void testGetAdvisorsListOfStudents(){
+        assertEquals(2, advisors.get(0).getListOfAdvisedStudents().size());
+    }
+
     @Test
     void testFindAdvisorByUsername(){
         assertEquals("gregtomlin24", advisors.get(0).getUsername());
@@ -56,6 +64,16 @@ public class DataLoaderTest {
     void testGetAllAdvisorsWithoutAdvisees(){
       ArrayList<Advisor> advisorsWithoutAdvisees = DataLoader.getAllAdvisorsWithoutAdvisees();
         assertEquals(1, advisorsWithoutAdvisees.size());
+    }
+
+    @Test
+    void testGetAllAdvisorsWithoutAdviseesRightFirstName(){
+        assertEquals("Greg", DataLoader.getAllAdvisorsWithoutAdvisees().get(0).getFirstName());
+    }
+
+    @Test
+    void testGetAllAdvisorsWithoutAdviseesNullAdviseeList(){
+        assertEquals("", DataLoader.getAllAdvisorsWithoutAdvisees().get(0).getListOfAdvisedStudents().size());
     }
 
     @Test
