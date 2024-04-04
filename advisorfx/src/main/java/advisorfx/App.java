@@ -1,4 +1,4 @@
-package javafx;
+package advisorfx;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
