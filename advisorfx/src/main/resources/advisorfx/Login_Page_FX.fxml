@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="533.0" prefWidth="626.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button layoutX="212.0" layoutY="80.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="101.0" text="Sign In" />
+      <Button layoutX="313.0" layoutY="80.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="101.0" text="Sign Up" />
+      <Pane layoutX="117.0" layoutY="119.0" prefHeight="295.0" prefWidth="392.0">
+         <children>
+            <TextField layoutX="122.0" layoutY="55.0" text="Username" />
+            <TextField layoutX="122.0" layoutY="108.0" text="Password" />
+            <Button layoutX="146.0" layoutY="167.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="101.0" text="Sign In" />
+            <Label layoutX="182.0" layoutY="233.0" />
+            <Label layoutX="111.0" layoutY="242.0" text="Don't Have an account? Sign up" />
+         </children>
+      </Pane>
+   </children>
+</Pane>
