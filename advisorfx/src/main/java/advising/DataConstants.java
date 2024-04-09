@@ -26,12 +26,12 @@ public abstract class DataConstants {
   public static final String COREQUISITE_COURSES = "corequisiteCourses";
   public static final String PREREQ_COREQ = "prereqCoreq";
 
-  public static final String STUDENTS_FILE = "advising/json/students.json";
-  public static final String ADVISORS_FILE = "advising/json/advisors.json";
-  public static final String COURSES_FILE = "advising/json/Course.json";
-  public static final String MAJORS_FILE = "advising/json/Major.json";
-  public static final String STUDENT_PORTFOLIOS_FILE = "advising/json/studentPortfolios.json";
-  public static final String ELECTIVES_FILE = "advising/json/StudentElectives.json";
+  public static final String STUDENTS_FILE = "advisorfx/src/main/java/advising/json/students.json";
+  public static final String ADVISORS_FILE = "advisorfx/src/main/java/advising/json/advisors.json";
+  public static final String COURSES_FILE = "advisorfx/src/main/java/advising/json/Course.json";
+  public static final String MAJORS_FILE = "advisorfx/src/main/java/advising/json/Major.json";
+  public static final String STUDENT_PORTFOLIOS_FILE = "advisorfx/src/main/java/advising/json/studentPortfolios.json";
+  public static final String ELECTIVES_FILE = "advisorfx/src/main/java/advising/json/StudentElectives.json";
 
   public static final String TEST_STUDENT_FILE = "advising/json/TESTStudents.json";
   public static final String TEST_ADVISOR_FILE = "advising/json/TESTadvisors.json";
