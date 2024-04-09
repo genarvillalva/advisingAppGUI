@@ -4,7 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
-
+<?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="533.0" prefWidth="626.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="advisorfx.LoginController">
    <children>
@@ -12,11 +12,16 @@
       <Button layoutX="313.0" layoutY="80.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="101.0" text="Sign Up" />
       <Pane layoutX="117.0" layoutY="119.0" prefHeight="295.0" prefWidth="392.0">
          <children>
-            <TextField fx:id="txt_username" layoutX="122.0" layoutY="55.0" text="Username" />
-            <TextField fx:id="txt_password" layoutX="122.0" layoutY="108.0" text="Password" />
-            <Button layoutX="146.0" layoutY="167.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="101.0" text="Sign In" onAction="#signIn" />
+            <TextField fx:id="txt_username" layoutX="122.0" layoutY="55.0" promptText="Username" />
+            <TextField fx:id="txt_password" layoutX="122.0" layoutY="108.0" promptText="Password" />
+            <Button layoutX="146.0" layoutY="167.0" mnemonicParsing="false" onAction="#signIn" prefHeight="39.0" prefWidth="101.0" text="Sign In" />
             <Label layoutX="182.0" layoutY="233.0" />
             <Label layoutX="111.0" layoutY="242.0" text="Don't Have an account? Sign up" />
+            <Label fx:id="label_invalidLogin" layoutX="134.0" layoutY="139.0" prefHeight="17.0" prefWidth="126.0" text="Invalid username or password" textFill="#e11313" visible="false">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>

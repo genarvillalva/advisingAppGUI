@@ -9,7 +9,6 @@ public class SignUpTest {
     static Student currentStudent = null;
 
     public static void main(String[] args) {
-        AuditFacade auditFacade = new AuditFacade();
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Welcome to Degree Works");
