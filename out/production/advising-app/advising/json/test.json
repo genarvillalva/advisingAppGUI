@@ -1,0 +1,17 @@
+[
+    {
+        "creditHours": 3,
+        "prereqCoreq": [],
+        "preferredSemester": 1,
+        "minGrade": "B",
+        "prerequisiteCourses": [
+            "MATH141",
+            "CSCE190"
+        ],
+        "courseCode": "SCI",
+        "corequisiteCourses": [],
+        "semester": "FALL",
+        "title": "Introduction to Computer Science",
+        "courseID": "CS101"
+    }
+]
