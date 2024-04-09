@@ -1,0 +1,450 @@
+Portfolio UUID: bwest
+
+Eight Semester Plan:
+
+Semester 1: 
+CourseID: CSCE145
+Title: Algorithmic Design I
+Course Code: PR
+Credit Hours: 4
+Minimum Grade: C
+Semester: FALLSPRING
+Prerequisite Courses: None
+Corequisite Courses: None
+PrereqCoreq: None
+
+CourseID: CSCE190
+Title: Computing in the Modern World
+Course Code: PR
+Credit Hours: 1
+Minimum Grade: C
+Semester: FALLSPRING
+Prerequisite Courses: Algorithmic Design I
+Corequisite Courses: Algorithmic Design I
+PrereqCoreq: None
+
+CourseID: ARTE260
+Title: INTERDISCIPLINARY RELATIONSHIPS IN THE ARTS
+Course Code: AIU
+Credit Hours: 3
+Minimum Grade: C
+Semester: FALLSPRING
+Prerequisite Courses: None
+Corequisite Courses: None
+PrereqCoreq: None
+
+CourseID: UNIV101
+Title: University 101: The Student in the University
+Course Code: GHS
+Credit Hours: 3
+Minimum Grade: C
+Semester: FALLSPRING
+Prerequisite Courses: None
+Corequisite Courses: None
+PrereqCoreq: None
+
+
+
+Semester 2: 
+CourseID: CSCE146
+Title: Algorithmic Design II
+Course Code: PR
+Credit Hours: 4
+Minimum Grade: C
+Semester: FALLSPRING
+Prerequisite Courses: Calculus I
+Corequisite Courses: None
+PrereqCoreq: None
+
+CourseID: CHEM111
+Title: General Chemistry I
+Course Code: SCI
+Credit Hours: 3
+Minimum Grade: C
+Semester: FALLSPRING
+Prerequisite Courses: Calculus I
+Corequisite Courses: General Chemistry I Lab
+PrereqCoreq: None
+
+CourseID: CHEM111L
+Title: General Chemistry I Lab
+Course Code: SCI
+Credit Hours: 1
+Minimum Grade: C
+Semester: FALLSPRING
+Prerequisite Courses: None
+Corequisite Courses: None
+PrereqCoreq: General Chemistry I
+
+CourseID: CSCE215
+Title: UNIX/Linux Fundamentals
+Course Code: PR
+Credit Hours: 1
+Minimum Grade: C
+Semester: FALLSPRING
+Prerequisite Courses: Algorithmic Design I
+Corequisite Courses: None
+PrereqCoreq: None
+
+CourseID: HIST111
+Title: UNITED STATES HISTORY TO 1865
+Course Code: GHS
+Credit Hours: 3
+Minimum Grade: C
+Semester: FALLSPRING
+Prerequisite Courses: None
+Corequisite Courses: None
+PrereqCoreq: None
+
+CourseID: MATH241
+Title: Vector Calculus
+Course Code: PR
+Credit Hours: 3
+Minimum Grade: 
+Semester: FALLSPRING
+Prerequisite Courses: Calculus II
+Corequisite Courses: None
+PrereqCoreq: None
+
+
+
+Semester 3: 
+CourseID: CSCE240
+Title: Advanced Programming Techniques
+Course Code: PR
+Credit Hours: 3
+Minimum Grade: C
+Semester: FALLSPRING
+Prerequisite Courses: UNIX/Linux Fundamentals, Algorithmic Design II
+Corequisite Courses: None
+PrereqCoreq: None
+
+CourseID: CSCE211
+Title: Digital Logic Design
+Course Code: PR
+Credit Hours: 3
+Minimum Grade: C
+Semester: FALLSPRING
+Prerequisite Courses: Calculus I
+Corequisite Courses: None
+PrereqCoreq: None
+
+CourseID: MATH374
+Title: Discrete Structures
+Course Code: PR
+Credit Hours: 3
+Minimum Grade: C
+Semester: FALLSPRING
+Prerequisite Courses: Calculus II, Algorithmic Design II
+Corequisite Courses: None
+PrereqCoreq: None
+
+CourseID: CHEM112
+Title: General Chemistry II
+Course Code: SCI
+Credit Hours: 3
+Minimum Grade: 
+Semester: FALLSPRING
+Prerequisite Courses: General Chemistry I, Calculus I
+Corequisite Courses: General Chemistry I Lab
+PrereqCoreq: None
+
+CourseID: CHEM112L
+Title: General Chemistry I Lab
+Course Code: SCI
+Credit Hours: 1
+Minimum Grade: 
+Semester: FALLSPRING
+Prerequisite Courses: None
+Corequisite Courses: General Chemistry II
+PrereqCoreq: General Chemistry I
+
+CourseID: CHEM112REC
+Title: General Chemistry II Recitation
+Course Code: SCI
+Credit Hours: 3
+Minimum Grade: 
+Semester: FALLSPRING
+Prerequisite Courses: General Chemistry I, Calculus I
+Corequisite Courses: General Chemistry I Lab
+PrereqCoreq: None
+
+CourseID: SPCH140
+Title: Public Communication
+Course Code: CMS
+Credit Hours: 3
+Minimum Grade: C
+Semester: FALLSPRING
+Prerequisite Courses: Calculus I
+Corequisite Courses: General Chemistry I Lab
+PrereqCoreq: None
+
+
+
+Semester 4: 
+CourseID: ENGL463
+Title: Business Writing
+Course Code: PR
+Credit Hours: 3
+Minimum Grade: 
+Semester: FALLSPRING
+Prerequisite Courses: Critical Reading and Composition, Rhetoric and Composition
+Corequisite Courses: None
+PrereqCoreq: None
+
+CourseID: CSCE350
+Title: Data Structures & Algorithms
+Course Code: MR
+Credit Hours: 3
+Minimum Grade: C
+Semester: FALLSPRING
+Prerequisite Courses: Advanced Programming Techniques, Discrete Structures
+Corequisite Courses: None
+PrereqCoreq: None
+
+CourseID: CSCE212
+Title: Intro to Computer Architecture
+Course Code: PR
+Credit Hours: 3
+Minimum Grade: C
+Semester: FALLSPRING
+Prerequisite Courses: Algorithmic Design I, Digital Logic Design
+Corequisite Courses: None
+PrereqCoreq: None
+
+CourseID: CSCE247
+Title: Software Engineering
+Course Code: PR
+Credit Hours: 3
+Minimum Grade: C
+Semester: FALLSPRING
+Prerequisite Courses: Algorithmic Design II
+Corequisite Courses: None
+PrereqCoreq: None
+
+CourseID: STAT509
+Title: Statistics for Engineers
+Course Code: PR
+Credit Hours: 3
+Minimum Grade: 
+Semester: FALLSPRING
+Prerequisite Courses: Calculus II
+Corequisite Courses: None
+PrereqCoreq: None
+
+
+
+Current Semester!!!
+Semester 5: 
+CourseID: CSCE311
+Title: Operating Systems
+Course Code: MR
+Credit Hours: 3
+Minimum Grade: C
+Semester: FALLSPRING
+Prerequisite Courses: Advanced Programming Techniques
+Corequisite Courses: None
+PrereqCoreq: None
+
+CourseID: CSCE330
+Title: Programming Language Structures
+Course Code: MR
+Credit Hours: 3
+Minimum Grade: C
+Semester: FALL
+Prerequisite Courses: Advanced Programming Techniques, Discrete Structures
+Corequisite Courses: None
+PrereqCoreq: None
+
+CourseID: CSCE390
+Title: Professional Issues in Computer Science and Engineering
+Course Code: VSR
+Credit Hours: 1
+Minimum Grade: C
+Semester: FALLSPRING
+Prerequisite Courses: None
+Corequisite Courses: None
+PrereqCoreq: None
+
+
+
+Semester 6: 
+CourseID: CSCE416
+Title: Intro to Computer Networks
+Course Code: MR
+Credit Hours: 3
+Minimum Grade: C
+Semester: FALLSPRING
+Prerequisite Courses: Algorithmic Design II
+Corequisite Courses: None
+PrereqCoreq: None
+
+CourseID: PHIL102
+Title: Philosophy 102
+Course Code: ARP
+Credit Hours: 3
+Minimum Grade: C
+Semester: FALLSPRING
+Prerequisite Courses: None
+Corequisite Courses: None
+PrereqCoreq: None
+
+CourseID: SPAN101
+Title: Basic Spanish
+Course Code: GFL
+Credit Hours: 3
+Minimum Grade: 
+Semester: FALLSPRING
+Prerequisite Courses: None
+Corequisite Courses: None
+PrereqCoreq: None
+
+CourseID: MART201
+Title: Foundations of Media Art Production
+Course Code: AIU
+Credit Hours: 3
+Minimum Grade: 
+Semester: FALLSPRING
+Prerequisite Courses: None
+Corequisite Courses: None
+PrereqCoreq: None
+
+
+
+Semester 7: 
+CourseID: CSCE490
+Title: Capstone Computing Project I
+Course Code: MR
+Credit Hours: 3
+Minimum Grade: C
+Semester: FALL
+Prerequisite Courses: Advanced Programming Techniques, Data Structures & Algorithms
+Corequisite Courses: None
+PrereqCoreq: None
+
+CourseID: MATH344
+Title: Applied Linear Algebra
+Course Code: PR
+Credit Hours: 3
+Minimum Grade: 
+Semester: FALLSPRING
+Prerequisite Courses: Calculus II
+Corequisite Courses: None
+PrereqCoreq: None
+
+
+
+Semester 8: 
+CourseID: CSCE492
+Title: Capstone Computing Project II
+Course Code: MR
+Credit Hours: 3
+Minimum Grade: C
+Semester: SPRING
+Prerequisite Courses: Advanced Programming Techniques, Data Structures & Algorithms, Capstone Computing Project I
+Corequisite Courses: None
+PrereqCoreq: None
+
+
+
+Completed Courses:
+
+CourseID: CSCE190
+Title: Computing in the Modern World
+Course Code: PR
+Credit Hours: 1
+Minimum Grade: C
+Semester: FALLSPRING
+Prerequisite Courses: Algorithmic Design I
+Corequisite Courses: Algorithmic Design I
+PrereqCoreq: None
+Grade: 85.0
+
+CourseID: CSCE145
+Title: Algorithmic Design I
+Course Code: PR
+Credit Hours: 4
+Minimum Grade: C
+Semester: FALLSPRING
+Prerequisite Courses: None
+Corequisite Courses: None
+PrereqCoreq: None
+Grade: 90.5
+
+CourseID: ARTE260
+Title: INTERDISCIPLINARY RELATIONSHIPS IN THE ARTS
+Course Code: AIU
+Credit Hours: 3
+Minimum Grade: C
+Semester: FALLSPRING
+Prerequisite Courses: None
+Corequisite Courses: None
+PrereqCoreq: None
+Grade: 98.0
+
+CourseID: UNIV101
+Title: University 101: The Student in the University
+Course Code: GHS
+Credit Hours: 3
+Minimum Grade: C
+Semester: FALLSPRING
+Prerequisite Courses: None
+Corequisite Courses: None
+PrereqCoreq: None
+Grade: 100.0
+
+CourseID: CSCE146
+Title: Algorithmic Design II
+Course Code: PR
+Credit Hours: 4
+Minimum Grade: C
+Semester: FALLSPRING
+Prerequisite Courses: Calculus I
+Corequisite Courses: None
+PrereqCoreq: None
+Grade: 87.2
+
+Current Courses: [CourseID: CSCE311
+Title: Operating Systems
+Course Code: MR
+Credit Hours: 3
+Minimum Grade: C
+Semester: FALLSPRING
+Prerequisite Courses: Advanced Programming Techniques
+Corequisite Courses: None
+PrereqCoreq: None
+, CourseID: CSCE330
+Title: Programming Language Structures
+Course Code: MR
+Credit Hours: 3
+Minimum Grade: C
+Semester: FALL
+Prerequisite Courses: Advanced Programming Techniques, Discrete Structures
+Corequisite Courses: None
+PrereqCoreq: None
+, CourseID: CSCE390
+Title: Professional Issues in Computer Science and Engineering
+Course Code: VSR
+Credit Hours: 1
+Minimum Grade: C
+Semester: FALLSPRING
+Prerequisite Courses: None
+Corequisite Courses: None
+PrereqCoreq: None
+]
+
+Failed Courses: {CourseID: MATH241
+Title: Vector Calculus
+Course Code: PR
+Credit Hours: 3
+Minimum Grade: 
+Semester: FALLSPRING
+Prerequisite Courses: Calculus II
+Corequisite Courses: None
+PrereqCoreq: None
+=1}
+
+GPA: 3.6
+Semester Credit Count: 15
+Total Credit Hours: 65
+-----------------------------------------------------------

@@ -1,0 +1,13 @@
+[
+    {
+        "firstName": "Greg",
+        "lastName": "Tomlin",
+        "listOfAdvisedStudents": [
+            "bwest",
+            "thill"
+        ],
+        "password": "1",
+        "userType": "Advisor",
+        "username": "gregtomlin24"
+    }
+]
