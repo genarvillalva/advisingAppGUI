@@ -8,8 +8,6 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="533.0" prefWidth="626.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="advisorfx.LoginController">
    <children>
-      <Button layoutX="212.0" layoutY="80.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="101.0" text="Sign In" />
-      <Button layoutX="313.0" layoutY="80.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="101.0" text="Sign Up" />
       <Pane layoutX="117.0" layoutY="119.0" prefHeight="295.0" prefWidth="392.0">
          <children>
             <TextField fx:id="txt_username" layoutX="122.0" layoutY="55.0" promptText="Username" />
@@ -24,5 +22,10 @@
             </Label>
          </children>
       </Pane>
+      <Label layoutX="234.0" layoutY="100.0" prefHeight="39.0" prefWidth="159.0" style="-fx-background-color: white;" text="Advisor Sign In">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
    </children>
 </Pane>
