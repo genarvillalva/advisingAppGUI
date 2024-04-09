@@ -9,11 +9,17 @@ public class AuditFacade {
     private Student student;
     private StudentPortfolio studentPortfolio;
     private Advisor advisor;
-
+    private static AuditFacade auditFacade; 
     
     // private RequiredCourses requiredCourses;
 
-    public AuditFacade() {
+    public static AuditFacade getInstance(){
+        if(auditFacade == null) {
+            auditFacade = new AuditFacade();
+        }
+        return auditFacade;
+    }
+    private AuditFacade() {
         this.userList = UserList.getInstance(); // This line ensures userList is initialized
     }
 
@@ -24,7 +30,7 @@ public class AuditFacade {
     
     public void signUp(String userName, String password, String userType, String firstName, String lastName, String major, StudentYear studentYear) {
         userList.createAccount(userName, password, userType, firstName, lastName, major, studentYear);
-    }
+    } 
 
     
 
