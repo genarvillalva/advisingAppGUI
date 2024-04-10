@@ -7,45 +7,51 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="backgroundsu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="533.0" prefWidth="626.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="advisorfx.LoginController">
+<Pane fx:id="backgroundsu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="advisorfx.LoginController">
    <children>
-      <Pane fx:id="panesignup" layoutX="132.0" layoutY="135.0" prefHeight="295.0" prefWidth="392.0">
+      <Pane fx:id="panesignup" layoutX="355.0" layoutY="222.0" prefHeight="476.0" prefWidth="578.0">
          <children>
-            <TextField fx:id="txt_username" layoutX="116.0" layoutY="31.0" promptText="Username" />
-            <TextField fx:id="txt_password" layoutX="116.0" layoutY="78.0" promptText="Password" />
-            <Button fx:id="buttonsign" layoutX="125.0" layoutY="133.0" mnemonicParsing="false" onAction="#signInStudent" prefHeight="31.0" prefWidth="126.0" text="Sign In as a Student">
+            <TextField fx:id="txt_username" layoutX="178.0" layoutY="31.0" prefHeight="48.0" prefWidth="228.0" promptText="Username">
                <font>
-                  <Font size="12.0" />
+                  <Font size="18.0" />
+               </font></TextField>
+            <TextField fx:id="txt_password" layoutX="178.0" layoutY="100.0" prefHeight="48.0" prefWidth="228.0" promptText="Password">
+               <font>
+                  <Font size="18.0" />
+               </font></TextField>
+            <Button fx:id="buttonsign" layoutX="206.0" layoutY="200.0" mnemonicParsing="false" onAction="#signInStudent" prefHeight="44.0" prefWidth="162.0" text="Sign In as a Student">
+               <font>
+                  <Font size="15.0" />
                </font></Button>
             <Label layoutX="182.0" layoutY="233.0" />
-            <Label fx:id="buttonsu" layoutX="139.0" layoutY="226.0" text="Don't Have an account? ">
+            <Label fx:id="buttonsu" layoutX="209.0" layoutY="340.0" text="Don't Have an account? ">
                <font>
-                  <Font size="10.0" />
+                  <Font size="15.0" />
                </font></Label>
-            <Label fx:id="label_invalidLogin" layoutX="140.0" layoutY="102.0" prefHeight="28.0" prefWidth="105.0" text="Invalid username or password" textFill="#e11313" visible="false">
-               <font>
-                  <Font size="8.0" />
-               </font>
-            </Label>
-            <Hyperlink fx:id="signUpStudentHyperlink" layoutX="150.0" layoutY="239.0" onAction="#signUpStudent" prefHeight="23.0" prefWidth="85.0" text="Student Sign Up">
-               <font>
-                  <Font size="10.0" />
-               </font></Hyperlink>
-            <Button fx:id="signInAdvisorButton" layoutX="125.0" layoutY="172.0" mnemonicParsing="false" onAction="#signInAdvisor" prefHeight="31.0" prefWidth="126.0" text="Sign In as an Advisor">
+            <Label fx:id="label_invalidLogin" layoutX="203.0" layoutY="160.0" prefHeight="28.0" prefWidth="161.0" text="Invalid username or password" textFill="#e11313" visible="false">
                <font>
                   <Font size="12.0" />
                </font>
-            </Button>
-            <Hyperlink fx:id="signUpAdvisor" layoutX="150.0" layoutY="260.0" onAction="#signUpStudent" prefHeight="23.0" prefWidth="85.0" text="Advisor Sign Up">
+            </Label>
+            <Hyperlink fx:id="signUpStudentHyperlink" layoutX="226.0" layoutY="377.0" onAction="#signUpStudent" prefHeight="26.0" prefWidth="113.0" text="Student Sign Up">
                <font>
-                  <Font size="10.0" />
+                  <Font size="15.0" />
+               </font></Hyperlink>
+            <Button fx:id="signInAdvisorButton" layoutX="206.0" layoutY="250.0" mnemonicParsing="false" onAction="#signInAdvisor" prefHeight="44.0" prefWidth="162.0" text="Sign In as an Advisor">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Hyperlink fx:id="signUpAdvisor" layoutX="226.0" layoutY="407.0" onAction="#signUpStudent" prefHeight="26.0" prefWidth="127.0" text="Advisor Sign Up">
+               <font>
+                  <Font size="15.0" />
                </font>
             </Hyperlink>
          </children>
       </Pane>
-      <Label fx:id="titlesign" layoutX="278.0" layoutY="77.0" prefHeight="39.0" prefWidth="72.0" style="-fx-background-color: white;" text="Sign In">
+      <Label fx:id="titlesign" layoutX="570.0" layoutY="84.0" prefHeight="111.0" prefWidth="154.0" style="-fx-background-color: white;" text="Sign In">
          <font>
-            <Font size="24.0" />
+            <Font size="53.0" />
          </font>
       </Label>
    </children>
