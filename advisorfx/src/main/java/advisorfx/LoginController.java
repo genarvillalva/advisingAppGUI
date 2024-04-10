@@ -6,6 +6,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import java.io.IOException;
 import advising.*;
+import javafx.fxml.FXML;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class LoginController {
     @FXML
@@ -16,6 +19,17 @@ public class LoginController {
 
     @FXML
     private TextField txt_username;
+
+    @FXML
+    private ImageView logo;
+
+    public void initialize() {
+        // Load the image
+        Image image = new Image(getClass().getResourceAsStream("/images/logo.png"));
+        
+        // Set the image to the ImageView
+        logo.setImage(image);
+    }
 
     @FXML
     void signInStudent(ActionEvent event) throws IOException {
