@@ -25,6 +25,7 @@ public class SignUpTest {
             System.out.print("Enter your choice: ");
             String choice = scanner.nextLine();
 
+            AuditFacade auditFacade = AuditFacade.getInstance();
             switch (choice) {
                 case "1":
                     // Call login 

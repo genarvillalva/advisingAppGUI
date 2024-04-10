@@ -1,1 +1,22 @@
-[{"firstName":"Greg","lastName":"Tomlin","listOfAdvisedStudents":["bwest","thill"],"password":"1","userType":"Advisor","username":"gregtomlin24"},{"firstName":"Test","lastName":"Test","listOfAdvisedStudents":[],"password":"","userType":"Advisor","username":"Test"},{"firstName":"Test","lastName":"Test","listOfAdvisedStudents":[],"password":null,"userType":"Advisor","username":"Test"},{"firstName":"Test","lastName":"Test","listOfAdvisedStudents":[],"password":"Test","userType":"Advisor","username":"Test"},{"firstName":"Test","lastName":"Test","listOfAdvisedStudents":[],"password":"Test","userType":"Advisor","username":""},{"firstName":"Test","lastName":"Test","listOfAdvisedStudents":[],"password":"Test","userType":"Advisor","username":"TestingName"},{"firstName":"Test","lastName":"Test","listOfAdvisedStudents":[],"password":"Test","userType":"Advisor","username":null}]
+[
+    {
+        "firstName": "Greg",
+        "lastName": "Tomlin",
+        "username": "gregtomlin24",
+        "password": "1",
+        "userType": "Advisor",
+        "listOfAdvisedStudents": [
+            "bwest"
+        ]
+    },
+    {
+        "firstName": "Osbert",
+        "lastName": "Odden",
+        "username": "osberto",
+        "password": "apassword",
+        "userType": "Advisor",
+        "listOfAdvisedStudents": [
+            null
+        ]
+    }
+]
