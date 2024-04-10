@@ -49,7 +49,7 @@
             </Hyperlink>
          </children>
       </Pane>
-      <Label fx:id="titlesign" layoutX="570.0" layoutY="84.0" prefHeight="111.0" prefWidth="154.0" style="-fx-background-color: white;" text="Sign In">
+      <Label fx:id="titlesign" layoutX="570.0" layoutY="84.0" prefHeight="111.0" prefWidth="154.0" style="-fx-background-color: white; -fx-alignment: center;" text="Sign In">
          <font>
             <Font size="53.0" />
          </font>
