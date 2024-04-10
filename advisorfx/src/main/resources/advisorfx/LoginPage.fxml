@@ -13,7 +13,7 @@
          <children>
             <TextField fx:id="txt_username" layoutX="116.0" layoutY="31.0" promptText="Username" />
             <TextField fx:id="txt_password" layoutX="116.0" layoutY="78.0" promptText="Password" />
-            <Button fx:id="buttonsign" layoutX="125.0" layoutY="133.0" mnemonicParsing="false" onAction="#signIn" prefHeight="31.0" prefWidth="126.0" text="Sign In as a Student">
+            <Button fx:id="buttonsign" layoutX="125.0" layoutY="133.0" mnemonicParsing="false" onAction="#signInStudent" prefHeight="31.0" prefWidth="126.0" text="Sign In as a Student">
                <font>
                   <Font size="12.0" />
                </font></Button>
@@ -31,7 +31,7 @@
                <font>
                   <Font size="10.0" />
                </font></Hyperlink>
-            <Button fx:id="buttonsign1" layoutX="125.0" layoutY="172.0" mnemonicParsing="false" onAction="#signIn" prefHeight="31.0" prefWidth="126.0" text="Sign In as an Advisor">
+            <Button fx:id="signInAdvisorButton" layoutX="125.0" layoutY="172.0" mnemonicParsing="false" onAction="#signInAdvisor" prefHeight="31.0" prefWidth="126.0" text="Sign In as an Advisor">
                <font>
                   <Font size="12.0" />
                </font>

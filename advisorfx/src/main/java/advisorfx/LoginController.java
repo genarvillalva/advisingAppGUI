@@ -18,7 +18,7 @@ public class LoginController {
     private TextField txt_username;
 
     @FXML
-    void signIn(ActionEvent event) {
+    void signInStudent(ActionEvent event) throws IOException {
       String userName = txt_username.getText();
       String password = txt_password.getText();
 
@@ -26,9 +26,26 @@ public class LoginController {
 
       if(facade.login(userName, password, "student")){
         System.out.println("YAY");
+        // App.setRoot("StudentHome");
       }
       else {
         System.out.println("NAY!");
+        label_invalidLogin.setVisible(true);
+     }
+    }
+    @FXML 
+    void signInAdvisor(ActionEvent event) throws IOException {
+      String userName = txt_username.getText();
+      String password = txt_password.getText();
+
+      AuditFacade facade = AuditFacade.getInstance();
+
+      if(facade.login(userName, password, "advisor")){
+        System.out.println("yes");
+        App.setRoot("AdvisorHome");
+      }
+      else {
+        System.out.println("no!");
         label_invalidLogin.setVisible(true);
      }
     }
