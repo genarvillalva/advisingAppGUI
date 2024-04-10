@@ -5,14 +5,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="advisorfx.StudentHomeController">
    <children>
       <Pane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <Label layoutX="513.0" layoutY="51.0" prefHeight="135.0" prefWidth="273.0" text="Student Home Page">
+            <Label fx:id="StudentGreetingsText" layoutX="374.0" layoutY="46.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="83.0" prefWidth="546.0" style="-fx-background-color: white;" text="Hello,">
                <font>
-                  <Font size="32.0" />
+                  <Font size="50.0" />
                </font>
             </Label>
          </children>

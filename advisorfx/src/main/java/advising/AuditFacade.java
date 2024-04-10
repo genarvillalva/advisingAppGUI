@@ -131,6 +131,11 @@ public boolean login(String username, String password, String userType) {
     public Advisor getAdvisor() {
         return userList.getCurrentAdvisor();
     }
+
+    public Student getStudent() {
+        UserList ul = UserList.getInstance();
+        return ul.getCurrentStudent();
+    }
     public void addStudentToAdvisor(String studentUsername) {
         if (advisor != null) {
             advisor.addStudentToAdvisor(studentUsername, advisor.getListOfAdvisedStudents());
