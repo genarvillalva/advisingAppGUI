@@ -1,0 +1,24 @@
+#backgroundsu{
+    -fx-background-color: #1545F3;
+}
+
+#titlesign{
+    -fx-background-color: #7DB3FB;
+    -fx-font-family: "Arial"; 
+    -fx-font-size: 18px; 
+    -fx-font-weight: bold;
+}
+
+#buttonsignup{
+    
+}
+
+#panesignup{
+    -fx-background-color: rgba(255, 255, 255, 0.9);
+}
+
+#buttonsign{
+    -fx-background-color: #FBD949;
+}
+
+
