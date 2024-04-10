@@ -26,7 +26,7 @@ public class LoginController {
 
       if(facade.login(userName, password, "student")){
         System.out.println("YAY");
-        // App.setRoot("StudentHome");
+        App.setRoot("StudentHome");
       }
       else {
         System.out.println("NAY!");
