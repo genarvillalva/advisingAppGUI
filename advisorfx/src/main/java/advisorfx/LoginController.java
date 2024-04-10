@@ -43,6 +43,7 @@ public class LoginController {
       if(facade.login(userName, password, "advisor")){
         System.out.println("yes");
         App.setRoot("AdvisorHome");
+        
       }
       else {
         System.out.println("no!");

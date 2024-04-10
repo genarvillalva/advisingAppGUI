@@ -127,6 +127,10 @@ public boolean login(String username, String password, String userType) {
         return advisor.lookUpStudent(studentUsername);
             
     }
+
+    public Advisor getAdvisor() {
+        return userList.getCurrentAdvisor();
+    }
     public void addStudentToAdvisor(String studentUsername) {
         if (advisor != null) {
             advisor.addStudentToAdvisor(studentUsername, advisor.getListOfAdvisedStudents());
