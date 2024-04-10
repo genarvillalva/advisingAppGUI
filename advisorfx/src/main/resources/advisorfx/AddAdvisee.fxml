@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane prefHeight="149.0" prefWidth="1300.0" style="-fx-background-color: #004aad;" stylesheets="@../../java/advisorfx/advising.css">
+         <children>
+            <Label alignment="CENTER" layoutX="422.0" layoutY="38.0" prefHeight="75.0" prefWidth="458.0" style="-fx-text-fill: #cfb023;" text="Add Advisee">
+               <font>
+                  <Font size="43.0" />
+               </font>
+            </Label>
+            <Line endX="91.50640869140625" endY="-13.507766723632812" layoutX="667.0" layoutY="133.0" startX="-135.01153564453125" startY="-13.507766723632812" stroke="#cfb023" style="visibility: #cfb023;" />
+         </children>
+      </Pane>
+   </children>
+</VBox>
