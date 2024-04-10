@@ -4,6 +4,8 @@
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
@@ -49,10 +51,15 @@
             </Hyperlink>
          </children>
       </Pane>
-      <Label fx:id="titlesign" layoutX="570.0" layoutY="84.0" prefHeight="111.0" prefWidth="154.0" style="-fx-background-color: white; -fx-alignment: center;" text="Sign In">
+      <Label fx:id="titlesign" layoutX="570.0" layoutY="84.0" prefHeight="111.0" prefWidth="162.0" style="-fx-background-color: white;" text="Sign In">
          <font>
             <Font size="53.0" />
          </font>
       </Label>
+      <ImageView fitHeight="200.0" fitWidth="149.0" layoutX="583.0" layoutY="31.0">
+         <image>
+            <Image url="@../../../../../../../../../Downloads/output-onlinepngtools_2-ezgif.com-webp-to-jpg-converter.jpg" />
+         </image>
+      </ImageView>
    </children>
 </Pane>
