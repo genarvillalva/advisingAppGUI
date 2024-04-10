@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import java.io.IOException;
 import advising.*;
 
 public class LoginController {
@@ -30,6 +31,11 @@ public class LoginController {
         System.out.println("NAY!");
         label_invalidLogin.setVisible(true);
      }
+    }
+    @FXML
+    void signUpStudent(ActionEvent event) throws IOException {
+      System.out.println("Sign Up");
+      App.setRoot("Sign up 2 FX");
     }
 
 }
