@@ -49,7 +49,7 @@ public abstract class DataConstants {
   public static final String FAILED_COURSES = "failedCourses";
   public static final String SCHOLARSHIP = "scholarship";
   public static final String YEARLY_SCHOLARSHIP_CREDIT_HOURS_LEFT =
-    "yearlySholarshipCreditHoursLeft";
+    "yearlyScholarshipCreditHoursLeft";
   public static final String SCHOLARSHIP_CREDIT_HOURS_LEFT = "scholarshipCreditHoursLeft";
   public static final String GPA = "gpa";
   public static final String FAIL_COUNT = "failCount";

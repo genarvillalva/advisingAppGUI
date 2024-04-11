@@ -8,24 +8,26 @@ import java.util.Map;
 public class test {
 
   public static void main(String[] args) {
-    // testGetAllStudents();
+    testGetAllStudents();
     // testGetAllAdvisors();
     // testGetAllCourses();
     // testGetAllMajors();
-    testGetAllStudentPortfolios();
+    // testGetAllStudentPortfolios();
     // testStudentPortfolio();
     // testWriteUsers();
+
 
     // testSaveCourses();
   }
 
   public static void testGetAllStudents() {
-    ArrayList<Student> students = DataLoader.getAllStudents();
+    ArrayList<Student> students = UserList.getInstance().getStudents();
     System.out.println("List of Students:");
-    // for (Student student : students) {
-    //   System.out.println(student);
-    // }
-    System.out.println(students.get(0).getAdvisor());
+    for (Student student : students) {
+      System.out.println(student);
+    }
+    students.get(0).getPortfolio().generateEightSemesterPlan();
+
   }
 
   public static void testGetAllAdvisors() {
