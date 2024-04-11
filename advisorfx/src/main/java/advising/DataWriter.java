@@ -31,7 +31,7 @@ public class DataWriter extends DataConstants {
       jsonCourses.add(toCourseJSON(courses.get(i)));
     }
 
-    try (FileWriter file = new FileWriter("advising/json/test.json")) {
+    try (FileWriter file = new FileWriter(COURSES_FILE)) {
       file.write(jsonCourses.toJSONString());
       file.flush();
     } catch (IOException e) {
@@ -132,26 +132,14 @@ public class DataWriter extends DataConstants {
     JSONArray jsonStudents = new JSONArray();
     JSONArray jsonStudentPortfolios = new JSONArray();
     for (Student student : students) {
-      System.out.println(
-        "Saving Student: " +
-        student.getFirstName() +
-        " " +
-        student.getLastName()
-      );
 
-      // if (!existingStudents.contains(student)) {
-      //   JSONObject studentElectives = createStudentElectives(student);
-      //   student.setStudentElectives(studentElectives);
-      // }
       jsonStudents.add(toStudentJSON(student));
       jsonStudentPortfolios.add(toPortfolioJSON(student.getPortfolio()));
     }
 
-    System.out.println(
-      "Number of students being written to JSON: " + jsonStudents.size()
-    );
-    writeToFile(jsonStudents, "advising/json/students.json");
-    writeToFile(jsonStudentPortfolios, "advising/json/portftest.json");
+    
+    writeToFile(jsonStudents, STUDENTS_FILE);
+    writeToFile(jsonStudentPortfolios, STUDENT_PORTFOLIOS_FILE);
   }
 
   /**
@@ -363,7 +351,7 @@ public class DataWriter extends DataConstants {
       JSONObject advisorJson = getAdvisorJSON(advisor);
       jsonAdvisors.add(advisorJson);
     }
-    writeToFile(jsonAdvisors, "advising/json/advisors.json");
+    writeToFile(jsonAdvisors, ADVISORS_FILE);
   }
 
   /**
