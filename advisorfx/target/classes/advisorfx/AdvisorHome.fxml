@@ -11,7 +11,7 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1300.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="advisorfx.AdvisorHomeController">
    <children>
-      <Pane prefHeight="149.0" prefWidth="1300.0" style="-fx-background-color: #004aad;" stylesheets="@../../java/advisorfx/advising.css">
+      <Pane fx:id="titlepane" prefHeight="149.0" prefWidth="1300.0" style="-fx-background-color: #004aad;" stylesheets="@../../java/advisorfx/advising.css">
          <children>
             <Label alignment="CENTER" layoutX="606.0" layoutY="60.0" prefHeight="75.0" prefWidth="81.0" style="-fx-text-fill: #cfb023;" text="Home">
                <font>
@@ -38,7 +38,7 @@
       </Pane>
       <Pane prefHeight="80.0" prefWidth="1300.0">
          <children>
-            <Label layoutX="68.0" layoutY="-2.0" prefHeight="75.0" prefWidth="167.0" text="Advisee List">
+            <Label fx:id="AdviseeListLabel" layoutX="68.0" layoutY="-2.0" prefHeight="75.0" prefWidth="167.0" text="Advisee List">
                <font>
                   <Font size="28.0" />
                </font>
