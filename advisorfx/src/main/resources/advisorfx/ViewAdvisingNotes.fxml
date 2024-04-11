@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane prefHeight="1010.0" prefWidth="1300.0">
+         <children>
+            <Pane layoutX="2.0" layoutY="-7.0" prefHeight="192.0" prefWidth="1303.0">
+               <children>
+                  <Label layoutX="594.0" layoutY="94.0" prefHeight="89.0" prefWidth="175.0" text="8-semester plan">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="886.0" layoutY="95.0" prefHeight="88.0" prefWidth="210.0" text="Advising Notes">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="379.0" layoutY="101.0" prefHeight="77.0" prefWidth="114.0" text="Transcript">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <TableView layoutX="742.0" layoutY="336.0" prefHeight="386.0" prefWidth="399.0">
+              <columns>
+                <TableColumn minWidth="100.0" prefWidth="75.0" text="Note Text" />
+                <TableColumn prefWidth="124.0" text="Created" />
+                  <TableColumn minWidth="100.0" prefWidth="75.0" text="Date" />
+              </columns>
+            </TableView>
+            <TableView layoutX="149.0" layoutY="363.0" prefHeight="215.0" prefWidth="408.0">
+               <columns>
+                  <TableColumn minWidth="100.0" prefWidth="75.0" text="Note Text" />
+                  <TableColumn prefWidth="124.0" text="Created" />
+                  <TableColumn minWidth="100.0" prefWidth="75.0" text="Date" />
+               </columns>
+            </TableView>
+            <Label layoutX="245.0" layoutY="286.0" text="Updated Notes">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
+            <Label layoutX="821.0" layoutY="278.0" text="Previous Notes">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</VBox>
