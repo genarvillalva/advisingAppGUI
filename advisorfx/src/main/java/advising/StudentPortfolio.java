@@ -572,6 +572,43 @@ public class StudentPortfolio {
     }
   }
 
+  public void generateEightSemesterPlan() {
+    //TODO Add the rest of courses that are not current/completed based on major
+    HashMap eightSemesterPlan = new HashMap<String, ArrayList<Course>>();
+    HashMap<Course, Double> completedCourses = getCompletedCourses();
+    ArrayList<Course> currentCourses = getCurrentCourses();
+    Double currentSemesterDouble = 0.0;
+    int currentSemester = 0;
+    if(completedCourses != null) {
+      for(Course course : completedCourses.keySet()) {
+        currentSemesterDouble += course.getCreditHours();
+      }
+      currentSemester = (int) (currentSemesterDouble / 15) + 1;
+      ArrayList<Course> currentSemesterCourses = new ArrayList<Course>();
+      for (Course course : currentCourses) {
+        currentSemesterCourses.add(course);
+      }
+      eightSemesterPlan.put(currentSemester, currentSemesterCourses);
+    }
+    
+    for (int i = 0; i < 8; i++) {
+      if(i == currentSemester){
+        continue;
+      }
+      int semesterCreditHours = 0;
+      ArrayList<Course> semesterCourses = new ArrayList<Course>();
+      for (Course course : currentCourses) {
+        semesterCreditHours += course.getCreditHours();
+        if(semesterCreditHours <= 15) {
+          semesterCourses.add(course);
+
+        }
+      }
+      eightSemesterPlan.put(i, semesterCourses);
+    }
+    System.out.println(eightSemesterPlan);
+  }
+
   public static void printStudentPortfolioByUsername(String username) {
     ArrayList<StudentPortfolio> studentPortfolios = DataLoader.getAllStudentPortfolios();
     if (studentPortfolios != null) {

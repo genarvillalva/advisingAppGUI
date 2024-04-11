@@ -99,7 +99,7 @@
             "CSCE146",
             "UNIV101"
         ],
-        "scholarshipCreditHoursLeft": 19,
+        "yearlyScholarshipCreditHoursLeft": 19,
         "yearCreditHours": 11
     },
     {
@@ -201,7 +201,7 @@
             "CSCE146",
             "UNIV101"
         ],
-        "scholarshipCreditHoursLeft": 19,
+        "yearlyScholarshipCreditHoursLeft": 19,
         "yearCreditHours": 11
     }
 ]
