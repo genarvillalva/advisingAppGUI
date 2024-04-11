@@ -2,21 +2,19 @@
     {
         "firstName": "Greg",
         "lastName": "Tomlin",
-        "username": "gregtomlin24",
-        "password": "1",
-        "userType": "Advisor",
         "listOfAdvisedStudents": [
             "bwest"
-        ]
+        ],
+        "password": "1",
+        "userType": "Advisor",
+        "username": "gregtomlin24"
     },
     {
         "firstName": "Osbert",
         "lastName": "Odden",
-        "username": "osberto",
+        "listOfAdvisedStudents": [],
         "password": "apassword",
         "userType": "Advisor",
-        "listOfAdvisedStudents": [
-            null
-        ]
+        "username": "osberto"
     }
 ]

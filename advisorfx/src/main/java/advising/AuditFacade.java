@@ -144,6 +144,11 @@ public boolean login(String username, String password, String userType) {
         }
     }
 
+    public void addAdvisee(String studentUsername) {
+        Advisor advisor = userList.getCurrentAdvisor();
+        advisor.addStudentToAdvisor(studentUsername, advisor.getListOfAdvisedStudents());
+    }
+
     public void logoutAdvisor() {
         advisor.logout();
     }
