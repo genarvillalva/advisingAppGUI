@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -14,6 +16,51 @@
                   <Font size="50.0" />
                </font>
             </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="10.0" layoutY="10.0" prefHeight="274.0" prefWidth="1300.0">
+         <children>
+            <Label fx:id="LevelLabel" layoutX="34.0" layoutY="100.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="69.0" prefWidth="354.0" style="-fx-background-color: white;" text="Level:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="UsernameLabel" layoutX="34.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="69.0" prefWidth="354.0" style="-fx-background-color: white;" text="Student Username:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="NameLabel" layoutX="479.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="69.0" prefWidth="354.0" style="-fx-background-color: white;" text="Name:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="ClassificationLabel" layoutX="479.0" layoutY="100.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="69.0" prefWidth="354.0" style="-fx-background-color: white;" text="Classification:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="DegreeLabel" layoutX="913.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="69.0" prefWidth="354.0" style="-fx-background-color: white;" text="Degree:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="MajorLabel" layoutX="913.0" layoutY="100.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="69.0" prefWidth="354.0" style="-fx-background-color: white;" text="Major:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane prefHeight="301.0" prefWidth="1300.0">
+         <children>
+            <Label fx:id="GpaLabel" layoutX="824.0" layoutY="33.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="83.0" prefWidth="148.0" style="-fx-background-color: white;" text="Overall GPA:">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <ButtonBar layoutX="912.0" layoutY="177.0" prefHeight="40.0" prefWidth="68.0" />
+          <Button layoutX="843.0" layoutY="149.0" minWidth="65.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="111.0" text="View" />
          </children>
       </Pane>
    </children>
