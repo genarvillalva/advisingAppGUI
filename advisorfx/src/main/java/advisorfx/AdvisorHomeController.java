@@ -29,6 +29,9 @@ public class AdvisorHomeController{
     @FXML
     private TextField SearchAdviseeTextBox;
 
+    @FXML
+    private Label AdviseeListLabel;
+
   @FXML
   private void setUp() {
     AuditFacade auditFacade = AuditFacade.getInstance();
