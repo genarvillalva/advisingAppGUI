@@ -9,6 +9,20 @@ public class StudentHomeController {
 
   @FXML
   private Label StudentGreetingsText;
+  @FXML
+  private Label UsernameLabel;
+  @FXML
+  private Label NameLabel;
+  @FXML
+  private Label DegreeLabel;
+  @FXML
+  private Label LevelLabel;
+  @FXML
+  private Label ClassificationLabel;
+  @FXML
+  private Label MajorLabel;
+  @FXML
+  private Label GpaLabel;
 
   @FXML
   private void setUp() {
@@ -20,6 +34,16 @@ public class StudentHomeController {
       auditFacade.getStudent().getLastName() +
       "!"
     );
+    UsernameLabel.setText("Student Username: " + auditFacade.getStudent().getUsername());
+    NameLabel.setText("Name: " + auditFacade.getStudent().getLastName() +", " + auditFacade.getStudent().getFirstName() );
+    DegreeLabel.setText("Degree: Bachelor of Science");
+    LevelLabel.setText("Level: Undergraduate");
+    ClassificationLabel.setText(auditFacade.getStudent().getStudentClass());
+    MajorLabel.setText("Student Username: " + auditFacade.getStudent().getMajor());
+
+
+
+
   }
 
   @FXML
