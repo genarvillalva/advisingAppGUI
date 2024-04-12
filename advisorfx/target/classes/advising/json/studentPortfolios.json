@@ -159,8 +159,7 @@
             "CSCE145": 90.5,
             "UNIV101": 100.0,
             "ARTE260": 98.0,
-            "STAT110": 87.2,
-            "STAT509": 99.0
+            "STAT110": 87.2
         },
         "studentElectives": "thill",
         "totalCreditHoursIntegrativeCourse": 0,
@@ -169,7 +168,8 @@
             "CHEM111",
             "CHEM111L",
             "CSCE215",
-            "HIST111"
+            "HIST111",
+            "MATH241"
         ],
         "failedCourses": {},
         "portfolioUUID": "thill",

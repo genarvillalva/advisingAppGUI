@@ -3,8 +3,8 @@ package advising;
 import java.util.ArrayList;
 
 public class MajorList {
-    public MajorList majorList;
-    private ArrayList<Major> majors;
+    private static MajorList majorList;
+    private static ArrayList<Major> majors;
 
 
     /**
@@ -18,13 +18,20 @@ public class MajorList {
      * Gets an instance of the MajorList singleton if it exists, otherwise creates a new instance.
      * @return majorList
      */
-    public MajorList getInstance() {
+    public static MajorList getInstance() {
         if (majorList == null) {
             majorList = new MajorList();
         }
         return majorList;
     }
-
+    public Major getMajor(String majorID) {
+        for (Major major : majors) {
+            if (major.getMajorID().equals(majorID)) {
+                return major;
+            }
+        }
+        return null;
+    }
 
     // Getter method for majors
     public ArrayList<Major> getMajors() {
