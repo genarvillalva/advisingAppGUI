@@ -211,6 +211,7 @@ public class StudentPortfolio {
   public void addCurrentCourse(Course course) {
     currentCourses.add(course);
   }
+
   /**
    * Adds a course to the student's next semester courses
    * @param course The course to be added to the next semester
@@ -218,6 +219,7 @@ public class StudentPortfolio {
   public void addNextSemesterCourse(Course course) {
     nextSemesterCourses.add(course);
   }
+
   /**
    * Returns the student's eight semester plan
    * @return student's eight semester plan
@@ -225,6 +227,7 @@ public class StudentPortfolio {
   public HashMap<String, ArrayList<Course>> getEightSemesterPlan() {
     return eightSemesterPlan;
   }
+
   /**
    * Returns the student's next semester courses
    * @return student's next semester courses
@@ -232,6 +235,7 @@ public class StudentPortfolio {
   public ArrayList<Course> getNextSemesterCourses() {
     return nextSemesterCourses;
   }
+
   /**
    * Returns the the UUID of student's portfolio
    * @return the UUID of student's portfolio
@@ -572,40 +576,76 @@ public class StudentPortfolio {
     }
   }
 
+  /**
+   * Generates an 8-semester plan
+   */
   public void generateEightSemesterPlan() {
-    //TODO Add the rest of courses that are not current/completed based on major
+    // Major required courses
+    Student currentStudent = UserList
+      .getInstance()
+      .getStudentByUsername(portfolioUUID);
+    Major studentMajor = MajorList
+      .getInstance()
+      .getMajor(currentStudent.getMajor());
+    ArrayList<Course> majorRequiredCourses = studentMajor.getRequiredCourses();
+
     HashMap eightSemesterPlan = new HashMap<String, ArrayList<Course>>();
     HashMap<Course, Double> completedCourses = getCompletedCourses();
     ArrayList<Course> currentCourses = getCurrentCourses();
     Double currentSemesterDouble = 0.0;
-    int currentSemester = 0;
-    if(completedCourses != null) {
-      for(Course course : completedCourses.keySet()) {
+    int currentSemester = 1;
+
+    //if student has completed courses / is not a freshman
+    if (completedCourses != null) {
+      for (Course course : completedCourses.keySet()) {
         currentSemesterDouble += course.getCreditHours();
       }
-      currentSemester = (int) (currentSemesterDouble / 15) + 1;
-      ArrayList<Course> currentSemesterCourses = new ArrayList<Course>();
-      for (Course course : currentCourses) {
-        currentSemesterCourses.add(course);
-      }
-      eightSemesterPlan.put(currentSemester, currentSemesterCourses);
-    }
-    
-    for (int i = 0; i < 8; i++) {
-      if(i == currentSemester){
-        continue;
-      }
-      int semesterCreditHours = 0;
-      ArrayList<Course> semesterCourses = new ArrayList<Course>();
-      for (Course course : currentCourses) {
-        semesterCreditHours += course.getCreditHours();
-        if(semesterCreditHours <= 15) {
-          semesterCourses.add(course);
 
+      //Current courses
+      
+      currentSemester = (int) ((currentSemesterDouble / 15)+1.5);
+      System.out.println("\n\nTEST" + currentSemester + "\n\n currentSemesterDouble" + currentSemesterDouble);
+      eightSemesterPlan.put(currentSemester, currentCourses);
+      int semHours = 0;
+
+      // adding completed courses to the plan
+      for (int i = 1; i < currentSemester; i++) {
+        ArrayList<Course> semCourses = new ArrayList<Course>();
+        for (Course course : completedCourses.keySet()) {
+          if (semHours + 3 > 15) {
+            i++;
+            continue;
+          }
+          semHours += course.getCreditHours();
+          semCourses.add(course);
         }
+        eightSemesterPlan.put(i, completedCourses.keySet());
       }
-      eightSemesterPlan.put(i, semesterCourses);
+
+      //ADDING MAJOR REQUIRED COURSES 
+      for (int i = currentSemester + 1; i < 8; i++) {
+        semHours = 0;
+        ArrayList<Course> semCourses = new ArrayList<Course>();
+        for (Course course : majorRequiredCourses) {
+          if (semHours + 3 > 15) {
+            i++;
+            continue;
+          }
+          if(completedCourses.containsKey(course) || currentCourses.contains(course)) {
+            continue;
+          }
+          semHours += course.getCreditHours();
+          semCourses.add(course);
+        }
+        eightSemesterPlan.put(i, semCourses);
+      }
     }
+    //if student is a freshman
+    else {
+      // currentSemester = 1;
+    }
+
+    for (int i = currentSemester + 1; i < 8; i++) {}
     System.out.println(eightSemesterPlan);
   }
 

@@ -39,6 +39,8 @@ public Major(String majorName, String majorID, ArrayList<Course> requiredCourses
     return requiredCourseCount;
   }
 
+  
+
   /**
    * Returns the ID of the major
    * @return ID of the major

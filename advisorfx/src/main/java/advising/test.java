@@ -22,11 +22,11 @@ public class test {
 
   public static void testGetAllStudents() {
     ArrayList<Student> students = UserList.getInstance().getStudents();
-    System.out.println("List of Students:");
-    for (Student student : students) {
-      System.out.println(student);
-    }
-    students.get(0).getPortfolio().generateEightSemesterPlan();
+    // System.out.println("List of Students:");
+    // for (Student student : students) {
+    //   System.out.println(student);
+    // }
+    students.get(1).getPortfolio().generateEightSemesterPlan();
 
   }
 
