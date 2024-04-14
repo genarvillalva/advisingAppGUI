@@ -12,6 +12,31 @@
     -fx-font-weight: bold;
     -fx-background-radius: 10;
 }
+#HomeLabel{
+    -fx-text-fill: white;
+    -fx-font-family: "Arial"; 
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+}
+#TranscriptLabel{
+    -fx-text-fill: white;
+    -fx-font-family: "Arial";
+    -fx-font-weight: bold; 
+    -fx-background-radius: 10;
+}
+#SemesterPlanLabel{
+    -fx-text-fill: white;
+    -fx-font-family: "Arial"; 
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+}
+#AdvisingNotesLabel{
+    -fx-text-fill: white;
+    -fx-font-family: "Arial"; 
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+}
+
 
 #buttonsignup{
     
@@ -28,6 +53,23 @@
 
 #signInAdvisorButton{
     -fx-background-color: #FBD949;
+}
+
+#StudentMenuPane{
+    -fx-background-color: #1545F3;
+}
+
+#ProfilePane{
+    -fx-background-color: white;
+}
+
+#GpaPane{
+    -fx-background-color: white;
+}
+
+.highlighted {
+    -fx-text-fill: yellow;
+    -fx-underline: true;
 }
 
 
