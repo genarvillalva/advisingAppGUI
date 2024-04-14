@@ -21,6 +21,7 @@ public class App extends Application {
         scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.show();
+        scene.getStylesheets().add(getClass().getResource("advising.css").toExternalForm());
         
     }
     // @Override
