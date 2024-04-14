@@ -1,14 +1,56 @@
 [
-    {
-      "majorName":"Computer Science",
-      "majorID":"Computer_Science",
-      "requiredCourses":["CSCE145", "MATH141", "ENGL101", "CSCE190"],
-      "requiredCreditHours": 120
-    },{
-      "majorName":"Computer Information Systems",
-      "majorID":"Computer_Information_Systems",
-      "requiredCourses":["CSCE145", "MATH141", "ENGL101", "CSCE190"],
-      "requiredCreditHours": 120
-    }
-  ]
-  
+  {
+    "majorName": "Computer Science",
+    "majorID": "Computer_Science",
+    "requiredCourses": [
+      "CSCE145",
+      "MATH141",
+      "ENGL101",
+      "CSCE190",
+      "MATH142",
+      "CHEM111",
+      "CHEM111L",
+      "CSCE215",
+      "CHEM112",
+      "CHEM112L",
+      "CHEM112REC",
+      "CSCE211",
+      "CSCE240",
+      "MATH374",
+      "CSCE247",
+      "MATH241",
+      "CSCE311",
+      "CSCE330",
+      "CSCE350",
+      "CSCE390",
+      "STAT509",
+      "CSCE490",
+      "CSCE355",
+      "MATH344",
+      "MATH344L",
+      "CSCE492",
+      "CSCE416",
+      "CSCE517",
+      "CSCE518",
+      "CSCE520",
+      "CSCE522",
+      "CSCE548",
+      "ENGL463",
+      "CSCE557",
+      "CSCE561",
+      "CSCE564"
+    ],
+    "requiredCreditHours": 120
+  },
+  {
+    "majorName": "Computer Information Systems",
+    "majorID": "Computer_Information_Systems",
+    "requiredCourses": [
+      "CSCE145",
+      "MATH141",
+      "ENGL101",
+      "CSCE190"
+    ],
+    "requiredCreditHours": 120
+  }
+]

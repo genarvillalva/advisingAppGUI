@@ -58,14 +58,35 @@
             "CSCE145": 90.5,
             "UNIV101": 100.0,
             "CSCE146": 87.2,
-            "ARTE260": 98.0
+            "ARTE260": 98.0,
+            "ENGL101": 99.0,
+            "MATH141": 100.0,
+            "MATH142": 89.0,
+            "CHEM111": 100.0,
+            "CHEM111L": 100.0,
+            "CHEM112": 97.0,
+            "CHEM112L": 100.0,
+            "CHEM112REC": 100.0,
+            "CSCE215": 100.0,
+            "CSCE240": 89.0,
+            "CSCE247": 89.0,
+            "MATH374": 100.0,
+            "MATH241": 100.0,
+            "CSCE350": 89.0, 
+            "SPCH140": 100.0,
+            "PHIL102": 96.0,
+            "CSCE211": 90.0
+
+
         },
         "studentElectives": "bwest",
         "totalCreditHoursIntegrativeCourse": 0,
         "currentCourses": [
             "CSCE311",
             "CSCE330",
-            "CSCE390"
+            "CSCE390",
+            "MATH344",
+            "MATH344L"
         ],
         "failedCourses": {
             "MATH241": 1
