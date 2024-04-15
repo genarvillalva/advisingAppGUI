@@ -15,12 +15,41 @@ import javafx.stage.Stage;
 
 public class AddAdviseeController {
 
+ 
+     // Reference to the AdvisorHomeController
+     private AdvisorHomeController advisorHomeController;
+
+     // Inject the AdvisorHomeController reference
+     public void setAdvisorHomeController(AdvisorHomeController controller) {
+         this.advisorHomeController = controller;
+     }
+ 
+ 
+ 
+ 
+ 
   @FXML
     private TextField AddAdviseeTextBox;
 
     @FXML
     void addAdvisee(ActionEvent event) throws IOException{
       AuditFacade auditFacade = AuditFacade.getInstance();
+      
       auditFacade.addAdvisee(AddAdviseeTextBox.getText());
+
+
+              // after adding the advisee it should then update the list in the AdvisorHomeController
+              if (advisorHomeController != null) {
+                advisorHomeController.refreshAdviseeList();
+            }
+    
+            Stage stage = (Stage) AddAdviseeTextBox.getScene().getWindow();
+            stage.close();
+        }
+
+
+
+
+
+        
     }
-}
