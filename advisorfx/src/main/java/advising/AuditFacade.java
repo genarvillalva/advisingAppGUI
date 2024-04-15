@@ -1,6 +1,7 @@
 package advising;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class AuditFacade {
     private User user;
@@ -188,6 +189,8 @@ public boolean login(String username, String password, String userType) {
     //public String generateEightSemesterPlan(String userName) {
 
     //}
+
+
     
 }
 
