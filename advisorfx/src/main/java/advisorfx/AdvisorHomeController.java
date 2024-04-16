@@ -89,14 +89,22 @@ public class AdvisorHomeController {
   }
 
   private void loadAdvisees() {
+      // Im getting a list of all students that the current advisor is advising.
       List<Student> advisees = AuditFacade.getInstance().getAdvisor().getListOfAdvisedStudents();
       System.out.println("Advisees loaded: " + advisees.size());  // checks to see how many advisees are loaded
       
       
+      adviseeListView.getItems().clear();   // we then need to clear the list so we dont get duplicates 
+
+
       for (Student student : advisees) {
+            // Gonna create a string that contains the students first name anddd last name andd username.
         String formattedString = student.getFirstName() + " " + student.getLastName() + " (" + student.getUsername() + ")";
+        
+        // this should be visible on the screen for the user to look at 
         adviseeListView.getItems().add(formattedString);
     }
+      //I need to refresh the list to show the lastest updated users on the list
       adviseeListView.refresh();
   }
 
@@ -104,8 +112,6 @@ public class AdvisorHomeController {
       System.out.println("Refreshing advisees"); 
       loadAdvisees();
   }
-
-
 
   
 }
