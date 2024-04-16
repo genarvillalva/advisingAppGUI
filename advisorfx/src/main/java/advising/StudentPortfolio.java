@@ -512,219 +512,550 @@ public class StudentPortfolio {
     Double currentSemesterDouble = 0.0;
     String currentSemester = "1";
 
-    //if student has completed courses / is not a freshman
-    if (completedCourses != null) {
-      // for (Course course : completedCourses.keySet()) {
-      //   currentSemesterDouble += course.getCreditHours();
-      // }
-      // currentSemester = (int) ((currentSemesterDouble / 15)+1.5);
+    if(currentStudent.getMajor().equals("Computer_Science")) {
+      //if student has completed courses / is not a freshman
+      if (completedCourses != null) {
+        // for (Course course : completedCourses.keySet()) {
+        //   currentSemesterDouble += course.getCreditHours();
+        // }
+        // currentSemester = (int) ((currentSemesterDouble / 15)+1.5);
 
-      String studentYear = currentStudent.getStudentClass();
-      if (studentYear.equals("FRESHMAN")) {
-        currentSemester = "1";
-      } else if (studentYear.equals("SOPHOMORE")) {
-        currentSemester = "3";
-      } else if (studentYear.equals("JUNIOR")) {
-        currentSemester = "5";
-      } else if (studentYear.equals("SENIOR")) {
-        currentSemester = "7";
+        String studentYear = currentStudent.getStudentClass();
+        if (studentYear.equals("FRESHMAN")) {
+          currentSemester = "1";
+        } else if (studentYear.equals("SOPHOMORE")) {
+          currentSemester = "3";
+        } else if (studentYear.equals("JUNIOR")) {
+          currentSemester = "5";
+        } else if (studentYear.equals("SENIOR")) {
+          currentSemester = "7";
+        }
+
+        int semHours = 0;
+        //Current Courses
+        // System.out.println("\n\nTEST" + currentSemester + "\n\n currentSemester" + currentSemester);
+
+
+
+        // eightSemesterPlanTemp.put(currentSemester, currentCourses);
+
+
+
+
+        // adding completed courses to the plan
+        int currentSemesterIntA = Integer.parseInt(currentSemester);
+        for (int i = 1; i < currentSemesterIntA; i++) {
+          if (i == currentSemesterIntA){
+            eightSemesterPlanTemp.put(currentSemester, currentCourses);
+            i++;
+          }
+          ArrayList<Course> semCourses = new ArrayList<Course>();
+          Course chem111 = CourseList.getInstance().getCourseByID("CHEM111");
+          Course chem111L = CourseList.getInstance().getCourseByID("CHEM111L");
+          Course chem112 = CourseList.getInstance().getCourseByID("CHEM112");
+          Course chem112L = CourseList.getInstance().getCourseByID("CHEM112L");
+          Course chem112REC = CourseList.getInstance().getCourseByID("CHEM112REC");
+
+          if(completedCourses.keySet().contains(chem111) && !eightSemesterPlanTemp.containsValue(chem111) && i == 1){
+            semHours = 4;
+            semCourses.add(chem111);
+            semCourses.add(chem111L);    
+          }
+          for (Course course : completedCourses.keySet()) {
+            
+            if(course == chem111 || course == chem111L || course == chem112 || course == chem112L || course == chem112REC) {
+              continue;
+            }
+            
+            if (isCourseInPlan(course, eightSemesterPlanTemp)) {
+              continue;
+            }
+            if (semHours + 3 > 15) {
+              ArrayList<Course> copyOfSemCourses = new ArrayList<Course>(
+                semCourses
+              );
+              eightSemesterPlanTemp.put(Integer.toString(i), copyOfSemCourses);
+              semHours = 0;
+              semCourses.clear();
+              i++;
+
+              //TODO FIND SOMEWHERE TO PUT THIS TO UPDATE CURRENT SEMESTER
+              if (i == currentSemesterIntA){
+                eightSemesterPlanTemp.put(currentSemester, currentCourses);
+                i++;
+              }
+
+
+              if(completedCourses.keySet().contains(chem112) && !eightSemesterPlanTemp.containsValue(chem112) && i == 2){
+                semHours = 7;
+                semCourses.add(chem112);
+                semCourses.add(chem112L); 
+                semCourses.add(chem112REC);     
+              }
+            }
+
+            // IF COURSE HAS PREREQS
+            if (course.getPrerequisiteCourses() != null) {
+              for (Course prereq : course.getPrerequisiteCourses()) {
+                if (
+                  isCourseInPlan(prereq, eightSemesterPlanTemp) == false &&
+                  !semCourses.contains(prereq) &&
+                  completedCourses.containsKey(prereq)
+                ) {
+                  semHours += prereq.getCreditHours();
+                  semCourses.add(prereq);
+                }
+              }
+            }
+
+            // IF COURSE HAS COREQS
+            if (course.getCorequisiteCourses() != null) {
+              for (Course coreq : course.getCorequisiteCourses()) {
+                if (
+                  isCourseInPlan(coreq, eightSemesterPlanTemp) == false &&
+                  !semCourses.contains(coreq) &&
+                  completedCourses.containsKey(coreq)
+                ) {
+                  semHours += coreq.getCreditHours();
+                  semCourses.add(coreq);
+                }
+              }
+            }
+
+            if (
+              !eightSemesterPlanTemp.containsValue(course) &&
+              !semCourses.contains(course)
+            ) {
+              semHours += course.getCreditHours();
+              semCourses.add(course);
+            }
+          }
+          String iString = Integer.toString(i);
+          eightSemesterPlanTemp.put(iString, semCourses);
+        }
+
+
+
+
+
+
+        //Remaining Required Courses
+        ArrayList<Course> remainingRequiredCourses = new ArrayList<Course>();
+        for (Course course : majorRequiredCourses) {
+          if (isCourseInPlan(course, eightSemesterPlanTemp) == false) {
+            remainingRequiredCourses.add(course);
+          }
+        }
+        // System.out.println("REMAINING REQUIRED COURSES" + remainingRequiredCourses);
+        //ADDING MAJOR REQUIRED COURSES
+        boolean lastRequiredCourse = false;
+        int currentSemesterInt = Integer.parseInt(currentSemester);
+        for (int i = currentSemesterInt + 1; i < 8; i++) {
+          if (lastRequiredCourse) {
+            break;
+          }
+          semHours = 0;
+          ArrayList<Course> semCourses = new ArrayList<Course>();
+          for (Course course : remainingRequiredCourses) {
+            System.out.println("semhours" + semHours);
+            if (semHours + 3 > 15) {
+              ArrayList<Course> copyOfSemCourses = new ArrayList<Course>(
+                semCourses
+              );
+              eightSemesterPlanTemp.put(Integer.toString(i), copyOfSemCourses);
+              semHours = 0;
+              semCourses.clear();
+              i++;
+              if(i>8){
+                break;
+              }
+            }
+            if (
+              completedCourses.containsKey(course) ||
+              currentCourses.contains(course)
+            ) {
+              continue;
+            }
+            // System.out.println("LAST REQUIRED COURSE" + majorRequiredCourses.get(majorRequiredCourses.size() - 1).getCourseID());
+            if (
+              course.equals(
+                remainingRequiredCourses.get(remainingRequiredCourses.size() - 1)
+              )
+            ) {
+              semCourses.add(course);
+              String iString = Integer.toString(i);
+              eightSemesterPlanTemp.put(iString, semCourses);
+              lastRequiredCourse = true;
+              break;
+            }
+            if (
+              isCourseInPlan(course, eightSemesterPlanTemp) == false &&
+              !semCourses.contains(course)
+            ) {
+              semHours += course.getCreditHours();
+              semCourses.add(course);
+            }
+          }
+          if(i<=8){
+            String iString = Integer.toString(i);
+          eightSemesterPlanTemp.put(iString, semCourses);
+          }
+        }
       }
 
-      int semHours = 0;
-      //Current Courses
-      // System.out.println("\n\nTEST" + currentSemester + "\n\n currentSemester" + currentSemester);
-
-
-
-      // eightSemesterPlanTemp.put(currentSemester, currentCourses);
 
 
 
 
-      // adding completed courses to the plan
-      int currentSemesterIntA = Integer.parseInt(currentSemester);
-      for (int i = 1; i < currentSemesterIntA; i++) {
-        if (i == currentSemesterIntA){
-          eightSemesterPlanTemp.put(currentSemester, currentCourses);
-          i++;
+
+      //if student is a freshman
+      else {
+        currentSemester = "1";
+        ArrayList<Course> remainingRequiredCourses = new ArrayList<Course>();
+        for (Course course : majorRequiredCourses) {
+          if (isCourseInPlan(course, eightSemesterPlanTemp) == false) {
+            remainingRequiredCourses.add(course);
+          }
         }
-        ArrayList<Course> semCourses = new ArrayList<Course>();
+        ArrayList<Course> semester1Courses = new ArrayList<>();
         Course chem111 = CourseList.getInstance().getCourseByID("CHEM111");
         Course chem111L = CourseList.getInstance().getCourseByID("CHEM111L");
+        semester1Courses.add(chem111);
+        semester1Courses.add(chem111L);
+        eightSemesterPlanTemp.put("1", semester1Courses);
+
+        ArrayList<Course> semester2Courses = new ArrayList<>();
         Course chem112 = CourseList.getInstance().getCourseByID("CHEM112");
         Course chem112L = CourseList.getInstance().getCourseByID("CHEM112L");
         Course chem112REC = CourseList.getInstance().getCourseByID("CHEM112REC");
+        semester2Courses.add(chem112);
+        semester2Courses.add(chem112L);
+        semester2Courses.add(chem112REC);
+        eightSemesterPlanTemp.put("2", semester2Courses);
 
-        if(completedCourses.keySet().contains(chem111) && !eightSemesterPlanTemp.containsValue(chem111) && i == 1){
-          semHours = 4;
-          semCourses.add(chem111);
-          semCourses.add(chem111L);    
-        }
-        for (Course course : completedCourses.keySet()) {
-          
-          if(course == chem111 || course == chem111L || course == chem112 || course == chem112L || course == chem112REC) {
-            continue;
-          }
-          
-          if (isCourseInPlan(course, eightSemesterPlanTemp)) {
-            continue;
-          }
-          if (semHours + 3 > 15) {
-            ArrayList<Course> copyOfSemCourses = new ArrayList<Course>(
-              semCourses
-            );
-            eightSemesterPlanTemp.put(Integer.toString(i), copyOfSemCourses);
-            semHours = 0;
-            semCourses.clear();
-            i++;
-
-            //TODO FIND SOMEWHERE TO PUT THIS TO UPDATE CURRENT SEMESTER
-            if (i == currentSemesterIntA){
-              eightSemesterPlanTemp.put(currentSemester, currentCourses);
-              i++;
-            }
-
-
-            if(completedCourses.keySet().contains(chem112) && !eightSemesterPlanTemp.containsValue(chem112) && i == 2){
-              semHours = 7;
-              semCourses.add(chem112);
-              semCourses.add(chem112L); 
-              semCourses.add(chem112REC);     
-            }
-          }
-
-          // IF COURSE HAS PREREQS
-          if (course.getCorequisiteCourses() != null) {
-            for (Course corequisite : course.getCorequisiteCourses()) {
-              if (
-                isCourseInPlan(corequisite, eightSemesterPlanTemp) == false &&
-                !semCourses.contains(corequisite) &&
-                completedCourses.containsKey(corequisite)
-              ) {
-                semHours += corequisite.getCreditHours();
-                semCourses.add(corequisite);
-              }
-            }
-          }
-
-          // IF COURSE HAS COREQS
-          if (course.getCorequisiteCourses() != null) {
-            for (Course coreq : course.getCorequisiteCourses()) {
-              if (
-                isCourseInPlan(coreq, eightSemesterPlanTemp) == false &&
-                !semCourses.contains(coreq) &&
-                completedCourses.containsKey(coreq)
-              ) {
-                semHours += coreq.getCreditHours();
-                semCourses.add(coreq);
-              }
-            }
-          }
-
-          if (
-            !eightSemesterPlanTemp.containsValue(course) &&
-            !semCourses.contains(course)
-          ) {
-            semHours += course.getCreditHours();
-            semCourses.add(course);
-          }
-        }
-        String iString = Integer.toString(i);
-        eightSemesterPlanTemp.put(iString, semCourses);
-      }
-
-
-
-
-
-
-      //Remaining Required Courses
-      ArrayList<Course> remainingRequiredCourses = new ArrayList<Course>();
-      for (Course course : majorRequiredCourses) {
-        if (isCourseInPlan(course, eightSemesterPlanTemp) == false) {
-          remainingRequiredCourses.add(course);
-        }
-      }
-      // System.out.println("REMAINING REQUIRED COURSES" + remainingRequiredCourses);
-      //ADDING MAJOR REQUIRED COURSES
-      boolean lastRequiredCourse = false;
-      int currentSemesterInt = Integer.parseInt(currentSemester);
-      for (int i = currentSemesterInt + 1; i < 8; i++) {
-        if (lastRequiredCourse) {
-          break;
-        }
-        semHours = 0;
-        ArrayList<Course> semCourses = new ArrayList<Course>();
-        for (Course course : remainingRequiredCourses) {
-          System.out.println("semhours" + semHours);
-          if (semHours + 3 > 15) {
-            ArrayList<Course> copyOfSemCourses = new ArrayList<Course>(
-              semCourses
-            );
-            eightSemesterPlanTemp.put(Integer.toString(i), copyOfSemCourses);
-            semHours = 0;
-            semCourses.clear();
-            i++;
-            if(i>8){
-              break;
-            }
-          }
-          if (
-            completedCourses.containsKey(course) ||
-            currentCourses.contains(course)
-          ) {
-            continue;
-          }
-          // System.out.println("LAST REQUIRED COURSE" + majorRequiredCourses.get(majorRequiredCourses.size() - 1).getCourseID());
-          if (
-            course.equals(
-              remainingRequiredCourses.get(remainingRequiredCourses.size() - 1)
-            )
-          ) {
-            semCourses.add(course);
-            String iString = Integer.toString(i);
-            eightSemesterPlanTemp.put(iString, semCourses);
-            lastRequiredCourse = true;
+        boolean lastRequiredCourse = false;
+        int currentSemesterInt = Integer.parseInt(currentSemester);
+        for (int i = currentSemesterInt + 1; i < 8; i++) {
+          if (lastRequiredCourse) {
             break;
           }
-          if (
-            isCourseInPlan(course, eightSemesterPlanTemp) == false &&
-            !semCourses.contains(course)
-          ) {
-            semHours += course.getCreditHours();
-            semCourses.add(course);
+          int semHours = 0;
+          ArrayList<Course> semCourses = new ArrayList<Course>();
+          for (Course course : remainingRequiredCourses) {
+            System.out.println("semhours" + semHours);
+            if (semHours + 3 > 15) {
+              ArrayList<Course> copyOfSemCourses = new ArrayList<Course>(
+                semCourses
+              );
+              eightSemesterPlanTemp.put(Integer.toString(i), copyOfSemCourses);
+              semHours = 0;
+              semCourses.clear();
+              i++;
+              if(i>8){
+                break;
+              }
+            }
+            if (
+              completedCourses.containsKey(course) ||
+              currentCourses.contains(course)
+            ) {
+              continue;
+            }
+            // System.out.println("LAST REQUIRED COURSE" + majorRequiredCourses.get(majorRequiredCourses.size() - 1).getCourseID());
+            if (
+              course.equals(
+                remainingRequiredCourses.get(remainingRequiredCourses.size() - 1)
+              )
+            ) {
+              semCourses.add(course);
+              String iString = Integer.toString(i);
+              eightSemesterPlanTemp.put(iString, semCourses);
+              lastRequiredCourse = true;
+              break;
+            }
+            if (
+              isCourseInPlan(course, eightSemesterPlanTemp) == false &&
+              !semCourses.contains(course)
+            ) {
+              semHours += course.getCreditHours();
+              semCourses.add(course);
+            }
+          }
+          if(i<=8){
+            String iString = Integer.toString(i);
+          eightSemesterPlanTemp.put(iString, semCourses);
           }
         }
-        if(i<=8){
-          String iString = Integer.toString(i);
-        eightSemesterPlanTemp.put(iString, semCourses);
+        
+      }
+
+
+
+
+
+
+      System.out.println(eightSemesterPlanTemp.keySet() + "POOP");
+      for (String semester : eightSemesterPlanTemp.keySet()) {
+        System.out.println("Semester " + semester + ":");
+        ArrayList<Course> courses = eightSemesterPlanTemp.get(semester);
+        for (Course course : courses) {
+          System.out.println(course.getCourseID());
         }
       }
     }
 
+    if(currentStudent.getMajor().equals("Computer_Information_Systems")) {
+      //if student has completed courses / is not a freshman
+      if (completedCourses != null) {
+
+        String studentYear = currentStudent.getStudentClass();
+        if (studentYear.equals("FRESHMAN")) {
+          currentSemester = "1";
+        } else if (studentYear.equals("SOPHOMORE")) {
+          currentSemester = "3";
+        } else if (studentYear.equals("JUNIOR")) {
+          currentSemester = "5";
+        } else if (studentYear.equals("SENIOR")) {
+          currentSemester = "7";
+        }
+
+        int semHours = 0;
+        //Current Courses
+
+        // adding completed courses to the plan
+        int currentSemesterIntA = Integer.parseInt(currentSemester);
+        for (int i = 1; i < currentSemesterIntA; i++) {
+          if (i == currentSemesterIntA){
+            eightSemesterPlanTemp.put(currentSemester, currentCourses);
+            i++;
+          }
+          ArrayList<Course> semCourses = new ArrayList<Course>();
+          for (Course course : completedCourses.keySet()) {
+            
+            if (isCourseInPlan(course, eightSemesterPlanTemp)) {
+              continue;
+            }
+            if (semHours + 3 > 15) {
+              ArrayList<Course> copyOfSemCourses = new ArrayList<Course>(
+                semCourses
+              );
+              eightSemesterPlanTemp.put(Integer.toString(i), copyOfSemCourses);
+              semHours = 0;
+              semCourses.clear();
+              i++;
+
+              //TODO FIND SOMEWHERE TO PUT THIS TO UPDATE CURRENT SEMESTER
+              if (i == currentSemesterIntA){
+                eightSemesterPlanTemp.put(currentSemester, currentCourses);
+                i++;
+              }
+            }
+
+            // IF COURSE HAS PREREQS
+            if (course.getPrerequisiteCourses() != null) {
+              for (Course prereq : course.getPrerequisiteCourses()) {
+                if (
+                  isCourseInPlan(prereq, eightSemesterPlanTemp) == false &&
+                  !semCourses.contains(prereq) &&
+                  completedCourses.containsKey(prereq)
+                ) {
+                  semHours += prereq.getCreditHours();
+                  semCourses.add(prereq);
+                }
+              }
+            }
+
+            // IF COURSE HAS COREQS
+            if (course.getCorequisiteCourses() != null) {
+              for (Course coreq : course.getCorequisiteCourses()) {
+                if (
+                  isCourseInPlan(coreq, eightSemesterPlanTemp) == false &&
+                  !semCourses.contains(coreq) &&
+                  completedCourses.containsKey(coreq)
+                ) {
+                  semHours += coreq.getCreditHours();
+                  semCourses.add(coreq);
+                }
+              }
+            }
+
+            if (
+              !eightSemesterPlanTemp.containsValue(course) &&
+              !semCourses.contains(course)
+            ) {
+              semHours += course.getCreditHours();
+              semCourses.add(course);
+            }
+          }
+          String iString = Integer.toString(i);
+          eightSemesterPlanTemp.put(iString, semCourses);
+        }
+
+        //Remaining Required Courses
+        ArrayList<Course> remainingRequiredCourses = new ArrayList<Course>();
+        for (Course course : majorRequiredCourses) {
+          if (isCourseInPlan(course, eightSemesterPlanTemp) == false) {
+            remainingRequiredCourses.add(course);
+          }
+        }
+        // System.out.println("REMAINING REQUIRED COURSES" + remainingRequiredCourses);
+        //ADDING MAJOR REQUIRED COURSES
+        boolean lastRequiredCourse = false;
+        int currentSemesterInt = Integer.parseInt(currentSemester);
+        for (int i = currentSemesterInt + 1; i < 8; i++) {
+          if (lastRequiredCourse) {
+            break;
+          }
+          semHours = 0;
+          ArrayList<Course> semCourses = new ArrayList<Course>();
+          for (Course course : remainingRequiredCourses) {
+            System.out.println("semhours" + semHours);
+            if (semHours + 3 > 15) {
+              ArrayList<Course> copyOfSemCourses = new ArrayList<Course>(
+                semCourses
+              );
+              eightSemesterPlanTemp.put(Integer.toString(i), copyOfSemCourses);
+              semHours = 0;
+              semCourses.clear();
+              i++;
+              if(i>8){
+                break;
+              }
+            }
+            if (
+              completedCourses.containsKey(course) ||
+              currentCourses.contains(course)
+            ) {
+              continue;
+            }
+            // System.out.println("LAST REQUIRED COURSE" + majorRequiredCourses.get(majorRequiredCourses.size() - 1).getCourseID());
+            if (
+              course.equals(
+                remainingRequiredCourses.get(remainingRequiredCourses.size() - 1)
+              )
+            ) {
+              semCourses.add(course);
+              String iString = Integer.toString(i);
+              eightSemesterPlanTemp.put(iString, semCourses);
+              lastRequiredCourse = true;
+              break;
+            }
+            if (
+              isCourseInPlan(course, eightSemesterPlanTemp) == false &&
+              !semCourses.contains(course)
+            ) {
+              semHours += course.getCreditHours();
+              semCourses.add(course);
+            }
+          }
+          if(i<=8){
+            String iString = Integer.toString(i);
+          eightSemesterPlanTemp.put(iString, semCourses);
+          }
+        }
+      }
 
 
 
 
 
-    //if student is a freshman
-    else {
-      // currentSemester = 1;
-    }
+
+      //if student is a freshman
+      else {
+        currentSemester = "1";
+        ArrayList<Course> remainingRequiredCourses = new ArrayList<Course>();
+        for (Course course : majorRequiredCourses) {
+          if (isCourseInPlan(course, eightSemesterPlanTemp) == false) {
+            remainingRequiredCourses.add(course);
+          }
+        }
+        ArrayList<Course> semester1Courses = new ArrayList<>();
+        Course chem111 = CourseList.getInstance().getCourseByID("CHEM111");
+        Course chem111L = CourseList.getInstance().getCourseByID("CHEM111L");
+        semester1Courses.add(chem111);
+        semester1Courses.add(chem111L);
+        eightSemesterPlanTemp.put("1", semester1Courses);
+
+        ArrayList<Course> semester2Courses = new ArrayList<>();
+        Course chem112 = CourseList.getInstance().getCourseByID("CHEM112");
+        Course chem112L = CourseList.getInstance().getCourseByID("CHEM112L");
+        Course chem112REC = CourseList.getInstance().getCourseByID("CHEM112REC");
+        semester2Courses.add(chem112);
+        semester2Courses.add(chem112L);
+        semester2Courses.add(chem112REC);
+        eightSemesterPlanTemp.put("2", semester2Courses);
+
+        boolean lastRequiredCourse = false;
+        int currentSemesterInt = Integer.parseInt(currentSemester);
+        for (int i = currentSemesterInt + 1; i < 8; i++) {
+          if (lastRequiredCourse) {
+            break;
+          }
+          int semHours = 0;
+          ArrayList<Course> semCourses = new ArrayList<Course>();
+          for (Course course : remainingRequiredCourses) {
+            System.out.println("semhours" + semHours);
+            if (semHours + 3 > 15) {
+              ArrayList<Course> copyOfSemCourses = new ArrayList<Course>(
+                semCourses
+              );
+              eightSemesterPlanTemp.put(Integer.toString(i), copyOfSemCourses);
+              semHours = 0;
+              semCourses.clear();
+              i++;
+              if(i>8){
+                break;
+              }
+            }
+            if (
+              completedCourses.containsKey(course) ||
+              currentCourses.contains(course)
+            ) {
+              continue;
+            }
+            // System.out.println("LAST REQUIRED COURSE" + majorRequiredCourses.get(majorRequiredCourses.size() - 1).getCourseID());
+            if (
+              course.equals(
+                remainingRequiredCourses.get(remainingRequiredCourses.size() - 1)
+              )
+            ) {
+              semCourses.add(course);
+              String iString = Integer.toString(i);
+              eightSemesterPlanTemp.put(iString, semCourses);
+              lastRequiredCourse = true;
+              break;
+            }
+            if (
+              isCourseInPlan(course, eightSemesterPlanTemp) == false &&
+              !semCourses.contains(course)
+            ) {
+              semHours += course.getCreditHours();
+              semCourses.add(course);
+            }
+          }
+          if(i<=8){
+            String iString = Integer.toString(i);
+          eightSemesterPlanTemp.put(iString, semCourses);
+          }
+        }
+        
+      }
 
 
 
 
 
 
-    System.out.println(eightSemesterPlanTemp.keySet() + "POOP");
-    for (String semester : eightSemesterPlanTemp.keySet()) {
-      System.out.println("Semester " + semester + ":");
-      ArrayList<Course> courses = eightSemesterPlanTemp.get(semester);
-      for (Course course : courses) {
-        System.out.println(course.getCourseID());
+      System.out.println(eightSemesterPlanTemp.keySet() + "POOP");
+      for (String semester : eightSemesterPlanTemp.keySet()) {
+        System.out.println("Semester " + semester + ":");
+        ArrayList<Course> courses = eightSemesterPlanTemp.get(semester);
+        for (Course course : courses) {
+          System.out.println(course.getCourseID());
+        }
       }
     }
+    
   }
 
   ///////////////////////////////////////////////////////
