@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="advisorfx.AdviseeScreenController">
+   <children>
+      <Pane layoutX="219.0" layoutY="91.0" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Text layoutX="65.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AdviseHome" />
+         </children>
+      </Pane>
+   </children>
+</Pane>

@@ -150,6 +150,11 @@ public boolean login(String username, String password, String userType) {
         advisor.addStudentToAdvisor(studentUsername, advisor.getListOfAdvisedStudents());
     }
 
+
+    public Student getStudentByUsername(String username) {
+        return userList.getStudentByUsername(username);
+    }
+
     public void logoutAdvisor() {
         advisor.logout();
     }
