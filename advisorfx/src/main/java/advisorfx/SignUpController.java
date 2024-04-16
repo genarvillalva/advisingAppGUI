@@ -31,9 +31,6 @@ public class SignUpController {
     @FXML
     private TextField passwordTextBox;
 
-
-
-
     @FXML
     void signUp(ActionEvent event) throws IOException {
         String firstName = firstNameTextBox.getText();
@@ -44,23 +41,18 @@ public class SignUpController {
         String password = passwordTextBox.getText();
         String userType = userTypeDropDown.getText();
 
-
         AuditFacade facade = AuditFacade.getInstance();
 
         StudentYear studentYear = StudentYear.valueOf(year);
 
         facade.signUp(userName, password, userType, firstName, lastName, major, studentYear);
         System.out.println("User Created!");
+        App.setRoot("LoginPage");
     }
 
     @FXML
     void nextPage(ActionEvent event) throws IOException {
       App.setRoot("Sign up 2 FX");
-    }
-
-    @FXML
-    void backToSignIn(ActionEvent event) throws IOException {
-      App.setRoot("LoginPage");
     }
 
 }
