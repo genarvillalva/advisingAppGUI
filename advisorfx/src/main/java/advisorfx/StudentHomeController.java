@@ -7,6 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.event.ActionEvent;
@@ -31,13 +32,13 @@ public class StudentHomeController {
   @FXML
   private Label GpaLabel;
   @FXML
-  private Label HomeLabel;
+  private Hyperlink HomeLabel;
   @FXML
-  private Label TranscriptLabel;
+  private Hyperlink TranscriptLabel;
   @FXML
-  private Label SemesterPlanLabel;
+  private Hyperlink SemesterPlanLabel;
   @FXML
-  private Label AdvisingNotesLabel;
+  private Hyperlink AdvisingNotesLabel;
   @FXML
   private ChoiceBox LogOutBox;
   @FXML
@@ -71,17 +72,16 @@ public class StudentHomeController {
 
   @FXML
   private void initialize() {
-      // Add event handlers to each label
       setUp();
-      HomeLabel.setOnMouseClicked(event -> highlightLabel(HomeLabel));
-      TranscriptLabel.setOnMouseClicked(event -> highlightLabel(TranscriptLabel));
-      SemesterPlanLabel.setOnMouseClicked(event -> highlightLabel(SemesterPlanLabel));
-      AdvisingNotesLabel.setOnMouseClicked(event -> highlightLabel(AdvisingNotesLabel));
+      HomeLabel.setOnMouseClicked(event -> highlightHyperlink(HomeLabel));
+      TranscriptLabel.setOnMouseClicked(event -> highlightHyperlink(TranscriptLabel));
+      SemesterPlanLabel.setOnMouseClicked(event -> highlightHyperlink(SemesterPlanLabel));
+      AdvisingNotesLabel.setOnMouseClicked(event -> highlightHyperlink(AdvisingNotesLabel));
       ObservableList<String> options = FXCollections.observableArrayList("Settings", "Log Out");
       LogOutBox.setItems(options);
   }
   
-  private void highlightLabel(Label label) {
+  private void highlightHyperlink(Hyperlink Hyperlink) {
       // Remove highlighting from all labels
       HomeLabel.getStyleClass().remove("highlighted");
       TranscriptLabel.getStyleClass().remove("highlighted");
@@ -89,9 +89,25 @@ public class StudentHomeController {
       AdvisingNotesLabel.getStyleClass().remove("highlighted");
   
       // Add highlighting to the clicked label
-      label.getStyleClass().add("highlighted");
+      Hyperlink.getStyleClass().add("highlighted");
       
   }
+
+  @FXML
+  void viewAdvisingNotes() throws IOException {
+    App.setRoot("ViewAdvisingNotes");
+  }
+
+  @FXML
+  void viewStudentHome() throws IOException {
+    App.setRoot("StudentHome.fxml");
+  }
+
+  @FXML
+  private void advisingNotes() throws IOException {
+    App.setRoot("ViewAdvisingNotes");
+  }
+
   @FXML
   void signOutStudent(ActionEvent event) throws IOException {
     logout();
