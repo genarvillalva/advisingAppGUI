@@ -91,6 +91,8 @@ public class AdvisorHomeController {
   private void loadAdvisees() {
       List<Student> advisees = AuditFacade.getInstance().getAdvisor().getListOfAdvisedStudents();
       System.out.println("Advisees loaded: " + advisees.size());  // checks to see how many advisees are loaded
+      
+      
       for (Student student : advisees) {
         String formattedString = student.getFirstName() + " " + student.getLastName() + " (" + student.getUsername() + ")";
         adviseeListView.getItems().add(formattedString);
