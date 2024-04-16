@@ -4,7 +4,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="advisorfx.SignUpController">
    <children>
       <Pane layoutX="50.0" layoutY="93.0" prefHeight="262.0" prefWidth="500.0">
          <children>
@@ -12,7 +12,7 @@
             <TextField fx:id="majorTextBox" layoutX="152.0" layoutY="64.0" prefHeight="25.0" prefWidth="199.0" text="Major" />
             <TextField fx:id="userNameTextBox" layoutX="152.0" layoutY="106.0" prefHeight="25.0" prefWidth="199.0" text="Username" />
             <TextField fx:id="passwordTextBox" layoutX="152.0" layoutY="151.0" prefHeight="25.0" prefWidth="199.0" text="Password" />
-            <Button fx:id="signUpButton" layoutX="175.0" layoutY="196.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="150.0" text="Sign Up" />
+            <Button fx:id="signUpButton" layoutX="175.0" layoutY="196.0" mnemonicParsing="false" onAction="#signUp","#backToSignIn" prefHeight="34.0" prefWidth="150.0" text="Sign Up" />
          </children>
       </Pane>
    </children>
