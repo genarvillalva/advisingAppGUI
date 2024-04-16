@@ -26,7 +26,7 @@ public class test {
     // for (Student student : students) {
     //   System.out.println(student);
     // }
-    students.get(0).getPortfolio().generateEightSemesterPlan();
+    students.get(1).getPortfolio().generateEightSemesterPlan();
 
   }
 

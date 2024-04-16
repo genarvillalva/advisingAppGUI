@@ -77,7 +77,6 @@
             "PHIL102": 96.0,
             "CSCE211": 90.0
 
-
         },
         "studentElectives": "bwest",
         "totalCreditHoursIntegrativeCourse": 0,
@@ -176,21 +175,28 @@
         "totalCreditHoursMajorRequirements": 1,
         "failCount": 1,
         "completedCourses": {
-            "CSCE190": 85.0,
-            "CSCE145": 90.5,
-            "UNIV101": 100.0,
-            "ARTE260": 98.0,
-            "STAT110": 87.2
+            "ENGL101": 85.0,
+            "MATH141": 90.5,
+            "ASTR101": 100.0,
+            "CSCE145": 98.0,
+            "CSCE190": 100.0,
+            "ENGL102": 89.0,
+            "ASTR201": 89.0,
+            "MATH142": 100.0,
+            "CSCE215": 89.0,
+            "CSCE205": 100.0,
+            "CSCE210": 86.0,
+            "CSCE247": 85.0
+
         },
         "studentElectives": "thill",
         "totalCreditHoursIntegrativeCourse": 0,
         "currentCourses": [
-            "CSCE146",
-            "CHEM111",
-            "CHEM111L",
-            "CSCE215",
-            "HIST111",
-            "MATH241"
+            "ECON224",
+            "SPCH140",
+            "CSCE201",
+            "CSCE240",
+            "MATH374"
         ],
         "failedCourses": {},
         "portfolioUUID": "thill",
