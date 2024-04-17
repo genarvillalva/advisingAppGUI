@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -7,30 +9,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="advisorfx.AdvisingNotesController">
    <children>
       <Pane prefHeight="1010.0" prefWidth="1300.0">
          <children>
-            <Pane layoutX="2.0" layoutY="-7.0" prefHeight="192.0" prefWidth="1303.0">
-               <children>
-                  <Label layoutX="594.0" layoutY="94.0" prefHeight="89.0" prefWidth="175.0" text="8-semester plan">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="886.0" layoutY="95.0" prefHeight="88.0" prefWidth="210.0" text="Advising Notes">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="379.0" layoutY="101.0" prefHeight="77.0" prefWidth="114.0" text="Transcript">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
+            <Pane layoutX="2.0" layoutY="-7.0" prefHeight="192.0" prefWidth="1303.0" />
             <TableView layoutX="742.0" layoutY="336.0" prefHeight="386.0" prefWidth="399.0">
               <columns>
                 <TableColumn minWidth="100.0" prefWidth="75.0" text="Note Text" />
@@ -55,6 +38,31 @@
                   <Font size="32.0" />
                </font>
             </Label>
+            <Pane fx:id="StudentMenuPane" prefHeight="137.0" prefWidth="1300.0">
+               <children>
+                  <ChoiceBox fx:id="LogOutBoxAdvise" layoutX="1215.0" layoutY="94.0" onAction="#signOutStudent" prefHeight="25.0" prefWidth="62.0" />
+                  <Hyperlink fx:id="AdvisingNotesLabelAdvise" layoutX="663.0" layoutY="47.0" onAction="#viewAdvisingNotes" prefHeight="94.0" prefWidth="175.0" text="Advising Notes">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Hyperlink>
+                  <Hyperlink fx:id="SemesterPlanLabelAdvise" layoutX="462.0" layoutY="46.0" onAction="#viewSemesterPlan" prefHeight="94.0" prefWidth="175.0" text="8 Semester Plan">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Hyperlink>
+                  <Hyperlink fx:id="TranscriptLabelAdvise" layoutX="314.0" layoutY="46.0" onAction="#viewTranscript" prefHeight="94.0" prefWidth="148.0" text="Transcript">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Hyperlink>
+                  <Hyperlink fx:id="HomeLabelAdvise" layoutX="202.0" layoutY="46.0" onAction="#viewStudentHome" prefHeight="94.0" prefWidth="110.0" text="Home">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Hyperlink>
+               </children>
+            </Pane>
          </children>
       </Pane>
    </children>

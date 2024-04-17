@@ -100,7 +100,17 @@ public class StudentHomeController {
 
   @FXML
   void viewStudentHome() throws IOException {
-    App.setRoot("StudentHome.fxml");
+    App.setRoot("StudentHome");
+  }
+
+  @FXML
+  void viewTranscript() throws IOException {
+    App.setRoot("ViewTranscript");
+  }
+
+  @FXML
+  void viewSemesterPlan() throws IOException {
+    App.setRoot("ViewSemesterPlan");
   }
 
   @FXML

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="advisorfx.SemesterPlanController">
+   <children>
+      <Pane fx:id="StudentMenuPane" prefHeight="137.0" prefWidth="1300.0">
+         <children>
+            <ChoiceBox fx:id="LogOutBoxSem" layoutX="1215.0" layoutY="94.0" onAction="#signOutStudent" prefHeight="25.0" prefWidth="62.0" />
+            <Hyperlink fx:id="AdvisingNotesLabelSem" layoutX="663.0" layoutY="47.0" onAction="#viewAdvisingNotes" prefHeight="94.0" prefWidth="169.0" text="Advising Notes">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink fx:id="SemesterPlanLabelSem" layoutX="462.0" layoutY="46.0" onAction="#viewSemesterPlan" prefHeight="94.0" prefWidth="169.0" text="8 Semester Plan">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink fx:id="TranscriptLabelSem" layoutX="314.0" layoutY="46.0" onAction="#viewTranscript" prefHeight="94.0" prefWidth="148.0" text="Transcript">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink fx:id="HomeLabelSem" layoutX="202.0" layoutY="46.0" onAction="#viewStudentHome" prefHeight="94.0" prefWidth="110.0" text="Home">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Hyperlink>
+         </children>
+      </Pane>
+      <Pane fx:id="GpaPane" prefHeight="301.0" prefWidth="1300.0">
+         <children>
+            <ButtonBar layoutX="912.0" layoutY="177.0" prefHeight="40.0" prefWidth="68.0" />
+         </children>
+      </Pane>
+   </children>
+</VBox>
