@@ -61,6 +61,8 @@ public class AdvisorHomeController {
   private void initialize() {
     setUp();
     loadAdvisees();
+    setupAdviseeListViewClickListener(); 
+
   }
 
   @FXML
@@ -69,8 +71,7 @@ public class AdvisorHomeController {
     Parent root = loader.load();
 
     AddAdviseeController addAdviseeController = loader.getController();
-    addAdviseeController.setAdvisorHomeController(this); // Set the reference
-
+    addAdviseeController.setAdvisorHomeController(this); 
 
     Scene scene = new Scene(root);
     Stage stage = new Stage();
@@ -89,7 +90,6 @@ public class AdvisorHomeController {
   }
 
   private void loadAdvisees() {
-      // Im getting a list of all students that the current advisor is advising.
       List<Student> advisees = AuditFacade.getInstance().getAdvisor().getListOfAdvisedStudents();
       System.out.println("Advisees loaded: " + advisees.size());  // checks to see how many advisees are loaded
       
@@ -106,6 +106,8 @@ public class AdvisorHomeController {
     }
       //I need to refresh the list to show the lastest updated users on the list
       adviseeListView.refresh();
+      setupAdviseeListViewClickListener();
+
   }
 
   public void refreshAdviseeList() {
@@ -113,5 +115,39 @@ public class AdvisorHomeController {
       loadAdvisees();
   }
 
-  
+
+  private void setupAdviseeListViewClickListener() {
+    adviseeListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+        if (newValue != null && !newValue.isEmpty()) {
+            try {
+                // get only the username within the parentheses.
+                String username = newValue.substring(newValue.lastIndexOf("(") + 1, newValue.lastIndexOf(")"));
+                System.out.println("Selected username: " + username); // Debug output
+                openAdviseeScreen(username);
+            } catch (IOException e) {
+                e.printStackTrace(); 
+            }
+        }
+    });
 }
+
+
+  //handle the opening of the Advisee screen
+  private void openAdviseeScreen(String username) throws IOException {
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("AdviseeScreen.fxml"));
+    Parent root = loader.load();
+    
+    AdviseeScreenController controller = loader.getController();
+    controller.loadAdviseeData(username); // passes the username to the new screen
+    
+    Stage stage = new Stage();
+    stage.setTitle("Advisee Profile");
+    stage.setScene(new Scene(root));
+    stage.initModality(Modality.APPLICATION_MODAL);
+    stage.showAndWait();
+  }
+
+ 
+}
+
+  
