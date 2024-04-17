@@ -7,6 +7,8 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import java.io.IOException;
 import advising.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class SignUpController {
     
@@ -30,6 +32,17 @@ public class SignUpController {
 
     @FXML
     private TextField passwordTextBox;
+
+    @FXML
+    private ImageView logo;
+
+    public void initialize() {
+        // Load the image
+        Image image = new Image(getClass().getResourceAsStream("/images/logo.png"));
+        
+        // Set the image to the ImageView
+        logo.setImage(image);
+    }
 
     @FXML
     void signUp(ActionEvent event) throws IOException {

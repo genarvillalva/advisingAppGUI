@@ -327,7 +327,7 @@ public class StudentPortfolio {
    * @return true if student is failing and false if student is passing
    */
   public boolean checkClassFailure(int grade) {
-    if (grade < 60) {
+    if (grade < 60 && grade > 100) {
       return true;
     } else {
       return false;
@@ -339,7 +339,7 @@ public class StudentPortfolio {
    * @return true if requirements are met and false if not
    */
   public boolean checkScholarship(double gpa, int YearCreditCount) {
-    if (gpa > 3.0 && YearCreditCount >= 30) {
+    if (gpa > 3.0 && YearCreditCount >= 30 && gpa < 4.0) {
       return true;
     } else {
       return false;
@@ -354,7 +354,11 @@ public class StudentPortfolio {
     int completedCreditHours,
     int totalCreditHours
   ) {
-    return (totalCreditHours - completedCreditHours);
+    if(totalCreditHours >= completedCreditHours){
+      return (totalCreditHours - completedCreditHours);
+    }else{
+      return 0;
+    }
   }
 
   public double calculateGPA(HashMap<Course, Integer> completedCourses) {
