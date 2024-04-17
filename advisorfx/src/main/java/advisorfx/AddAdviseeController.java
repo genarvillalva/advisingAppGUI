@@ -16,10 +16,8 @@ import javafx.stage.Stage;
 public class AddAdviseeController {
 
  
-     // Reference to the AdvisorHomeController
      private AdvisorHomeController advisorHomeController;
 
-     // Inject the AdvisorHomeController reference
      public void setAdvisorHomeController(AdvisorHomeController controller) {
          this.advisorHomeController = controller;
      }
@@ -38,7 +36,6 @@ public class AddAdviseeController {
       auditFacade.addAdvisee(AddAdviseeTextBox.getText());
 
 
-              // after adding the advisee it should then update the list in the AdvisorHomeController
               if (advisorHomeController != null) {
                 advisorHomeController.refreshAdviseeList();
             }

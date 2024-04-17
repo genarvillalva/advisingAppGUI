@@ -163,6 +163,8 @@ public boolean login(String username, String password, String userType) {
         student.logout();
     }
 
+    
+
     public void switchMajor(Student student, String major) {
 
     }
