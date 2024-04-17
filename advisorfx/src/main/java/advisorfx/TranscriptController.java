@@ -17,6 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.collections.FXCollections;
@@ -24,6 +25,8 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.ListView;
 
 public class TranscriptController {
+    @FXML
+    private Pane StudentMenuPaneTrans;
     @FXML
     private Hyperlink HomeLabelTrans;
 
@@ -40,14 +43,66 @@ public class TranscriptController {
     private ChoiceBox LogOutBoxTrans;
 
     @FXML
-  private void initialize() {
-      HomeLabelTrans.setOnMouseClicked(event -> highlightHyperlink(HomeLabelTrans));
-      TranscriptLabelTrans.setOnMouseClicked(event -> highlightHyperlink(TranscriptLabelTrans));
-      SemesterPlanLabelTrans.setOnMouseClicked(event -> highlightHyperlink(SemesterPlanLabelTrans));
-      AdvisingNotesLabelTrans.setOnMouseClicked(event -> highlightHyperlink(AdvisingNotesLabelTrans));
-      ObservableList<String> options = FXCollections.observableArrayList("Settings", "Log Out");
-      LogOutBoxTrans.setItems(options);
-  }
+    private Label TranscriptHeader;
+
+    @FXML
+    private Label FreshmanLabel;
+
+    @FXML
+    private Label SophomoreLabel;
+
+    @FXML
+    private Label JuniorLabel;
+
+    @FXML
+    private Label SeniorLabel;
+
+    @FXML
+    private Label CreditHourLabelF;
+
+    @FXML
+    private Label CreditHourLabelSO;
+
+    @FXML
+    private Label CreditHourLabelJ;
+
+    @FXML
+    private Label CreditHourLabelS;
+
+    @FXML
+    private Label GradeLabelF;
+
+    @FXML
+    private Label GradeLabelSO;
+
+    @FXML
+    private Label GradeLabelJ;
+
+    @FXML
+    private Label GradeLabelS;
+
+    @FXML
+    private ListView FreshmanCourses;
+
+    @FXML
+    private ListView SophomoreCourses;
+
+    @FXML
+    private ListView JuniorCourses;
+
+    @FXML
+    private ListView SeniorCourses;
+
+
+    @FXML
+    private void initialize() {
+        HomeLabelTrans.setOnMouseClicked(event -> highlightHyperlink(HomeLabelTrans));
+        TranscriptLabelTrans.setOnMouseClicked(event -> highlightHyperlink(TranscriptLabelTrans));
+        SemesterPlanLabelTrans.setOnMouseClicked(event -> highlightHyperlink(SemesterPlanLabelTrans));
+        AdvisingNotesLabelTrans.setOnMouseClicked(event -> highlightHyperlink(AdvisingNotesLabelTrans));
+        ObservableList<String> options = FXCollections.observableArrayList("Settings", "Log Out");
+        LogOutBoxTrans.setItems(options);
+    }
   
   private void highlightHyperlink(Hyperlink Hyperlink) {
       // Remove highlighting from all labels

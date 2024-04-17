@@ -40,6 +40,54 @@ public class SemesterPlanController {
     private ChoiceBox LogOutBoxSem;
 
     @FXML
+    private Label SemOneLabel;
+
+    @FXML
+    private Label SemTwoLabel;
+
+    @FXML
+    private Label SemThreeLabel;
+
+    @FXML
+    private Label SemFourLabel;
+
+    @FXML
+    private Label SemFiveLabel;
+
+    @FXML
+    private Label SemSixLabel;
+
+    @FXML
+    private Label SemSevenLabel;
+
+    @FXML
+    private Label SemEightLabel;
+
+    @FXML
+    private Label CreditHoursOne;
+
+    @FXML
+    private Label CreditHoursTwo;
+
+    @FXML
+    private Label CreditHoursThree;
+
+    @FXML
+    private Label CreditHoursFour;
+
+    @FXML
+    private Label CreditHoursFive;
+
+    @FXML
+    private Label CreditHoursSix;
+
+    @FXML
+    private Label CreditHoursSeven;
+
+    @FXML
+    private Label CreditHoursEight;
+
+    @FXML
   private void initialize() {
       HomeLabelSem.setOnMouseClicked(event -> highlightHyperlink(HomeLabelSem));
       TranscriptLabelSem.setOnMouseClicked(event -> highlightHyperlink(TranscriptLabelSem));

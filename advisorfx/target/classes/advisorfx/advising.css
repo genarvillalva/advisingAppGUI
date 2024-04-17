@@ -5,6 +5,14 @@
     -fx-background-color: #1545F3;
 }
 
+#StudentMenuPaneTrans {
+    -fx-background-color: #1545F3;
+}
+
+#StudentMenuPaneSem {
+    -fx-background-color: #1545F3;
+}
+
 #titlesign{
     -fx-background-color: #7DB3FB;
     -fx-font-family: "Arial"; 

@@ -113,10 +113,6 @@ public class StudentHomeController {
     App.setRoot("ViewSemesterPlan");
   }
 
-  @FXML
-  private void advisingNotes() throws IOException {
-    App.setRoot("ViewAdvisingNotes");
-  }
 
   @FXML
   void signOutStudent(ActionEvent event) throws IOException {
