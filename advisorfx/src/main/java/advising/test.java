@@ -26,7 +26,7 @@ public class test {
     // for (Student student : students) {
     //   System.out.println(student);
     // }
-    students.get(1).getPortfolio().generateEightSemesterPlan();
+    students.get(0).getPortfolio().generateEightSemesterPlan();
 
   }
 
@@ -51,6 +51,7 @@ public class test {
 
   public static void testGetAllMajors() {
     ArrayList<Major> majors = DataLoader.getAllMajors();
+    
     System.out.println("List of Majors:");
     for (Major major : majors) {
       System.out.println(major);
