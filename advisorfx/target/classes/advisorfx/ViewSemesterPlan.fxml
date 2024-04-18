@@ -53,7 +53,7 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <ListView fx:id="FreshmanCourses" layoutX="59.0" layoutY="236.0" prefHeight="403.0" prefWidth="1168.0" />
+                  <ListView fx:id="SemOneList" layoutX="59.0" layoutY="236.0" prefHeight="403.0" prefWidth="660.0" />
                   <Label fx:id="CreditHoursOne" layoutX="765.0" layoutY="198.0" prefHeight="38.0" prefWidth="254.0" text="Credit Hours">
                      <font>
                         <Font size="20.0" />
@@ -64,7 +64,7 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <ListView fx:id="SophomoreCourses" layoutX="59.0" layoutY="743.0" prefHeight="403.0" prefWidth="1168.0" />
+                  <ListView fx:id="SemTwoList" layoutX="59.0" layoutY="743.0" prefHeight="403.0" prefWidth="661.0" />
                   <Label fx:id="CreditHoursTwo" layoutX="765.0" layoutY="705.0" prefHeight="38.0" prefWidth="254.0" text="Credit Hours">
                      <font>
                         <Font size="20.0" />
@@ -75,7 +75,7 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <ListView fx:id="JuniorCourses" layoutX="59.0" layoutY="1250.0" prefHeight="403.0" prefWidth="1168.0" />
+                  <ListView fx:id="SemThreeList" layoutX="59.0" layoutY="1250.0" prefHeight="403.0" prefWidth="662.0" />
                   <Label fx:id="CreditHoursThree" layoutX="765.0" layoutY="1212.0" prefHeight="38.0" prefWidth="254.0" text="Credit Hours">
                      <font>
                         <Font size="20.0" />
@@ -86,7 +86,7 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <ListView fx:id="SeniorCourses" layoutX="58.0" layoutY="1755.0" prefHeight="403.0" prefWidth="1168.0" />
+                  <ListView fx:id="SemFourList" layoutX="58.0" layoutY="1755.0" prefHeight="403.0" prefWidth="662.0" />
                   <Label fx:id="CreditHoursFour" layoutX="763.0" layoutY="1717.0" prefHeight="38.0" prefWidth="254.0" text="Credit Hours">
                      <font>
                         <Font size="20.0" />
@@ -97,7 +97,7 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <ListView fx:id="FreshmanCourses1" layoutX="60.0" layoutY="2253.0" prefHeight="403.0" prefWidth="1168.0" />
+                  <ListView fx:id="SemFiveList" layoutX="60.0" layoutY="2253.0" prefHeight="403.0" prefWidth="661.0" />
                   <Label fx:id="CreditHoursFive" layoutX="766.0" layoutY="2215.0" prefHeight="38.0" prefWidth="254.0" text="Credit Hours">
                      <font>
                         <Font size="20.0" />
@@ -108,7 +108,7 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <ListView fx:id="SophomoreCourses1" layoutX="60.0" layoutY="2760.0" prefHeight="403.0" prefWidth="1168.0" />
+                  <ListView fx:id="SemSixList" layoutX="60.0" layoutY="2760.0" prefHeight="403.0" prefWidth="661.0" />
                   <Label fx:id="CreditHoursSix" layoutX="766.0" layoutY="2722.0" prefHeight="38.0" prefWidth="254.0" text="Credit Hours">
                      <font>
                         <Font size="20.0" />
@@ -119,7 +119,7 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <ListView fx:id="JuniorCourses1" layoutX="60.0" layoutY="3267.0" prefHeight="403.0" prefWidth="1168.0" />
+                  <ListView fx:id="SemSevenList" layoutX="60.0" layoutY="3267.0" prefHeight="403.0" prefWidth="663.0" />
                   <Label fx:id="CreditHoursSeven" layoutX="766.0" layoutY="3229.0" prefHeight="38.0" prefWidth="254.0" text="Credit Hours">
                      <font>
                         <Font size="20.0" />
@@ -130,12 +130,20 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <ListView fx:id="SeniorCourses1" layoutX="59.0" layoutY="3772.0" prefHeight="403.0" prefWidth="1168.0" />
+                  <ListView fx:id="SemEightList" layoutX="59.0" layoutY="3772.0" prefHeight="403.0" prefWidth="663.0" />
                   <Label fx:id="CreditHourEight" layoutX="764.0" layoutY="3734.0" prefHeight="38.0" prefWidth="254.0" text="Credit Hours">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
+                  <ListView fx:id="SemOneCH" layoutX="718.0" layoutY="236.0" prefHeight="403.0" prefWidth="493.0" />
+                  <ListView fx:id="SemTwoCH" layoutX="720.0" layoutY="743.0" prefHeight="403.0" prefWidth="491.0" />
+                  <ListView fx:id="SemThreeCH" layoutX="720.0" layoutY="1250.0" prefHeight="403.0" prefWidth="496.0" />
+                  <ListView fx:id="SemFourCH" layoutX="720.0" layoutY="1755.0" prefHeight="403.0" prefWidth="496.0" />
+                  <ListView fx:id="SemFiveCH" layoutX="720.0" layoutY="2253.0" prefHeight="403.0" prefWidth="496.0" />
+                  <ListView fx:id="SemSixCH" layoutX="721.0" layoutY="2760.0" prefHeight="403.0" prefWidth="496.0" />
+                  <ListView fx:id="SemSevenCH" layoutX="721.0" layoutY="3267.0" prefHeight="403.0" prefWidth="496.0" />
+                  <ListView fx:id="SemEightCH" layoutX="721.0" layoutY="3772.0" prefHeight="403.0" prefWidth="496.0" />
                </children>
             </Pane>
          </VBox>
