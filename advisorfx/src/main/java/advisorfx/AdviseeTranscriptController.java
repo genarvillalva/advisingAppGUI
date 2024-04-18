@@ -1,12 +1,20 @@
 package advisorfx;
 
+import java.io.IOException;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 public class AdviseeTranscriptController {
 
@@ -82,10 +90,6 @@ public class AdviseeTranscriptController {
     @FXML
     private Pane StudentMenuPaneTransAdvisee;
 
-    @FXML
-    void signOutStudent(ActionEvent event) {
-
-    }
 
     @FXML
     void viewAdvisingNotesasAdvisor(ActionEvent event) {
@@ -98,13 +102,63 @@ public class AdviseeTranscriptController {
     }
 
     @FXML
-    void viewStudentHome(ActionEvent event) {
+    void viewStudentHomeAsAdvisor(ActionEvent event) {
 
     }
+
+ @FXML
+    void viewTranscriptAsAdvisor(ActionEvent event) {
+        
+    }
+
+
+
 
     @FXML
-    void viewTranscriptasAdvisor(ActionEvent event) {
-
+    private void initialize() {
+        AdviseeHomeLabelTrans.setOnMouseClicked(event -> highlightHyperlink(AdviseeHomeLabelTrans));
+        AdviseeTranscriptLabelTrans.setOnMouseClicked(event -> highlightHyperlink(AdviseeTranscriptLabelTrans));
+        SemesterPlanLabelTransAdvisee.setOnMouseClicked(event -> highlightHyperlink(SemesterPlanLabelTransAdvisee));
+        AdvisingNotesLabelTransAdvisee.setOnMouseClicked(event -> highlightHyperlink(AdvisingNotesLabelTransAdvisee));
+        ObservableList<String> options = FXCollections.observableArrayList("Settings", "Log Out");
     }
+  
+  private void highlightHyperlink(Hyperlink Hyperlink) {
+      // Remove highlighting from all labels
+      AdviseeHomeLabelTrans.getStyleClass().remove("highlighted");
+      AdviseeTranscriptLabelTrans.getStyleClass().remove("highlighted");
+      SemesterPlanLabelTransAdvisee.getStyleClass().remove("highlighted");
+      AdvisingNotesLabelTransAdvisee.getStyleClass().remove("highlighted");
+  
+      // Add highlighting to the clicked label
+      Hyperlink.getStyleClass().add("highlighted");
+      
+  }
+
+  @FXML
+  void viewAdvisingNotesasAdvisor() throws IOException {
+    App.setRoot("CreateAdvisingNotes");
+  }
+
+  @FXML
+  void viewStudentHomeasAdvisor() throws IOException {
+    App.setRoot("AdviseeHome");
+  }
+
+  @FXML
+  void viewTranscriptasAdvisor() throws IOException {
+    App.setRoot("ViewAdviseeTranscript");
+  }
+
+  @FXML
+  void viewSemesterPlanAsAdvisor() throws IOException {
+    App.setRoot("ViewAdviseeSemesterPlan");
+  }
+
+ 
+
 
 }
+
+
+

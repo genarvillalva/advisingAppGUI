@@ -44,6 +44,8 @@ public class AuditFacade {
  * @return True if the login is successful, false otherwise.
  */
 public boolean login(String username, String password, String userType) {
+
+    
     switch (userType.toLowerCase()) {
         case "student":
             // Verify login for student user
@@ -57,6 +59,8 @@ public boolean login(String username, String password, String userType) {
             if (success) {
                 // Set the logged-in advisor
                 advisor = UserList.getInstance().getAdvisor(username);
+                System.out.println("Current Advisor after login attempt by " + username + ": " + getAdvisor().getUsername());
+
             }
             return success;
         default:
@@ -84,6 +88,8 @@ public boolean login(String username, String password, String userType) {
     public void getAllUsers() {
 
     }
+
+    
 
     public void findCourse() {
 
@@ -146,10 +152,15 @@ public boolean login(String username, String password, String userType) {
     }
 
     public void addAdvisee(String studentUsername) {
-        Advisor advisor = userList.getCurrentAdvisor();
-        advisor.addStudentToAdvisor(studentUsername, advisor.getListOfAdvisedStudents());
+        Advisor advisor = getAdvisor();
+        if (advisor != null) {
+            System.out.println("Adding advisee: " + studentUsername + " to advisor: " + advisor.getUsername());
+            advisor.addStudentToAdvisor(studentUsername, advisor.getListOfAdvisedStudents());
+        } else {
+            System.out.println("Attempted to add advisee, but no advisor is currently logged in.");
+        }
     }
-
+    
 
     public Student getStudentByUsername(String username) {
         return userList.getStudentByUsername(username);

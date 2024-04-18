@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="6000.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="advisorfx.AdviseeSemesterPlanController">
+   <children>
+      <ScrollPane>
+         <VBox spacing="10">
+
+            <Pane fx:id="StudentMenuPaneSemAdvisee" prefHeight="137.0" prefWidth="1373.0">
+               <children>
+
+                  <ChoiceBox fx:id="LogOutBoxSemAdvisee" layoutX="1215.0" layoutY="94.0" onAction="#signOutStudent" prefHeight="25.0" prefWidth="62.0" />
+                  
+                  <Hyperlink fx:id="AdvisingNotesLabelSemAdvisee" layoutX="663.0" layoutY="47.0" onAction="#viewAdvisingNotesasAdvisor" prefHeight="94.0" prefWidth="169.0" text="Advising Notes">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Hyperlink>
+                  
+                  <Hyperlink fx:id="SemesterPlanLabelSemAdvisee" layoutX="462.0" layoutY="46.0" onAction="#viewSemesterPlanasAdvisor" prefHeight="94.0" prefWidth="175.0" text="8 Semester Plan">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Hyperlink>
+                  
+                  <Hyperlink fx:id="TranscriptLabelSemAdvisee" layoutX="314.0" layoutY="46.0" onAction="#viewTranscriptasAdvisor" prefHeight="94.0" prefWidth="148.0" text="Transcript">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Hyperlink>
+                  
+                  <Hyperlink fx:id="HomeLabelSemAdvisee" layoutX="202.0" layoutY="46.0" onAction="#viewStudentHomeasAdvisor" prefHeight="94.0" prefWidth="110.0" text="Home">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Hyperlink>
+               </children>
+            </Pane>
+            
+            
+            <Pane fx:id="GpaPaneAdvisee" prefHeight="4447.0" prefWidth="1373.0">
+               <children>
+                  <ButtonBar layoutX="912.0" layoutY="177.0" prefHeight="40.0" prefWidth="68.0" />
+                  
+                  <Label fx:id="TranscriptHeaderAdvisee" layoutX="59.0" layoutY="64.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="83.0" prefWidth="886.0" style="-fx-background-color: white;" text="Eight-Semester Plan:">
+                     <font>
+                        <Font size="50.0" />
+                     </font>
+                  </Label>
+                  
+                  <Label fx:id="SemOneLabelAdvisee" layoutX="59.0" layoutY="198.0" prefHeight="38.0" prefWidth="704.0" text="Semester 1">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="FreshmanCoursesAdvisee" layoutX="59.0" layoutY="236.0" prefHeight="403.0" prefWidth="1168.0" />
+                  
+                  <Label fx:id="CreditHoursOneAdvisee" layoutX="765.0" layoutY="198.0" prefHeight="38.0" prefWidth="254.0" text="Credit Hours">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="SemTwoLabeladvisee" layoutX="59.0" layoutY="705.0" prefHeight="38.0" prefWidth="704.0" text="Semester 2">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="SophomoreCoursesAdvisee" layoutX="59.0" layoutY="743.0" prefHeight="403.0" prefWidth="1168.0" />
+                  <Label fx:id="CreditHoursTwoAdvisee" layoutX="765.0" layoutY="705.0" prefHeight="38.0" prefWidth="254.0" text="Credit Hours">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="SemThreeLabelAdvisee" layoutX="59.0" layoutY="1212.0" prefHeight="38.0" prefWidth="704.0" text="Semester 3">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="JuniorCoursesAdvisee" layoutX="59.0" layoutY="1250.0" prefHeight="403.0" prefWidth="1168.0" />
+                  <Label fx:id="CreditHoursThreeAdvisee" layoutX="765.0" layoutY="1212.0" prefHeight="38.0" prefWidth="254.0" text="Credit Hours">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="SemFourLabelAdvisee" layoutX="58.0" layoutY="1717.0" prefHeight="38.0" prefWidth="704.0" text="Semester 4">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="SeniorCoursesAdvisee" layoutX="58.0" layoutY="1755.0" prefHeight="403.0" prefWidth="1168.0" />
+                  <Label fx:id="CreditHoursFourAdvisee" layoutX="763.0" layoutY="1717.0" prefHeight="38.0" prefWidth="254.0" text="Credit Hours">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="SemFiveLabelAdvisee" layoutX="60.0" layoutY="2215.0" prefHeight="38.0" prefWidth="704.0" text="Semester 5">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="FreshmanCourses1Advisee" layoutX="60.0" layoutY="2253.0" prefHeight="403.0" prefWidth="1168.0" />
+                  <Label fx:id="CreditHoursFiveAdvisee" layoutX="766.0" layoutY="2215.0" prefHeight="38.0" prefWidth="254.0" text="Credit Hours">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="SemSixLabelAdvisee" layoutX="60.0" layoutY="2722.0" prefHeight="38.0" prefWidth="704.0" text="Semester 6">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="SophomoreCourses1Advisee" layoutX="60.0" layoutY="2760.0" prefHeight="403.0" prefWidth="1168.0" />
+                  <Label fx:id="CreditHoursSixAdvisee" layoutX="766.0" layoutY="2722.0" prefHeight="38.0" prefWidth="254.0" text="Credit Hours">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="SemSevenLabelAdvisee" layoutX="60.0" layoutY="3229.0" prefHeight="38.0" prefWidth="704.0" text="Semester 7">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="JuniorCourses1Advisee" layoutX="60.0" layoutY="3267.0" prefHeight="403.0" prefWidth="1168.0" />
+                  <Label fx:id="CreditHoursSevenAdvisee" layoutX="766.0" layoutY="3229.0" prefHeight="38.0" prefWidth="254.0" text="Credit Hours">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="SemEightLabelAdvisee" layoutX="59.0" layoutY="3734.0" prefHeight="38.0" prefWidth="704.0" text="Semester 8">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="SeniorCourses1Advisee" layoutX="59.0" layoutY="3772.0" prefHeight="403.0" prefWidth="1168.0" />
+                  <Label fx:id="CreditHourEightAdvisee" layoutX="764.0" layoutY="3734.0" prefHeight="38.0" prefWidth="254.0" text="Credit Hours">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </VBox>
+      </ScrollPane>
+   </children>
+</VBox>

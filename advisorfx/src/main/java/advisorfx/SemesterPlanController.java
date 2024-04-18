@@ -289,6 +289,9 @@ public class SemesterPlanController {
     App.setRoot("ViewSemesterPlan");
   }
 
+
+
+  
   @FXML
   void signOutStudent(ActionEvent event) throws IOException {
     logout();
