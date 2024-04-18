@@ -23,52 +23,41 @@ public class AuditFacade {
     private AuditFacade() {
         this.userList = UserList.getInstance(); // This line ensures userList is initialized
     }
-
     public AuditFacade(Advisor advisor) {
         this.advisor = advisor;
     }
-
-    
     public void signUp(String userName, String password, String userType, String firstName, String lastName, String major, StudentYear studentYear) {
         userList.createAccount(userName, password, userType, firstName, lastName, major, studentYear);
     } 
-
     
-
-
-    
-/**
- * @param username The username of the user attempting to log in.
- * @param password The password of the user attempting to log in.
- * @param userType The type of user attempting to log in (student, admin, or advisor).
- * @return True if the login is successful, false otherwise.
- */
-public boolean login(String username, String password, String userType) {
-    switch (userType.toLowerCase()) {
-        case "student":
-            // Verify login for student user
-            return UserList.getInstance().verifyLoginStudent(username, password);
-        case "admin":
-            // Verify login for admin user
-            return UserList.getInstance().verifyLoginAdmin(username, password);
-        case "advisor":
-            // Verify login for advisor user
-            boolean success = UserList.getInstance().verifyLoginAdvisor(username, password);
-            if (success) {
-                // Set the logged-in advisor
-                advisor = UserList.getInstance().getAdvisor(username);
-            }
-            return success;
-        default:
-            // Invalid user type
-            System.out.println("Invalid user type for login.");
-            return false;
+    /**
+     * @param username The username of the user attempting to log in.
+     * @param password The password of the user attempting to log in.
+     * @param userType The type of user attempting to log in (student, admin, or advisor).
+     * @return True if the login is successful, false otherwise.
+     */
+    public boolean login(String username, String password, String userType) {
+        switch (userType.toLowerCase()) {
+            case "student":
+                // Verify login for student user
+                return UserList.getInstance().verifyLoginStudent(username, password);
+            case "admin":
+                // Verify login for admin user
+                return UserList.getInstance().verifyLoginAdmin(username, password);
+            case "advisor":
+                // Verify login for advisor user
+                boolean success = UserList.getInstance().verifyLoginAdvisor(username, password);
+                if (success) {
+                    // Set the logged-in advisor
+                    advisor = UserList.getInstance().getAdvisor(username);
+                }
+                return success;
+            default:
+                // Invalid user type
+                System.out.println("Invalid user type for login.");
+                return false;
+        }
     }
-}
-
-
-
-  
     public void loginAdvisor(String username, String password) {
         user.loginAdvisor(username, password);
     }
@@ -109,14 +98,6 @@ public boolean login(String username, String password, String userType) {
     public int calculateCourseCreditLeft(int completedCreditHours, int totalCreditHours) {
         return studentPortfolio.calculateCourseCreditLeft(completedCreditHours, totalCreditHours);
     }
-
-    //public int calculateGPA(ArrayList<completedCourses>, int grade) {
-
-    //}
-
-    //public void displayMajorMap(ArrayList<Major>) {
-
-    //}
 
     public void adviseStudent(String notes, String username) {
         advisor.addAdvisingNotes(notes, username);
@@ -189,10 +170,6 @@ public boolean login(String username, String password, String userType) {
 
     }
 
-    //public boolean viewAdviseeProfile(String userName) {
-
-    //}
-    
     /**
      * Generate an eight semester plan for the current student.
      */
