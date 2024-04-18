@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 
 
+
 public class AdviseeScreenController {
 
     @FXML
@@ -56,6 +57,9 @@ public class AdviseeScreenController {
     @FXML
     private Hyperlink SemesterPlanLabelAdvisee;
 
+    @FXML
+    private Hyperlink POOP;
+
 
     @FXML
     private Label UsernameLabelAdvisee;
@@ -65,30 +69,7 @@ public class AdviseeScreenController {
 
     }
 
-    @FXML
-    void viewAdvisingNotesAsAdvisor() throws IOException {
-      App.setRoot("CreateAdvisingNotes");
-    }
-  
-    @FXML
-    void viewStudentHomeAsAdvisor() throws IOException {
-      App.setRoot("AdviseeScreen");
-    }
-
-
-    @FXML
-    void viewSemesterPlanAsAdvisor() throws IOException {
-    }
-
-    @FXML
-    void viewTranscriptasAdvisor(ActionEvent event) {
-
-    }
-    
     private Student advisee;
-
-
-
 
 public void loadAdviseeData(String username) {
     // get the Student object using the username provided.
@@ -133,6 +114,39 @@ public void loadAdviseeData(String username) {
         Hyperlink.getStyleClass().add("highlighted");
         
     }
+
+
+    @FXML
+    void handleBackButton() throws IOException {
+        System.out.println("Back button pressed");
+        App.setRoot("LoginPage");
+    }
+
+
+    @FXML
+    void viewTranscriptasAdvisor() throws IOException {
+        System.out.println("viewTranscriptasAdvisor() method called.");
+        App.setRoot("ViewAdviseeTranscript");
+    }
+
+    @FXML
+    void viewAdvisingNotesAsAdvisor() throws IOException {
+      System.out.println("viewAdvisingNotesAsAdvisor() method called.");
+      App.setRoot("CreateAdvisingNotes");
+    }
+    
+    
+    @FXML
+    void viewStudentHomeAsAdvisor() throws IOException {
+
+      App.setRoot("AdviseeScreen");
+    }
+
+    @FXML
+    void viewSemesterPlanAsAdvisor() throws IOException {
+    }
+
+
 
 
     

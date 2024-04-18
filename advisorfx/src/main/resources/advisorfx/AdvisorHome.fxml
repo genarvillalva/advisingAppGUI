@@ -13,6 +13,7 @@
    <children>
       <Pane prefHeight="149.0" prefWidth="1300.0" style="-fx-background-color: #004aad;" stylesheets="@../../java/advisorfx/advising.css">
          <children>
+
             <Label alignment="CENTER" layoutX="606.0" layoutY="60.0" prefHeight="75.0" prefWidth="81.0" style="-fx-text-fill: #cfb023;" text="Home">
                <font>
                   <Font size="30.0" />
@@ -43,12 +44,7 @@
                   <Font size="28.0" />
                </font>
             </Label>
-            <Button fx:id="AddAdviseeButton" layoutX="350.0" layoutY="17.0" mnemonicParsing="false" onAction="#switchToAddAdvisee" prefHeight="39.0" prefWidth="136.0" text="Add Advisee ">
-               <font>
-                  <Font size="19.0" />
-               </font>
-            </Button>
-            <TextField fx:id="SearchAdviseeTextBox" layoutX="540.0" layoutY="16.0" prefHeight="40.0" prefWidth="395.0" promptText="Search Advisees">
+            <TextField fx:id="AddAdvisee" layoutX="387.0" layoutY="17.0" prefHeight="40.0" prefWidth="395.0" promptText="Add Advisees">
                <font>
                   <Font size="20.0" />
                </font>

@@ -30,6 +30,7 @@ public class AuditFacade {
         userList.createAccount(userName, password, userType, firstName, lastName, major, studentYear);
     } 
     
+
     /**
      * @param username The username of the user attempting to log in.
      * @param password The password of the user attempting to log in.
@@ -73,6 +74,8 @@ public class AuditFacade {
     public void getAllUsers() {
 
     }
+
+    
 
     public void findCourse() {
 
@@ -127,10 +130,15 @@ public class AuditFacade {
     }
 
     public void addAdvisee(String studentUsername) {
-        Advisor advisor = userList.getCurrentAdvisor();
-        advisor.addStudentToAdvisor(studentUsername, advisor.getListOfAdvisedStudents());
+        Advisor advisor = getAdvisor();
+        if (advisor != null) {
+            System.out.println("Adding advisee: " + studentUsername + " to advisor: " + advisor.getUsername());
+            advisor.addStudentToAdvisor(studentUsername, advisor.getListOfAdvisedStudents());
+        } else {
+            System.out.println("Attempted to add advisee, but no advisor is currently logged in.");
+        }
     }
-
+    
 
     public Student getStudentByUsername(String username) {
         return userList.getStudentByUsername(username);
