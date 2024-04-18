@@ -144,7 +144,7 @@ public class StudentPortfolio {
       eightSemesterPlan = new HashMap<>();
       return eightSemesterPlan;
   }else{
-    return eightSemesterPlan;
+    return generateEightSemesterPlan();
   }
     
   }
@@ -506,7 +506,7 @@ public class StudentPortfolio {
   /**
    * Generates an 8-semester plan
    */
-  public void generateEightSemesterPlan() {
+  public HashMap<String, ArrayList<Course>> generateEightSemesterPlan() {
     // Major required courses
     Student currentStudent = UserList
       .getInstance()
@@ -1011,7 +1011,7 @@ public class StudentPortfolio {
       //   }
       // }
     }
-    eightSemesterPlan = eightSemesterPlanTemp;
+    return eightSemesterPlanTemp;
   }
 
   ///////////////////////////////////////////////////////
