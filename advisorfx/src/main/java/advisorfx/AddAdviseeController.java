@@ -22,9 +22,7 @@ public class AddAdviseeController {
          this.advisorHomeController = controller;
      }
  
- 
- 
- 
+
  
   @FXML
     private TextField AddAdviseeTextBox;

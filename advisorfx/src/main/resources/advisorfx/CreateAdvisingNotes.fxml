@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="advisorfx.CreateAdvisingNotesController">
+   <children>
+      <Pane prefHeight="1010.0" prefWidth="1300.0">
+         <children>
+            <Pane layoutX="2.0" layoutY="-7.0" prefHeight="192.0" prefWidth="1303.0" />
+            <TableView layoutX="742.0" layoutY="336.0" prefHeight="386.0" prefWidth="399.0">
+              <columns>
+                <TableColumn minWidth="100.0" prefWidth="75.0" text="Note Text" />
+                <TableColumn prefWidth="124.0" text="Created" />
+                  <TableColumn minWidth="100.0" prefWidth="75.0" text="Date" />
+              </columns>
+            </TableView>
+            <Label layoutX="273.0" layoutY="318.0" prefHeight="7.0" prefWidth="144.0" text="Write Note">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
+            <Label layoutX="821.0" layoutY="278.0" text="Previous Notes">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
+            <Pane fx:id="AdvisingMenuPaneAN" prefHeight="137.0" prefWidth="1300.0">
+               <children>
+                
+                  <Hyperlink fx:id="AdvisingNotesLabelAdviseAN" layoutX="937.0" layoutY="37.0" onAction="#viewAdvisingNotesAsAdvisor" prefHeight="94.0" prefWidth="175.0" text="Advising Notes">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Hyperlink>
+                 
+                <Hyperlink fx:id="TranscriptLabelAN" layoutX="611.0" layoutY="37.0" onAction="#viewTranscriptasAdvisor" prefHeight="94.0" prefWidth="148.0" text="Transcript">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Hyperlink>
+            
+                  
+                  <Hyperlink fx:id="HomeLabelAdviseAN" layoutX="205.0" layoutY="35.0" onAction="#viewStudentHomeAsAdvisor" prefHeight="94.0" prefWidth="110.0" text="Home">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Hyperlink>
+               
+               </children>
+            </Pane>
+            <TextArea fx:id="WRITEAN" layoutX="257.0" layoutY="387.0" prefHeight="200.0" prefWidth="200.0" />
+            <Text fx:id="SENDAN" layoutX="345.0" layoutY="640.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SEND" />
+         </children>
+      </Pane>
+   </children>
+</VBox>
