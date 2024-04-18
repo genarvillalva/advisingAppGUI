@@ -9,10 +9,9 @@ import advising.*;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.control.PasswordField;
 
 public class LoginController {
-    @FXML
-    private TextField txt_password;
     
     @FXML
     private Label label_invalidLogin;
@@ -22,6 +21,9 @@ public class LoginController {
 
     @FXML
     private ImageView logo;
+
+    @FXML 
+    private PasswordField password_field;
 
     public void initialize() {
         // Load the image
@@ -34,7 +36,7 @@ public class LoginController {
     @FXML
     void signInStudent(ActionEvent event) throws IOException {
       String userName = txt_username.getText();
-      String password = txt_password.getText();
+      String password = password_field.getText();
 
       AuditFacade facade = AuditFacade.getInstance();
 
@@ -50,7 +52,7 @@ public class LoginController {
     @FXML 
     void signInAdvisor(ActionEvent event) throws IOException {
       String userName = txt_username.getText();
-      String password = txt_password.getText();
+      String password = password_field.getText();
 
       AuditFacade facade = AuditFacade.getInstance();
 
