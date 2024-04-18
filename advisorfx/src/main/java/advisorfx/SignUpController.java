@@ -81,7 +81,6 @@ public class SignUpController {
 
       facade.signUp(userName, password, "advisor", firstName, lastName, "", studentYear);
 
-
       System.out.println("Advisor Created!");
       App.setRoot("LoginPage");
     }

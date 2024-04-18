@@ -140,7 +140,13 @@ public class StudentPortfolio {
    * @return student's eight semester plan
    */
   public HashMap<String, ArrayList<Course>> getEightSemesterPlan() {
+    if (eightSemesterPlan == null) {
+      eightSemesterPlan = new HashMap<>();
+      return eightSemesterPlan;
+  }else{
     return eightSemesterPlan;
+  }
+    
   }
 
   /**

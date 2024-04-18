@@ -1,1 +1,17 @@
-[{"firstName":"Greg","lastName":"Tomlin","listOfAdvisedStudents":["bwest"],"password":"1","userType":"Advisor","username":"gregtomlin24"},{"firstName":"Osbert","lastName":"Odden","listOfAdvisedStudents":[],"password":"apassword","userType":"Advisor","username":"osberto"},{"firstName":"myles","lastName":"carter","listOfAdvisedStudents":[],"password":"cooper","userType":"Advisor","username":"mc151"}]
+[
+    {
+        "firstName":"Greg",
+        "lastName":"Tomlin",
+        "listOfAdvisedStudents":["bwest"],
+        "password":"1",
+        "userType":"Advisor",
+        "username":"gregtomlin24"
+    },
+    {
+        "firstName":"Osbert",
+        "lastName":"Odden",
+        "listOfAdvisedStudents":[],
+        "password":"apassword",
+        "userType":"Advisor",
+        "username":"osberto"}
+]
