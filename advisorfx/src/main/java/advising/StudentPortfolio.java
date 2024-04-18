@@ -519,7 +519,6 @@ public class StudentPortfolio {
     HashMap<String, ArrayList<Course>> eightSemesterPlanTemp = new HashMap<String, ArrayList<Course>>();
     HashMap<Course, Double> completedCourses = getCompletedCourses();
     ArrayList<Course> currentCourses = getCurrentCourses();
-    Double currentSemesterDouble = 0.0;
     String currentSemester = "1";
 
     if(currentStudent.getMajor().equals("Computer_Science")) {
@@ -1003,12 +1002,6 @@ public class StudentPortfolio {
         }
         
       }
-
-
-
-
-
-
       // System.out.println(eightSemesterPlanTemp.keySet() + "POOP");
       // for (String semester : eightSemesterPlanTemp.keySet()) {
       //   System.out.println("Semester " + semester + ":");
@@ -1060,10 +1053,6 @@ public class StudentPortfolio {
           System.out.println(
             "\nFailed Courses: " + portfolio.getFailedCourses()
           );
-          //System.out.println("Scholarship: " + portfolio.getScholarship());
-          //System.out.println("Yearly Scholarship Credit Hours Left: " + portfolio.getYearlyScholarshipCreditHoursLeft());
-          //System.out.println("\nGPA: " + portfolio.getGpa());
-          //System.out.println("Fail Count: " + portfolio.getFailCount());
           System.out.println(
             "Semester Credit Count: " + portfolio.getSemesterCreditCount()
           );
@@ -1071,12 +1060,6 @@ public class StudentPortfolio {
           System.out.println(
             "Total Credit Hours: " + portfolio.getTotalCreditHours()
           );
-          //System.out.println("Total Credit Hours Found Docu: " + portfolio.getTotalCreditHoursFoundDocu());
-          //System.out.println("Total Credit Hours CC: " + portfolio.getTotalCreditHoursCC());
-          //System.out.println("Total Credit Hours Integrative Course: " + portfolio.getTotalCreditHoursIntegrativeCourse());
-          //System.out.println("Total Credit Hours Program Requirements: " + portfolio.getTotalCreditHoursProgramRequirements());
-          //System.out.println("Total Credit Hours Major Requirements: " + portfolio.getTotalCreditHoursMajorRequirements());
-          //System.out.println("Student Electives: " + portfolio.getStudentElectives());
           System.out.println(
             "-----------------------------------------------------------"
           );
