@@ -192,10 +192,17 @@ public boolean login(String username, String password, String userType) {
     //public boolean viewAdviseeProfile(String userName) {
 
     //}
-
-    //public String generateEightSemesterPlan(String userName) {
-
-    //}
+    
+    /**
+     * Generate an eight semester plan for the current student.
+     */
+    public void generateEightSemesterPlan() {
+        UserList userList = UserList.getInstance();
+        ArrayList<Student> students = userList.getStudents();
+        Student student = userList.getCurrentStudent();
+        student.getPortfolio().generateEightSemesterPlan();
+        DataWriter.saveStudents(students);
+    }
 
 
     

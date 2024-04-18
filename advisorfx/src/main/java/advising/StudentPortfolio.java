@@ -327,7 +327,7 @@ public class StudentPortfolio {
    * @return true if student is failing and false if student is passing
    */
   public boolean checkClassFailure(int grade) {
-    if (grade < 60) {
+    if (grade < 60 && grade > 100) {
       return true;
     } else {
       return false;
@@ -339,7 +339,7 @@ public class StudentPortfolio {
    * @return true if requirements are met and false if not
    */
   public boolean checkScholarship(double gpa, int YearCreditCount) {
-    if (gpa > 3.0 && YearCreditCount >= 30) {
+    if (gpa > 3.0 && YearCreditCount >= 30 && gpa < 4.0) {
       return true;
     } else {
       return false;
@@ -354,7 +354,11 @@ public class StudentPortfolio {
     int completedCreditHours,
     int totalCreditHours
   ) {
-    return (totalCreditHours - completedCreditHours);
+    if(totalCreditHours >= completedCreditHours){
+      return (totalCreditHours - completedCreditHours);
+    }else{
+      return 0;
+    }
   }
 
   public double calculateGPA(HashMap<Course, Integer> completedCourses) {
@@ -515,11 +519,6 @@ public class StudentPortfolio {
     if(currentStudent.getMajor().equals("Computer_Science")) {
       //if student has completed courses / is not a freshman
       if (completedCourses != null) {
-        // for (Course course : completedCourses.keySet()) {
-        //   currentSemesterDouble += course.getCreditHours();
-        // }
-        // currentSemester = (int) ((currentSemesterDouble / 15)+1.5);
-
         String studentYear = currentStudent.getStudentClass();
         if (studentYear.equals("FRESHMAN")) {
           currentSemester = "1";
@@ -532,16 +531,7 @@ public class StudentPortfolio {
         }
 
         int semHours = 0;
-        //Current Courses
-        // System.out.println("\n\nTEST" + currentSemester + "\n\n currentSemester" + currentSemester);
-
-
-
-        // eightSemesterPlanTemp.put(currentSemester, currentCourses);
-
-
-
-
+        
         // adding completed courses to the plan
         int currentSemesterIntA = Integer.parseInt(currentSemester);
         for (int i = 1; i < currentSemesterIntA; i++) {
@@ -578,14 +568,10 @@ public class StudentPortfolio {
               semHours = 0;
               semCourses.clear();
               i++;
-
-              //TODO FIND SOMEWHERE TO PUT THIS TO UPDATE CURRENT SEMESTER
               if (i == currentSemesterIntA){
                 eightSemesterPlanTemp.put(currentSemester, currentCourses);
                 i++;
               }
-
-
               if(completedCourses.keySet().contains(chem112) && !eightSemesterPlanTemp.containsValue(chem112) && i == 2){
                 semHours = 7;
                 semCourses.add(chem112);
@@ -593,7 +579,6 @@ public class StudentPortfolio {
                 semCourses.add(chem112REC);     
               }
             }
-
             // IF COURSE HAS PREREQS
             if (course.getPrerequisiteCourses() != null) {
               for (Course prereq : course.getPrerequisiteCourses()) {
@@ -607,7 +592,6 @@ public class StudentPortfolio {
                 }
               }
             }
-
             // IF COURSE HAS COREQS
             if (course.getCorequisiteCourses() != null) {
               for (Course coreq : course.getCorequisiteCourses()) {
@@ -621,7 +605,6 @@ public class StudentPortfolio {
                 }
               }
             }
-
             if (
               !eightSemesterPlanTemp.containsValue(course) &&
               !semCourses.contains(course)
@@ -633,12 +616,6 @@ public class StudentPortfolio {
           String iString = Integer.toString(i);
           eightSemesterPlanTemp.put(iString, semCourses);
         }
-
-
-
-
-
-
         //Remaining Required Courses
         ArrayList<Course> remainingRequiredCourses = new ArrayList<Course>();
         for (Course course : majorRequiredCourses) {
@@ -646,7 +623,6 @@ public class StudentPortfolio {
             remainingRequiredCourses.add(course);
           }
         }
-        // System.out.println("REMAINING REQUIRED COURSES" + remainingRequiredCourses);
         //ADDING MAJOR REQUIRED COURSES
         boolean lastRequiredCourse = false;
         int currentSemesterInt = Integer.parseInt(currentSemester);
@@ -657,7 +633,6 @@ public class StudentPortfolio {
           semHours = 0;
           ArrayList<Course> semCourses = new ArrayList<Course>();
           for (Course course : remainingRequiredCourses) {
-            System.out.println("semhours" + semHours);
             if (semHours + 3 > 15) {
               ArrayList<Course> copyOfSemCourses = new ArrayList<Course>(
                 semCourses
@@ -676,7 +651,6 @@ public class StudentPortfolio {
             ) {
               continue;
             }
-            // System.out.println("LAST REQUIRED COURSE" + majorRequiredCourses.get(majorRequiredCourses.size() - 1).getCourseID());
             if (
               course.equals(
                 remainingRequiredCourses.get(remainingRequiredCourses.size() - 1)
@@ -702,11 +676,6 @@ public class StudentPortfolio {
           }
         }
       }
-
-
-
-
-
 
       //if student is a freshman
       else {
@@ -742,7 +711,6 @@ public class StudentPortfolio {
           int semHours = 0;
           ArrayList<Course> semCourses = new ArrayList<Course>();
           for (Course course : remainingRequiredCourses) {
-            System.out.println("semhours" + semHours);
             if (semHours + 3 > 15) {
               ArrayList<Course> copyOfSemCourses = new ArrayList<Course>(
                 semCourses
@@ -761,7 +729,6 @@ public class StudentPortfolio {
             ) {
               continue;
             }
-            // System.out.println("LAST REQUIRED COURSE" + majorRequiredCourses.get(majorRequiredCourses.size() - 1).getCourseID());
             if (
               course.equals(
                 remainingRequiredCourses.get(remainingRequiredCourses.size() - 1)
@@ -790,18 +757,14 @@ public class StudentPortfolio {
       }
 
 
-
-
-
-
-      System.out.println(eightSemesterPlanTemp.keySet() + "POOP");
-      for (String semester : eightSemesterPlanTemp.keySet()) {
-        System.out.println("Semester " + semester + ":");
-        ArrayList<Course> courses = eightSemesterPlanTemp.get(semester);
-        for (Course course : courses) {
-          System.out.println(course.getCourseID());
-        }
-      }
+      // System.out.println(eightSemesterPlanTemp.keySet() + "POOP");
+      // for (String semester : eightSemesterPlanTemp.keySet()) {
+      //   System.out.println("Semester " + semester + ":");
+      //   ArrayList<Course> courses = eightSemesterPlanTemp.get(semester);
+      //   for (Course course : courses) {
+      //     System.out.println(course.getCourseID());
+      //   }
+      // }
     }
 
     if(currentStudent.getMajor().equals("Computer_Information_Systems")) {
@@ -844,7 +807,6 @@ public class StudentPortfolio {
               semCourses.clear();
               i++;
 
-              //TODO FIND SOMEWHERE TO PUT THIS TO UPDATE CURRENT SEMESTER
               if (i == currentSemesterIntA){
                 eightSemesterPlanTemp.put(currentSemester, currentCourses);
                 i++;
@@ -898,7 +860,6 @@ public class StudentPortfolio {
             remainingRequiredCourses.add(course);
           }
         }
-        // System.out.println("REMAINING REQUIRED COURSES" + remainingRequiredCourses);
         //ADDING MAJOR REQUIRED COURSES
         boolean lastRequiredCourse = false;
         int currentSemesterInt = Integer.parseInt(currentSemester);
@@ -909,7 +870,6 @@ public class StudentPortfolio {
           semHours = 0;
           ArrayList<Course> semCourses = new ArrayList<Course>();
           for (Course course : remainingRequiredCourses) {
-            System.out.println("semhours" + semHours);
             if (semHours + 3 > 15) {
               ArrayList<Course> copyOfSemCourses = new ArrayList<Course>(
                 semCourses
@@ -928,7 +888,6 @@ public class StudentPortfolio {
             ) {
               continue;
             }
-            // System.out.println("LAST REQUIRED COURSE" + majorRequiredCourses.get(majorRequiredCourses.size() - 1).getCourseID());
             if (
               course.equals(
                 remainingRequiredCourses.get(remainingRequiredCourses.size() - 1)
@@ -994,7 +953,6 @@ public class StudentPortfolio {
           int semHours = 0;
           ArrayList<Course> semCourses = new ArrayList<Course>();
           for (Course course : remainingRequiredCourses) {
-            System.out.println("semhours" + semHours);
             if (semHours + 3 > 15) {
               ArrayList<Course> copyOfSemCourses = new ArrayList<Course>(
                 semCourses
@@ -1013,7 +971,6 @@ public class StudentPortfolio {
             ) {
               continue;
             }
-            // System.out.println("LAST REQUIRED COURSE" + majorRequiredCourses.get(majorRequiredCourses.size() - 1).getCourseID());
             if (
               course.equals(
                 remainingRequiredCourses.get(remainingRequiredCourses.size() - 1)
@@ -1046,16 +1003,16 @@ public class StudentPortfolio {
 
 
 
-      System.out.println(eightSemesterPlanTemp.keySet() + "POOP");
-      for (String semester : eightSemesterPlanTemp.keySet()) {
-        System.out.println("Semester " + semester + ":");
-        ArrayList<Course> courses = eightSemesterPlanTemp.get(semester);
-        for (Course course : courses) {
-          System.out.println(course.getCourseID());
-        }
-      }
+      // System.out.println(eightSemesterPlanTemp.keySet() + "POOP");
+      // for (String semester : eightSemesterPlanTemp.keySet()) {
+      //   System.out.println("Semester " + semester + ":");
+      //   ArrayList<Course> courses = eightSemesterPlanTemp.get(semester);
+      //   for (Course course : courses) {
+      //     System.out.println(course.getCourseID());
+      //   }
+      // }
     }
-    
+    eightSemesterPlan = eightSemesterPlanTemp;
   }
 
   ///////////////////////////////////////////////////////
