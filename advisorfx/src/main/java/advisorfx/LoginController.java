@@ -66,7 +66,13 @@ public class LoginController {
     }
     @FXML
     void signUpStudent(ActionEvent event) throws IOException {
-      System.out.println("Sign Up");
+      System.out.println("Student Sign Up");
+      App.setRoot("Sign up 1 FX");
+    }
+
+    @FXML
+    void signUpAdvisor(ActionEvent event) throws IOException {
+      System.out.println("Advisor Sign Up");
       App.setRoot("Sign up 2 FX");
     }
 

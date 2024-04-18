@@ -19,7 +19,10 @@ public class SignUpController {
     private TextField lastNameTextBox;
 
     @FXML
-    private MenuItem userTypeDropDown;
+    private TextField firstNameTextBox1;
+
+    @FXML
+    private TextField lastNameTextBox1;
 
     @FXML
     private TextField yearTextBox;
@@ -28,10 +31,16 @@ public class SignUpController {
     private TextField majorTextBox;
 
     @FXML
-    private TextField userNameTextBox;
+    private TextField usernameTextBox;
 
     @FXML
     private TextField passwordTextBox;
+
+    @FXML
+    private TextField usernameTextBox1;
+
+    @FXML
+    private TextField passwordTextBox1;
 
     @FXML
     private ImageView logo;
@@ -45,27 +54,35 @@ public class SignUpController {
     }
 
     @FXML
-    void signUp(ActionEvent event) throws IOException {
+    void studentSignUp(ActionEvent event) throws IOException {
         String firstName = firstNameTextBox.getText();
         String lastName = lastNameTextBox.getText();
         String year = yearTextBox.getText();
         String major = majorTextBox.getText();
-        String userName = userNameTextBox.getText();
+        String userName = usernameTextBox.getText();
         String password = passwordTextBox.getText();
-        String userType = userTypeDropDown.getText();
-
+        StudentYear studentYear = StudentYear.valueOf(year);
         AuditFacade facade = AuditFacade.getInstance();
 
-        StudentYear studentYear = StudentYear.valueOf(year);
-
-        facade.signUp(userName, password, userType, firstName, lastName, major, studentYear);
-        System.out.println("User Created!");
+        facade.signUp(userName, password, "student", firstName, lastName, major, studentYear);
+        System.out.println("Student Created!");
         App.setRoot("LoginPage");
     }
 
+    
     @FXML
-    void nextPage(ActionEvent event) throws IOException {
-      App.setRoot("Sign up 2 FX");
-    }
+    void advisorSignUp(ActionEvent event) throws IOException {
+      String userName = usernameTextBox1.getText();
+      String password = passwordTextBox1.getText();
+      String firstName = firstNameTextBox1.getText();
+      String lastName = lastNameTextBox1.getText();
+      StudentYear studentYear = StudentYear.valueOf("FRESHMAN");
+      AuditFacade facade = AuditFacade.getInstance();
 
+      facade.signUp(userName, password, "advisor", firstName, lastName, "", studentYear);
+
+
+      System.out.println("Advisor Created!");
+      App.setRoot("LoginPage");
+    }
 }

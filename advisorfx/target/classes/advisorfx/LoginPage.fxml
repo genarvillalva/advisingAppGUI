@@ -44,7 +44,7 @@
                   <Font size="15.0" />
                </font>
             </Button>
-            <Hyperlink fx:id="signUpAdvisor" layoutX="226.0" layoutY="413.0" onAction="#signUpStudent" prefHeight="26.0" prefWidth="127.0" text="Advisor Sign Up">
+            <Hyperlink fx:id="signUpAdvisor" layoutX="226.0" layoutY="413.0" onAction="#signUpAdvisor" prefHeight="26.0" prefWidth="127.0" text="Advisor Sign Up">
                <font>
                   <Font size="15.0" />
                </font>
