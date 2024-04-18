@@ -1,5 +1,7 @@
 package advisorfx;
 
+import java.io.IOException;
+
 import advising.AuditFacade;
 import advising.Student;
 import javafx.event.ActionEvent;
@@ -13,46 +15,50 @@ import javafx.scene.layout.Pane;
 public class AdviseeScreenController {
 
     @FXML
-    private Hyperlink AdvisingNotesLabela;
+    private Hyperlink AdvisingNotesLabelAdvisee;
 
     @FXML
-    private Label ClassificationLabela;
+    private Label ClassificationLabelAdvisee;
 
     @FXML
-    private Label DegreeLabela;
+    private Label DegreeLabelAdvisee;
 
     @FXML
-    private Hyperlink HomeLabela;
+    private Hyperlink HomeLabelAdvisee;
 
     @FXML
-    private Label LevelLabela;
+    private Label LevelLabelAdvisee;
 
     @FXML
-    private ChoiceBox<?> LogOutBoxa;
+    private ChoiceBox<?> LogOutBoxAdvisee;
 
     @FXML
-    private Label MajorLabela;
+    private Label MajorLabelAdvisee;
 
     @FXML
-    private Label NameLabela;
+    private Label NameLabelAdvisee;
 
     @FXML
-    private Pane ProfileBoarder;
+    private Pane ProfileBoarderAdvisee;
 
     @FXML
-    private Pane ProfilePanea;
+    private Pane ProfilePaneAdvisee;
 
     @FXML
-    private Label Profilea;
+    private Label ProfileAdvisee;
 
     @FXML
-    private Pane AdvisorMenuPane;
+    private Pane AdviseeMenuPane;
 
     @FXML
-    private Hyperlink TranscriptLabela;
+    private Hyperlink TranscriptLabelAdvisee;
+    
+    @FXML
+    private Hyperlink SemesterPlanLabelAdvisee;
+
 
     @FXML
-    private Label UsernameLabela;
+    private Label UsernameLabelAdvisee;
 
     @FXML
     void signOutStudent(ActionEvent event) {
@@ -60,17 +66,22 @@ public class AdviseeScreenController {
     }
 
     @FXML
-    void viewAdvisingNotes(ActionEvent event) {
+    void viewAdvisingNotesAsAdvisor() throws IOException {
+      App.setRoot("CreateAdvisingNotes");
+    }
+  
+    @FXML
+    void viewStudentHomeAsAdvisor() throws IOException {
+      App.setRoot("AdviseeScreen");
+    }
 
+
+    @FXML
+    void viewSemesterPlanAsAdvisor() throws IOException {
     }
 
     @FXML
-    void viewStudentHome(ActionEvent event) {
-
-    }
-
-    @FXML
-    void viewTranscript(ActionEvent event) {
+    void viewTranscriptasAdvisor(ActionEvent event) {
 
     }
     
@@ -87,20 +98,46 @@ public void loadAdviseeData(String username) {
     if (this.advisee != null) {
        
         
-         Profilea.setText(
+         ProfileAdvisee.setText(
            "Profile of   " +
            this.advisee.getFirstName() +
            " " +
            this.advisee.getLastName());
 
-        NameLabela.setText(String.format("%s %s", advisee.getFirstName(), advisee.getLastName()));
-        UsernameLabela.setText(advisee.getUsername());
-        DegreeLabela.setText("Degree: Bachelor of Science"); 
-        LevelLabela.setText("Level: Undergraduate"); 
-        ClassificationLabela.setText("Classification: " + advisee.getStudentClass());
-        MajorLabela.setText("Major: " + advisee.getMajor());
+        NameLabelAdvisee.setText(String.format("%s %s", advisee.getFirstName(), advisee.getLastName()));
+        UsernameLabelAdvisee.setText(advisee.getUsername());
+        DegreeLabelAdvisee.setText("Degree: Bachelor of Science"); 
+        LevelLabelAdvisee.setText("Level: Undergraduate"); 
+        ClassificationLabelAdvisee.setText("Classification: " + advisee.getStudentClass());
+        MajorLabelAdvisee.setText("Major: " + advisee.getMajor());
     } else {
         System.err.println("No student found with username: " + username);
     }
 }
+
+ @FXML
+    private void initialize() {
+        HomeLabelAdvisee.setOnMouseClicked(event -> highlightHyperlink(HomeLabelAdvisee));
+        TranscriptLabelAdvisee.setOnMouseClicked(event -> highlightHyperlink(TranscriptLabelAdvisee));
+        AdvisingNotesLabelAdvisee.setOnMouseClicked(event -> highlightHyperlink(AdvisingNotesLabelAdvisee));
+        SemesterPlanLabelAdvisee.setOnMouseClicked(event -> highlightHyperlink(SemesterPlanLabelAdvisee));
+
+    }
+    
+    private void highlightHyperlink(Hyperlink Hyperlink) {
+        HomeLabelAdvisee.getStyleClass().remove("highlighted");
+        TranscriptLabelAdvisee.getStyleClass().remove("highlighted");
+        AdvisingNotesLabelAdvisee.getStyleClass().remove("highlighted");
+    
+
+        Hyperlink.getStyleClass().add("highlighted");
+        
+    }
+
+
+    
+
+
+
+
 }
