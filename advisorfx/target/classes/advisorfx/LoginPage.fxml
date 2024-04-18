@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -17,10 +18,11 @@
                <font>
                   <Font size="18.0" />
                </font></TextField>
-            <TextField fx:id="txt_password" layoutX="178.0" layoutY="100.0" prefHeight="48.0" prefWidth="228.0" promptText="Password">
+            <PasswordField fx:id="password_field" layoutX="178.0" layoutY="100.0" prefHeight="48.0" prefWidth="228.0" promptText="Password">
                <font>
                   <Font size="18.0" />
-               </font></TextField>
+               </font>
+            </PasswordField>
             <Button fx:id="buttonsign" layoutX="206.0" layoutY="200.0" mnemonicParsing="false" onAction="#signInStudent" prefHeight="44.0" prefWidth="162.0" text="Sign In as a Student">
                <font>
                   <Font size="15.0" />
@@ -44,14 +46,14 @@
                   <Font size="15.0" />
                </font>
             </Button>
-            <Hyperlink fx:id="signUpAdvisor" layoutX="226.0" layoutY="413.0" onAction="#signUpStudent" prefHeight="26.0" prefWidth="127.0" text="Advisor Sign Up">
+            <Hyperlink fx:id="signUpAdvisor" layoutX="226.0" layoutY="413.0" onAction="#signUpAdvisor" prefHeight="26.0" prefWidth="127.0" text="Advisor Sign Up">
                <font>
                   <Font size="15.0" />
                </font>
             </Hyperlink>
          </children>
       </Pane>
-      <Label fx:id="titlesign" layoutX="599.0" layoutY="175.0" prefHeight="37.0" prefWidth="91.0" style="-fx-background-color: white;" text="Sign In" alignment="CENTER">
+      <Label fx:id="titlesign" alignment="CENTER" layoutX="599.0" layoutY="175.0" prefHeight="37.0" prefWidth="91.0" style="-fx-background-color: white;" text="Sign In">
          <font>
             <Font size="53.0" />
          </font>
