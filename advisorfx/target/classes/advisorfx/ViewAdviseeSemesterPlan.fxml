@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.ButtonBar?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -15,33 +16,38 @@
       <ScrollPane>
          <VBox spacing="10">
 
-            <Pane fx:id="StudentMenuPaneSemAdvisee" prefHeight="137.0" prefWidth="1300.0" style="-fx-background-color: #004aad;" stylesheets="@../../java/advisorfx/advising.css">
+            <Pane fx:id="StudentMenuPaneSemAdvisee" prefHeight="149.0" prefWidth="1300.0" style="-fx-background-color: #004aad;" stylesheets="@../../java/advisorfx/advising.css">
                <children>
 
                   
-                  <Hyperlink fx:id="AdvisingNotesLabelSemAdvisee" layoutX="851.0" layoutY="40.0" onAction="#viewAdvisingNotesasAdvisor" prefHeight="94.0" prefWidth="169.0" text="Advising Notes">
+                  <Hyperlink fx:id="AdvisingNotesLabelSemAdvisee" layoutX="851.0" layoutY="40.0" onAction="#viewAdvisingNotesasAdvisor" prefHeight="94.0" prefWidth="169.0" style="-fx-font-size: 20;" text="Advising Notes">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Hyperlink>
                   
-                  <Hyperlink fx:id="SemesterPlanLabelSemAdvisee" layoutX="654.0" layoutY="40.0" onAction="#viewSemesterPlanasAdvisor" prefHeight="94.0" prefWidth="175.0" text="8 Semester Plan">
+                  <Hyperlink fx:id="SemesterPlanLabelSemAdvisee" layoutX="654.0" layoutY="40.0" onAction="#viewSemesterPlanasAdvisor" prefHeight="94.0" prefWidth="175.0" style="-fx-font-size: 20;" text="8 Semester Plan">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Hyperlink>
                   
-                  <Hyperlink fx:id="TranscriptLabelSemAdvisee" layoutX="461.0" layoutY="40.0" onAction="#viewTranscriptasAdvisor" prefHeight="94.0" prefWidth="148.0" text="Transcript">
+                  <Hyperlink fx:id="TranscriptLabelSemAdvisee" layoutX="461.0" layoutY="40.0" onAction="#viewTranscriptasAdvisor" prefHeight="94.0" prefWidth="148.0" style="-fx-font-size: 20;" text="Transcript">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Hyperlink>
                   
-                  <Hyperlink fx:id="HomeLabelSemAdvisee" layoutX="318.0" layoutY="40.0" onAction="#viewStudentHomeasAdvisor" prefHeight="94.0" prefWidth="110.0" text="Home">
+                  <Hyperlink fx:id="HomeLabelSemAdvisee" layoutX="318.0" layoutY="40.0" onAction="#viewStudentHomeasAdvisor" prefHeight="94.0" prefWidth="110.0" style="-fx-font-size: 20;" text="Home">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Hyperlink>
+                  <ImageView fx:id="logo" fitHeight="97.0" fitWidth="209.0" layoutX="31.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../java/images/logo.png" />
+                     </image>
+                  </ImageView>
 
 
 

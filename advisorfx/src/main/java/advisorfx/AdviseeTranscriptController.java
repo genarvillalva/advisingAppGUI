@@ -17,6 +17,8 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -117,6 +119,9 @@ public class AdviseeTranscriptController {
     @FXML
     private ListView Senior;
 
+    @FXML
+    private ImageView logo;
+
 
  
 
@@ -127,6 +132,11 @@ public class AdviseeTranscriptController {
         SemesterPlanLabelTransAdvisee.setOnMouseClicked(event -> highlightHyperlink(SemesterPlanLabelTransAdvisee));
         AdvisingNotesLabelTransAdvisee.setOnMouseClicked(event -> highlightHyperlink(AdvisingNotesLabelTransAdvisee));
         ObservableList<String> options = FXCollections.observableArrayList("Settings", "Log Out");
+        // Load the image
+      Image image = new Image(getClass().getResourceAsStream("/images/logo.png"));
+        
+      // Set the image to the ImageView
+      logo.setImage(image);
 /* 
  HashMap<String, ArrayList<Course>> eightSemesterPlan = AuditFacade.getInstance().getStudent().getPortfolio().getEightSemesterPlan();
       ObservableList<String> courseNamesFreshman = FXCollections.observableArrayList();
