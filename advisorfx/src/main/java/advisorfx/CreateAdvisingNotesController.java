@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextArea;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
@@ -83,7 +84,14 @@ public class CreateAdvisingNotesController {
     void viewStudentHomeAsAdvisor() throws IOException {
       App.setRoot("AdviseeScreen");
     }
+
+    @FXML
+    void sendAdvisingNote() {
+     
   
+   
+}
+
   
 
 

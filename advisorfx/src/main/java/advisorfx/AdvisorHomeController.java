@@ -6,11 +6,15 @@ import java.util.List;
 import advising.Advisor;
 import advising.AuditFacade;
 import advising.Student;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -28,6 +32,9 @@ public class AdvisorHomeController {
     private Button DeleteAdviseeButton;
     @FXML
     private TextField AddAdvisee;
+
+    @FXML
+    private ChoiceBox LogOutBoxAdvisor;
 
     // Method to get the text from AddAdvisee
     public String getAddAdviseeText() {
@@ -52,6 +59,11 @@ public class AdvisorHomeController {
         loadAdvisees();
         setupAdviseeTextField();
         setupAdviseeListViewClickListener();
+        ObservableList<String> choices = FXCollections.observableArrayList("Settings", "Log Out");
+
+        LogOutBoxAdvisor.setItems(choices);
+
+
     }
 
     private void loadAdvisees() {
@@ -142,9 +154,14 @@ private void addAdvisee() {
     
     
     
+  @FXML
+  void signOutAdvisor(ActionEvent event) throws IOException {
+    logout();
+  }
 
-    @FXML
-    private void logout() throws IOException {
-        App.setRoot("LoginPage");
-    }
+  @FXML
+  private void logout() throws IOException {
+    App.setRoot("LoginPage");
+  }
+ 
 }
