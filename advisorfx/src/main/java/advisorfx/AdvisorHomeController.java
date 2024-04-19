@@ -12,6 +12,8 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -28,6 +30,8 @@ public class AdvisorHomeController {
     private Button DeleteAdviseeButton;
     @FXML
     private TextField AddAdvisee;
+    @FXML
+    private ImageView logo;
 
     @FXML
     private ChoiceBox LogOutBoxAdvisor;
@@ -55,9 +59,12 @@ public class AdvisorHomeController {
         loadAdvisees();
         setupAdviseeTextField();
         setupAdviseeListViewClickListener();
-        ObservableList<String> choices = FXCollections.observableArrayList("Settings", "Log Out");
 
-        LogOutBoxAdvisor.setItems(choices);
+        // Load the image
+        Image image = new Image(getClass().getResourceAsStream("/images/logo.png"));
+        
+        // Set the image to the ImageView
+        logo.setImage(image);
 
 
     }
