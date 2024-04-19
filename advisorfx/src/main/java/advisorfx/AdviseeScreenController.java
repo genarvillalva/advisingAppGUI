@@ -13,6 +13,7 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import javafx.scene.control.Button;
 
 public class AdviseeScreenController {
 
@@ -24,6 +25,9 @@ public class AdviseeScreenController {
 
     @FXML
     private ImageView logo;
+
+    @FXML
+    private Button backButton;
 
     @FXML
     private Label DegreeLabelAdvisee;
@@ -105,7 +109,7 @@ public class AdviseeScreenController {
         }
     }
     
-
+    
 
 
 
@@ -142,6 +146,11 @@ public class AdviseeScreenController {
     void handleBackButton() throws IOException {
         System.out.println("Back button pressed");
         App.setRoot("AdvisorHome");
+    }
+
+    @FXML
+    void logout(ActionEvent event) throws IOException {
+        App.setRoot("LoginPage");
     }
 
     @FXML

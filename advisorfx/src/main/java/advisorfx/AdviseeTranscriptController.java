@@ -306,6 +306,11 @@ public class AdviseeTranscriptController {
     App.setRoot("ViewAdviseeSemesterPlan");
   }
 
+  @FXML
+    void logout(ActionEvent event) throws IOException {
+        App.setRoot("LoginPage");
+    }
+
  
 
 
