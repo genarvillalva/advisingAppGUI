@@ -2,25 +2,21 @@ package advisorfx;
 
 import java.io.IOException;
 import java.util.List;
-
 import advising.Advisor;
 import advising.AuditFacade;
 import advising.Student;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
-import javafx.stage.Stage;
 
 public class AdvisorHomeController {
 
@@ -120,9 +116,25 @@ private void addAdvisee() {
 }
 
     private void setupAdviseeListViewClickListener() {
-        adviseeListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue != null && !newValue.isEmpty()) {
-                openAdviseeScreen(newValue.substring(newValue.lastIndexOf("(") + 1, newValue.lastIndexOf(")")));
+        // adviseeListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+        //     if (newValue != null && !newValue.isEmpty()) {
+        //         openAdviseeScreen(newValue.substring(newValue.lastIndexOf("(") + 1, newValue.lastIndexOf(")")));
+        //     }
+        // });
+        adviseeListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                AuditFacade auditFacade = AuditFacade.getInstance();
+                String currentAdviseeInfo = adviseeListView.getSelectionModel().getSelectedItem();
+                int startIndex = currentAdviseeInfo.indexOf('(');
+
+                int endIndex = currentAdviseeInfo.indexOf(')', startIndex);
+
+                String currentAdviseeUsername = currentAdviseeInfo.substring(startIndex + 1, endIndex);
+                auditFacade.setCurrentAdvisee(currentAdviseeUsername);
+                System.out.println(currentAdviseeUsername);
+                openAdviseeScreen(currentAdviseeUsername);
             }
         });
     }

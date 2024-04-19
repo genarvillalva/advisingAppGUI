@@ -89,10 +89,10 @@ public class AdviseeScreenController {
     @FXML
     private void setup() {
         if (advisee != null) {
-            DegreeLabelAdvisee.setText("Degree: Bachelor of Science");
-            LevelLabelAdvisee.setText("Level: Undergraduate");
-            ClassificationLabelAdvisee.setText("Classification: " + advisee.getStudentClass());
-            MajorLabelAdvisee.setText("Major: " + advisee.getMajor());
+            DegreeLabelAdvisee.setText("Bachelor of Science");
+            LevelLabelAdvisee.setText("Undergraduate");
+            ClassificationLabelAdvisee.setText(advisee.getStudentClass());
+            MajorLabelAdvisee.setText(advisee.getMajor());
         } else {
             System.err.println("No advisee data available.");
         }
@@ -108,9 +108,9 @@ public class AdviseeScreenController {
         TranscriptLabelAdvisee.setOnMouseClicked(event -> highlightHyperlink(TranscriptLabelAdvisee));
         AdvisingNotesLabelAdvisee.setOnMouseClicked(event -> highlightHyperlink(AdvisingNotesLabelAdvisee));
         SemesterPlanLabelAdvisee.setOnMouseClicked(event -> highlightHyperlink(SemesterPlanLabelAdvisee));
+        AuditFacade auditFacade = AuditFacade.getInstance();
 
-
-          String username = "bwest";
+          String username = auditFacade.getCurrentAdviseeUsername();
           loadAdviseeData(username);
 
     
