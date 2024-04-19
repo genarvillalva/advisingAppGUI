@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="advisorfx.AdviseeScreenController">
+<VBox fx:id="rectangle" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="advisorfx.AdviseeScreenController">
    <children>
-
       <Pane fx:id="AdviseeMenuPane" prefHeight="137.0" prefWidth="1300.0" style="-fx-background-color: #004aad;" stylesheets="@../../java/advisorfx/advising.css">
          <children>
-            <ChoiceBox fx:id="LogOutBoxAdvisee" layoutX="1215.0" layoutY="94.0" onAction="#signOutStudent" prefHeight="25.0" prefWidth="62.0" />
      
-            <Hyperlink fx:id="AdvisingNotesLabelAdvisee" layoutX="851.0" layoutY="39.0" onAction="#viewAdvisingNotesAsAdvisor" prefHeight="94.0" prefWidth="169.0" text="Advising Notes">
+            <Hyperlink fx:id="AdvisingNotesLabelAdvisee" layoutX="851.0" layoutY="40.0" onAction="#viewAdvisingNotesAsAdvisor" prefHeight="94.0" prefWidth="169.0" text="Advising Notes">
                <font>
                   <Font size="20.0" />
                </font>
@@ -30,21 +28,21 @@
             </Hyperlink>
             
 
-            <Hyperlink fx:id="TranscriptLabelAdvisee" layoutX="461.0" layoutY="41.0" onAction="#viewTranscriptasAdvisor" prefHeight="94.0" prefWidth="148.0" text="Transcript">
+            <Hyperlink fx:id="TranscriptLabelAdvisee" layoutX="461.0" layoutY="40.0" onAction="#viewTranscriptasAdvisor" prefHeight="94.0" prefWidth="148.0" text="Transcript">
                <font>
                   <Font size="20.0" />
                </font>
             </Hyperlink>
 
             
-            <Hyperlink fx:id="HomeLabelAdvisee" layoutX="318.0" layoutY="43.0" onAction="#viewStudentHomeAsAdvisor" prefHeight="94.0" prefWidth="110.0" text="Home">
+            <Hyperlink fx:id="HomeLabelAdvisee" layoutX="318.0" layoutY="40.0" onAction="#viewStudentHomeAsAdvisor" prefHeight="94.0" prefWidth="110.0" text="Home">
                <font>
                   <Font size="20.0" />
                </font>
             </Hyperlink>
 
             
-            <Hyperlink fx:id="POOP" layoutX="14.0" layoutY="14.0" onAction="#handleBackButton" prefHeight="94.0" prefWidth="148.0" text="BACK">
+            <Hyperlink fx:id="BACK" layoutX="14.0" layoutY="14.0" onAction="#handleBackButton" prefHeight="94.0" prefWidth="148.0" text="BACK">
                <font>
                   <Font size="20.0" />
                </font>
@@ -113,5 +111,6 @@
             <Line endX="798.0" endY="41.0" layoutX="295.0" layoutY="110.0" startX="-88.0" startY="41.0" />
          </children>
       </Pane>
+      <Rectangle fx:id="chundy" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
    </children>
 </VBox>

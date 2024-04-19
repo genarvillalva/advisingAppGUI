@@ -6,11 +6,15 @@ import java.util.List;
 import advising.Advisor;
 import advising.AuditFacade;
 import advising.Student;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -28,6 +32,14 @@ public class AdvisorHomeController {
     private Button DeleteAdviseeButton;
     @FXML
     private TextField AddAdvisee;
+
+    @FXML
+    private ChoiceBox LogOutBoxAdvisor;
+
+    // Method to get the text from AddAdvisee
+    public String getAddAdviseeText() {
+        return AddAdvisee.getText();
+    }
     @FXML
     private ListView<String> adviseeListView;
 
@@ -38,6 +50,8 @@ public class AdvisorHomeController {
         AdvisorProfileNameLabel.setText(auditFacade.getAdvisor().getFirstName() + " " + auditFacade.getAdvisor().getLastName());
     }
 
+
+
     @FXML
     private void initialize() {
         System.out.println("Current Advisor during initialization: " + AuditFacade.getInstance().getAdvisor().getUsername());
@@ -45,6 +59,11 @@ public class AdvisorHomeController {
         loadAdvisees();
         setupAdviseeTextField();
         setupAdviseeListViewClickListener();
+        ObservableList<String> choices = FXCollections.observableArrayList("Settings", "Log Out");
+
+        LogOutBoxAdvisor.setItems(choices);
+
+
     }
 
     private void loadAdvisees() {
@@ -109,25 +128,40 @@ private void addAdvisee() {
     }
 
     private void openAdviseeScreen(String username) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AdviseeScreen.fxml"));
-            Parent root = loader.load();
-            
-            AdviseeScreenController controller = loader.getController();
-            controller.loadAdviseeData(username); // Load data for the selected username
-            
-            Scene scene = new Scene(root);
-            Stage stage = (Stage) adviseeListView.getScene().getWindow();
-            stage.setScene(scene);
-            stage.setTitle("Advisee Profile");
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+        //try {
+            //FXMLLoader loader = new FXMLLoader(getClass().getResource("AdviseeScreen.fxml"));
+            //Parent root = loader.load();
+    
+            // Access the controller after loading the FXML
+            //AdviseeScreenController controller = loader.getController();
+            //if (controller != null) {
+                    System.out.println("Opening AdviseeScreen for username: " + username);
+                    try {
+                        // Assuming App.setRoot expects the FXML file name without the ".fxml" extension
+                        App.setRoot("AdviseeScreen");
+                    } catch (Exception e) {
+                        System.err.println("Error loading AdviseeScreen: " + e.getMessage());
+                        e.printStackTrace();
+                    }
+                }
+                                //controller.loadAdviseeData(username); // Load data for the selected username
+            //} else {
+                //System.err.println("Error: Unable to initialize AdviseeScreenController");
+            //}
+        //} catch (IOException e) {
+            //e.printStackTrace();
+        //}
+    
+    
+    
+  @FXML
+  void signOutAdvisor(ActionEvent event) throws IOException {
+    logout();
+  }
 
-    @FXML
-    private void logout() throws IOException {
-        App.setRoot("LoginPage");
-    }
+  @FXML
+  private void logout() throws IOException {
+    App.setRoot("LoginPage");
+  }
+ 
 }

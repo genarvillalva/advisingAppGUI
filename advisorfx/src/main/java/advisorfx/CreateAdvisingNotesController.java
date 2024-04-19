@@ -2,54 +2,58 @@ package advisorfx;
 
 import java.io.IOException;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextArea;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
 public class CreateAdvisingNotesController {
 
     @FXML
-    private Pane AdvisingMenuPaneAN;
+    private Pane AdvisingMenuPaneAdviseeNotes;
 
     @FXML
-    private Hyperlink AdvisingNotesLabelAdviseAN;
+    private Hyperlink AdvisingNotesLabelAdviseAdviseeNotes;
 
     @FXML
-    private Hyperlink HomeLabelAdviseAN;
+    private Hyperlink HomeLabelAdviseAdviseeNotes;
 
     @FXML
-    private ChoiceBox<?> LogOutBoxAdvise;
+    private Text SENDAdviseeNotes;
 
     @FXML
-    private Text SENDAN;
+    private Hyperlink TranscriptLabelAdviseeNotes;
 
     @FXML
-    private Hyperlink TranscriptLabelAN;
+    private TextArea WRITEAdviseeNotes;
+
 
     @FXML
-    private TextArea WRITEAN;
+    private Hyperlink SemesterPlanLabelAdviseeNotes;
 
 
 
 
-
+  
     @FXML
     private void initialize() {
-        HomeLabelAdviseAN.setOnMouseClicked(event -> highlightHyperlink(HomeLabelAdviseAN));
-        TranscriptLabelAN.setOnMouseClicked(event -> highlightHyperlink(TranscriptLabelAN));
-        AdvisingNotesLabelAdviseAN.setOnMouseClicked(event -> highlightHyperlink(AdvisingNotesLabelAdviseAN));
+        HomeLabelAdviseAdviseeNotes.setOnMouseClicked(event -> highlightHyperlink(HomeLabelAdviseAdviseeNotes));
+        TranscriptLabelAdviseeNotes.setOnMouseClicked(event -> highlightHyperlink(TranscriptLabelAdviseeNotes));
+        AdvisingNotesLabelAdviseAdviseeNotes.setOnMouseClicked(event -> highlightHyperlink(AdvisingNotesLabelAdviseAdviseeNotes));
+        SemesterPlanLabelAdviseeNotes.setOnMouseClicked(event -> highlightHyperlink(SemesterPlanLabelAdviseeNotes));
+
+
     }
     
     private void highlightHyperlink(Hyperlink Hyperlink) {
-        HomeLabelAdviseAN.getStyleClass().remove("highlighted");
-        TranscriptLabelAN.getStyleClass().remove("highlighted");
-        AdvisingMenuPaneAN.getStyleClass().remove("highlighted");
+        HomeLabelAdviseAdviseeNotes.getStyleClass().remove("highlighted");
+        TranscriptLabelAdviseeNotes.getStyleClass().remove("highlighted");
+        AdvisingMenuPaneAdviseeNotes.getStyleClass().remove("highlighted");
+        SemesterPlanLabelAdviseeNotes.getStyleClass().remove("highlighted");
+
     
 
         Hyperlink.getStyleClass().add("highlighted");
@@ -59,7 +63,18 @@ public class CreateAdvisingNotesController {
 
     @FXML
     void viewTranscriptasAdvisor() throws IOException {
+      App.setRoot("ViewAdviseeTranscript");
+
     }
+
+    @FXML
+    void viewSemesterPlanAsAdvisor() throws IOException {
+      App.setRoot("ViewAdviseeSemesterPlan");
+
+    }
+
+
+
     @FXML
     void viewAdvisingNotesAsAdvisor() throws IOException {
       App.setRoot("CreateAdvisingNotes");
@@ -69,7 +84,14 @@ public class CreateAdvisingNotesController {
     void viewStudentHomeAsAdvisor() throws IOException {
       App.setRoot("AdviseeScreen");
     }
+
+    @FXML
+    void sendAdvisingNote() {
+     
   
+   
+}
+
   
 
 
