@@ -11,6 +11,7 @@ public class AuditFacade {
     private StudentPortfolio studentPortfolio;
     private Advisor advisor;
     private static AuditFacade auditFacade; 
+    private Student currentAdvisee;
     
     // private RequiredCourses requiredCourses;
 
@@ -73,6 +74,18 @@ public class AuditFacade {
 
     public void getAllUsers() {
 
+    }
+
+    public Student getCurrentAdvisee() {
+        return currentAdvisee;
+    }
+    public void setCurrentAdvisee(String username) {
+        UserList ul = UserList.getInstance();
+        currentAdvisee = ul.getStudentByUsername(username);
+    }
+
+    public String getCurrentAdviseeUsername() {
+        return currentAdvisee.getUsername();
     }
 
     
