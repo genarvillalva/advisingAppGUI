@@ -160,6 +160,11 @@ public class AdviseeSemesterPlanController {
     }
 
     @FXML
+    void logout(ActionEvent event) throws IOException {
+        App.setRoot("LoginPage");
+    }
+
+    @FXML
     void viewTranscriptasAdvisor() throws IOException {
         App.setRoot("ViewAdviseeTranscript");
     }

@@ -78,7 +78,10 @@ public class CreateAdvisingNotesController {
 
     }
 
-
+    @FXML
+    void logout(ActionEvent event) throws IOException {
+        App.setRoot("LoginPage");
+    }
 
     @FXML
     void viewAdvisingNotesAsAdvisor() throws IOException {
