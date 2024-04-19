@@ -10,7 +10,6 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
 public class AdviseeScreenController {
@@ -54,12 +53,11 @@ public class AdviseeScreenController {
     @FXML
     private Hyperlink TranscriptLabelAdvisee;
 
-
     @FXML
     private Hyperlink SemesterPlanLabelAdvisee;
 
     @FXML
-    private Hyperlink BACK;
+    private Hyperlink POOP;
 
     @FXML
     private Label UsernameLabelAdvisee;
@@ -72,7 +70,7 @@ public class AdviseeScreenController {
         System.out.println("Loading data for username: " + username);
     
         // get the Student object using the username provided.
-        this.advisee = AuditFacade.getInstance().getStudentByUsername(username); // Assuming the method takes username as parameter
+        this.advisee = AuditFacade.getInstance().getStudentByUsername(username); 
     
         if (this.advisee != null) {
             System.out.println("Student found with username: " + username);
@@ -85,8 +83,6 @@ public class AdviseeScreenController {
         }
     }
 
-
-    
 
     
     
@@ -106,7 +102,6 @@ public class AdviseeScreenController {
 
 
 
-
     @FXML
     private void initialize() {
         HomeLabelAdvisee.setOnMouseClicked(event -> highlightHyperlink(HomeLabelAdvisee));
@@ -114,10 +109,13 @@ public class AdviseeScreenController {
         AdvisingNotesLabelAdvisee.setOnMouseClicked(event -> highlightHyperlink(AdvisingNotesLabelAdvisee));
         SemesterPlanLabelAdvisee.setOnMouseClicked(event -> highlightHyperlink(SemesterPlanLabelAdvisee));
 
-        String username = "bwest"; // Provide the username here
-        loadAdviseeData(username);        
 
-    }
+          String username = "bwest";
+          loadAdviseeData(username);
+
+    
+
+}
     
 
     private void highlightHyperlink(Hyperlink hyperlink) {
@@ -135,30 +133,27 @@ public class AdviseeScreenController {
 
     @FXML
     void viewTranscriptasAdvisor() throws IOException {
-        
+        System.out.println("viewTranscriptasAdvisor() method called.");
+        System.out.println("Before setRoot - current root: " + App.getCurrentRoot()); // Get the current root
         App.setRoot("ViewAdviseeTranscript");
-       
+        System.out.println("After setRoot - new root: " + App.getCurrentRoot()); // Get the new root after setting
+        System.out.println("exited setroot");
     }
-    
-    
     
     
     @FXML
     void viewAdvisingNotesAsAdvisor() throws IOException {
-
         System.out.println("viewAdvisingNotesAsAdvisor() method called.");
         App.setRoot("CreateAdvisingNotes");
     }
 
-
     @FXML
     void viewStudentHomeAsAdvisor() throws IOException {
-       App.setRoot("AdviseeScreen");
+        App.setRoot("AdviseeScreen");
     }
 
     @FXML
     void viewSemesterPlanAsAdvisor() throws IOException {
-
         App.setRoot("ViewAdviseeSemesterPlan");
 
     }
