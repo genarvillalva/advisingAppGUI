@@ -7,7 +7,6 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="3000.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="advisorfx.AdviseeTranscriptController">
@@ -30,13 +29,13 @@
                      </font>
                   </Hyperlink>
 
-                  <Hyperlink fx:id="AdviseeTranscriptLabelTrans" layoutX="461.0" layoutY="40.0"  onAction="#viewTranscriptasAdvisor" prefHeight="94.0" prefWidth="148.0" text="Transcript">
+                  <Hyperlink fx:id="AdviseeTranscriptLabelTrans" layoutX="461.0" layoutY="40.0" onAction="#viewTranscriptasAdvisor" prefHeight="94.0" prefWidth="148.0" text="Transcript">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Hyperlink>
 
-                  <Hyperlink fx:id="AdviseeHomeLabelTrans"  layoutX="318.0" layoutY="40.0" onAction="#viewStudentHomeasAdvisor" prefHeight="94.0" prefWidth="110.0" text="Home">
+                  <Hyperlink fx:id="AdviseeHomeLabelTrans" layoutX="318.0" layoutY="40.0" onAction="#viewStudentHomeasAdvisor" prefHeight="94.0" prefWidth="110.0" text="Home">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -137,7 +136,6 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Circle fx:id="butt" fill="DODGERBLUE" layoutX="353.0" layoutY="462.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
             </Pane>
          </VBox>
