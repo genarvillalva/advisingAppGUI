@@ -27,24 +27,28 @@
     -fx-font-family: "Arial"; 
     -fx-font-weight: bold;
     -fx-background-radius: 10;
+    -fx-font-size: 20px;
 }
 #TranscriptLabel{
     -fx-text-fill: white;
     -fx-font-family: "Arial";
     -fx-font-weight: bold; 
     -fx-background-radius: 10;
+    -fx-font-size: 20px;
 }
 #SemesterPlanLabel{
     -fx-text-fill: white;
     -fx-font-family: "Arial"; 
     -fx-font-weight: bold;
     -fx-background-radius: 10;
+    -fx-font-size: 20px;
 }
 #AdvisingNotesLabel{
     -fx-text-fill: white;
     -fx-font-family: "Arial"; 
     -fx-font-weight: bold;
     -fx-background-radius: 10;
+    -fx-font-size: 20px;
 }
 
 #HomeLabelSem{
@@ -52,24 +56,28 @@
     -fx-font-family: "Arial"; 
     -fx-font-weight: bold;
     -fx-background-radius: 10;
+    -fx-font-size: 20px;
 }
 #TranscriptLabelSem{
     -fx-text-fill: white;
     -fx-font-family: "Arial";
     -fx-font-weight: bold; 
     -fx-background-radius: 10;
+    -fx-font-size: 20px;
 }
 #SemesterPlanLabelSem{
     -fx-text-fill: white;
     -fx-font-family: "Arial"; 
     -fx-font-weight: bold;
     -fx-background-radius: 10;
+    -fx-font-size: 20px;
 }
 #AdvisingNotesLabelSem{
     -fx-text-fill: white;
     -fx-font-family: "Arial"; 
     -fx-font-weight: bold;
     -fx-background-radius: 10;
+    -fx-font-size: 20px;
 }
 
 #HomeLabelAdvise{
@@ -77,24 +85,28 @@
     -fx-font-family: "Arial"; 
     -fx-font-weight: bold;
     -fx-background-radius: 10;
+    -fx-font-size: 20px;
 }
 #TranscriptLabelAdvise{
     -fx-text-fill: white;
     -fx-font-family: "Arial";
     -fx-font-weight: bold; 
     -fx-background-radius: 10;
+    -fx-font-size: 20px;
 }
 #SemesterPlanLabelAdvise{
     -fx-text-fill: white;
     -fx-font-family: "Arial"; 
     -fx-font-weight: bold;
     -fx-background-radius: 10;
+    -fx-font-size: 20px;
 }
 #AdvisingNotesLabelAdvise{
     -fx-text-fill: white;
     -fx-font-family: "Arial"; 
     -fx-font-weight: bold;
     -fx-background-radius: 10;
+    -fx-font-size: 20px;
 }
 
 #HomeLabelTrans{
@@ -102,24 +114,28 @@
     -fx-font-family: "Arial"; 
     -fx-font-weight: bold;
     -fx-background-radius: 10;
+    -fx-font-size: 20px;
 }
 #TranscriptLabelTrans{
     -fx-text-fill: white;
     -fx-font-family: "Arial";
     -fx-font-weight: bold; 
     -fx-background-radius: 10;
+    -fx-font-size: 20px;
 }
 #SemesterPlanLabelTrans{
     -fx-text-fill: white;
     -fx-font-family: "Arial"; 
     -fx-font-weight: bold;
     -fx-background-radius: 10;
+    -fx-font-size: 20px;
 }
 #AdvisingNotesLabelTrans{
     -fx-text-fill: white;
     -fx-font-family: "Arial"; 
     -fx-font-weight: bold;
     -fx-background-radius: 10;
+    -fx-font-size: 20px;
 }
 
 
@@ -169,8 +185,7 @@
     -fx-font-family: "Arial";
     -fx-font-weight: bold; 
     -fx-background-radius: 10;
-
-
+    -fx-font-size: 20px;
 }
 
 #HomeLabelAdvisee{
@@ -178,7 +193,7 @@
     -fx-font-family: "Arial";
     -fx-font-weight: bold; 
     -fx-background-radius: 10;
-
+    -fx-font-size: 20px;
     
 }
 
@@ -188,7 +203,7 @@
     -fx-font-family: "Arial";
     -fx-font-weight: bold; 
     -fx-background-radius: 10;
-
+    -fx-font-size: 20px;
 }
 
 #AdvisingNotesLabelAdvisee{
@@ -196,6 +211,7 @@
     -fx-font-family: "Arial";
     -fx-font-weight: bold; 
     -fx-background-radius: 10;
+    -fx-font-size: 20px;
 
 }
 
@@ -233,7 +249,7 @@
     -fx-font-family: "Arial";
     -fx-font-weight: bold; 
     -fx-background-radius: 10;
-
+    -fx-font-size: 20px;
 }
 
 #TranscriptLabelAdviseeNotes{
@@ -242,7 +258,7 @@
     -fx-font-family: "Arial";
     -fx-font-weight: bold; 
     -fx-background-radius: 10;
-
+    -fx-font-size: 20px;
 }
 
 
@@ -252,7 +268,7 @@
     -fx-font-family: "Arial";
     -fx-font-weight: bold; 
     -fx-background-radius: 10;
-
+    -fx-font-size: 20px;
 }
 
 #AdvisingNotesLabelAdviseAdviseeNotes{
@@ -261,7 +277,7 @@
     -fx-font-family: "Arial";
     -fx-font-weight: bold; 
     -fx-background-radius: 10;
-
+    -fx-font-size: 20px;
 }
 
 
@@ -277,7 +293,7 @@
     -fx-font-family: "Arial";
     -fx-font-weight: bold; 
     -fx-background-radius: 10;
-
+    -fx-font-size: 20px;
 }
 
 
@@ -287,7 +303,7 @@
     -fx-font-family: "Arial";
     -fx-font-weight: bold; 
     -fx-background-radius: 10;
-
+    -fx-font-size: 20px;
 }
 
 #SemesterPlanLabelTransAdvisee{
@@ -296,7 +312,7 @@
     -fx-font-family: "Arial";
     -fx-font-weight: bold; 
     -fx-background-radius: 10;
-
+    -fx-font-size: 20px;
 }
 
 #AdvisingNotesLabelTransAdvisee{
@@ -305,7 +321,7 @@
     -fx-font-family: "Arial";
     -fx-font-weight: bold; 
     -fx-background-radius: 10;
-
+    -fx-font-size: 20px;
 }
 
 
@@ -319,7 +335,7 @@
     -fx-font-family: "Arial";
     -fx-font-weight: bold; 
     -fx-background-radius: 10;
-
+    -fx-font-size: 20px;
 }
 
 
@@ -329,7 +345,7 @@
     -fx-font-family: "Arial";
     -fx-font-weight: bold; 
     -fx-background-radius: 10;
-
+    -fx-font-size: 20px;
 }
 
 
@@ -339,7 +355,7 @@
     -fx-font-family: "Arial";
     -fx-font-weight: bold; 
     -fx-background-radius: 10;
-
+    -fx-font-size: 20px;
 }
 
 #HomeLabelSemAdvisee{
@@ -348,7 +364,7 @@
     -fx-font-family: "Arial";
     -fx-font-weight: bold; 
     -fx-background-radius: 10;
-
+    -fx-font-size: 20px;
 }
 
 
