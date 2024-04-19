@@ -28,6 +28,11 @@ public class AdvisorHomeController {
     private Button DeleteAdviseeButton;
     @FXML
     private TextField AddAdvisee;
+
+    // Method to get the text from AddAdvisee
+    public String getAddAdviseeText() {
+        return AddAdvisee.getText();
+    }
     @FXML
     private ListView<String> adviseeListView;
 
@@ -37,6 +42,8 @@ public class AdvisorHomeController {
         AdvisorGreetingsText.setText("Hello, " + auditFacade.getAdvisor().getFirstName() + " " + auditFacade.getAdvisor().getLastName() + "!");
         AdvisorProfileNameLabel.setText(auditFacade.getAdvisor().getFirstName() + " " + auditFacade.getAdvisor().getLastName());
     }
+
+
 
     @FXML
     private void initialize() {
@@ -109,22 +116,32 @@ private void addAdvisee() {
     }
 
     private void openAdviseeScreen(String username) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AdviseeScreen.fxml"));
-            Parent root = loader.load();
-            
-            AdviseeScreenController controller = loader.getController();
-            controller.loadAdviseeData(username); // Load data for the selected username
-            
-            Scene scene = new Scene(root);
-            Stage stage = (Stage) adviseeListView.getScene().getWindow();
-            stage.setScene(scene);
-            stage.setTitle("Advisee Profile");
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+        //try {
+            //FXMLLoader loader = new FXMLLoader(getClass().getResource("AdviseeScreen.fxml"));
+            //Parent root = loader.load();
+    
+            // Access the controller after loading the FXML
+            //AdviseeScreenController controller = loader.getController();
+            //if (controller != null) {
+                    System.out.println("Opening AdviseeScreen for username: " + username);
+                    try {
+                        // Assuming App.setRoot expects the FXML file name without the ".fxml" extension
+                        App.setRoot("AdviseeScreen");
+                    } catch (Exception e) {
+                        System.err.println("Error loading AdviseeScreen: " + e.getMessage());
+                        e.printStackTrace();
+                    }
+                }
+                                //controller.loadAdviseeData(username); // Load data for the selected username
+            //} else {
+                //System.err.println("Error: Unable to initialize AdviseeScreenController");
+            //}
+        //} catch (IOException e) {
+            //e.printStackTrace();
+        //}
+    
+    
+    
 
     @FXML
     private void logout() throws IOException {

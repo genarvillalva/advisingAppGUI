@@ -9,9 +9,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
-
-
 
 public class AdviseeScreenController {
 
@@ -53,68 +52,78 @@ public class AdviseeScreenController {
 
     @FXML
     private Hyperlink TranscriptLabelAdvisee;
-    
+
     @FXML
     private Hyperlink SemesterPlanLabelAdvisee;
 
     @FXML
     private Hyperlink POOP;
 
-
     @FXML
     private Label UsernameLabelAdvisee;
 
-    @FXML
-    void signOutStudent(ActionEvent event) {
-
-    }
-
     private Student advisee;
 
-public void loadAdviseeData(String username) {
-    // get the Student object using the username provided.
-    System.out.println("Loading data for username: " + username);
-    this.advisee = AuditFacade.getInstance().getStudentByUsername(username);
 
-    if (this.advisee != null) {
-       
-        
-         ProfileAdvisee.setText(
-           "Profile of   " +
-           this.advisee.getFirstName() +
-           " " +
-           this.advisee.getLastName());
-
-        NameLabelAdvisee.setText(String.format("%s %s", advisee.getFirstName(), advisee.getLastName()));
-        UsernameLabelAdvisee.setText(advisee.getUsername());
-        DegreeLabelAdvisee.setText("Degree: Bachelor of Science"); 
-        LevelLabelAdvisee.setText("Level: Undergraduate"); 
-        ClassificationLabelAdvisee.setText("Classification: " + advisee.getStudentClass());
-        MajorLabelAdvisee.setText("Major: " + advisee.getMajor());
-    } else {
-        System.err.println("No student found with username: " + username);
+    @FXML
+    public void loadAdviseeData(String username) {
+        System.out.println("Loading data for username: " + username);
+    
+        // get the Student object using the username provided.
+        this.advisee = AuditFacade.getInstance().getStudentByUsername(username); // Assuming the method takes username as parameter
+    
+        if (this.advisee != null) {
+            System.out.println("Student found with username: " + username);
+            ProfileAdvisee.setText("Profile of   " + this.advisee.getFirstName() + " " + this.advisee.getLastName());
+            NameLabelAdvisee.setText(String.format("%s %s", advisee.getFirstName(), advisee.getLastName()));
+            UsernameLabelAdvisee.setText(advisee.getUsername());
+            setup(); // Call the setup method after loading data
+        } else {
+            System.err.println("No student found with username: " + username);
+        }
     }
-}
 
- @FXML
+
+    
+    
+    @FXML
+    private void setup() {
+        if (advisee != null) {
+            DegreeLabelAdvisee.setText("Degree: Bachelor of Science");
+            LevelLabelAdvisee.setText("Level: Undergraduate");
+            ClassificationLabelAdvisee.setText("Classification: " + advisee.getStudentClass());
+            MajorLabelAdvisee.setText("Major: " + advisee.getMajor());
+        } else {
+            System.err.println("No advisee data available.");
+        }
+    }
+    
+
+
+
+
+    @FXML
     private void initialize() {
         HomeLabelAdvisee.setOnMouseClicked(event -> highlightHyperlink(HomeLabelAdvisee));
         TranscriptLabelAdvisee.setOnMouseClicked(event -> highlightHyperlink(TranscriptLabelAdvisee));
         AdvisingNotesLabelAdvisee.setOnMouseClicked(event -> highlightHyperlink(AdvisingNotesLabelAdvisee));
         SemesterPlanLabelAdvisee.setOnMouseClicked(event -> highlightHyperlink(SemesterPlanLabelAdvisee));
 
-    }
+
+          String username = "bwest";
+          loadAdviseeData(username);
+
     
-    private void highlightHyperlink(Hyperlink Hyperlink) {
+
+}
+    
+
+    private void highlightHyperlink(Hyperlink hyperlink) {
         HomeLabelAdvisee.getStyleClass().remove("highlighted");
         TranscriptLabelAdvisee.getStyleClass().remove("highlighted");
         AdvisingNotesLabelAdvisee.getStyleClass().remove("highlighted");
-    
-
-        Hyperlink.getStyleClass().add("highlighted");
-        
+        hyperlink.getStyleClass().add("highlighted");
     }
-
 
     @FXML
     void handleBackButton() throws IOException {
@@ -122,36 +131,30 @@ public void loadAdviseeData(String username) {
         App.setRoot("LoginPage");
     }
 
-
     @FXML
     void viewTranscriptasAdvisor() throws IOException {
         System.out.println("viewTranscriptasAdvisor() method called.");
+        System.out.println("Before setRoot - current root: " + App.getCurrentRoot()); // Get the current root
         App.setRoot("ViewAdviseeTranscript");
+        System.out.println("After setRoot - new root: " + App.getCurrentRoot()); // Get the new root after setting
+        System.out.println("exited setroot");
     }
-
+    
+    
     @FXML
     void viewAdvisingNotesAsAdvisor() throws IOException {
-      System.out.println("viewAdvisingNotesAsAdvisor() method called.");
-      App.setRoot("CreateAdvisingNotes");
+        System.out.println("viewAdvisingNotesAsAdvisor() method called.");
+        App.setRoot("CreateAdvisingNotes");
     }
-    
-    
+
     @FXML
     void viewStudentHomeAsAdvisor() throws IOException {
-
-      App.setRoot("AdviseeScreen");
+        App.setRoot("AdviseeScreen");
     }
 
     @FXML
     void viewSemesterPlanAsAdvisor() throws IOException {
+        App.setRoot("ViewAdviseeSemesterPlan");
+
     }
-
-
-
-
-    
-
-
-
-
 }

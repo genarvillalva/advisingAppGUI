@@ -1,6 +1,8 @@
+/* 
+
 .pane {
     
-}
+} */
 #backgroundsu{
     -fx-background-color: #1545F3;
 }
@@ -121,9 +123,9 @@
 }
 
 
-#buttonsignup{
+/* #buttonsignup{
     
-}
+} */
 
 #panesignup{
     -fx-background-color: rgba(255, 255, 255, 0.7);
@@ -200,5 +202,155 @@
 #AdvisorMenuPane{
     -fx-background-color: #1545F3;
 }
-    
+
+
+
+
+
+#chundy{
+    -fx-fill: #5d0c63; /* Change the fill color */
+}
+
+
+#pee{
+    -fx-fill: #5d0c63; /* Change the fill color */
+}
+
+#StudentMenuPaneTransAdvisee{
+
+    -fx-background-color: #1545F3;
+
+
+}
+
+#butt{
+    -fx-fill: #5d0c63; /* Change the fill color */
+}
+
+#HomeLabelAdviseAdviseeNotes{
+
+    -fx-text-fill: white;
+    -fx-font-family: "Arial";
+    -fx-font-weight: bold; 
+    -fx-background-radius: 10;
+
+}
+
+#TranscriptLabelAdviseeNotes{
+
+    -fx-text-fill: white;
+    -fx-font-family: "Arial";
+    -fx-font-weight: bold; 
+    -fx-background-radius: 10;
+
+}
+
+
+#SemesterPlanLabelAdviseeNotes{
+
+    -fx-text-fill: white;
+    -fx-font-family: "Arial";
+    -fx-font-weight: bold; 
+    -fx-background-radius: 10;
+
+}
+
+#AdvisingNotesLabelAdviseAdviseeNotes{
+
+    -fx-text-fill: white;
+    -fx-font-family: "Arial";
+    -fx-font-weight: bold; 
+    -fx-background-radius: 10;
+
+}
+
+
+
+
+
+
+
+
+#AdviseeHomeLabelTrans{
+
+    -fx-text-fill: white;
+    -fx-font-family: "Arial";
+    -fx-font-weight: bold; 
+    -fx-background-radius: 10;
+
+}
+
+
+#AdviseeTranscriptLabelTrans{
+
+    -fx-text-fill: white;
+    -fx-font-family: "Arial";
+    -fx-font-weight: bold; 
+    -fx-background-radius: 10;
+
+}
+
+#SemesterPlanLabelTransAdvisee{
+
+    -fx-text-fill: white;
+    -fx-font-family: "Arial";
+    -fx-font-weight: bold; 
+    -fx-background-radius: 10;
+
+}
+
+#AdvisingNotesLabelTransAdvisee{
+
+    -fx-text-fill: white;
+    -fx-font-family: "Arial";
+    -fx-font-weight: bold; 
+    -fx-background-radius: 10;
+
+}
+
+
+
+
+
+
+#AdvisingNotesLabelSemAdvisee{
+
+    -fx-text-fill: white;
+    -fx-font-family: "Arial";
+    -fx-font-weight: bold; 
+    -fx-background-radius: 10;
+
+}
+
+
+#SemesterPlanLabelSemAdvisee{
+
+    -fx-text-fill: white;
+    -fx-font-family: "Arial";
+    -fx-font-weight: bold; 
+    -fx-background-radius: 10;
+
+}
+
+
+#TranscriptLabelSemAdvisee{
+
+    -fx-text-fill: white;
+    -fx-font-family: "Arial";
+    -fx-font-weight: bold; 
+    -fx-background-radius: 10;
+
+}
+
+#HomeLabelSemAdvisee{
+
+    -fx-text-fill: white;
+    -fx-font-family: "Arial";
+    -fx-font-weight: bold; 
+    -fx-background-radius: 10;
+
+}
+
+
+
 
