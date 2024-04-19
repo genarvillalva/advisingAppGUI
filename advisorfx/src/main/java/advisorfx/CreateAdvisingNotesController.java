@@ -10,10 +10,14 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
+
+
+
 public class CreateAdvisingNotesController {
 
     @FXML
     private Pane AdvisingMenuPaneAdviseeNotes;
+
 
     @FXML
     private Hyperlink AdvisingNotesLabelAdviseAdviseeNotes;
@@ -37,6 +41,7 @@ public class CreateAdvisingNotesController {
 
 
 
+
   
     @FXML
     private void initialize() {
@@ -44,8 +49,8 @@ public class CreateAdvisingNotesController {
         TranscriptLabelAdviseeNotes.setOnMouseClicked(event -> highlightHyperlink(TranscriptLabelAdviseeNotes));
         AdvisingNotesLabelAdviseAdviseeNotes.setOnMouseClicked(event -> highlightHyperlink(AdvisingNotesLabelAdviseAdviseeNotes));
         SemesterPlanLabelAdviseeNotes.setOnMouseClicked(event -> highlightHyperlink(SemesterPlanLabelAdviseeNotes));
-
-
+        
+  
     }
     
     private void highlightHyperlink(Hyperlink Hyperlink) {

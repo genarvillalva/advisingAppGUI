@@ -22,6 +22,8 @@ import javafx.stage.Stage;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class AdvisingNotesController {
     @FXML
@@ -40,6 +42,9 @@ public class AdvisingNotesController {
     private ChoiceBox LogOutBoxAdvise;
 
     @FXML
+    private ImageView logo;
+
+    @FXML
     private void initialize() {
         HomeLabelAdvise.setOnMouseClicked(event -> highlightHyperlink(HomeLabelAdvise));
         TranscriptLabelAdvise.setOnMouseClicked(event -> highlightHyperlink(TranscriptLabelAdvise));
@@ -47,6 +52,11 @@ public class AdvisingNotesController {
         AdvisingNotesLabelAdvise.setOnMouseClicked(event -> highlightHyperlink(AdvisingNotesLabelAdvise));
         ObservableList<String> options = FXCollections.observableArrayList("Settings", "Log Out");
         LogOutBoxAdvise.setItems(options);
+        // Load the image
+        Image image = new Image(getClass().getResourceAsStream("/images/logo.png"));
+        
+        // Set the image to the ImageView
+        logo.setImage(image);
     }
     
     private void highlightHyperlink(Hyperlink Hyperlink) {
