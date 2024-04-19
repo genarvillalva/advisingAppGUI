@@ -92,7 +92,9 @@ public class AdviseeScreenController {
             DegreeLabelAdvisee.setText("Bachelor of Science");
             LevelLabelAdvisee.setText("Undergraduate");
             ClassificationLabelAdvisee.setText(advisee.getStudentClass());
-            MajorLabelAdvisee.setText(advisee.getMajor());
+            String major = advisee.getMajor();
+            String major2 = major.replace("_", " ");
+            MajorLabelAdvisee.setText(major2);
         } else {
             System.err.println("No advisee data available.");
         }
