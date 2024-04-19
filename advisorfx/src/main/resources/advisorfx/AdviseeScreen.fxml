@@ -11,7 +11,7 @@
 
 <VBox fx:id="rectangle" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="advisorfx.AdviseeScreenController">
    <children>
-      <Pane fx:id="AdviseeMenuPane" prefHeight="137.0" prefWidth="1300.0" style="-fx-background-color: #004aad;" stylesheets="@../../java/advisorfx/advising.css">
+      <Pane fx:id="AdviseeMenuPane" prefHeight="149.0" prefWidth="1300.0" style="-fx-background-color: #004aad;" stylesheets="@../../java/advisorfx/advising.css">
          <children>
      
             <Hyperlink fx:id="AdvisingNotesLabelAdvisee" layoutX="851.0" layoutY="40.0" onAction="#viewAdvisingNotesAsAdvisor" prefHeight="94.0" prefWidth="169.0" style="-fx-font-size: 20;" text="Advising Notes">
@@ -41,7 +41,7 @@
                   <Font size="20.0" />
                </font>
             </Hyperlink>
-            <ImageView fitHeight="89.0" fitWidth="195.0" layoutX="16.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="logo" fitHeight="97.0" fitWidth="209.0" layoutX="31.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../java/images/logo.png" />
                </image>

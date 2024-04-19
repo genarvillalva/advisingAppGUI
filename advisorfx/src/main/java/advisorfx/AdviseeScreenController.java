@@ -7,6 +7,8 @@ import advising.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -19,6 +21,9 @@ public class AdviseeScreenController {
 
     @FXML
     private Label ClassificationLabelAdvisee;
+
+    @FXML
+    private ImageView logo;
 
     @FXML
     private Label DegreeLabelAdvisee;
@@ -112,8 +117,14 @@ public class AdviseeScreenController {
         SemesterPlanLabelAdvisee.setOnMouseClicked(event -> highlightHyperlink(SemesterPlanLabelAdvisee));
         AuditFacade auditFacade = AuditFacade.getInstance();
 
-          String username = auditFacade.getCurrentAdviseeUsername();
-          loadAdviseeData(username);
+        String username = auditFacade.getCurrentAdviseeUsername();
+        loadAdviseeData(username);
+
+        // Load the image
+        Image image = new Image(getClass().getResourceAsStream("/images/logo.png"));
+        
+        // Set the image to the ImageView
+        logo.setImage(image);
 
     
 
