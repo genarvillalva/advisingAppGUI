@@ -20,6 +20,8 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -121,6 +123,7 @@ public class AdviseeTranscriptController {
     private ListView AdviseeSeniorGrade;
 
     @FXML
+
     private Student advisee;
 
     @FXML
@@ -134,6 +137,9 @@ public class AdviseeTranscriptController {
         adviseeScreenController.loadAdviseeData(username);
     }
 
+    private ImageView logo;
+
+
 
     @FXML
     private void initialize() {
@@ -142,6 +148,7 @@ public class AdviseeTranscriptController {
         SemesterPlanLabelTransAdvisee.setOnMouseClicked(event -> highlightHyperlink(SemesterPlanLabelTransAdvisee));
         AdvisingNotesLabelTransAdvisee.setOnMouseClicked(event -> highlightHyperlink(AdvisingNotesLabelTransAdvisee));
         ObservableList<String> options = FXCollections.observableArrayList("Settings", "Log Out");
+
 
         HashMap<String, ArrayList<Course>> eightSemesterPlan = AuditFacade.getInstance().getStudent().getPortfolio().getEightSemesterPlan();
         ObservableList<String> courseNamesFreshman = FXCollections.observableArrayList();
@@ -354,6 +361,11 @@ public class AdviseeTranscriptController {
   void viewSemesterPlanAsAdvisor() throws IOException {
     App.setRoot("ViewAdviseeSemesterPlan");
   }
+
+  @FXML
+    void logout(ActionEvent event) throws IOException {
+        App.setRoot("LoginPage");
+    }
 
  
 
