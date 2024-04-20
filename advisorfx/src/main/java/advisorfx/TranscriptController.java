@@ -125,14 +125,66 @@ public class TranscriptController {
 
     @FXML
     private void initialize() {
-      HomeLabelTrans.setOnMouseClicked(event -> highlightHyperlink(HomeLabelTrans));
-      TranscriptLabelTrans.setOnMouseClicked(event -> highlightHyperlink(TranscriptLabelTrans));
-      SemesterPlanLabelTrans.setOnMouseClicked(event -> highlightHyperlink(SemesterPlanLabelTrans));
-      AdvisingNotesLabelTrans.setOnMouseClicked(event -> highlightHyperlink(AdvisingNotesLabelTrans));
-      ObservableList<String> options = FXCollections.observableArrayList("Settings", "Log Out");
-      LogOutBoxTrans.setItems(options);
-      
+        initializeHyperlinks();
+        initializeLogOutBox();
+        initializeTranscript();
+    }
+    
+    private void initializeHyperlinks() {
+        HomeLabelTrans.setOnMouseClicked(event -> highlightHyperlink(HomeLabelTrans));
+        TranscriptLabelTrans.setOnMouseClicked(event -> highlightHyperlink(TranscriptLabelTrans));
+        SemesterPlanLabelTrans.setOnMouseClicked(event -> highlightHyperlink(SemesterPlanLabelTrans));
+        AdvisingNotesLabelTrans.setOnMouseClicked(event -> highlightHyperlink(AdvisingNotesLabelTrans));
+    }
+    
+    private void initializeLogOutBox() {
+        ObservableList<String> options = FXCollections.observableArrayList("Settings", "Log Out");
+        LogOutBoxTrans.setItems(options);
+    }
+    
+    private void initializeTranscript() {
+        populateTranscript();
 
+        FreshmanCourses.setOnMouseClicked(event -> handleListViewItemClick(FreshmanCourses));
+        SophomoreCourses.setOnMouseClicked(event -> handleListViewItemClick(SophomoreCourses));
+        JuniorCourses.setOnMouseClicked(event -> handleListViewItemClick(JuniorCourses));
+        SeniorCourses.setOnMouseClicked(event -> handleListViewItemClick(SeniorCourses));
+    }
+
+    private void handleListViewItemClick(ListView<String> listView) {
+      String selectedCourseTitle = (String) listView.getSelectionModel().getSelectedItem();
+  
+      Course selectedCourse = findCourseByTitle(selectedCourseTitle);
+      
+      if (selectedCourse != null) {
+          try {
+              FXMLLoader loader = new FXMLLoader(getClass().getResource("CourseDetails.fxml"));
+              Parent root = loader.load();
+              CourseDetailsController controller = loader.getController();
+              controller.initData(selectedCourse);
+              Stage stage = new Stage();
+              stage.setScene(new Scene(root));
+              stage.initModality(Modality.APPLICATION_MODAL);
+              stage.show();
+          } catch (IOException e) {
+              e.printStackTrace();
+          }
+      }
+    }
+    private Course findCourseByTitle(String courseTitle) {
+      HashMap<String, ArrayList<Course>> eightSemesterPlan = AuditFacade.getInstance().getStudent().getPortfolio().getEightSemesterPlan();
+      for (Map.Entry<String, ArrayList<Course>> entry : eightSemesterPlan.entrySet()) {
+          ArrayList<Course> courses = entry.getValue();
+          for (Course course : courses) {
+              if (course.getCourseTitle().equals(courseTitle)) {
+                  return course;
+              }
+          }
+      }
+      return null;
+  }
+    
+    private void populateTranscript() {
       HashMap<String, ArrayList<Course>> eightSemesterPlan = AuditFacade.getInstance().getStudent().getPortfolio().getEightSemesterPlan();
       ObservableList<String> courseNamesFreshman = FXCollections.observableArrayList();
       ObservableList<String> courseNamesSophomore = FXCollections.observableArrayList();
@@ -299,49 +351,46 @@ public class TranscriptController {
       SophomoreGrade.setItems(gpaSophomore);
       JuniorGrade.setItems(gpaJunior);
       SeniorGrade.setItems(gpaSenior);
-      
-
     }
-  
-  private void highlightHyperlink(Hyperlink Hyperlink) {
-      // Remove highlighting from all labels
-      HomeLabelTrans.getStyleClass().remove("highlighted");
-      TranscriptLabelTrans.getStyleClass().remove("highlighted");
-      SemesterPlanLabelTrans.getStyleClass().remove("highlighted");
-      AdvisingNotesLabelTrans.getStyleClass().remove("highlighted");
-  
-      // Add highlighting to the clicked label
-      Hyperlink.getStyleClass().add("highlighted");
-      
-  }
-
-  @FXML
-  void viewAdvisingNotes() throws IOException {
-    App.setRoot("ViewAdvisingNotes");
-  }
-
-  @FXML
-  void viewStudentHome() throws IOException {
-    App.setRoot("StudentHome");
-  }
-
-  @FXML
-  void viewTranscript() throws IOException {
-    App.setRoot("ViewTranscript");
-  }
-
-  @FXML
-  void viewSemesterPlan() throws IOException {
-    App.setRoot("ViewSemesterPlan");
-  }
-
-  @FXML
-  void signOutStudent(ActionEvent event) throws IOException {
-    logout();
-  }
-
-  @FXML
-  private void logout() throws IOException {
-    App.setRoot("LoginPage");
-  }
+    
+    private void highlightHyperlink(Hyperlink hyperlink) {
+        // Remove highlighting from all labels
+        HomeLabelTrans.getStyleClass().remove("highlighted");
+        TranscriptLabelTrans.getStyleClass().remove("highlighted");
+        SemesterPlanLabelTrans.getStyleClass().remove("highlighted");
+        AdvisingNotesLabelTrans.getStyleClass().remove("highlighted");
+    
+        // Add highlighting to the clicked label
+        hyperlink.getStyleClass().add("highlighted");
+    }
+    
+    @FXML
+    void viewAdvisingNotes() throws IOException {
+        App.setRoot("ViewAdvisingNotes");
+    }
+    
+    @FXML
+    void viewStudentHome() throws IOException {
+        App.setRoot("StudentHome");
+    }
+    
+    @FXML
+    void viewTranscript() throws IOException {
+        App.setRoot("ViewTranscript");
+    }
+    
+    @FXML
+    void viewSemesterPlan() throws IOException {
+        App.setRoot("ViewSemesterPlan");
+    }
+    
+    @FXML
+    void signOutStudent(ActionEvent event) throws IOException {
+        logout();
+    }
+    
+    @FXML
+    private void logout() throws IOException {
+        App.setRoot("LoginPage");
+    }
 }

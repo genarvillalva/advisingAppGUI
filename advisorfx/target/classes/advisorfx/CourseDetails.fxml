@@ -6,8 +6,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="advisorfx.CourseDetailsController">
    <children>
       <Pane prefHeight="299.0" prefWidth="700.0" style="-fx-background-color: #004aad;">
          <children>
@@ -21,32 +20,32 @@
       </Pane>
       <Pane prefHeight="633.0" prefWidth="700.0">
          <children>
-            <Label layoutX="22.0" layoutY="16.0" prefHeight="49.0" prefWidth="360.0" text="Course Title">
+            <Label fx:id="titleLabel" layoutX="22.0" layoutY="16.0" prefHeight="49.0" prefWidth="632.0" text="Course Title">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="21.0" layoutY="70.0" prefHeight="49.0" prefWidth="360.0" text="Course Code">
+            <Label fx:id="codeLabel" layoutX="21.0" layoutY="70.0" prefHeight="49.0" prefWidth="360.0" text="Course Code">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="21.0" layoutY="124.0" prefHeight="49.0" prefWidth="360.0" text="Credit Hours">
+            <Label fx:id="creditHoursLabel" layoutX="21.0" layoutY="124.0" prefHeight="49.0" prefWidth="360.0" text="Credit Hours">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="21.0" layoutY="178.0" prefHeight="49.0" prefWidth="360.0" text="Semester Offered">
+            <Label fx:id="semesterOfferedLabel" layoutX="21.0" layoutY="178.0" prefHeight="49.0" prefWidth="360.0" text="Semester Offered">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="21.0" layoutY="234.0" prefHeight="49.0" prefWidth="360.0" text="Prerequisite Courses (Only by ID)">
+            <Label fx:id="prerequisitesLabel" layoutX="21.0" layoutY="234.0" prefHeight="49.0" prefWidth="360.0" text="Prerequisite Courses (Only by ID)">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="21.0" layoutY="288.0" prefHeight="49.0" prefWidth="360.0" text="Corequisite Courses (ONLY BY ID)">
+            <Label fx:id="corequisitesLabel" layoutX="21.0" layoutY="288.0" prefHeight="49.0" prefWidth="360.0" text="Corequisite Courses (Only by ID)">
                <font>
                   <Font size="18.0" />
                </font>
