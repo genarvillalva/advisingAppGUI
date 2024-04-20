@@ -1,7 +1,13 @@
 package advisorfx;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
 
+import advising.AuditFacade;
+import advising.Course;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -47,10 +53,10 @@ public class AdviseeSemesterPlanController {
     private Label CreditHoursTwoAdvisee;
 
     @FXML
-    private ListView<?> FreshmanCourses1Advisee;
+    private ListView FreshmanCourses1Advisee;
 
     @FXML
-    private ListView<?> FreshmanCoursesAdvisee;
+    private ListView FreshmanCoursesAdvisee;
 
     @FXML
     private Pane GpaPaneAdvisee;
@@ -59,52 +65,52 @@ public class AdviseeSemesterPlanController {
     private Hyperlink HomeLabelSemAdvisee;
 
     @FXML
-    private ListView<?> JuniorCourses1Advisee;
+    private ListView JuniorCourses1Advisee;
 
     @FXML
-    private ListView<?> JuniorCoursesAdvisee;
+    private ListView JuniorCoursesAdvisee;
 
     @FXML
     private ChoiceBox<?> LogOutBoxSemAdvisee;
 
     @FXML
-    private Label SemEightLabelAdvisee;
+    private ListView SemEightLabelAdvisee;
 
     @FXML
-    private Label SemFiveLabelAdvisee;
+    private ListView SemFiveLabelAdvisee;
 
     @FXML
-    private Label SemFourLabelAdvisee;
+    private ListView SemFourLabelAdvisee;
 
     @FXML
-    private Label SemOneLabelAdvisee;
+    private ListView SemOneLabelAdvisee;
 
     @FXML
-    private Label SemSevenLabelAdvisee;
+    private ListView SemSevenLabelAdvisee;
 
     @FXML
-    private Label SemSixLabelAdvisee;
+    private ListView SemSixLabelAdvisee;
 
     @FXML
-    private Label SemThreeLabelAdvisee;
+    private ListView SemThreeLabelAdvisee;
 
     @FXML
-    private Label SemTwoLabeladvisee;
+    private ListView SemTwoLabelAdvisee;
 
     @FXML
     private Hyperlink SemesterPlanLabelSemAdvisee;
 
     @FXML
-    private ListView<?> SeniorCourses1Advisee;
+    private ListView SeniorCourses1Advisee;
 
     @FXML
-    private ListView<?> SeniorCoursesAdvisee;
+    private ListView SeniorCoursesAdvisee;
 
     @FXML
-    private ListView<?> SophomoreCourses1Advisee;
+    private ListView SophomoreCourses1Advisee;
 
     @FXML
-    private ListView<?> SophomoreCoursesAdvisee;
+    private ListView SophomoreCoursesAdvisee;
 
     @FXML
     private Pane StudentMenuPaneSemAdvisee;
@@ -115,6 +121,17 @@ public class AdviseeSemesterPlanController {
     @FXML
     private Hyperlink TranscriptLabelSemAdvisee;
 
+    @FXML
+    private AdviseeScreenController adviseeScreenController;
+
+    public void setAdviseeScreenController(AdviseeScreenController adviseeScreenController) {
+        this.adviseeScreenController = adviseeScreenController;
+    }
+
+    private void loadAdviseeData(String username) {
+        adviseeScreenController.loadAdviseeData(username);
+    }
+
 
         @FXML
     private void initialize() {
@@ -123,11 +140,124 @@ public class AdviseeSemesterPlanController {
       SemesterPlanLabelSemAdvisee.setOnMouseClicked(event -> highlightHyperlink(SemesterPlanLabelSemAdvisee));
       AdvisingNotesLabelSemAdvisee.setOnMouseClicked(event -> highlightHyperlink(AdvisingNotesLabelSemAdvisee));
       ObservableList<String> options = FXCollections.observableArrayList("Settings", "Log Out");
+
+
+      HashMap<String, ArrayList<Course>> eightSemesterPlan = AuditFacade.getInstance().getStudent().getPortfolio().getEightSemesterPlan();
+      ObservableList<String> courseNamesSemOne = FXCollections.observableArrayList();
+      ObservableList<String> courseNamesSemTwo = FXCollections.observableArrayList();
+      ObservableList<String> courseNamesSemThree = FXCollections.observableArrayList();
+      ObservableList<String> courseNamesSemFour = FXCollections.observableArrayList();
+      ObservableList<String> courseNamesSemFive = FXCollections.observableArrayList();
+      ObservableList<String> courseNamesSemSix = FXCollections.observableArrayList();
+      ObservableList<String> courseNamesSemSeven = FXCollections.observableArrayList();
+      ObservableList<String> courseNamesSemEight = FXCollections.observableArrayList();
+      
+      for (Map.Entry<String, ArrayList<Course>> entry : eightSemesterPlan.entrySet()) {
+        String semester = entry.getKey();
+        ArrayList<Course> courses = entry.getValue();
+        
+        switch (semester) {
+          case "1":
+            courseNamesSemOne.addAll(courses.stream().map(Course::getCourseTitle).collect(Collectors.toList()));
+            break;
+          case "2":
+            courseNamesSemTwo.addAll(courses.stream().map(Course::getCourseTitle).collect(Collectors.toList()));
+            break;
+          case "3":
+            courseNamesSemThree.addAll(courses.stream().map(Course::getCourseTitle).collect(Collectors.toList()));
+            break;
+          case "4":
+            courseNamesSemFour.addAll(courses.stream().map(Course::getCourseTitle).collect(Collectors.toList()));
+            break;
+          case "5":
+            courseNamesSemFive.addAll(courses.stream().map(Course::getCourseTitle).collect(Collectors.toList()));
+            break;
+          case "6":
+            courseNamesSemSix.addAll(courses.stream().map(Course::getCourseTitle).collect(Collectors.toList()));
+            break;
+          case "7":
+            courseNamesSemSeven.addAll(courses.stream().map(Course::getCourseTitle).collect(Collectors.toList()));
+            break;
+          case "8":
+            courseNamesSemEight.addAll(courses.stream().map(Course::getCourseTitle).collect(Collectors.toList()));
+            break;
+          default:
+  
+            break;
+        }
+      }
+  
+      FreshmanCoursesAdvisee.setItems(courseNamesSemOne);
+      FreshmanCourses1Advisee.setItems(courseNamesSemTwo);
+      SophomoreCoursesAdvisee.setItems(courseNamesSemThree);
+      SophomoreCourses1Advisee.setItems(courseNamesSemFour);
+      JuniorCoursesAdvisee.setItems(courseNamesSemFive);
+      JuniorCourses1Advisee.setItems(courseNamesSemSix);
+      SeniorCoursesAdvisee.setItems(courseNamesSemSeven);
+      SeniorCourses1Advisee.setItems(courseNamesSemEight);
+  
+  
+      ObservableList<String> creditHourSemOne = FXCollections.observableArrayList();
+      ObservableList<String> creditHourSemTwo = FXCollections.observableArrayList();
+      ObservableList<String> creditHourSemThree = FXCollections.observableArrayList();
+      ObservableList<String> creditHourSemFour = FXCollections.observableArrayList();
+      ObservableList<String> creditHourSemFive = FXCollections.observableArrayList();
+      ObservableList<String> creditHourSemSix = FXCollections.observableArrayList();
+      ObservableList<String> creditHourSemSeven = FXCollections.observableArrayList();
+      ObservableList<String> creditHourSemEight = FXCollections.observableArrayList();
+  
+      for (Map.Entry<String, ArrayList<Course>> entry : eightSemesterPlan.entrySet()) {
+        String semester = entry.getKey();
+        ArrayList<Course> courses = entry.getValue();
+        
+        switch (semester) {
+          case "1":
+            creditHourSemOne.addAll(courses.stream().map(course -> String.valueOf(course.getCreditHours())).collect(Collectors.toList()));
+            break;
+          case "2":
+            creditHourSemTwo.addAll(courses.stream().map(course -> String.valueOf(course.getCreditHours())).collect(Collectors.toList()));
+            break;
+          case "3":
+            creditHourSemThree.addAll(courses.stream().map(course -> String.valueOf(course.getCreditHours())).collect(Collectors.toList()));
+            break;
+          case "4":
+            creditHourSemFour.addAll(courses.stream().map(course -> String.valueOf(course.getCreditHours())).collect(Collectors.toList()));
+            break;
+          case "5":
+            creditHourSemFive.addAll(courses.stream().map(course -> String.valueOf(course.getCreditHours())).collect(Collectors.toList()));
+            break;
+          case "6":
+            creditHourSemSix.addAll(courses.stream().map(course -> String.valueOf(course.getCreditHours())).collect(Collectors.toList()));
+            break;
+          case "7":
+            creditHourSemSeven.addAll(courses.stream().map(course -> String.valueOf(course.getCreditHours())).collect(Collectors.toList()));
+            break;
+          case "8":
+            creditHourSemEight.addAll(courses.stream().map(course -> String.valueOf(course.getCreditHours())).collect(Collectors.toList()));
+            break;
+          default:
+  
+            break;
+        }
+      }
+  
+      SemOneLabelAdvisee.setItems(creditHourSemOne);
+      SemTwoLabelAdvisee.setItems(creditHourSemTwo);
+      SemThreeLabelAdvisee.setItems(creditHourSemThree);
+      SemFourLabelAdvisee.setItems(creditHourSemFour);
+      SemFiveLabelAdvisee.setItems(creditHourSemFive);
+      SemSixLabelAdvisee.setItems(creditHourSemSix);
+      SemSevenLabelAdvisee.setItems(creditHourSemSeven);
+      SemEightLabelAdvisee.setItems(creditHourSemEight);
+
+      
       // Load the image
       Image image = new Image(getClass().getResourceAsStream("/images/logo.png"));
         
       // Set the image to the ImageView
       logo.setImage(image);
+
+      
   }
   
   private void highlightHyperlink(Hyperlink Hyperlink) {
