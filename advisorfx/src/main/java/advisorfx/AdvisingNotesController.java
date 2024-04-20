@@ -24,6 +24,7 @@ import javafx.collections.ObservableList;
 // import javafx.scene.control.ListView;
 // import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 
 public class AdvisingNotesController {
     @FXML
@@ -42,7 +43,13 @@ public class AdvisingNotesController {
     private ChoiceBox LogOutBoxAdvise;
 
     @FXML
+    private Pane StudentPaneAdvise;
+
+    @FXML
     private ImageView logo;
+
+    @FXML
+    private Pane AdvisingBackground;
 
     @FXML
     private void initialize() {
