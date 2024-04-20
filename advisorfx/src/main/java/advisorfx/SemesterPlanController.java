@@ -6,10 +6,15 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -111,8 +116,51 @@ public class SemesterPlanController {
         initializeHyperlinks();
         initializeLogOutBox();
         populateSemesterPlan();
+
+        SemOneList.setOnMouseClicked(event -> handleListViewItemClick(SemOneList));
+        SemTwoList.setOnMouseClicked(event -> handleListViewItemClick(SemTwoList));
+        SemThreeList.setOnMouseClicked(event -> handleListViewItemClick(SemThreeList));
+        SemFourList.setOnMouseClicked(event -> handleListViewItemClick(SemFourList));
+        SemFiveList.setOnMouseClicked(event -> handleListViewItemClick(SemFiveList));
+        SemSixList.setOnMouseClicked(event -> handleListViewItemClick(SemSixList));
+        SemSevenList.setOnMouseClicked(event -> handleListViewItemClick(SemSevenList));
+        SemEightList.setOnMouseClicked(event -> handleListViewItemClick(SemEightList));
+
     }
 
+    private void handleListViewItemClick(ListView<String> listView) {
+      String selectedCourseTitle = (String) listView.getSelectionModel().getSelectedItem();
+  
+      Course selectedCourse = findCourseByTitle(selectedCourseTitle);
+      
+      if (selectedCourse != null) {
+          try {
+              FXMLLoader loader = new FXMLLoader(getClass().getResource("CourseDetails.fxml"));
+              Parent root = loader.load();
+              CourseDetailsController controller = loader.getController();
+              controller.initData(selectedCourse);
+              Stage stage = new Stage();
+              stage.setScene(new Scene(root));
+              stage.initModality(Modality.APPLICATION_MODAL);
+              stage.show();
+          } catch (IOException e) {
+              e.printStackTrace();
+          }
+      }
+    }
+    private Course findCourseByTitle(String courseTitle) {
+      HashMap<String, ArrayList<Course>> eightSemesterPlan = AuditFacade.getInstance().getStudent().getPortfolio().getEightSemesterPlan();
+      for (Map.Entry<String, ArrayList<Course>> entry : eightSemesterPlan.entrySet()) {
+          ArrayList<Course> courses = entry.getValue();
+          for (Course course : courses) {
+              if (course.getCourseTitle().equals(courseTitle)) {
+                  return course;
+              }
+          }
+      }
+      return null;
+  }
+    
     private void initializeHyperlinks() {
         HomeLabelSem.setOnMouseClicked(event -> highlightHyperlink(HomeLabelSem));
         TranscriptLabelSem.setOnMouseClicked(event -> highlightHyperlink(TranscriptLabelSem));
