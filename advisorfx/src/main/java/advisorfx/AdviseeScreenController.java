@@ -79,9 +79,11 @@ public class AdviseeScreenController {
     
         if (this.advisee != null) {
             System.out.println("Student found with username: " + username);
-            ProfileAdvisee.setText("Profile of   " + this.advisee.getFirstName() + " " + this.advisee.getLastName());
+            ProfileAdvisee.setText("Profile: " + this.advisee.getFirstName() + " " + this.advisee.getLastName());
             NameLabelAdvisee.setText(String.format("%s %s", advisee.getFirstName(), advisee.getLastName()));
             UsernameLabelAdvisee.setText(advisee.getUsername());
+            AuditFacade facade = AuditFacade.getInstance();
+            facade.login(advisee.getUsername(), advisee.getPassword(), "student");
             setup(); // Call the setup method after loading data
         } else {
             System.err.println("No student found with username: " + username);

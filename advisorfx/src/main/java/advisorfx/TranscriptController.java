@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import javafx.event.ActionEvent;
@@ -139,29 +141,52 @@ public class TranscriptController {
       
       String studentClass = AuditFacade.getInstance().getStudent().getStudentClass();
       
-      int count = 0;
-      for (ArrayList<Course> courses : eightSemesterPlan.values()) {
-          for (Course course : courses) {
-              String courseName = course.getCourseTitle(); 
-              count++;
-              if (studentClass.equals("FRESHMAN")|| studentClass.equals("SOPHOMORE") || studentClass.equals("JUNIOR") || studentClass.equals("SENIOR") ) {
-                  if (count <= 10 ) {
-                      courseNamesFreshman.add(courseName);
-                  }
-              } if (studentClass.equals("SOPHOMORE") || studentClass.equals("JUNIOR") || studentClass.equals("SENIOR")) {
-                  if (count <= 20 && count > 10) {
-                      courseNamesSophomore.add(courseName);
-                  }
-              } if (studentClass.equals("JUNIOR") || studentClass.equals("SENIOR")) {
-                  if (count <= 30 && count > 20) {
-                      courseNamesJunior.add(courseName);
-                  }
-              } if (studentClass.equals("SENIOR")) {
-                  if (count <= 40 && count > 30) {
-                      courseNamesSenior.add(courseName);
-                  }
+      for (Map.Entry<String, ArrayList<Course>> entry : eightSemesterPlan.entrySet()) {
+        String semester = entry.getKey();
+        ArrayList<Course> courses = entry.getValue();
+        
+        switch (semester) {
+          case "1":
+            if (studentClass.equals("FRESHMAN")|| studentClass.equals("SOPHOMORE") || studentClass.equals("JUNIOR") || studentClass.equals("SENIOR") ) {
+              courseNamesFreshman.addAll(courses.stream().map(Course::getCourseTitle).collect(Collectors.toList()));
+              break;
               }
-          }
+          case "2":
+            if (studentClass.equals("FRESHMAN")|| studentClass.equals("SOPHOMORE") || studentClass.equals("JUNIOR") || studentClass.equals("SENIOR") ) {
+              courseNamesFreshman.addAll(courses.stream().map(Course::getCourseTitle).collect(Collectors.toList()));
+              break;
+            }
+          case "3":
+            if (studentClass.equals("SOPHOMORE") || studentClass.equals("JUNIOR") || studentClass.equals("SENIOR") ) {
+              courseNamesSophomore.addAll(courses.stream().map(Course::getCourseTitle).collect(Collectors.toList()));
+              break;
+            }
+          case "4":
+            if (studentClass.equals("SOPHOMORE") || studentClass.equals("JUNIOR") || studentClass.equals("SENIOR") ) {
+              courseNamesSophomore.addAll(courses.stream().map(Course::getCourseTitle).collect(Collectors.toList()));
+              break;
+            }
+          case "5":
+            if (studentClass.equals("JUNIOR") || studentClass.equals("SENIOR") ) {
+              courseNamesJunior.addAll(courses.stream().map(Course::getCourseTitle).collect(Collectors.toList()));
+              break;
+            }
+          case "6":
+            if (studentClass.equals("JUNIOR") || studentClass.equals("SENIOR") ) {
+              courseNamesJunior.addAll(courses.stream().map(Course::getCourseTitle).collect(Collectors.toList()));
+              break;
+            }
+          case "7":
+            if (studentClass.equals("SENIOR") ) {
+              courseNamesSenior.addAll(courses.stream().map(Course::getCourseTitle).collect(Collectors.toList()));
+              break;
+            }
+          case "8":
+            if (studentClass.equals("SENIOR") ) {
+              courseNamesSenior.addAll(courses.stream().map(Course::getCourseTitle).collect(Collectors.toList()));
+              break;
+            }
+        }
       }
 
       FreshmanCourses.setItems(courseNamesFreshman);
@@ -174,31 +199,58 @@ public class TranscriptController {
       ObservableList<String> creditHoursJunior = FXCollections.observableArrayList();
       ObservableList<String> creditHoursSenior = FXCollections.observableArrayList();
 
-      int countCredit = 0;
-      for (ArrayList<Course> courses : eightSemesterPlan.values()) {
+      for (Map.Entry<String, ArrayList<Course>> entry : eightSemesterPlan.entrySet()) {
+        String semester = entry.getKey();
+        ArrayList<Course> courses = entry.getValue();
         for (Course course : courses) {
           int courseCreditHours = course.getCreditHours(); 
-          countCredit++;
-          if (studentClass.equals("FRESHMAN")|| studentClass.equals("SOPHOMORE") || studentClass.equals("JUNIOR") || studentClass.equals("SENIOR") ) {
-              if (countCredit <= 10 ) {
+
+          switch (semester) {
+            case "1":
+              if (studentClass.equals("FRESHMAN")|| studentClass.equals("SOPHOMORE") || studentClass.equals("JUNIOR") || studentClass.equals("SENIOR") ) {
                 creditHoursFreshman.add(String.valueOf(courseCreditHours));
+                break;
+                }
+            case "2":
+              if (studentClass.equals("FRESHMAN")|| studentClass.equals("SOPHOMORE") || studentClass.equals("JUNIOR") || studentClass.equals("SENIOR") ) {
+                creditHoursFreshman.add(String.valueOf(courseCreditHours));
+                break;
               }
-          } if (studentClass.equals("SOPHOMORE") || studentClass.equals("JUNIOR") || studentClass.equals("SENIOR")) {
-              if (countCredit <= 20 && countCredit > 10) {
+            case "3":
+              if (studentClass.equals("SOPHOMORE") || studentClass.equals("JUNIOR") || studentClass.equals("SENIOR") ) {
                 creditHoursSophomore.add(String.valueOf(courseCreditHours));
+                break;
               }
-          } if (studentClass.equals("JUNIOR") || studentClass.equals("SENIOR")) {
-              if (countCredit <= 30 && countCredit > 20) {
+            case "4":
+              if (studentClass.equals("SOPHOMORE") || studentClass.equals("JUNIOR") || studentClass.equals("SENIOR") ) {
+                creditHoursSophomore.add(String.valueOf(courseCreditHours));
+                break;
+              }
+            case "5":
+              if (studentClass.equals("JUNIOR") || studentClass.equals("SENIOR") ) {
                 creditHoursJunior.add(String.valueOf(courseCreditHours));
+                break;
               }
-          } if (studentClass.equals("SENIOR")) {
-              if (countCredit <= 40 && countCredit > 30) {
+            case "6":
+              if (studentClass.equals("JUNIOR") || studentClass.equals("SENIOR") ) {
+                creditHoursJunior.add(String.valueOf(courseCreditHours));
+                break;
+              }
+            case "7":
+              if (studentClass.equals("SENIOR") ) {
                 creditHoursSenior.add(String.valueOf(courseCreditHours));
+                break;
+              }
+            case "8":
+              if (studentClass.equals("SENIOR") ) {
+                creditHoursSenior.add(String.valueOf(courseCreditHours));
+                break;
               }
           }
+          
         }
       }
-      
+
       FreshmanCreditHours.setItems(creditHoursFreshman);
       SophomoreCreditHours.setItems(creditHoursSophomore);
       JuniorCreditHours.setItems(creditHoursJunior);
