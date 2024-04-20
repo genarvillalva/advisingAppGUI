@@ -316,34 +316,31 @@ public class TranscriptController {
       HashMap<Course, Double> completedCourses = AuditFacade.getInstance().getStudent().getPortfolio().getCompletedCourses();
       
       
-      for (ArrayList<Course> courses : eightSemesterPlan.values()) {
+      for (Map.Entry<String, ArrayList<Course>> entry : eightSemesterPlan.entrySet()) {
+        String semester = entry.getKey();
+        ArrayList<Course> courses = entry.getValue();
+    
         for (Course course : courses) {
-          String courseName = course.getCourseTitle();
-          if (completedCourses.containsKey(course)) {
-            countGPA++;
-            if (studentClass.equals("FRESHMAN")|| studentClass.equals("SOPHOMORE") || studentClass.equals("JUNIOR") || studentClass.equals("SENIOR") ) {
-                if (countGPA <= 10 ) {
-                  Double courseGPA = completedCourses.get(course);
-                  gpaFreshman.add(String.valueOf(courseGPA)); 
+            String courseName = course.getCourseTitle();
+            if (completedCourses.containsKey(course)) {
+                countGPA++;
+                int semesterInt = Integer.parseInt(semester); 
+                if (studentClass.equals("FRESHMAN") || studentClass.equals("SOPHOMORE") || studentClass.equals("JUNIOR") || studentClass.equals("SENIOR")) {
+                    if (semesterInt == 1 || semesterInt == 2) {
+                        Double courseGPA = completedCourses.get(course);
+                        gpaFreshman.add(String.valueOf(courseGPA)); 
+                    } else if (semesterInt == 3 || semesterInt == 4) {
+                        Double courseGPA = completedCourses.get(course);
+                        gpaSophomore.add(String.valueOf(courseGPA)); 
+                    } else if (semesterInt == 5 || semesterInt == 6) {
+                        Double courseGPA = completedCourses.get(course);
+                        gpaJunior.add(String.valueOf(courseGPA)); 
+                    } else if (semesterInt == 7 || semesterInt == 8) {
+                        Double courseGPA = completedCourses.get(course);
+                        gpaSenior.add(String.valueOf(courseGPA)); 
+                    }
                 }
-            } if (studentClass.equals("SOPHOMORE") || studentClass.equals("JUNIOR") || studentClass.equals("SENIOR")) {
-                if (countGPA <= 20 && countGPA > 10) {
-                  Double courseGPA = completedCourses.get(course);
-                  gpaSophomore.add(String.valueOf(courseGPA)); 
-                }
-            } if (studentClass.equals("JUNIOR") || studentClass.equals("SENIOR")) {
-                if (countGPA <= 30 && countGPA > 20) {
-                  Double courseGPA = completedCourses.get(course);
-                  gpaJunior.add(String.valueOf(courseGPA)); 
-                }
-            } if (studentClass.equals("SENIOR")) {
-                if (countGPA <= 40 && countGPA > 30) {
-                  Double courseGPA = completedCourses.get(course);
-                  gpaSenior.add(String.valueOf(courseGPA)); 
-                }
-              }
-
-          } 
+            }
         }
       }
 
