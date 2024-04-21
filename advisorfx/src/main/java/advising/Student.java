@@ -12,7 +12,7 @@ public class Student extends User {
   private StudentPortfolio studentPortfolio;
   private String applicationArea;
   private CourseList courseList;
-  private ArrayList<String> advisingNotes;
+  private String advisingNotes;
 
   /**
    * Constructor for the Student class
@@ -46,7 +46,7 @@ public class Student extends User {
     this.studentYear = studentYear;
     this.studentPortfolio = portfolio;
     this.applicationArea = applicationArea;
-    this.advisingNotes = new ArrayList();
+    this.advisingNotes = advisingNotes;
   }
 
   /**
@@ -110,11 +110,7 @@ public class Student extends User {
    * @return The advising notes of the student
    */
   public String getAdvisingNotes() {
-    StringBuilder notesStringBuilder = new StringBuilder();
-    for (String note : advisingNotes) {
-        notesStringBuilder.append(note).append("\n");
-    }
-    return notesStringBuilder.toString();
+    return advisingNotes;
   }
   
 
@@ -281,7 +277,7 @@ public class Student extends User {
 
   // Adds a new advising note to the student's record.
   public void addAdvisingNotes(String note) {
-    this.advisingNotes.add(note);
+    this.advisingNotes += note + "\n";
   }
 
   /**
