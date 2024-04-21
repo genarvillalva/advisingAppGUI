@@ -58,6 +58,9 @@ public class AdvisingNotesController {
     private List<String> advisingNotes;
 
     @FXML
+    private Label advisingNoteDisplay;
+
+    @FXML
     private void initialize() {
         HomeLabelAdvise.setOnMouseClicked(event -> highlightHyperlink(HomeLabelAdvise));
         TranscriptLabelAdvise.setOnMouseClicked(event -> highlightHyperlink(TranscriptLabelAdvise));
@@ -93,16 +96,20 @@ public class AdvisingNotesController {
 
 
     private String getAdvisingNotes() {
-      StringBuilder notesStringBuilder = new StringBuilder();
-      for (String note : advisingNotes) {
-          notesStringBuilder.append(note).append("\n");
-      }
-      return notesStringBuilder.toString();
+      // StringBuilder notesStringBuilder = new StringBuilder();
+      // for (String note : advisingNotes) {
+      //     notesStringBuilder.append(note).append("\n");
+      // }
+      // return notesStringBuilder.toString();
+      AuditFacade facade = AuditFacade.getInstance();
+      return facade.getAdvisingNotes();
     }
 
     @FXML
     void viewAdvisingNotes() throws IOException {
-      setAdvisingNotes();
+      AuditFacade facade = AuditFacade.getInstance();
+      advisingNoteDisplay.setText("Notes: " + facade.getStudent().getAdvisingNotes());
+      //setAdvisingNotes();
       App.setRoot("ViewAdvisingNotes");
     }
   

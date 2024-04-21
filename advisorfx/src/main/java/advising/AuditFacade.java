@@ -98,6 +98,10 @@ public class AuditFacade {
 
     }
 
+    public String getStudentUsername(){
+        return student.getUsername();
+    }
+
     public void createCourse(Course course) {
         admin.createCourse(course);
     }

@@ -109,7 +109,7 @@ public class CreateAdvisingNotesController {
         AuditFacade facade = AuditFacade.getInstance();
         String note = WRITEAdviseeNotes.getText();
 
-        String studentUsername = ""; 
+        String studentUsername = "bwest"; 
         
         facade.adviseStudent(note, studentUsername);
         WRITEAdviseeNotes.clear();
