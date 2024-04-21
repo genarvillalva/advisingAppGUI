@@ -55,18 +55,13 @@ public class AdvisingNotesController {
     @FXML
     private TableView<String> noteTextBox;
 
+    private List<String> advisingNotes;
+
     @FXML
     private Label advisingNoteDisplay;
 
     @FXML
-    private void setUp() {
-      AuditFacade facade = AuditFacade.getInstance();
-      advisingNoteDisplay.setText("" + facade.getStudent().getAdvisingNotes());
-    }
-
-    @FXML
     private void initialize() {
-        setUp();
         HomeLabelAdvise.setOnMouseClicked(event -> highlightHyperlink(HomeLabelAdvise));
         TranscriptLabelAdvise.setOnMouseClicked(event -> highlightHyperlink(TranscriptLabelAdvise));
         SemesterPlanLabelAdvise.setOnMouseClicked(event -> highlightHyperlink(SemesterPlanLabelAdvise));
@@ -90,8 +85,31 @@ public class AdvisingNotesController {
         
     }
 
+    private void setAdvisingNotes() {
+      //AuditFacade facade = AuditFacade.getInstance();
+      String notes = getAdvisingNotes();
+
+      String[] noteLines = notes.split("\n");
+
+      noteTextBox.setItems(FXCollections.observableArrayList(noteLines));
+    }
+
+
+    private String getAdvisingNotes() {
+      // StringBuilder notesStringBuilder = new StringBuilder();
+      // for (String note : advisingNotes) {
+      //     notesStringBuilder.append(note).append("\n");
+      // }
+      // return notesStringBuilder.toString();
+      AuditFacade facade = AuditFacade.getInstance();
+      return facade.getAdvisingNotes();
+    }
+
     @FXML
     void viewAdvisingNotes() throws IOException {
+      AuditFacade facade = AuditFacade.getInstance();
+      advisingNoteDisplay.setText("Notes: " + facade.getStudent().getAdvisingNotes());
+      //setAdvisingNotes();
       App.setRoot("ViewAdvisingNotes");
     }
   

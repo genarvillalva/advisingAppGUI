@@ -410,3 +410,6 @@
     -fx-background-radius: 10;
     -fx-font-size: 18px;
 }
+#advisingNoteDisplay {
+    -fx-background-color: rgb(209, 206, 206);
+}
