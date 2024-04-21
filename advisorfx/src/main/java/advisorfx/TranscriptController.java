@@ -3,7 +3,8 @@ package advisorfx;
 import advising.AuditFacade;
 import advising.Course;
 import advising.Student;
-
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -45,7 +46,7 @@ public class TranscriptController {
     private Hyperlink AdvisingNotesLabelTrans;
 
     @FXML
-    private ChoiceBox LogOutBoxTrans;
+    private ImageView logo;
 
     @FXML
     private Label TranscriptHeader;
@@ -125,9 +126,14 @@ public class TranscriptController {
 
     @FXML
     private void initialize() {
-        initializeHyperlinks();
-        initializeLogOutBox();
-        initializeTranscript();
+      initializeHyperlinks();
+      initializeLogOutBox();
+      initializeTranscript();
+      // Load the image
+      Image image = new Image(getClass().getResourceAsStream("/images/logo.png"));
+    
+      // Set the image to the ImageView
+      logo.setImage(image);
     }
     
     private void initializeHyperlinks() {
@@ -139,7 +145,6 @@ public class TranscriptController {
     
     private void initializeLogOutBox() {
         ObservableList<String> options = FXCollections.observableArrayList("Settings", "Log Out");
-        LogOutBoxTrans.setItems(options);
     }
     
     private void initializeTranscript() {

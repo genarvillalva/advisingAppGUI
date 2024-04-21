@@ -75,7 +75,8 @@
             "CSCE350": 89.0, 
             "SPCH140": 100.0,
             "PHIL102": 96.0,
-            "CSCE211": 90.0
+            "CSCE211": 90.0,
+            "CSCE311": 100.0
 
         },
         "studentElectives": "bwest",
