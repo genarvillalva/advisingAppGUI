@@ -129,6 +129,9 @@ public class AdviseeTranscriptController {
     @FXML
     private AdviseeScreenController adviseeScreenController;
 
+    @FXML 
+    private ImageView logo;
+
     public void setAdviseeScreenController(AdviseeScreenController adviseeScreenController) {
         this.adviseeScreenController = adviseeScreenController;
     }
@@ -137,182 +140,186 @@ public class AdviseeTranscriptController {
         adviseeScreenController.loadAdviseeData(username);
     }
 
-    private ImageView logo;
 
 
 
     @FXML
     private void initialize() {
-        AdviseeHomeLabelTrans.setOnMouseClicked(event -> highlightHyperlink(AdviseeHomeLabelTrans));
-        AdviseeTranscriptLabelTrans.setOnMouseClicked(event -> highlightHyperlink(AdviseeTranscriptLabelTrans));
-        SemesterPlanLabelTransAdvisee.setOnMouseClicked(event -> highlightHyperlink(SemesterPlanLabelTransAdvisee));
-        AdvisingNotesLabelTransAdvisee.setOnMouseClicked(event -> highlightHyperlink(AdvisingNotesLabelTransAdvisee));
-        ObservableList<String> options = FXCollections.observableArrayList("Settings", "Log Out");
+      // Load the image
+      Image image = new Image(getClass().getResourceAsStream("/images/logo.png"));
+        
+      // Set the image to the ImageView
+      logo.setImage(image);
+      AdviseeHomeLabelTrans.setOnMouseClicked(event -> highlightHyperlink(AdviseeHomeLabelTrans));
+      AdviseeTranscriptLabelTrans.setOnMouseClicked(event -> highlightHyperlink(AdviseeTranscriptLabelTrans));
+      SemesterPlanLabelTransAdvisee.setOnMouseClicked(event -> highlightHyperlink(SemesterPlanLabelTransAdvisee));
+      AdvisingNotesLabelTransAdvisee.setOnMouseClicked(event -> highlightHyperlink(AdvisingNotesLabelTransAdvisee));
+      ObservableList<String> options = FXCollections.observableArrayList("Settings", "Log Out");
 
 
-        HashMap<String, ArrayList<Course>> eightSemesterPlan = AuditFacade.getInstance().getStudent().getPortfolio().getEightSemesterPlan();
-        ObservableList<String> courseNamesFreshman = FXCollections.observableArrayList();
-        ObservableList<String> courseNamesSophomore = FXCollections.observableArrayList();
-        ObservableList<String> courseNamesJunior = FXCollections.observableArrayList();
-        ObservableList<String> courseNamesSenior = FXCollections.observableArrayList();
+      HashMap<String, ArrayList<Course>> eightSemesterPlan = AuditFacade.getInstance().getStudent().getPortfolio().getEightSemesterPlan();
+      ObservableList<String> courseNamesFreshman = FXCollections.observableArrayList();
+      ObservableList<String> courseNamesSophomore = FXCollections.observableArrayList();
+      ObservableList<String> courseNamesJunior = FXCollections.observableArrayList();
+      ObservableList<String> courseNamesSenior = FXCollections.observableArrayList();
+      
+      String studentClass = AuditFacade.getInstance().getStudent().getStudentClass();
+      
+      for (Map.Entry<String, ArrayList<Course>> entry : eightSemesterPlan.entrySet()) {
+        String semester = entry.getKey();
+        ArrayList<Course> courses = entry.getValue();
         
-        String studentClass = AuditFacade.getInstance().getStudent().getStudentClass();
-        
-        for (Map.Entry<String, ArrayList<Course>> entry : eightSemesterPlan.entrySet()) {
-          String semester = entry.getKey();
-          ArrayList<Course> courses = entry.getValue();
-          
+        switch (semester) {
+          case "1":
+            if (studentClass.equals("FRESHMAN")|| studentClass.equals("SOPHOMORE") || studentClass.equals("JUNIOR") || studentClass.equals("SENIOR") ) {
+              courseNamesFreshman.addAll(courses.stream().map(Course::getCourseTitle).collect(Collectors.toList()));
+              break;
+              }
+          case "2":
+            if (studentClass.equals("FRESHMAN")|| studentClass.equals("SOPHOMORE") || studentClass.equals("JUNIOR") || studentClass.equals("SENIOR") ) {
+              courseNamesFreshman.addAll(courses.stream().map(Course::getCourseTitle).collect(Collectors.toList()));
+              break;
+            }
+          case "3":
+            if (studentClass.equals("SOPHOMORE") || studentClass.equals("JUNIOR") || studentClass.equals("SENIOR") ) {
+              courseNamesSophomore.addAll(courses.stream().map(Course::getCourseTitle).collect(Collectors.toList()));
+              break;
+            }
+          case "4":
+            if (studentClass.equals("SOPHOMORE") || studentClass.equals("JUNIOR") || studentClass.equals("SENIOR") ) {
+              courseNamesSophomore.addAll(courses.stream().map(Course::getCourseTitle).collect(Collectors.toList()));
+              break;
+            }
+          case "5":
+            if (studentClass.equals("JUNIOR") || studentClass.equals("SENIOR") ) {
+              courseNamesJunior.addAll(courses.stream().map(Course::getCourseTitle).collect(Collectors.toList()));
+              break;
+            }
+          case "6":
+            if (studentClass.equals("JUNIOR") || studentClass.equals("SENIOR") ) {
+              courseNamesJunior.addAll(courses.stream().map(Course::getCourseTitle).collect(Collectors.toList()));
+              break;
+            }
+          case "7":
+            if (studentClass.equals("SENIOR") ) {
+              courseNamesSenior.addAll(courses.stream().map(Course::getCourseTitle).collect(Collectors.toList()));
+              break;
+            }
+          case "8":
+            if (studentClass.equals("SENIOR") ) {
+              courseNamesSenior.addAll(courses.stream().map(Course::getCourseTitle).collect(Collectors.toList()));
+              break;
+            }
+        }
+      }
+
+      AdviseeFreshmanCourses.setItems(courseNamesFreshman);
+      AdviseeSophomoreCourses.setItems(courseNamesSophomore);
+      AdviseeJuniorCourses.setItems(courseNamesJunior);
+      AdviseeSeniorCourses.setItems(courseNamesSenior);
+
+      ObservableList<String> creditHoursFreshman = FXCollections.observableArrayList();
+      ObservableList<String> creditHoursSophomore = FXCollections.observableArrayList();
+      ObservableList<String> creditHoursJunior = FXCollections.observableArrayList();
+      ObservableList<String> creditHoursSenior = FXCollections.observableArrayList();
+
+      for (Map.Entry<String, ArrayList<Course>> entry : eightSemesterPlan.entrySet()) {
+        String semester = entry.getKey();
+        ArrayList<Course> courses = entry.getValue();
+        for (Course course : courses) {
+          int courseCreditHours = course.getCreditHours(); 
+
           switch (semester) {
             case "1":
               if (studentClass.equals("FRESHMAN")|| studentClass.equals("SOPHOMORE") || studentClass.equals("JUNIOR") || studentClass.equals("SENIOR") ) {
-                courseNamesFreshman.addAll(courses.stream().map(Course::getCourseTitle).collect(Collectors.toList()));
+                creditHoursFreshman.add(String.valueOf(courseCreditHours));
                 break;
                 }
             case "2":
               if (studentClass.equals("FRESHMAN")|| studentClass.equals("SOPHOMORE") || studentClass.equals("JUNIOR") || studentClass.equals("SENIOR") ) {
-                courseNamesFreshman.addAll(courses.stream().map(Course::getCourseTitle).collect(Collectors.toList()));
+                creditHoursFreshman.add(String.valueOf(courseCreditHours));
                 break;
               }
             case "3":
               if (studentClass.equals("SOPHOMORE") || studentClass.equals("JUNIOR") || studentClass.equals("SENIOR") ) {
-                courseNamesSophomore.addAll(courses.stream().map(Course::getCourseTitle).collect(Collectors.toList()));
+                creditHoursSophomore.add(String.valueOf(courseCreditHours));
                 break;
               }
             case "4":
               if (studentClass.equals("SOPHOMORE") || studentClass.equals("JUNIOR") || studentClass.equals("SENIOR") ) {
-                courseNamesSophomore.addAll(courses.stream().map(Course::getCourseTitle).collect(Collectors.toList()));
+                creditHoursSophomore.add(String.valueOf(courseCreditHours));
                 break;
               }
             case "5":
               if (studentClass.equals("JUNIOR") || studentClass.equals("SENIOR") ) {
-                courseNamesJunior.addAll(courses.stream().map(Course::getCourseTitle).collect(Collectors.toList()));
+                creditHoursJunior.add(String.valueOf(courseCreditHours));
                 break;
               }
             case "6":
               if (studentClass.equals("JUNIOR") || studentClass.equals("SENIOR") ) {
-                courseNamesJunior.addAll(courses.stream().map(Course::getCourseTitle).collect(Collectors.toList()));
+                creditHoursJunior.add(String.valueOf(courseCreditHours));
                 break;
               }
             case "7":
               if (studentClass.equals("SENIOR") ) {
-                courseNamesSenior.addAll(courses.stream().map(Course::getCourseTitle).collect(Collectors.toList()));
+                creditHoursSenior.add(String.valueOf(courseCreditHours));
                 break;
               }
             case "8":
               if (studentClass.equals("SENIOR") ) {
-                courseNamesSenior.addAll(courses.stream().map(Course::getCourseTitle).collect(Collectors.toList()));
+                creditHoursSenior.add(String.valueOf(courseCreditHours));
                 break;
               }
           }
+          
         }
-  
-        AdviseeFreshmanCourses.setItems(courseNamesFreshman);
-        AdviseeSophomoreCourses.setItems(courseNamesSophomore);
-        AdviseeJuniorCourses.setItems(courseNamesJunior);
-        AdviseeSeniorCourses.setItems(courseNamesSenior);
-  
-        ObservableList<String> creditHoursFreshman = FXCollections.observableArrayList();
-        ObservableList<String> creditHoursSophomore = FXCollections.observableArrayList();
-        ObservableList<String> creditHoursJunior = FXCollections.observableArrayList();
-        ObservableList<String> creditHoursSenior = FXCollections.observableArrayList();
-  
-        for (Map.Entry<String, ArrayList<Course>> entry : eightSemesterPlan.entrySet()) {
-          String semester = entry.getKey();
-          ArrayList<Course> courses = entry.getValue();
-          for (Course course : courses) {
-            int courseCreditHours = course.getCreditHours(); 
-  
-            switch (semester) {
-              case "1":
-                if (studentClass.equals("FRESHMAN")|| studentClass.equals("SOPHOMORE") || studentClass.equals("JUNIOR") || studentClass.equals("SENIOR") ) {
-                  creditHoursFreshman.add(String.valueOf(courseCreditHours));
-                  break;
-                  }
-              case "2":
-                if (studentClass.equals("FRESHMAN")|| studentClass.equals("SOPHOMORE") || studentClass.equals("JUNIOR") || studentClass.equals("SENIOR") ) {
-                  creditHoursFreshman.add(String.valueOf(courseCreditHours));
-                  break;
-                }
-              case "3":
-                if (studentClass.equals("SOPHOMORE") || studentClass.equals("JUNIOR") || studentClass.equals("SENIOR") ) {
-                  creditHoursSophomore.add(String.valueOf(courseCreditHours));
-                  break;
-                }
-              case "4":
-                if (studentClass.equals("SOPHOMORE") || studentClass.equals("JUNIOR") || studentClass.equals("SENIOR") ) {
-                  creditHoursSophomore.add(String.valueOf(courseCreditHours));
-                  break;
-                }
-              case "5":
-                if (studentClass.equals("JUNIOR") || studentClass.equals("SENIOR") ) {
-                  creditHoursJunior.add(String.valueOf(courseCreditHours));
-                  break;
-                }
-              case "6":
-                if (studentClass.equals("JUNIOR") || studentClass.equals("SENIOR") ) {
-                  creditHoursJunior.add(String.valueOf(courseCreditHours));
-                  break;
-                }
-              case "7":
-                if (studentClass.equals("SENIOR") ) {
-                  creditHoursSenior.add(String.valueOf(courseCreditHours));
-                  break;
-                }
-              case "8":
-                if (studentClass.equals("SENIOR") ) {
-                  creditHoursSenior.add(String.valueOf(courseCreditHours));
-                  break;
+      }
+
+      AdviseeFreshmanCreditHours.setItems(creditHoursFreshman);
+      AdviseeSophomoreCreditHours.setItems(creditHoursSophomore);
+      AdviseeJuniorCreditHours.setItems(creditHoursJunior);
+      AdviseeSeniorCreditHours.setItems(creditHoursSenior);
+
+      ObservableList<String> gpaFreshman = FXCollections.observableArrayList();
+      ObservableList<String> gpaSophomore = FXCollections.observableArrayList();
+      ObservableList<String> gpaJunior = FXCollections.observableArrayList();
+      ObservableList<String> gpaSenior = FXCollections.observableArrayList();
+      int countGPA = 0;
+      HashMap<Course, Double> completedCourses = AuditFacade.getInstance().getStudent().getPortfolio().getCompletedCourses();
+      
+      
+      for (Map.Entry<String, ArrayList<Course>> entry : eightSemesterPlan.entrySet()) {
+        String semester = entry.getKey();
+        ArrayList<Course> courses = entry.getValue();
+    
+        for (Course course : courses) {
+            String courseName = course.getCourseTitle();
+            if (completedCourses.containsKey(course)) {
+                countGPA++;
+                int semesterInt = Integer.parseInt(semester); 
+                if (studentClass.equals("FRESHMAN") || studentClass.equals("SOPHOMORE") || studentClass.equals("JUNIOR") || studentClass.equals("SENIOR")) {
+                    if (semesterInt == 1 || semesterInt == 2) {
+                        Double courseGPA = completedCourses.get(course);
+                        gpaFreshman.add(String.valueOf(courseGPA)); 
+                    } else if (semesterInt == 3 || semesterInt == 4) {
+                        Double courseGPA = completedCourses.get(course);
+                        gpaSophomore.add(String.valueOf(courseGPA)); 
+                    } else if (semesterInt == 5 || semesterInt == 6) {
+                        Double courseGPA = completedCourses.get(course);
+                        gpaJunior.add(String.valueOf(courseGPA)); 
+                    } else if (semesterInt == 7 || semesterInt == 8) {
+                        Double courseGPA = completedCourses.get(course);
+                        gpaSenior.add(String.valueOf(courseGPA)); 
+                    }
                 }
             }
-            
-          }
         }
-  
-        AdviseeFreshmanCreditHours.setItems(creditHoursFreshman);
-        AdviseeSophomoreCreditHours.setItems(creditHoursSophomore);
-        AdviseeJuniorCreditHours.setItems(creditHoursJunior);
-        AdviseeSeniorCreditHours.setItems(creditHoursSenior);
-  
-        ObservableList<String> gpaFreshman = FXCollections.observableArrayList();
-        ObservableList<String> gpaSophomore = FXCollections.observableArrayList();
-        ObservableList<String> gpaJunior = FXCollections.observableArrayList();
-        ObservableList<String> gpaSenior = FXCollections.observableArrayList();
-        int countGPA = 0;
-        HashMap<Course, Double> completedCourses = AuditFacade.getInstance().getStudent().getPortfolio().getCompletedCourses();
-        
-        
-        for (Map.Entry<String, ArrayList<Course>> entry : eightSemesterPlan.entrySet()) {
-          String semester = entry.getKey();
-          ArrayList<Course> courses = entry.getValue();
-      
-          for (Course course : courses) {
-              String courseName = course.getCourseTitle();
-              if (completedCourses.containsKey(course)) {
-                  countGPA++;
-                  int semesterInt = Integer.parseInt(semester); 
-                  if (studentClass.equals("FRESHMAN") || studentClass.equals("SOPHOMORE") || studentClass.equals("JUNIOR") || studentClass.equals("SENIOR")) {
-                      if (semesterInt == 1 || semesterInt == 2) {
-                          Double courseGPA = completedCourses.get(course);
-                          gpaFreshman.add(String.valueOf(courseGPA)); 
-                      } else if (semesterInt == 3 || semesterInt == 4) {
-                          Double courseGPA = completedCourses.get(course);
-                          gpaSophomore.add(String.valueOf(courseGPA)); 
-                      } else if (semesterInt == 5 || semesterInt == 6) {
-                          Double courseGPA = completedCourses.get(course);
-                          gpaJunior.add(String.valueOf(courseGPA)); 
-                      } else if (semesterInt == 7 || semesterInt == 8) {
-                          Double courseGPA = completedCourses.get(course);
-                          gpaSenior.add(String.valueOf(courseGPA)); 
-                      }
-                  }
-              }
-          }
-        }
-  
-        AdviseeFreshmanGrade.setItems(gpaFreshman);
-        AdviseeSophomoreGrade.setItems(gpaSophomore);
-        AdviseeJuniorGrade.setItems(gpaJunior);
-        AdviseeSeniorGrade.setItems(gpaSenior);
+      }
+
+      AdviseeFreshmanGrade.setItems(gpaFreshman);
+      AdviseeSophomoreGrade.setItems(gpaSophomore);
+      AdviseeJuniorGrade.setItems(gpaJunior);
+      AdviseeSeniorGrade.setItems(gpaSenior);
         
   
     }
