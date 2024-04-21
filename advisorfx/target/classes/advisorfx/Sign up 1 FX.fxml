@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="signUp1bigBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="advisorfx.SignUpController">
+<Pane fx:id="signUp1bigBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="advisorfx.SignUpController">
    <children>
-      <Pane fx:id="signUp1smallBox" layoutX="107.0" layoutY="110.0" prefHeight="599.0" prefWidth="730.0">
+      <Pane fx:id="signUp1smallBox" layoutX="285.0" layoutY="155.0" prefHeight="599.0" prefWidth="730.0">
          <children>
             <TextField fx:id="firstNameTextBox" layoutX="223.0" layoutY="87.0" prefHeight="48.0" prefWidth="303.0" promptText="First Name">
                <font>
@@ -48,7 +48,7 @@
             <Button fx:id="continueButton" layoutX="261.0" layoutY="503.0" mnemonicParsing="false" onAction="#studentSignUp" prefHeight="57.0" prefWidth="228.0" text="Sign Up" />
          </children>
       </Pane>
-      <ImageView fx:id="logo" fitHeight="113.0" fitWidth="341.0" layoutX="310.0">
+      <ImageView fx:id="logo" fitHeight="113.0" fitWidth="258.0" layoutX="526.0" layoutY="45.0">
          <image>
             <Image url="@image/logo.png" />
          </image>

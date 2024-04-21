@@ -349,6 +349,8 @@ public class TranscriptController {
       JuniorGrade.setItems(gpaJunior);
       SeniorGrade.setItems(gpaSenior);
     }
+
+    
     
     private void highlightHyperlink(Hyperlink hyperlink) {
         // Remove highlighting from all labels

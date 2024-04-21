@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="signUp2bigBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="advisorfx.SignUpController">
+<Pane fx:id="signUp2bigBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="advisorfx.SignUpController">
    <children>
-      <Pane fx:id="signUp2smallBox" layoutX="85.0" layoutY="129.0" prefHeight="503.0" prefWidth="730.0">
+      <Pane fx:id="signUp2smallBox" layoutX="285.0" layoutY="165.0" prefHeight="503.0" prefWidth="730.0">
          <children>
             <Label fx:id="titlesign" alignment="CENTER" layoutX="141.0" layoutY="6.0" prefHeight="77.0" prefWidth="430.0" style="-fx-background-color: white;" text="Advisor Sign Up">
                <font>
@@ -40,7 +40,7 @@
             <Button fx:id="signUpButton" layoutX="251.0" layoutY="398.0" mnemonicParsing="false" onAction="#advisorSignUp" prefHeight="57.0" prefWidth="228.0" text="Sign Up" />
          </children>
       </Pane>
-      <ImageView fx:id="logo" fitHeight="127.0" fitWidth="341.0" layoutX="271.0" layoutY="5.0">
+      <ImageView fx:id="logo" fitHeight="127.0" fitWidth="341.0" layoutX="471.0" layoutY="41.0">
          <image>
             <Image url="@image/logo.png" />
          </image>
