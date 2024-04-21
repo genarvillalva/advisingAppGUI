@@ -10,6 +10,8 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
 
@@ -40,6 +42,9 @@ public class CreateAdvisingNotesController {
     @FXML
     private Hyperlink SemesterPlanLabelAdviseeNotes;
 
+    @FXML 
+    private ImageView logo;
+
 
 
 
@@ -51,7 +56,11 @@ public class CreateAdvisingNotesController {
         TranscriptLabelAdviseeNotes.setOnMouseClicked(event -> highlightHyperlink(TranscriptLabelAdviseeNotes));
         AdvisingNotesLabelAdviseAdviseeNotes.setOnMouseClicked(event -> highlightHyperlink(AdvisingNotesLabelAdviseAdviseeNotes));
         SemesterPlanLabelAdviseeNotes.setOnMouseClicked(event -> highlightHyperlink(SemesterPlanLabelAdviseeNotes));
+        // Load the image
+        Image image = new Image(getClass().getResourceAsStream("/images/logo.png"));
         
+        // Set the image to the ImageView
+        logo.setImage(image);
   
     }
     

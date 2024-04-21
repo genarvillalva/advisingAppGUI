@@ -28,7 +28,7 @@
                   </Label>
       
       
-                  <Pane fx:id="AdvisingMenuPaneAdviseeNotes" layoutX="2.0" prefHeight="149.0" prefWidth="1300.0">
+                  <Pane fx:id="AdvisingMenuPaneAdviseeNotes" prefHeight="149.0" prefWidth="1300.0">
                      <children>
                       
                     <Hyperlink fx:id="AdvisingNotesLabelAdviseAdviseeNotes" layoutX="851.0" layoutY="40.0" onAction="#viewAdvisingNotesAsAdvisor" prefHeight="94.0" prefWidth="169.0" style="-fx-font-size: 20;" text="Advising Notes">
@@ -57,7 +57,7 @@
                         <Font size="20.0" />
                      </font>
                   </Hyperlink>
-                        <ImageView fx:id="logo" fitHeight="97.0" fitWidth="209.0" layoutX="28.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="logo" fitHeight="97.0" fitWidth="209.0" layoutX="31.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../java/images/logo.png" />
                            </image>
