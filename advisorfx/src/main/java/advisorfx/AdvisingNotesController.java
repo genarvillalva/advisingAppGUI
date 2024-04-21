@@ -62,6 +62,7 @@ public class AdvisingNotesController {
 
     @FXML
     private void initialize() {
+        AuditFacade facade = AuditFacade.getInstance();
         HomeLabelAdvise.setOnMouseClicked(event -> highlightHyperlink(HomeLabelAdvise));
         TranscriptLabelAdvise.setOnMouseClicked(event -> highlightHyperlink(TranscriptLabelAdvise));
         SemesterPlanLabelAdvise.setOnMouseClicked(event -> highlightHyperlink(SemesterPlanLabelAdvise));
@@ -69,7 +70,7 @@ public class AdvisingNotesController {
         ObservableList<String> options = FXCollections.observableArrayList("Settings", "Log Out");
         // Load the image
         Image image = new Image(getClass().getResourceAsStream("/images/logo.png"));
-        
+        advisingNoteDisplay.setText(facade.getStudent().getAdvisingNotes());
         // Set the image to the ImageView
         logo.setImage(image);
     }
@@ -108,7 +109,6 @@ public class AdvisingNotesController {
     @FXML
     void viewAdvisingNotes() throws IOException {
       AuditFacade facade = AuditFacade.getInstance();
-      advisingNoteDisplay.setText("Notes: " + facade.getStudent().getAdvisingNotes());
       //setAdvisingNotes();
       App.setRoot("ViewAdvisingNotes");
     }
