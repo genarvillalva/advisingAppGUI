@@ -400,7 +400,7 @@
     -fx-text-fill: black;
     -fx-font-weight: bold;
     -fx-background-radius: 10;
-    -fx-font-size: 18p;
+    -fx-font-size: 18px;
 }
 
 #backSUTwo {
@@ -408,5 +408,5 @@
     -fx-text-fill: black;
     -fx-font-weight: bold;
     -fx-background-radius: 10;
-    -fx-font-size: 18p;
+    -fx-font-size: 18px;
 }
