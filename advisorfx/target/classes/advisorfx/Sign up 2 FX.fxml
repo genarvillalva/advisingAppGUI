@@ -12,17 +12,16 @@
    <children>
       <Pane fx:id="signUp2smallBox" layoutX="85.0" layoutY="129.0" prefHeight="503.0" prefWidth="730.0">
          <children>
-            <Button fx:id="signUpButton" layoutX="251.0" layoutY="398.0" mnemonicParsing="false" onAction="#advisorSignUp" prefHeight="57.0" prefWidth="228.0" text="Sign Up" />
-            <TextField fx:id="firstNameTextBox1" layoutX="205.0" layoutY="106.0" prefHeight="48.0" prefWidth="303.0" promptText="First Name">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </TextField>
             <Label fx:id="titlesign" alignment="CENTER" layoutX="141.0" layoutY="6.0" prefHeight="77.0" prefWidth="430.0" style="-fx-background-color: white;" text="Advisor Sign Up">
                <font>
                   <Font size="53.0" />
                </font>
             </Label>
+            <TextField fx:id="firstNameTextBox1" layoutX="205.0" layoutY="106.0" prefHeight="48.0" prefWidth="303.0" promptText="First Name">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
             <TextField fx:id="lastNameTextBox1" layoutX="205.0" layoutY="171.0" prefHeight="48.0" prefWidth="303.0" promptText="Last Name">
                <font>
                   <Font size="18.0" />
@@ -38,6 +37,7 @@
                   <Font size="18.0" />
                </font>
             </TextField>
+            <Button fx:id="signUpButton" layoutX="251.0" layoutY="398.0" mnemonicParsing="false" onAction="#advisorSignUp" prefHeight="57.0" prefWidth="228.0" text="Sign Up" />
          </children>
       </Pane>
       <ImageView fx:id="logo" fitHeight="127.0" fitWidth="341.0" layoutX="271.0" layoutY="5.0">

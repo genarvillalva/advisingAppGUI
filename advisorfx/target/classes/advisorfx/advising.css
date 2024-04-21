@@ -371,7 +371,26 @@
     -fx-background-color: #1545F3;
 }
 
+#signUp1smallBox{
+    -fx-background-color: rgba(255, 255, 255, 0.7);
+}
 
+#signUp1bigBox{
+    -fx-background-color: #1545F3;
+}
 
+#continueButton{
+    -fx-background-color: #FBD949;
+}
 
+#signUp2bigBox{
+    -fx-background-color: #1545F3;
+}
 
+#signUp2smallBox{
+    -fx-background-color: rgba(255, 255, 255, 0.7);
+}
+
+#signUpButton{
+    -fx-background-color: #FBD949;
+}

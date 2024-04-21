@@ -41,26 +41,12 @@
                      </children>
                   </Pane>
                </children></Pane>
-            <TableView layoutX="742.0" layoutY="336.0" prefHeight="386.0" prefWidth="399.0">
-              <columns>
-                <TableColumn minWidth="100.0" prefWidth="75.0" text="Note Text" />
-                <TableColumn prefWidth="124.0" text="Created" />
-                  <TableColumn minWidth="100.0" prefWidth="75.0" text="Date" />
-              </columns>
-            </TableView>
-            <TableView layoutX="149.0" layoutY="363.0" prefHeight="215.0" prefWidth="408.0">
+            <TableView fx:id="noteTextBox" layoutX="351.0" layoutY="341.0" prefHeight="456.0" prefWidth="602.0">
                <columns>
-                  <TableColumn minWidth="100.0" prefWidth="75.0" text="Note Text" />
-                  <TableColumn prefWidth="124.0" text="Created" />
-                  <TableColumn minWidth="100.0" prefWidth="75.0" text="Date" />
+                  <TableColumn minWidth="100.0" prefWidth="601.1999816894531" text="Note Text" />
                </columns>
             </TableView>
-            <Label layoutX="245.0" layoutY="286.0" text="Updated Notes">
-               <font>
-                  <Font size="32.0" />
-               </font>
-            </Label>
-            <Label layoutX="821.0" layoutY="278.0" text="Previous Notes">
+            <Label layoutX="544.0" layoutY="280.0" text="Updated Notes">
                <font>
                   <Font size="32.0" />
                </font>

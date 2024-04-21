@@ -20,7 +20,6 @@
                <font>
                   <Font size="18.0" />
                </font></TextField>
-            <Button fx:id="continueButton" layoutX="261.0" layoutY="503.0" mnemonicParsing="false" onAction="#studentSignUp" prefHeight="57.0" prefWidth="228.0" text="Sign Up" />
             <Label fx:id="titlesign" alignment="CENTER" layoutX="160.0" prefHeight="77.0" prefWidth="430.0" style="-fx-background-color: white;" text="Student Sign Up">
                <font>
                   <Font size="53.0" />
@@ -46,6 +45,7 @@
                   <Font size="18.0" />
                </font>
             </TextField>
+            <Button fx:id="continueButton" layoutX="261.0" layoutY="503.0" mnemonicParsing="false" onAction="#studentSignUp" prefHeight="57.0" prefWidth="228.0" text="Sign Up" />
          </children>
       </Pane>
       <ImageView fx:id="logo" fitHeight="113.0" fitWidth="341.0" layoutX="310.0">

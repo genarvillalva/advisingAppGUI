@@ -2,6 +2,8 @@ package advisorfx;
 
 import java.io.IOException;
 
+import advising.AuditFacade;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Hyperlink;
@@ -95,15 +97,12 @@ public class CreateAdvisingNotesController {
 
     @FXML
     void sendAdvisingNote() {
-     
-  
-   
-}
+        AuditFacade facade = AuditFacade.getInstance();
+        String note = WRITEAdviseeNotes.getText();
 
-  
-
-
-
-
-
+        String studentUsername = ""; 
+        
+        facade.adviseStudent(note, studentUsername);
+        WRITEAdviseeNotes.clear();
+    }
 }

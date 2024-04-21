@@ -191,6 +191,10 @@ public class AuditFacade {
 
     }
 
+    public String getAdvisingNotes(){
+        return student.getAdvisingNotes();
+    }
+
     /**
      * Generate an eight semester plan for the current student.
      */

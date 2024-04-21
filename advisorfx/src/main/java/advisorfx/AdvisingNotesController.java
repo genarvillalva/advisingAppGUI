@@ -25,6 +25,8 @@ import javafx.collections.ObservableList;
 // import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 
 public class AdvisingNotesController {
     @FXML
@@ -52,6 +54,11 @@ public class AdvisingNotesController {
     private Pane AdvisingBackground;
 
     @FXML
+    private TableView<String> noteTextBox;
+
+    private List<String> advisingNotes;
+
+    @FXML
     private void initialize() {
         HomeLabelAdvise.setOnMouseClicked(event -> highlightHyperlink(HomeLabelAdvise));
         TranscriptLabelAdvise.setOnMouseClicked(event -> highlightHyperlink(TranscriptLabelAdvise));
@@ -77,8 +84,27 @@ public class AdvisingNotesController {
         
     }
 
+    private void setAdvisingNotes() {
+      //AuditFacade facade = AuditFacade.getInstance();
+      String notes = getAdvisingNotes();
+
+      String[] noteLines = notes.split("\n");
+
+      noteTextBox.setItems(FXCollections.observableArrayList(noteLines));
+    }
+
+
+    private String getAdvisingNotes() {
+      StringBuilder notesStringBuilder = new StringBuilder();
+      for (String note : advisingNotes) {
+          notesStringBuilder.append(note).append("\n");
+      }
+      return notesStringBuilder.toString();
+    }
+
     @FXML
     void viewAdvisingNotes() throws IOException {
+      setAdvisingNotes();
       App.setRoot("ViewAdvisingNotes");
     }
   
@@ -105,5 +131,7 @@ public class AdvisingNotesController {
     @FXML
     private void logout() throws IOException {
       App.setRoot("LoginPage");
-    }
+    } 
+
+
 }
