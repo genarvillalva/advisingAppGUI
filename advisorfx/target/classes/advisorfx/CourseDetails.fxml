@@ -10,7 +10,7 @@
    <children>
       <Pane prefHeight="299.0" prefWidth="700.0" style="-fx-background-color: #004aad;">
          <children>
-            <Label alignment="CENTER" layoutX="124.0" layoutY="6.0" prefHeight="64.0" prefWidth="458.0" style="-fx-text-fill: #cfb023;" text="Course ID">
+            <Label fx:id="CourseId" alignment="CENTER" layoutX="124.0" layoutY="6.0" prefHeight="64.0" prefWidth="458.0" style="-fx-text-fill: #cfb023;" text="Course ID: ">
                <font>
                   <Font size="40.0" />
                </font>

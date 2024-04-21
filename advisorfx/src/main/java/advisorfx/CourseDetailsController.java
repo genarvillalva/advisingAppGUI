@@ -5,7 +5,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
 public class CourseDetailsController {
-
+    @FXML
+    private Label CourseId;
     @FXML
     private Label titleLabel;
 
@@ -26,6 +27,7 @@ public class CourseDetailsController {
 
     public void initData(Course course) {
         if (course != null) {
+            CourseId.setText("Course ID: " + course.getCourseID());
             titleLabel.setText("Course Title: " + course.getCourseTitle());
             codeLabel.setText("Course Code: " + course.getCourseCode());
             creditHoursLabel.setText("Credit Hours: " + course.getCreditHours());
