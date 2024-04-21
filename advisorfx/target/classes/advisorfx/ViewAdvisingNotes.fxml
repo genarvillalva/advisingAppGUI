@@ -15,9 +15,9 @@
    <children>
       <Pane fx:id="AdvisingBackground" prefHeight="1010.0" prefWidth="1300.0" style="-fx-background-color: #FFFFFF;">
          <children>
-            <Pane fx:id="StudentPaneAdvise" layoutX="-1.0" layoutY="-7.0" prefHeight="140.0" prefWidth="1306.0">
+            <Pane fx:id="StudentPaneAdvise" layoutX="-1.0" layoutY="-7.0" prefHeight="262.0" prefWidth="1306.0">
                <children>
-                  <Pane fx:id="StudentPaneAdvise" layoutX="2.0" layoutY="6.0" prefHeight="149.0" prefWidth="1300.0">
+                  <Pane fx:id="StudentPaneAdvise" layoutX="3.0" layoutY="106.0" prefHeight="149.0" prefWidth="1300.0">
                      <children>
                         <Hyperlink fx:id="HomeLabelAdvise" layoutX="318.0" layoutY="40.0" onAction="#viewStudentHome" prefHeight="94.0" prefWidth="110.0" style="-fx-font-size: 20;" text="Home">
                            <font>

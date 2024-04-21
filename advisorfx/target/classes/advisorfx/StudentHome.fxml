@@ -93,7 +93,7 @@
       </Pane>
       <Pane fx:id="GpaPane" prefHeight="301.0" prefWidth="1300.0">
          <children>
-            <Label fx:id="GpaLabel" layoutX="650.0" layoutY="14.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="106.0" prefWidth="148.0" style="-fx-background-color: white;" text="Overall GPA:">
+            <Label fx:id="GpaLabel" layoutX="207.0" layoutY="-32.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="106.0" prefWidth="286.0" style="-fx-background-color: white;" text="Overall GPA:">
                <font>
                   <Font size="25.0" />
                </font>

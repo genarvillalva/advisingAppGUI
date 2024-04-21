@@ -75,7 +75,7 @@ public class StudentHomeController {
     LevelLabel.setText("Level: Undergraduate");
     ClassificationLabel.setText("Classification: "+auditFacade.getStudent().getStudentClass());
     MajorLabel.setText("Student Username: " + auditFacade.getStudent().getMajor());
-    GpaLabel.setText("Overall Gpa: \n" + auditFacade.getStudent().getPortfolio().getGpa());
+    GpaLabel.setText("Overall Gpa: " + auditFacade.getStudent().getPortfolio().getGpa());
 
 
 

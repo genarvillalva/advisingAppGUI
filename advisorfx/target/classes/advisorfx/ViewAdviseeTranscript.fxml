@@ -56,7 +56,7 @@
                </children>
             </Pane>
       
-            <Pane fx:id="AdviseeGpaPane" prefHeight="1288.0" prefWidth="1373.0">
+            <Pane fx:id="AdviseeGpaPane" prefHeight="1605.0" prefWidth="1373.0">
                <children>
                   <ButtonBar layoutX="912.0" layoutY="177.0" prefHeight="40.0" prefWidth="68.0" />
                   <Label fx:id="AdviseeTranscriptHeader" layoutX="34.0" layoutY="63.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="83.0" prefWidth="886.0" style="-fx-background-color: white;" text="Transcript">
@@ -69,7 +69,7 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <ListView fx:id="AdviseeFreshmanCourses" layoutX="35.0" layoutY="242.0" prefHeight="119.0" prefWidth="692.0" />
+                  <ListView fx:id="AdviseeFreshmanCourses" layoutX="35.0" layoutY="242.0" prefHeight="230.0" prefWidth="692.0" />
                   <Label fx:id="CreditHourLabelF" layoutX="741.0" layoutY="204.0" prefHeight="38.0" prefWidth="254.0" text="Credit Hours">
                      <font>
                         <Font size="20.0" />
@@ -80,62 +80,62 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="SophomoreLabel" layoutX="34.0" layoutY="462.0" prefHeight="38.0" prefWidth="704.0" text="Sophomore">
+                  <Label fx:id="SophomoreLabel" layoutX="34.0" layoutY="547.0" prefHeight="38.0" prefWidth="704.0" text="Sophomore">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <ListView fx:id="AdviseeSophomoreCourses" layoutX="36.0" layoutY="500.0" prefHeight="118.0" prefWidth="691.0" />
-                  <Label fx:id="CreditHourLabelSO" layoutX="740.0" layoutY="462.0" prefHeight="38.0" prefWidth="254.0" text="Credit Hours">
+                  <ListView fx:id="AdviseeSophomoreCourses" layoutX="36.0" layoutY="585.0" prefHeight="229.0" prefWidth="691.0" />
+                  <Label fx:id="CreditHourLabelSO" layoutX="740.0" layoutY="547.0" prefHeight="38.0" prefWidth="254.0" text="Credit Hours">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="GradeLabelSO" layoutX="997.0" layoutY="462.0" prefHeight="38.0" prefWidth="205.0" text="Grade">
+                  <Label fx:id="GradeLabelSO" layoutX="997.0" layoutY="547.0" prefHeight="38.0" prefWidth="205.0" text="Grade">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="JuniorLabel" layoutX="35.0" layoutY="724.0" prefHeight="38.0" prefWidth="704.0" text="Junior">
+                  <Label fx:id="JuniorLabel" layoutX="36.0" layoutY="896.0" prefHeight="38.0" prefWidth="704.0" text="Junior">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <ListView fx:id="AdviseeJuniorCourses" layoutX="35.0" layoutY="762.0" prefHeight="117.0" prefWidth="692.0" />
-                  <Label fx:id="CreditHourLabelJ" layoutX="741.0" layoutY="724.0" prefHeight="38.0" prefWidth="254.0" text="Credit Hours">
+                  <ListView fx:id="AdviseeJuniorCourses" layoutX="35.0" layoutY="934.0" prefHeight="227.0" prefWidth="692.0" />
+                  <Label fx:id="CreditHourLabelJ" layoutX="742.0" layoutY="896.0" prefHeight="38.0" prefWidth="254.0" text="Credit Hours">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="GradeLabelJ" layoutX="998.0" layoutY="724.0" prefHeight="38.0" prefWidth="205.0" text="Grade">
+                  <Label fx:id="GradeLabelJ" layoutX="999.0" layoutY="896.0" prefHeight="38.0" prefWidth="205.0" text="Grade">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="SeniorLabel" layoutX="34.0" layoutY="989.0" prefHeight="38.0" prefWidth="704.0" text="Senior">
+                  <Label fx:id="SeniorLabel" layoutX="34.0" layoutY="1229.0" prefHeight="38.0" prefWidth="704.0" text="Senior">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <ListView fx:id="AdviseeSeniorCourses" layoutX="36.0" layoutY="1027.0" prefHeight="116.0" prefWidth="690.0" />
-                  <Label fx:id="CreditHourLabelS" layoutX="739.0" layoutY="989.0" prefHeight="38.0" prefWidth="254.0" text="Credit Hours">
+                  <ListView fx:id="AdviseeSeniorCourses" layoutX="36.0" layoutY="1267.0" prefHeight="226.0" prefWidth="690.0" />
+                  <Label fx:id="CreditHourLabelS" layoutX="739.0" layoutY="1229.0" prefHeight="38.0" prefWidth="254.0" text="Credit Hours">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="GradeLabelS" layoutX="996.0" layoutY="989.0" prefHeight="38.0" prefWidth="205.0" text="Grade">
+                  <Label fx:id="GradeLabelS" layoutX="996.0" layoutY="1229.0" prefHeight="38.0" prefWidth="205.0" text="Grade">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <ListView fx:id="AdviseeFreshmanCreditHours" layoutX="726.0" layoutY="242.0" prefHeight="119.0" prefWidth="258.0" />
-                  <ListView fx:id="AdviseeFreshmanGrade" layoutX="984.0" layoutY="242.0" prefHeight="118.0" prefWidth="258.0" />
-                  <ListView fx:id="AdviseeSophomoreCreditHours" layoutX="725.0" layoutY="500.0" prefHeight="118.0" prefWidth="258.0" />
-                  <ListView fx:id="AdviseeSophomoreGrade" layoutX="983.0" layoutY="500.0" prefHeight="118.0" prefWidth="258.0" />
-                  <ListView fx:id="AdviseeJuniorCreditHours" layoutX="726.0" layoutY="762.0" prefHeight="117.0" prefWidth="258.0" />
-                  <ListView fx:id="AdviseeJuniorGrade" layoutX="984.0" layoutY="762.0" prefHeight="117.0" prefWidth="258.0" />
-                  <ListView fx:id="AdviseeSeniorCreditHours" layoutX="726.0" layoutY="1027.0" prefHeight="116.0" prefWidth="258.0" />
-                  <ListView fx:id="AdviseeSeniorGrade" layoutX="984.0" layoutY="1027.0" prefHeight="116.0" prefWidth="258.0" />
+                  <ListView fx:id="AdviseeFreshmanCreditHours" layoutX="726.0" layoutY="242.0" prefHeight="230.0" prefWidth="258.0" />
+                  <ListView fx:id="AdviseeFreshmanGrade" layoutX="984.0" layoutY="242.0" prefHeight="230.0" prefWidth="258.0" />
+                  <ListView fx:id="AdviseeSophomoreCreditHours" layoutX="725.0" layoutY="585.0" prefHeight="230.0" prefWidth="258.0" />
+                  <ListView fx:id="AdviseeSophomoreGrade" layoutX="983.0" layoutY="585.0" prefHeight="230.0" prefWidth="258.0" />
+                  <ListView fx:id="AdviseeJuniorCreditHours" layoutX="727.0" layoutY="934.0" prefHeight="227.0" prefWidth="258.0" />
+                  <ListView fx:id="AdviseeJuniorGrade" layoutX="985.0" layoutY="934.0" prefHeight="227.0" prefWidth="258.0" />
+                  <ListView fx:id="AdviseeSeniorCreditHours" layoutX="726.0" layoutY="1267.0" prefHeight="225.0" prefWidth="258.0" />
+                  <ListView fx:id="AdviseeSeniorGrade" layoutX="984.0" layoutY="1267.0" prefHeight="224.0" prefWidth="258.0" />
                </children>
             </Pane>
          </VBox>
