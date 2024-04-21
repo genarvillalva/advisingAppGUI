@@ -15,7 +15,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,6 +24,9 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class SemesterPlanController {
+
+    @FXML 
+    private ImageView logo;
 
     @FXML
     private Hyperlink HomeLabelSem;
@@ -35,9 +39,6 @@ public class SemesterPlanController {
 
     @FXML
     private Hyperlink AdvisingNotesLabelSem;
-
-    @FXML
-    private ChoiceBox LogOutBoxSem;
 
     @FXML
     private Label SemOneLabel;
@@ -116,7 +117,11 @@ public class SemesterPlanController {
         initializeHyperlinks();
         initializeLogOutBox();
         populateSemesterPlan();
-
+        // Load the image
+        Image image = new Image(getClass().getResourceAsStream("/images/logo.png"));
+                
+        // Set the image to the ImageView
+        logo.setImage(image);
         SemOneList.setOnMouseClicked(event -> handleListViewItemClick(SemOneList));
         SemTwoList.setOnMouseClicked(event -> handleListViewItemClick(SemTwoList));
         SemThreeList.setOnMouseClicked(event -> handleListViewItemClick(SemThreeList));
@@ -170,7 +175,6 @@ public class SemesterPlanController {
 
     private void initializeLogOutBox() {
         ObservableList<String> options = FXCollections.observableArrayList("Settings", "Log Out");
-        LogOutBoxSem.setItems(options);
     }
 
     private void populateSemesterPlan() {

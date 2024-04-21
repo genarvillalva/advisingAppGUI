@@ -6,7 +6,8 @@ import advising.Student;
 import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
-
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Hyperlink;
 import javafx.fxml.FXML;
@@ -41,8 +42,6 @@ public class AdvisingNotesController {
     @FXML 
     private Hyperlink AdvisingNotesLabelAdvise;
 
-    @FXML
-    private ChoiceBox LogOutBoxAdvise;
 
     @FXML
     private Pane StudentPaneAdvise;
@@ -65,12 +64,11 @@ public class AdvisingNotesController {
         SemesterPlanLabelAdvise.setOnMouseClicked(event -> highlightHyperlink(SemesterPlanLabelAdvise));
         AdvisingNotesLabelAdvise.setOnMouseClicked(event -> highlightHyperlink(AdvisingNotesLabelAdvise));
         ObservableList<String> options = FXCollections.observableArrayList("Settings", "Log Out");
-        LogOutBoxAdvise.setItems(options);
-        // // Load the image
-        // Image image = new Image(getClass().getResourceAsStream("/images/logo.png"));
+        // Load the image
+        Image image = new Image(getClass().getResourceAsStream("/images/logo.png"));
         
-        // // Set the image to the ImageView
-        // logo.setImage(image);
+        // Set the image to the ImageView
+        logo.setImage(image);
     }
     
     private void highlightHyperlink(Hyperlink Hyperlink) {

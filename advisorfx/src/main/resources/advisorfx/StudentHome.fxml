@@ -2,9 +2,10 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
@@ -12,29 +13,38 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="advisorfx.StudentHomeController">
    <children>
-      <Pane fx:id="StudentMenuPane" prefHeight="137.0" prefWidth="1300.0">
+      <Pane fx:id="StudentMenuPane" prefHeight="149.0" prefWidth="1300.0">
          <children>
-            <ChoiceBox fx:id="LogOutBox" layoutX="1215.0" layoutY="94.0" onAction="#signOutStudent" prefHeight="25.0" prefWidth="62.0" />
-            <Hyperlink fx:id="AdvisingNotesLabel" layoutX="663.0" layoutY="47.0" onAction="#viewAdvisingNotes" prefHeight="94.0" prefWidth="169.0" text="Advising Notes">
+            <Hyperlink fx:id="HomeLabel" layoutX="318.0" layoutY="40.0" onAction="#viewStudentHome" prefHeight="94.0" prefWidth="110.0" text="Home">
                <font>
                   <Font size="20.0" />
                </font>
             </Hyperlink>
-            <Hyperlink fx:id="SemesterPlanLabel" layoutX="462.0" layoutY="46.0" onAction="#viewSemesterPlan" prefHeight="94.0" prefWidth="175.0" text="8 Semester Plan">
+            <Hyperlink fx:id="TranscriptLabel" layoutX="461.0" layoutY="40.0" onAction="#viewTranscript" prefHeight="94.0" prefWidth="148.0" text="Transcript">
                <font>
                   <Font size="20.0" />
                </font>
             </Hyperlink>
-            <Hyperlink fx:id="TranscriptLabel" layoutX="314.0" layoutY="46.0" onAction="#viewTranscript" prefHeight="94.0" prefWidth="148.0" text="Transcript">
+            <Hyperlink fx:id="SemesterPlanLabel" layoutX="654.0" layoutY="40.0" onAction="#viewSemesterPlan" prefHeight="94.0" prefWidth="175.0" text="8 Semester Plan">
                <font>
                   <Font size="20.0" />
                </font>
             </Hyperlink>
-            <Hyperlink fx:id="HomeLabel" layoutX="202.0" layoutY="46.0" onAction="#viewStudentHome" prefHeight="94.0" prefWidth="110.0" text="Home">
+            <Hyperlink fx:id="AdvisingNotesLabel" layoutX="851.0" layoutY="40.0" onAction="#viewAdvisingNotes" prefHeight="94.0" prefWidth="169.0" text="Advising Notes">
                <font>
                   <Font size="20.0" />
                </font>
             </Hyperlink>
+            <ImageView fx:id="logo" fitHeight="97.0" fitWidth="209.0" layoutX="31.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../java/images/logo.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="1180.0" layoutY="80.0" mnemonicParsing="false" onAction="#logout" prefHeight="37.0" prefWidth="91.0" styleClass="18" text="Log out">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
       <Pane fx:id="ProfilePane" layoutX="10.0" layoutY="10.0" prefHeight="409.0" prefWidth="1300.0">
@@ -89,7 +99,6 @@
                </font>
             </Label>
             <ButtonBar layoutX="912.0" layoutY="177.0" prefHeight="40.0" prefWidth="68.0" />
-          <Button layoutX="650.0" layoutY="132.0" minWidth="65.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="148.0" text="View" />
          </children>
       </Pane>
    </children>
