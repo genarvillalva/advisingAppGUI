@@ -394,3 +394,19 @@
 #signUpButton{
     -fx-background-color: #FBD949;
 }
+
+#backSUOne {
+    -fx-background-color: white;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-font-size: 18p;
+}
+
+#backSUTwo {
+    -fx-background-color: white;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-font-size: 18p;
+}

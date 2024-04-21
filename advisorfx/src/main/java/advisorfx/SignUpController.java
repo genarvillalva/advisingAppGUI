@@ -2,6 +2,7 @@ package advisorfx;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
@@ -43,6 +44,12 @@ public class SignUpController {
     private TextField passwordTextBox1;
 
     @FXML
+    private Hyperlink backSUOne;
+
+    @FXML
+    private Hyperlink backSUTwo;
+
+    @FXML
     private ImageView logo;
 
     public void initialize() {
@@ -66,6 +73,12 @@ public class SignUpController {
 
         facade.signUp(userName, password, "student", firstName, lastName, major, studentYear);
         System.out.println("Student Created!");
+        App.setRoot("LoginPage");
+    }
+
+    @FXML
+    void handleBackButton() throws IOException {
+        System.out.println("Back button pressed");
         App.setRoot("LoginPage");
     }
 
